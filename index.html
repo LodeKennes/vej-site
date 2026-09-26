@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <meta name="author" content="Lode Kennes" />
-    <title>Vej · State in, probabilities out. A self-hostable decision model</title>
+    <title>Vej · State in, probabilities out. Self-hosted decision model</title>
     <meta
       name="description"
-      content="Vej is a 2B text model returning native probabilities over outcomes you define. Self-hostable, Apache-2.0 code, published evaluation. Research alpha, text only."
+      content="Vej is a 2B model you run on your own GPU. It returns native probabilities over outcomes you define, with no prose to parse and no hosted API. Research alpha."
     />
     <meta
       name="theme-color"
@@ -25,11 +25,11 @@
     <meta property="og:locale" content="en_GB" />
     <meta
       property="og:title"
-      content="Vej · State in, probabilities out. A self-hostable decision model"
+      content="Vej · State in, probabilities out. Self-hosted decision model"
     />
     <meta
       property="og:description"
-      content="Vej is a 2B text model returning native probabilities over outcomes you define. Self-hostable, Apache-2.0 code, published evaluation. Research alpha, text only."
+      content="Vej is a 2B model you run on your own GPU. It returns native probabilities over outcomes you define, with no prose to parse and no hosted API. Research alpha."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -50,11 +50,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Vej · State in, probabilities out. A self-hostable decision model"
+      content="Vej · State in, probabilities out. Self-hosted decision model"
     />
     <meta
       name="twitter:description"
-      content="Vej is a 2B text model returning native probabilities over outcomes you define. Self-hostable, Apache-2.0 code, published evaluation. Research alpha, text only."
+      content="Vej is a 2B model you run on your own GPU. It returns native probabilities over outcomes you define, with no prose to parse and no hosted API. Research alpha."
     />
     <meta
       name="twitter:image"
@@ -96,7 +96,7 @@
             "@type": "WebSite",
             "name": "Vej",
             "url": "https://lodekennes.github.io/vej-site/",
-            "description": "Vej is a 2B text model returning native probabilities over outcomes you define. Self-hostable, Apache-2.0 code, published evaluation. Research alpha, text only.",
+            "description": "Vej is a 2B model you run on your own GPU. It returns native probabilities over outcomes you define, with no prose to parse and no hosted API. Research alpha.",
             "publisher": {
               "@id": "https://lodekennes.github.io/vej-site/#person"
             }
@@ -113,7 +113,7 @@
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Linux",
             "softwareVersion": "Qwen 2B alpha2",
-            "description": "Vej is a 2B text model that returns probabilities directly. Describe a situation and the possible outcomes; Vej assigns a probability to each. Your code decides what happens next.",
+            "description": "Vej is a 2B text model you run on your own GPU. Describe a situation and the outcomes that matter; Vej returns a probability for each. No prose to parse, no hosted API. Your code makes the call.",
             "license": "https://www.apache.org/licenses/LICENSE-2.0",
             "author": {
               "@id": "https://lodekennes.github.io/vej-site/#person"
@@ -134,10 +134,26 @@
               },
               {
                 "@type": "Question",
+                "name": "How is Vej different from Jev?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Jev is TypeSafe's hosted decision model and API. Vej offers the same three question types, Choice, Noul and Score, as a 2B model you run on your own hardware, with Apache-2.0 code. On the same 14,286-decision test Vej scored 76.60% and hosted Jev 1.13 scored 71.76%; Jev led on Noul. Speed and cost were not compared."
+                }
+              },
+              {
+                "@type": "Question",
                 "name": "Can I run Vej on my own hardware?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes. Inference runs locally through Vej’s native loader on CPU or a compatible CUDA/ROCm GPU, and the checkpoint is about 3.6 GiB. Access to the weights is currently limited to authorized Hugging Face account members."
+                  "text": "Yes. Inference runs locally through Vej's native loader on a CUDA or ROCm GPU, or on CPU when speed does not matter. The checkpoint is about 3.6 GiB, and it was trained and evaluated on one 16 GB card."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I get the weights?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Not publicly yet. The checkpoint is published privately on Hugging Face as Kennes/vej-qwen-2b-alpha2 for authorized account members. Public open-weight distribution is an ambition, not current availability."
                 }
               },
               {
@@ -145,7 +161,7 @@
                 "name": "Is Vej open source?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Vej code and model adaptations are Apache-2.0. Source and weights are not yet publicly available. The Qwen base model and the original datasets keep their own terms."
+                  "text": "Vej's code and model adaptations are Apache-2.0. The development repository and the weights are private during the alpha. The Qwen base model and the original datasets keep their own terms."
                 }
               },
               {
@@ -153,7 +169,7 @@
                 "name": "How was Vej evaluated?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "On 14,286 held-out test decisions: 76.60% exact accuracy overall, 89.22% on Choice, 91.71% on Noul and 51.62% on Score. The same test placed hosted Jev 1.13 at 71.76% with the documented rounding adjustment."
+                  "text": "On 14,286 held-out decisions from HelpSteer1 and Schema-Guided Dialogue, run on 26 September 2026. Vej reached 76.60% exact accuracy overall: 89.22% on Choice, 91.71% on Noul and 51.62% on Score. Hosted Jev 1.13 reached 71.76% on the same rows with the documented rounding adjustment."
                 }
               },
               {
@@ -161,15 +177,15 @@
                 "name": "Is Vej production-ready?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No. Vej is a text-only research alpha. Score reliability and tool diagnostics remain weak, and probabilities are not permission to act. Keep execution behind your own policy checks."
+                  "text": "No. Vej is a text-only research alpha. Score accuracy and tool diagnostics remain weak, confidence is not calibrated, and probabilities are not permission to act. Keep execution behind your own policy checks."
                 }
               },
               {
                 "@type": "Question",
-                "name": "What does “Noul” mean?",
+                "name": "What does \"Noul\" mean?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Noul is Vej’s name for the assess-a-statement question type. It returns probabilities for true and false. It is an intentional product term, not a spelling error."
+                  "text": "Noul is Vej's name for the assess-a-statement question type. It returns probabilities for true and false. It is an intentional product term, not a spelling mistake."
                 }
               }
             ]
@@ -204,20 +220,17 @@
       <main id="main">
         <section class="hero">
           <div>
-            <p class="eyebrow">Vej / Native decision models</p>
+            <p class="eyebrow">Vej / Native decision model</p>
             <h1>
               State in, <br /><span class="green">probabilities</span> <br />out.
             </h1>
             <p class="lead">
-              Vej is a 2B text model that returns probabilities directly. Describe a
-              situation and the possible outcomes; Vej assigns a probability to each.
-              Your code decides what happens next.
+              Vej is a 2B text model you run on your own GPU. Describe a situation and the outcomes that matter; Vej returns a probability for each. No prose to parse, no hosted API. Your code makes the call.
             </p>
             <div class="actions">
-              <a class="button" href="evaluation.html"
-                >Read the evaluation <span aria-hidden="true">↗</span></a
+              <a class="button" href="evaluation.html">See how Vej scored</a
               ><a class="button secondary" href="model.html"
-                >See the model card</a
+                >Read the model card</a
               >
             </div>
             <p class="status">
@@ -307,40 +320,130 @@
             >
           </div>
         </section>
-        <section class="section" id="contract">
-          <p class="eyebrow">The contract</p>
+        <section class="section" id="problem">
+          <p class="eyebrow">The problem</p>
           <div class="section-head">
-            <h2>The decision layer <br />you own.</h2>
+            <h2>Chat models answer. <br />Your workflow needs a decision.</h2>
             <p>
-              Define the outcomes. Ask independent questions. Use the
-              probabilities in ordinary code.
+              Ask a chat model to route a ticket or approve a refund and you get three problems before you get an answer.
             </p>
           </div>
           <div class="columns">
             <div>
-              <p class="number">01 / CHOICE</p>
-              <h3>Choose among outcomes.</h3>
+              <p class="number">01 / PARSING</p>
+              <h3>Prose you have to parse.</h3>
               <p>
-                Name the options and describe what they mean. Vej returns a
-                probability for each.
+                A yes, a category or a rating comes back wrapped in sentences or loosely shaped JSON. So you add schema prompts, validators and retries, and the workflow still stops when one reply is shaped differently.
               </p>
             </div>
             <div>
-              <p class="number">02 / NOUL</p>
-              <h3>Assess a statement.</h3>
+              <p class="number">02 / CONFIDENCE</p>
+              <h3>A confidence that is not a probability.</h3>
               <p>
-                Ask whether a statement holds in the supplied state, with
-                probabilities for true and false.
+                Ask the model how sure it is and it writes a number. Nothing makes that number add up across the options or hold steady between calls, so you cannot set a threshold and trust it.
               </p>
             </div>
             <div>
-              <p class="number">03 / SCORE</p>
-              <h3>Evaluate a rubric.</h3>
+              <p class="number">03 / CONTROL</p>
+              <h3>An API you do not run.</h3>
               <p>
-                Describe the levels. Vej assesses each level independently,
-                normalizes the scores and computes the expected position in
-                code.
+                Each decision sends internal state to someone else's endpoint. You inherit their latency, their limits and their data terms for a call that should stay inside your own process.
               </p>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="how-it-works">
+          <span id="contract"></span>
+          <p class="eyebrow">How it works</p>
+          <div class="section-head">
+            <h2>Three steps from <br />situation to probabilities.</h2>
+            <p>
+              Describe the state, ask independent questions, act on the numbers. One request can carry up to 128 questions, and each is scored on its own.
+            </p>
+          </div>
+          <div class="columns">
+            <div>
+              <p class="number">01 / DESCRIBE</p>
+              <h3>Send the state.</h3>
+              <p>
+                Give Vej the situation as text or JSON: a message, an account record, a document.
+              </p>
+            </div>
+            <div>
+              <p class="number">02 / ASK</p>
+              <h3>Ask independent questions.</h3>
+              <p>
+                Choice picks among outcomes you name and describe. Noul says whether a statement holds. Score rates the state against rubric levels you write. Questions do not see each other.
+              </p>
+            </div>
+            <div>
+              <p class="number">03 / ACT</p>
+              <h3>Apply your policy.</h3>
+              <p>
+                Each answer is a distribution that sums to one. Your code sets the thresholds, gates the tool call or asks for more information. Vej never executes anything.
+              </p>
+            </div>
+          </div>
+          <div class="pair">
+            <div>
+              <p class="micro">REQUEST · examples/decisions.json</p>
+              <pre class="code">{
+  "state": {
+    "message": "Please cancel my subscription. I have not provided an account ID.",
+    "account_id": null,
+    "account_verified": false
+  },
+  "questions": {
+    "route": {
+      "type": "choice",
+      "question": "Which action best matches the request?",
+      "options": {
+        "cancel_subscription": "Cancel an existing subscription",
+        "lookup_invoice": "Retrieve a billing invoice",
+        "none": "Neither offered action applies"
+      }
+    },
+    "can_execute": {
+      "type": "noul",
+      "statement": "The account is verified and its ID is available."
+    },
+    "completeness": {
+      "type": "score",
+      "question": "How complete is the information needed to execute cancellation?",
+      "levels": [
+        "The account ID and account verification are both missing",
+        "Exactly one of account ID or account verification is missing",
+        "The account ID is available and the account is verified"
+      ]
+    }
+  }
+}</pre>
+            </div>
+            <div>
+              <p class="micro">ILLUSTRATIVE RESPONSE · abridged</p>
+              <pre class="code">{
+  "answers": {
+    "route": {
+      "type": "choice",
+      "choice": "cancel_subscription",
+      "probabilities": {
+        "cancel_subscription": 0.91,
+        "lookup_invoice": 0.05,
+        "none": 0.04
+      }
+    },
+    "can_execute": {
+      "type": "noul",
+      "noul": 0.02,
+      "probabilities": { "true": 0.02, "false": 0.98 }
+    },
+    "completeness": {
+      "type": "score",
+      "score": 0.14,
+      "probabilities": [0.88, 0.10, 0.02]
+    }
+  }
+}</pre>
             </div>
           </div>
           <div class="pipeline">
@@ -353,162 +456,230 @@
             ><span>Probabilities</span>
           </div>
           <p class="pipeline-note">
-            Independent candidates are batched. The current checkpoint repeats
-            state encoding; shared-state reuse remains experimental. No measured
-            serving-speed claim.
+            Illustrative values, not a recorded model run. Here your code would route to cancellation, see that execution is blocked, and ask for the account ID. Independent candidates are batched; the current checkpoint re-encodes the state for each one, and no serving-speed claim is made.
           </p>
+        </section>
+        <section class="section" id="why">
+          <p class="eyebrow">Why Vej</p>
+          <div class="section-head">
+            <h2>Numbers your code can use. <br />Hardware you already own.</h2>
+          </div>
+          <div class="limits">
+            <div>
+              <h3>Decisions as distributions.</h3>
+              <p>
+                Every question returns probabilities that sum to one over the outcomes you defined. Route, gate and score in one request without parsing a word.
+              </p>
+            </div>
+            <div>
+              <h3>Runs where your data lives.</h3>
+              <p>
+                Trained and evaluated on a single 16 GB consumer GPU; CPU works when speed does not matter. At inference nothing leaves the machine.
+              </p>
+            </div>
+            <div>
+              <h3>Every claim is checkable.</h3>
+              <p>
+                All ten training sources are listed with their license and role. Weights and data splits are pinned by SHA256, and the aggregate evaluation JSON is on this site.
+              </p>
+            </div>
+            <div>
+              <h3>Apache-2.0 code and adaptations.</h3>
+              <p>
+                Vej's code and model adaptations are Apache-2.0. The Qwen base model and the datasets keep their own terms, and the weights stay private during the alpha.
+              </p>
+            </div>
+          </div>
         </section>
         <section class="section" id="evidence">
           <p class="eyebrow">Evaluation / 26 September 2026</p>
           <div class="section-head">
-            <h2>Measured. <br />With the limits in view.</h2>
+            <h2>Tested on 14,286 held-out decisions. <br />Compared with Jev on the same rows.</h2>
             <p>
-              A source/domain-transfer test on HelpSteer1 and Schema-Guided
-              Dialogue. These sources also contribute training examples.
+              HelpSteer1 ratings and Schema-Guided Dialogue decisions, frozen before the final run. Both sources also contribute training data, so this measures transfer within known sources, not an unseen test.
             </p>
           </div>
           <div class="table-wrap">
             <table class="metrics">
               <caption class="sr-only">
-                Vej alpha2 final test exact accuracy by primitive
+                Exact accuracy of Vej alpha2 and hosted Jev 1.13 on the same 14,286 test decisions
               </caption>
               <thead>
                 <tr>
-                  <th scope="col">Question type</th>
+                  <th scope="col">Task</th>
                   <th scope="col" class="numeric">Decisions</th>
-                  <th scope="col" class="numeric">Exact accuracy</th>
+                  <th scope="col" class="numeric">Vej alpha2</th>
+                  <th scope="col" class="numeric">Hosted Jev 1.13¹</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">Choice</th>
+                  <th scope="row">Choice · pick an outcome</th>
                   <td class="numeric">6,197</td>
-                  <td class="numeric">89.22%</td>
+                  <td class="numeric"><strong>89.22%</strong></td>
+                  <td class="numeric">83.07%</td>
                 </tr>
                 <tr>
-                  <th scope="row">Noul</th>
+                  <th scope="row">Noul · assess a statement</th>
                   <td class="numeric">3,089</td>
                   <td class="numeric">91.71%</td>
+                  <td class="numeric"><strong>93.65%</strong></td>
                 </tr>
                 <tr>
-                  <th scope="row">Score · exact level</th>
+                  <th scope="row">Score · exact rubric level</th>
                   <td class="numeric">5,000</td>
-                  <td class="numeric">51.62%</td>
+                  <td class="numeric"><strong>51.62%</strong></td>
+                  <td class="numeric">44.20%</td>
                 </tr>
                 <tr class="total">
                   <th scope="row">Overall</th>
                   <td class="numeric">14,286</td>
-                  <td class="numeric">76.60%</td>
+                  <td class="numeric"><strong>76.60%</strong></td>
+                  <td class="numeric">71.76%</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p class="footnotes">
+            ¹ Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model. Its column uses the documented post-launch rounding adjustment; counting the 98 strict failures as wrong gives 71.45%. This is one fixed test, not Jev's own benchmark, and speed and cost were not compared.
+          </p>
           <div class="limits">
             <div>
               <h3>Score needs more work.</h3>
               <p>
-                51.62% exact-label accuracy, versus 48.44% for a post-hoc
-                test-majority control. That control uses the test labels; it is
-                not a training-fitted baseline.
+                51.62% exact-level accuracy against 48.44% for a post-hoc test-majority control. That control uses the test labels, so rubric scoring is the clear next problem.
               </p>
             </div>
             <div>
-              <h3>Tool readiness is not execution permission.</h3>
+              <h3>Tool readiness is not permission.</h3>
               <p>
-                A separate, reused development suite scored 30/48 complete tool
-                cases, with nine incorrect calls among 31 “ready” predictions.
+                A separate development suite passed 30 of 48 harder tool cases, with nine wrong calls among 31 "ready" predictions. Keep execution behind your own checks.
               </p>
             </div>
           </div>
           <p>
             <a class="text-link" href="evaluation.html#jev"
-              >Compare with hosted Jev on the same test
-              <span aria-hidden="true">→</span></a
+              >See the Jev comparison <span aria-hidden="true">→</span></a
             >
           </p>
           <p>
             <a class="text-link" href="evaluation.html"
-              >Full evaluation, original sources and exposure notes
-              <span aria-hidden="true">→</span></a
+              >Read the full evaluation <span aria-hidden="true">→</span></a
             >
           </p>
+        </section>
+        <section class="section" id="use-cases">
+          <p class="eyebrow">Where it fits</p>
+          <div class="section-head">
+            <h2>Four places a distribution <br />beats a paragraph.</h2>
+            <p>
+              Each pattern keeps the judgement in the model and the rule in your code.
+            </p>
+          </div>
+          <div class="limits">
+            <div>
+              <h3>Route a request.</h3>
+              <p>
+                A support message could mean billing, security or cancellation. Vej returns a probability for each route; clear cases dispatch, split cases go to a person.
+              </p>
+            </div>
+            <div>
+              <h3>Gate a tool call.</h3>
+              <p>
+                A refund call needs a verified account ID. Ask Noul whether the requirement holds and block the call when the answer is a confident no.
+              </p>
+            </div>
+            <div>
+              <h3>Score a reply against a rubric.</h3>
+              <p>
+                You want every agent answer graded on completeness levels you wrote. Score returns a distribution over the levels, and your code turns it into an expected grade.
+              </p>
+            </div>
+            <div>
+              <h3>Decide when to escalate.</h3>
+              <p>
+                A workflow hits conflicting instructions. Ask Choice to weigh retry, fallback and human handoff, then apply the threshold your policy demands.
+              </p>
+            </div>
+          </div>
         </section>
         <section class="section" id="questions">
           <p class="eyebrow">Questions</p>
           <div class="section-head">
             <h2>Straight answers.</h2>
-            <p>What Vej returns, how to run it, and what it does not claim.</p>
+            <p>What Vej returns, how it compares, and what it does not claim.</p>
           </div>
           <dl class="faq">
             <div>
               <dt>What does Vej return?</dt>
               <dd>
-                A probability for each outcome you define, within each
-                independent question. Choice picks among named outcomes, Noul
-                assesses whether a statement holds, and Score rates described
-                rubric levels; the expected position is computed in your code.
+                A probability for each outcome you define, within each independent question. Choice picks among named outcomes, Noul assesses whether a statement holds, and Score rates described rubric levels; the expected position is computed in your code.
+              </dd>
+            </div>
+            <div>
+              <dt>How is Vej different from Jev?</dt>
+              <dd>
+                Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model and API. Vej offers the same three question types, Choice, Noul and Score, as a 2B model you run on your own hardware, with Apache-2.0 code. On the <a href="evaluation.html#jev">same 14,286-decision test</a> Vej scored 76.60% and hosted Jev 1.13 scored 71.76%; Jev led on Noul. Speed and cost were not compared.
               </dd>
             </div>
             <div>
               <dt>Can I run Vej on my own hardware?</dt>
               <dd>
-                Yes. Inference runs locally through Vej’s
-                <a href="model.html#runtime">native loader</a> on CPU or a
-                compatible CUDA/ROCm GPU, and the checkpoint is about 3.6 GiB.
-                Access to the weights is currently limited to authorized Hugging
-                Face account members.
+                Yes. Inference runs locally through Vej's <a href="model.html#runtime">native loader</a> on a CUDA or ROCm GPU, or on CPU when speed does not matter. The checkpoint is about 3.6 GiB, and it was trained and evaluated on one 16 GB card.
+              </dd>
+            </div>
+            <div>
+              <dt>Can I get the weights?</dt>
+              <dd>
+                Not publicly yet. The checkpoint is published privately on Hugging Face as <a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2">Kennes/vej-qwen-2b-alpha2</a> for authorized account members. Public open-weight distribution is an ambition, not current availability.
               </dd>
             </div>
             <div>
               <dt>Is Vej open source?</dt>
               <dd>
-                Vej code and model adaptations are Apache-2.0. Source and weights
-                are not yet publicly available. The Qwen base model and the
-                original datasets keep their
-                <a href="licenses.html">own terms</a>.
+                Vej's code and model adaptations are Apache-2.0. The development repository and the weights are private during the alpha. The Qwen base model and the original datasets keep their <a href="licenses.html">own terms</a>.
               </dd>
             </div>
             <div>
               <dt>How was Vej evaluated?</dt>
               <dd>
-                On 14,286 held-out test decisions: 76.60% exact accuracy overall,
-                89.22% on Choice, 91.71% on Noul and 51.62% on Score. The
-                <a href="evaluation.html#jev">same test</a> placed hosted Jev
-                1.13 at 71.76% with the documented rounding adjustment.
+                On <a href="evaluation.html#final-test">14,286 held-out decisions</a> from HelpSteer1 and Schema-Guided Dialogue, run on 26 September 2026. Vej reached 76.60% exact accuracy overall: 89.22% on Choice, 91.71% on Noul and 51.62% on Score. Hosted Jev 1.13 reached 71.76% on the same rows with the documented rounding adjustment.
               </dd>
             </div>
             <div>
               <dt>Is Vej production-ready?</dt>
               <dd>
-                No. Vej is a text-only research alpha. Score reliability and
-                tool diagnostics remain weak, and probabilities are not
-                permission to act. Keep execution behind your own policy checks.
+                No. Vej is a text-only research alpha. Score accuracy and tool diagnostics remain weak, confidence is not calibrated, and probabilities are not permission to act. Keep execution behind your own policy checks.
               </dd>
             </div>
             <div>
-              <dt>What does “Noul” mean?</dt>
+              <dt>What does "Noul" mean?</dt>
               <dd>
-                Noul is Vej’s name for the assess-a-statement question type. It
-                returns probabilities for true and false. It is an intentional
-                product term, not a spelling error.
+                Noul is Vej's name for the assess-a-statement question type. It returns probabilities for true and false. It is an intentional product term, not a spelling mistake.
               </dd>
             </div>
           </dl>
         </section>
         <section class="cta">
           <div>
-            <h2>Explore the alpha.</h2>
+            <h2>Start with the evidence.</h2>
             <p>
-              The checkpoint is published privately on Hugging Face. The model
-              card, original data sources and evaluation evidence are open to
-              read here.
+              Read how Vej was trained and tested, then the model card for the architecture, the limits and the commands to run it. Checkpoint holders can be running on their own GPU in a few commands.
             </p>
+            <div class="link-list">
+              <a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
+                >Model on Hugging Face (private)</a
+              ><a href="https://github.com/LodeKennes/Vej"
+                >Vej source on GitHub (private)</a
+              ><a href="https://github.com/LodeKennes/vej-site"
+                >Website source</a
+              >
+            </div>
           </div>
           <div class="actions">
-            <a class="button" href="model.html"
-              >Model card <span aria-hidden="true">↗</span></a
-            ><a class="button secondary" href="evaluation.html"
-              >Training &amp; evaluation</a
+            <a class="button" href="evaluation.html">See how Vej scored</a
+            ><a class="button secondary" href="model.html"
+              >Read the model card</a
             >
           </div>
         </section>
@@ -527,6 +698,8 @@
         <nav aria-label="Footer">
           <a href="brand.html">Brand</a><a href="licenses.html">Licenses</a
           ><a href="model.html#availability">Availability</a
+          ><a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
+            >Hugging Face <span aria-hidden="true">→</span></a
           ><a href="https://github.com/LodeKennes/vej-site"
             >Website source <span aria-hidden="true">→</span></a
           >

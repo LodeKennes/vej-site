@@ -1075,3 +1075,26 @@ footer a {
   padding: 24px 0 32px;
   font-size: 14px;
 }
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.pair .code {
+  margin: 0;
+}
+.pair > div { display: flex; flex-direction: column; }
+.pair .code { flex: 1; }
+.pair { margin-bottom: 24px; }
+@media (max-width: 760px) {
+  .pair {
+    grid-template-columns: 1fr;
+  }
+}
+.cta .link-list a {
+  color: var(--cta-text);
+}
+.cta .link-list {
+  margin: 20px 0 0;
+}
+
