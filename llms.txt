@@ -1,0 +1,37 @@
+# Vej
+
+> Vej is a 2B text model that returns probabilities directly. Describe a situation and the possible outcomes; Vej assigns a probability to each. Your code decides what happens next. Self-hostable, Apache-2.0 code and adaptations, research alpha, text only.
+
+## Key facts
+
+- Three question types: Choice selects among named outcomes, Noul assesses whether a statement holds (true/false), and Score rates described rubric levels with zero-based expectation computed in caller code.
+- Architecture: 2B Qwen3.5 text backbone with frozen BF16 weights, rank-16 LoRA adapters, and a trained scalar decision head.
+- Checkpoint size: Full native state dict of approximately 3.6 GiB.
+- Test performance: 76.60% exact accuracy overall on 14,286 frozen test decisions (Choice 89.22%, Noul 91.71%, Score 51.62%); hosted Jev 1.13 scored 71.76% on the same test with documented rounding adjustment.
+- Availability: checkpoint weights are published privately on Hugging Face (Kennes/vej-qwen-2b-alpha2) for authorized account members; the development repository is also private. Not a public weight download.
+- Licensing: Vej code and model adaptations are Apache-2.0; Qwen base model and original datasets keep their own licenses.
+
+## Pages
+
+- [Overview](https://lodekennes.github.io/vej-site/): Overview of Vej, native decision primitives, and FAQ.
+- [Evaluation](https://lodekennes.github.io/vej-site/evaluation.html): Training sources, split protocol, final test results, and hosted Jev comparison.
+- [Model card](https://lodekennes.github.io/vej-site/model.html): Architecture, native inference commands, vLLM status, and limitations.
+- [Brand](https://lodekennes.github.io/vej-site/brand.html): Open Pod visual identity, color palettes, typography, and vector assets.
+- [Licenses](https://lodekennes.github.io/vej-site/licenses.html): Licensing terms for code, base model, datasets, and bundled fonts.
+
+## Evidence files
+
+- [evaluation.json](https://lodekennes.github.io/vej-site/evidence/evaluation.json): Aggregate evaluation metrics on the 14,286 frozen test decisions.
+- [jev-comparison.json](https://lodekennes.github.io/vej-site/evidence/jev-comparison.json): Same-test aggregate comparison between Vej alpha2 and hosted Jev 1.13, including strict response validity and the rounding-adjusted supplement.
+- [tool-evaluation.json](https://lodekennes.github.io/vej-site/evidence/tool-evaluation.json): Development diagnostic results on tool readiness and workflow actions.
+- [descriptive-controls.json](https://lodekennes.github.io/vej-site/evidence/descriptive-controls.json): Post-hoc majority and descriptive baseline controls.
+- [DATA_SOURCES.md](https://lodekennes.github.io/vej-site/evidence/DATA_SOURCES.md): Original training data sources, modifications, and copyright notices.
+- [DATASET_CARD.md](https://lodekennes.github.io/vej-site/evidence/DATASET_CARD.md): Dataset composition, split roles, and filtering protocols.
+
+## Not claimed
+
+- No hosted API or browser inference; inference runs locally on user-provided hardware.
+- No production readiness; text-only research alpha with weak Score reliability and tool diagnostics.
+- No calibrated certainty; normalized probabilities are not confidence guarantees or execution permission.
+- No measured speed advantage; repeated state encoding is used and latency has not been benchmarked.
+- No public weight download yet; access is limited to authorized Hugging Face account members.

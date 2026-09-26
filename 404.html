@@ -3,16 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="noindex" />
+    <meta name="author" content="Lode Kennes" />
     <title>Page not found · Vej</title>
     <meta
       name="description"
       content="Return to Vej’s documentation and evaluation evidence."
     />
-    <meta name="theme-color" content="#F5F2EB" />
-    <link
-      rel="canonical"
-      href="https://lodekennes.github.io/vej-site/404.html"
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#F5F2EB"
     />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#121416"
+    />
+    <meta property="og:site_name" content="Vej" />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:title" content="Page not found · Vej" />
     <meta
       property="og:description"
@@ -20,15 +30,56 @@
     />
     <meta property="og:type" content="website" />
     <meta
-      property="og:url"
-      content="https://lodekennes.github.io/vej-site/404.html"
-    />
-    <meta
       property="og:image"
       content="https://lodekennes.github.io/vej-site/assets/brand/social-card.png"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta
+      property="og:image:alt"
+      content="Vej wordmark and open pea-pod mark with the line 'State in, probabilities out.'"
+    />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/vej-site/assets/brand/favicon.svg" type="image/svg+xml" />
+    <meta name="twitter:title" content="Page not found · Vej" />
+    <meta
+      name="twitter:description"
+      content="Return to Vej’s documentation and evaluation evidence."
+    />
+    <meta
+      name="twitter:image"
+      content="https://lodekennes.github.io/vej-site/assets/brand/social-card.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Vej wordmark and open pea-pod mark with the line 'State in, probabilities out.'"
+    />
+    <link
+      rel="icon"
+      href="/vej-site/assets/brand/favicon.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="/vej-site/assets/brand/fonts/Fraunces.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/vej-site/assets/brand/fonts/IBMPlexSans.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/vej-site/assets/brand/fonts/IBMPlexMono.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
     <link rel="stylesheet" href="/vej-site/styles.css" />
     <script src="/vej-site/app.js" defer></script>
   </head>
@@ -37,13 +88,16 @@
     <div class="wrap">
       <header class="header">
         <a href="/vej-site/index.html" aria-label="Vej home"
-          ><img
-            class="logo"
-            src="/vej-site/assets/brand/logo.svg"
-            alt="Vej"
-            width="125"
-            height="66"
-        /></a>
+          ><picture
+            ><source
+              srcset="/vej-site/assets/brand/logo-light.svg"
+              media="(prefers-color-scheme: dark)" /><img
+              class="logo"
+              src="/vej-site/assets/brand/logo.svg"
+              alt="Vej"
+              width="125"
+              height="66" /></picture
+        ></a>
         <nav class="nav" aria-label="Main">
           <a href="/vej-site/evaluation.html">Evaluation</a
           ><a href="/vej-site/model.html">Model card</a
@@ -55,27 +109,34 @@
       <main id="main">
         <section class="page-hero">
           <p class="eyebrow">404 / Page not found</p>
-          <h1>A different<br /><span class="green">outcome.</span></h1>
+          <h1>A different <br /><span class="green">outcome.</span></h1>
           <p class="lead">
             This page is not available. Return to the overview or explore the
             evaluation.
           </p>
           <div class="actions">
             <a class="button" href="/vej-site/index.html">Vej home</a
-            ><a class="button secondary" href="/vej-site/evaluation.html">Evaluation</a>
+            ><a class="button secondary" href="/vej-site/evaluation.html"
+              >Evaluation</a
+            >
           </div>
         </section>
       </main>
       <footer>
         <a href="/vej-site/index.html" aria-label="Vej home"
-          ><img
-            src="/vej-site/assets/brand/logo.svg"
-            alt="Vej"
-            width="76"
-            height="40" /></a
-        ><span>Native decisions. Research alpha · 2026</span>
+          ><picture
+            ><source
+              srcset="/vej-site/assets/brand/logo-light.svg"
+              media="(prefers-color-scheme: dark)" /><img
+              src="/vej-site/assets/brand/logo.svg"
+              alt="Vej"
+              width="76"
+              height="40" /></picture
+        ></a>
+        <span>Native decisions. Research alpha · 2026</span>
         <nav aria-label="Footer">
-          <a href="/vej-site/brand.html">Brand</a><a href="/vej-site/licenses.html">Licenses</a
+          <a href="/vej-site/brand.html">Brand</a
+          ><a href="/vej-site/licenses.html">Licenses</a
           ><a href="/vej-site/model.html#availability">Availability</a
           ><a href="https://github.com/LodeKennes/vej-site"
             >Website source <span aria-hidden="true">→</span></a

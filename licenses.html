@@ -3,16 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="author" content="Lode Kennes" />
     <title>Licenses &amp; attribution · Vej</title>
     <meta
       name="description"
       content="Code, model, data and font licensing for Vej and its public website."
     />
-    <meta name="theme-color" content="#F5F2EB" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#F5F2EB"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#121416"
+    />
     <link
       rel="canonical"
       href="https://lodekennes.github.io/vej-site/licenses.html"
     />
+    <meta property="og:site_name" content="Vej" />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:title" content="Licenses &amp; attribution · Vej" />
     <meta
       property="og:description"
@@ -27,23 +40,81 @@
       property="og:image"
       content="https://lodekennes.github.io/vej-site/assets/brand/social-card.png"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta
+      property="og:image:alt"
+      content="Vej wordmark and open pea-pod mark with the line 'State in, probabilities out.'"
+    />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Licenses &amp; attribution · Vej" />
+    <meta
+      name="twitter:description"
+      content="Code, model, data and font licensing for Vej and its public website."
+    />
+    <meta
+      name="twitter:image"
+      content="https://lodekennes.github.io/vej-site/assets/brand/social-card.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Vej wordmark and open pea-pod mark with the line 'State in, probabilities out.'"
+    />
     <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="assets/brand/fonts/Fraunces.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/brand/fonts/IBMPlexSans.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/brand/fonts/IBMPlexMono.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Licenses & attribution · Vej",
+        "url": "https://lodekennes.github.io/vej-site/licenses.html",
+        "description": "Code, model, data and font licensing for Vej and its public website.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Vej",
+          "url": "https://lodekennes.github.io/vej-site/"
+        }
+      }
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <div class="wrap">
       <header class="header">
         <a href="index.html" aria-label="Vej home"
-          ><img
-            class="logo"
-            src="assets/brand/logo.svg"
-            alt="Vej"
-            width="125"
-            height="66"
-        /></a>
+          ><picture
+            ><source
+              srcset="assets/brand/logo-light.svg"
+              media="(prefers-color-scheme: dark)" /><img
+              class="logo"
+              src="assets/brand/logo.svg"
+              alt="Vej"
+              width="125"
+              height="66" /></picture
+        ></a>
         <nav class="nav" aria-label="Main">
           <a href="evaluation.html">Evaluation</a
           ><a href="model.html">Model card</a
@@ -56,7 +127,7 @@
         <section class="page-hero">
           <p class="eyebrow">Attribution</p>
           <h1>
-            Clear origins.<br /><span class="green">Separate terms.</span>
+            Clear origins. <br /><span class="green">Separate terms.</span>
           </h1>
           <p class="lead">
             Vej’s license does not replace the licenses of its base model,
@@ -133,12 +204,16 @@
       </main>
       <footer>
         <a href="index.html" aria-label="Vej home"
-          ><img
-            src="assets/brand/logo.svg"
-            alt="Vej"
-            width="76"
-            height="40" /></a
-        ><span>Native decisions. Research alpha · 2026</span>
+          ><picture
+            ><source
+              srcset="assets/brand/logo-light.svg"
+              media="(prefers-color-scheme: dark)" /><img
+              src="assets/brand/logo.svg"
+              alt="Vej"
+              width="76"
+              height="40" /></picture
+        ></a>
+        <span>Native decisions. Research alpha · 2026</span>
         <nav aria-label="Footer">
           <a href="brand.html">Brand</a><a href="licenses.html">Licenses</a
           ><a href="model.html#availability">Availability</a
