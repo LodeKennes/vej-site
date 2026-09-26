@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The data behind the decisions. · Vej</title>
+    <meta
+      name="description"
+      content="Every training source, the 70/20/10 split, checkpoint lineage, final-test results and Jev comparison."
+    />
+    <meta name="theme-color" content="#F5F2EB" />
+    <link
+      rel="canonical"
+      href="https://lodekennes.github.io/vej-site/evaluation.html"
+    />
+    <meta property="og:title" content="The data behind the decisions. · Vej" />
+    <meta
+      property="og:description"
+      content="Every training source, the 70/20/10 split, checkpoint lineage, final-test results and Jev comparison."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://lodekennes.github.io/vej-site/evaluation.html"
+    />
+    <meta
+      property="og:image"
+      content="https://lodekennes.github.io/vej-site/assets/brand/social-card.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="wrap">
+      <header class="header">
+        <a href="index.html" aria-label="Vej home"
+          ><img
+            class="logo"
+            src="assets/brand/logo.svg"
+            alt="Vej"
+            width="125"
+            height="66"
+        /></a>
+        <nav class="nav" aria-label="Main">
+          <a href="evaluation.html" aria-current="page">Evaluation</a
+          ><a href="model.html">Model card</a
+          ><a href="https://github.com/LodeKennes/vej-site"
+            >Website source <span aria-hidden="true">→</span></a
+          >
+        </nav>
+      </header>
+      <main id="main">
+        <section class="page-hero with-mark">
+          <div>
+            <p class="eyebrow">Data &amp; evaluation</p>
+            <h1>
+              The data behind<br /><span class="green">the decisions.</span>
+            </h1>
+            <p class="lead">
+              Training sources, evaluation roles and known exposure, documented
+              together.
+            </p>
+          </div>
+          <div class="specimen" aria-hidden="true">
+            <p class="micro">FIG. 01 / THE OPEN POD</p>
+            <img src="assets/brand/mark.svg" alt="" />
+            <p class="micro">A FINITE SET OF POSSIBILITIES</p>
+          </div>
+        </section>
+        <div class="counts">
+          <div>
+            <span class="display">100,002</span
+            ><span class="micro">Training</span>
+          </div>
+          <div>
+            <span class="display">28,572</span
+            ><span class="micro">Validation</span>
+          </div>
+          <div>
+            <span class="display">14,286</span
+            ><span class="micro">Final test</span>
+          </div>
+        </div>
+        <p class="small">
+          142,860 decisions · 70 / 20 / 10 split · Correlated projections, not
+          unique conversations
+        </p>
+        <nav class="section-index" aria-label="Evaluation sections">
+          <a href="#sources">Original sources</a
+          ><a href="#lineage">Training lineage</a
+          ><a href="#exposure">Roles &amp; exposure</a
+          ><a href="#final-test">Final test</a><a href="#jev">Jev comparison</a
+          ><a href="#identities">Evidence hashes</a>
+        </nav>
+        <section class="section" id="sources">
+          <h2>Original sources. Explicit roles.</h2>
+          <p class="lead">
+            Counts are Vej decisions after selection and conversion. Dataset
+            links go to the original publishers.
+          </p>
+          <p class="small mobile-table-hint">
+            On narrow screens, scroll the source table horizontally.
+          </p>
+          <div
+            class="table-wrap"
+            role="region"
+            aria-label="Training source counts, horizontally scrollable"
+            tabindex="0"
+          >
+            <table class="source-table">
+              <caption class="sr-only">
+                Source decisions by Vej split role and original license
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Source</th>
+                  <th scope="col" class="numeric">Training</th>
+                  <th scope="col" class="numeric">Validation</th>
+                  <th scope="col" class="numeric">Test</th>
+                  <th scope="col">Terms</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="https://huggingface.co/datasets/alisawuffles/WANLI"
+                      >WANLI</a
+                    >
+                  </td>
+                  <td class="numeric">6,144</td>
+                  <td class="numeric">1,024</td>
+                  <td class="numeric">0</td>
+                  <td>CC BY 4.0</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/clinc/oos-eval">CLINC150/OOS</a>
+                  </td>
+                  <td class="numeric">7,424</td>
+                  <td class="numeric">1,024</td>
+                  <td class="numeric">0</td>
+                  <td>CC BY 3.0</td>
+                </tr>
+                <tr>
+                  <td><a href="#lineage">Vej workflows</a></td>
+                  <td class="numeric">3,072</td>
+                  <td class="numeric">384</td>
+                  <td class="numeric">0</td>
+                  <td>Apache-2.0</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://huggingface.co/datasets/nvidia/HelpSteer2"
+                      >HelpSteer2</a
+                    >
+                  </td>
+                  <td class="numeric">9,000</td>
+                  <td class="numeric">800</td>
+                  <td class="numeric">0</td>
+                  <td>CC BY 4.0</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://cims.nyu.edu/~sbowman/multinli/"
+                      >MultiNLI</a
+                    >
+                  </td>
+                  <td class="numeric">30,000</td>
+                  <td class="numeric">9,000</td>
+                  <td class="numeric">0</td>
+                  <td>Selected OANC terms</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://nlp.stanford.edu/projects/snli/">SNLI</a>
+                  </td>
+                  <td class="numeric">2,048</td>
+                  <td class="numeric">512</td>
+                  <td class="numeric">0</td>
+                  <td>CC BY-SA 4.0</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://huggingface.co/datasets/Anthropic/hh-rlhf"
+                      >HH-RLHF</a
+                    >
+                  </td>
+                  <td class="numeric">15,000</td>
+                  <td class="numeric">2,500</td>
+                  <td class="numeric">0</td>
+                  <td>MIT</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://github.com/PolyAI-LDN/task-specific-datasets"
+                      >BANKING77</a
+                    >
+                  </td>
+                  <td class="numeric">3,072</td>
+                  <td class="numeric">384</td>
+                  <td class="numeric">0</td>
+                  <td>CC BY 4.0</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://huggingface.co/datasets/nvidia/HelpSteer"
+                      >HelpSteer1</a
+                    >
+                  </td>
+                  <td class="numeric">8,000</td>
+                  <td class="numeric">4,000</td>
+                  <td class="numeric">5,000</td>
+                  <td>CC BY 4.0</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="https://github.com/google-research-datasets/dstc8-schema-guided-dialogue"
+                      >Schema-Guided Dialogue</a
+                    >
+                  </td>
+                  <td class="numeric">16,242</td>
+                  <td class="numeric">8,944</td>
+                  <td class="numeric">9,286</td>
+                  <td>CC BY-SA 4.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small" style="margin-top: 24px">
+            No dataset payloads are hosted here. Vej’s Apache license does not
+            relicense source texts. MultiNLI fiction is excluded.
+          </p>
+          <div class="link-list">
+            <a href="evidence/DATA_SOURCES.md" download
+              >Download source notices (Markdown)</a
+            ><a href="evidence/DATASET_CARD.md" download
+              >Download dataset card (Markdown)</a
+            >
+          </div>
+        </section>
+        <section class="section reading-grid" id="lineage">
+          <p class="eyebrow">Checkpoint selection</p>
+          <div class="prose">
+            <h2>How the checkpoint got here.</h2>
+            <p>
+              Vej trains a native scalar decision head and LoRA adapters on the
+              frozen
+              <a
+                href="https://huggingface.co/Qwen/Qwen3.5-2B/tree/15852e8c16360a2fea060d615a32b45270f8a8fc"
+                >Qwen3.5-2B text backbone</a
+              >. Its original generative pretraining does not make Vej’s output
+              generative.
+            </p>
+            <ol>
+              <li>
+                <strong>Public pilot.</strong> 4,096 training and 256
+                development decisions; two epochs, 512 updates, selected step
+                256.
+              </li>
+              <li>
+                <strong>Expanded training.</strong> 32,768 training and 2,048
+                development decisions; two epochs, selected step 1,280 with
+                validation NLL 0.636590.
+              </li>
+              <li>
+                <strong>First 100k stage.</strong> 100,002 training and 28,572
+                validation decisions. A reboot interrupted training. The saved
+                selected checkpoint was step 1,024, NLL 0.492022.
+              </li>
+              <li>
+                <strong>Recovery.</strong> Fresh optimizer, seed 43, one
+                shuffled epoch of the same corpus: 6,251 updates. Step 6,144 was
+                selected by lowest pooled validation NLL,
+                <strong>0.458497</strong>.
+              </li>
+              <li>
+                <strong>Final evaluation.</strong> The selected checkpoint was
+                tested on all 14,286 frozen decisions on 26 September 2026.
+              </li>
+            </ol>
+            <p>
+              Recovery repeats example exposure and is not an exact optimizer
+              resume. These stages overlap; their counts cannot be added to
+              claim unique training data. A larger 530,762-row preparation pool
+              was screened, not all trained on.
+            </p>
+            <p>
+              Vej workflows are authored security, agent-trace, invoice and
+              customer-service policy worlds. Public sources supply NLI
+              relations, intent labels, comparative preferences, human ratings
+              and supplied-service dialogue state. Original labels were not
+              universally re-adjudicated.
+            </p>
+          </div>
+        </section>
+        <section class="section reading-grid">
+          <p class="eyebrow" id="exposure">Roles &amp; exposure</p>
+          <div class="prose">
+            <h2>A split is a protocol.</h2>
+            <p>
+              Training updates parameters. Validation repeatedly selects
+              checkpoints by pooled NLL. The final test was evaluated after
+              checkpoint selection, with no temperature fitting or checkpoint
+              selection on those results. No fitted calibration artifact is
+              applied.
+            </p>
+            <p>
+              These are Vej’s roles derived from acquired publisher training
+              payloads, not the publishers’ official benchmark splits. Test
+              comprises 5,000 HelpSteer1 ratings and 9,286 SGD decisions. SGD
+              Flights/Hotels families supply test; Events/Services/Homes supply
+              validation. Both source datasets also supply training decisions.
+            </p>
+            <p>
+              Dialogue and prompt/response grouping, deterministic selection,
+              length screens and exact overlap checks preserve specific
+              boundaries. They do not prove conceptual independence. HelpSteer
+              and HH prompt/response components are joined; new conflicting
+              groups are quarantined.
+            </p>
+            <div class="notice">
+              <p>
+                <strong>Known exposure:</strong> twelve inherited WANLI
+                validation decisions have earlier training-lineage exposure.
+                Another historical overlap component retains 19 training
+                decisions, without new held-out selections. Backbone pretraining
+                overlap is unknown. One test example was viewed during
+                comparator setup. The complete test is now exposed for future
+                development.
+              </p>
+            </div>
+            <p>
+              The training primitives are 68,719 Choice / 13,771 Noul / 17,512
+              Score. Validation contains 19,526 / 4,182 / 4,864. These differ
+              from the final mixture. Validation accuracy of 81.70% and final
+              accuracy of 76.60% are not matched-distribution measurements.
+            </p>
+            <p>
+              A fresh clone cannot yet reconstruct the entire r5 corpus: parts
+              of preparation bind previously acquired local data and role locks.
+              Original source links and frozen hashes establish provenance, not
+              a fully portable reproduction recipe.
+            </p>
+          </div>
+        </section>
+        <section class="section" id="final-test">
+          <p class="eyebrow">Final test / Qwen 2B alpha2</p>
+          <div class="section-head">
+            <h2>What was measured.</h2>
+            <p>
+              Exact label accuracy on the frozen r5 decisions. This is not Jev’s
+              proprietary benchmark or end-to-end tool execution.
+            </p>
+          </div>
+          <div class="table-wrap">
+            <table class="metrics">
+              <caption class="sr-only">
+                Vej alpha2 final test exact accuracy by primitive
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Question type</th>
+                  <th scope="col" class="numeric">Decisions</th>
+                  <th scope="col" class="numeric">Exact accuracy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Choice</th>
+                  <td class="numeric">6,197</td>
+                  <td class="numeric">89.22%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Noul</th>
+                  <td class="numeric">3,089</td>
+                  <td class="numeric">91.71%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Score · exact level</th>
+                  <td class="numeric">5,000</td>
+                  <td class="numeric">51.62%</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">Overall</th>
+                  <td class="numeric">14,286</td>
+                  <td class="numeric">76.60%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="limits">
+            <div>
+              <h3>Score needs more work.</h3>
+              <p>
+                51.62% exact-label accuracy, versus 48.44% for a post-hoc
+                test-majority control. That control uses the test labels; it is
+                not a training-fitted baseline.
+              </p>
+            </div>
+            <div>
+              <h3>Tool readiness is not execution permission.</h3>
+              <p>
+                A separate, reused development suite scored 30/48 complete tool
+                cases, with nine incorrect calls among 31 “ready” predictions.
+              </p>
+            </div>
+          </div>
+          <p class="small">
+            Overall NLL 0.589448 · Summed Brier 0.313870 · Descriptive ten-bin
+            ECE 0.053473. No fitted calibration.
+          </p>
+          <p class="small">
+            Maximum probability ≥0.9 covers 58.48% of test decisions with 5.53%
+            error. The 0.8–0.9 bin has 59.22% accuracy at 85.16% mean
+            confidence. These do not establish safe execution thresholds.
+          </p>
+          <p>
+            <a href="evidence/evaluation.json"
+              >Full aggregate evaluation JSON
+              <span aria-hidden="true">→</span></a
+            >
+            &nbsp;
+            <a href="evidence/descriptive-controls.json"
+              >Descriptive controls <span aria-hidden="true">→</span></a
+            >
+          </p>
+        </section>
+        <section class="section" id="jev">
+          <p class="eyebrow">Hosted comparison / same r5 test</p>
+          <h2>Vej and Jev, side by side.</h2>
+          <p class="lead">
+            The hosted Jev 1.13 run used the same 14,286 decisions.
+            Response-format validity and prediction accuracy are reported
+            separately.
+          </p>
+          <div class="table-wrap">
+            <table class="metrics">
+              <caption
+                class="small"
+                style="text-align: left; margin: 24px 0 12px"
+              >
+                Same-row exact accuracy · Jev uses the rounding-adjusted
+                supplement
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Primitive</th>
+                  <th scope="col" class="numeric">Rows</th>
+                  <th scope="col" class="numeric">Vej alpha2</th>
+                  <th scope="col" class="numeric">Jev 1.13</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Choice</th>
+                  <td class="numeric">6,197</td>
+                  <td class="numeric">89.22%</td>
+                  <td class="numeric">83.07%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Noul</th>
+                  <td class="numeric">3,089</td>
+                  <td class="numeric">91.71%</td>
+                  <td class="numeric">93.65%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Score · exact level</th>
+                  <td class="numeric">5,000</td>
+                  <td class="numeric">51.62%</td>
+                  <td class="numeric">44.20%</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">Overall</th>
+                  <td class="numeric">14,286</td>
+                  <td class="numeric">76.60%</td>
+                  <td class="numeric">71.76%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="limits">
+            <div>
+              <h3>Vej leads overall; Jev leads on Noul.</h3>
+              <p>
+                Vej: 10,943 correct. Adjusted Jev: 10,251 correct. The overall
+                difference is 4.84 percentage points on this fixed sample, not a
+                general superiority or statistical significance claim.
+              </p>
+            </div>
+            <div>
+              <h3>Rounding adjustment is supplemental.</h3>
+              <p>
+                All 98 flagged responses had complete maps totaling 0.99.
+                Dividing eligible maps by their total restores normalization
+                without changing argmax. No responses were retried or raw
+                records overwritten.
+              </p>
+            </div>
+          </div>
+          <div class="prose">
+            <h3>The original strict result stays visible.</h3>
+            <p>
+              <strong>99.31% is response-format validity, not accuracy.</strong>
+              Jev returned 14,188 strictly valid responses out of 14,286. Its
+              strict-valid accuracy was 71.95%; Vej scored 76.80% on those exact
+              same 14,188 rows. Counting all 98 strict failures wrong gives Jev
+              71.45% on all 14,286 rows.
+            </p>
+            <p>
+              On the strict-valid subsets, Jev scored 83.09% Choice (6,174
+              rows), 93.65% Noul (3,089) and 44.37% Score (4,925). The table
+              above restores all 98 eligible rows: 23 Choice and 75 Score, with
+              no unrecoverable responses.
+            </p>
+            <h3>What makes this comparable—and what limits it.</h3>
+            <p>
+              The dataset hash, row order, IDs, targets and ordered candidates
+              match. One original question was sent per hosted request, with
+              full state and no local truncation. Noul p becomes [p, 1−p]; both
+              models use first-candidate argmax ties and externally computed
+              zero-based Score expectations.
+            </p>
+            <p>
+              The arithmetic rule was fixed after collection launched: retain
+              all other contract checks, require a complete finite map in [0,1],
+              positive total, values within 1e−12 of two decimals and |total−1|
+              ≤ K×0.005 + 1e−12. Only eligible strict failures are rescaled.
+              This is not the predeclared primary result.
+            </p>
+            <p>
+              Jev’s two-decimal probabilities can create ties and zeros.
+              Renormalizing does not restore lost precision, so probability
+              metrics need care. Hosted timings include networking, rate limits
+              and retries; they do not establish a speed or cost comparison. The
+              shared-source and exposure limitations above still apply.
+            </p>
+            <p>
+              <a href="evidence/jev-comparison.json"
+                >Full-precision aggregate comparison &amp; evidence hashes
+                <span aria-hidden="true">→</span></a
+              >
+            </p>
+          </div>
+        </section>
+        <section class="section reading-grid">
+          <p class="eyebrow">Development diagnostics</p>
+          <div class="prose">
+            <h2>The tool gap remains.</h2>
+            <p>
+              Separate reused suites measured 60/64 complete workflow actions,
+              including two critical wrong actions; 30/48 harder tool cases,
+              with nine incorrect calls among 31 ready predictions; and 4/12
+              original tool cases, with three incorrect calls among seven ready
+              predictions.
+            </p>
+            <p>
+              These diagnostics are not fresh final tests. Supplied-service
+              intent and input-completeness questions do not measure global tool
+              routing, execution permission or a successful real-world call.
+            </p>
+            <p>
+              <a href="evidence/tool-evaluation.json"
+                >Aggregate tool diagnostic evidence
+                <span aria-hidden="true">→</span></a
+              >
+            </p>
+          </div>
+        </section>
+        <section class="section reading-grid">
+          <p class="eyebrow" id="identities">Frozen identities</p>
+          <div class="prose">
+            <h2>Evidence you can identify.</h2>
+            <p>
+              Recorded evaluation used an RX 9070 XT 16 GiB, Python 3.14.7,
+              Torch 2.14.0+rocm7.2, Transformers 5.17.0, PEFT 0.21.0 and
+              fla-core 0.5.2. CPU execution is a functional fallback, not a
+              numerically identical reproduction.
+            </p>
+            <div class="hash-row">
+              <p>
+                <span class="small">Weights · SHA256</span><br /><code
+                  class="hash"
+                  id="hash-0"
+                  >b99188eedcbc6e1faab966ed2c827025b29360157298d0cc86e53a103d73bf96</code
+                >
+              </p>
+              <button
+                class="copy"
+                data-copy="hash-0"
+                aria-label="Copy weights checksum"
+                hidden
+              >
+                Copy
+              </button>
+            </div>
+            <div class="hash-row">
+              <p>
+                <span class="small">Training · SHA256</span><br /><code
+                  class="hash"
+                  id="hash-1"
+                  >4b338fa71c6ec02161ad698c3f3789672897cbed4dd036f6a822f6cc6c38fea6</code
+                >
+              </p>
+              <button
+                class="copy"
+                data-copy="hash-1"
+                aria-label="Copy training checksum"
+                hidden
+              >
+                Copy
+              </button>
+            </div>
+            <div class="hash-row">
+              <p>
+                <span class="small">Validation · SHA256</span><br /><code
+                  class="hash"
+                  id="hash-2"
+                  >488de164255ee1e22334a844051b1e837d5f8afa5cc7792159c93a7838ad53bc</code
+                >
+              </p>
+              <button
+                class="copy"
+                data-copy="hash-2"
+                aria-label="Copy validation checksum"
+                hidden
+              >
+                Copy
+              </button>
+            </div>
+            <div class="hash-row">
+              <p>
+                <span class="small">Final test · SHA256</span><br /><code
+                  class="hash"
+                  id="hash-3"
+                  >ac1b11d62e55c6094101f71790f5bcd326b1f32afb91311bb334238036311265</code
+                >
+              </p>
+              <button
+                class="copy"
+                data-copy="hash-3"
+                aria-label="Copy final test checksum"
+                hidden
+              >
+                Copy
+              </button>
+            </div>
+            <p id="copy-status" role="status" class="small"></p>
+            <p class="small" style="margin-top: 24px">
+              No per-example predictions or dataset text are published on this
+              website. No independent population-confidence, Jev-parity, safe
+              autonomous execution or serving-latency claim is made.
+            </p>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <a href="index.html" aria-label="Vej home"
+          ><img
+            src="assets/brand/logo.svg"
+            alt="Vej"
+            width="76"
+            height="40" /></a
+        ><span>Native decisions. Research alpha · 2026</span>
+        <nav aria-label="Footer">
+          <a href="brand.html">Brand</a><a href="licenses.html">Licenses</a
+          ><a href="model.html#availability">Availability</a
+          ><a href="https://github.com/LodeKennes/vej-site"
+            >Website source <span aria-hidden="true">→</span></a
+          >
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

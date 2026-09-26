@@ -1,0 +1,2112 @@
+{
+  "metrics": {
+    "count": 14286,
+    "accuracy": 0.7659946801063978,
+    "nll": 0.5894483407049975,
+    "brier_sum": 0.31387025473503055,
+    "ece_10_bins": 0.053473467181865325,
+    "reliability_bins": [
+      {
+        "bin": 2,
+        "count": 7,
+        "accuracy": 0.2857142857142857,
+        "mean_max_probability": 0.2725972922273933
+      },
+      {
+        "bin": 3,
+        "count": 241,
+        "accuracy": 0.3651452282157676,
+        "mean_max_probability": 0.3674792372676734
+      },
+      {
+        "bin": 4,
+        "count": 1339,
+        "accuracy": 0.4294249439880508,
+        "mean_max_probability": 0.45752066841845407
+      },
+      {
+        "bin": 5,
+        "count": 2115,
+        "accuracy": 0.51725768321513,
+        "mean_max_probability": 0.5518159740115031
+      },
+      {
+        "bin": 6,
+        "count": 1506,
+        "accuracy": 0.5816733067729084,
+        "mean_max_probability": 0.6394918015812056
+      },
+      {
+        "bin": 7,
+        "count": 366,
+        "accuracy": 0.5573770491803278,
+        "mean_max_probability": 0.7457538270615386
+      },
+      {
+        "bin": 8,
+        "count": 358,
+        "accuracy": 0.5921787709497207,
+        "mean_max_probability": 0.8515995802810609
+      },
+      {
+        "bin": 9,
+        "count": 8354,
+        "accuracy": 0.9446971510653579,
+        "mean_max_probability": 0.9930169348038225
+      }
+    ],
+    "risk_coverage": [
+      {
+        "threshold": 0.0,
+        "accepted": 14286,
+        "coverage": 1.0,
+        "error_rate": 0.23400531989360218
+      },
+      {
+        "threshold": 0.5,
+        "accepted": 12699,
+        "coverage": 0.8889122217555648,
+        "error_rate": 0.1906449326718639
+      },
+      {
+        "threshold": 0.8,
+        "accepted": 8712,
+        "coverage": 0.6098278034439312,
+        "error_rate": 0.0697887970615243
+      },
+      {
+        "threshold": 0.9,
+        "accepted": 8354,
+        "coverage": 0.5847683046339073,
+        "error_rate": 0.0553028489346421
+      },
+      {
+        "threshold": 0.95,
+        "accepted": 8003,
+        "coverage": 0.5601987960240795,
+        "error_rate": 0.043858553042608994
+      }
+    ],
+    "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+  },
+  "slices": {
+    "question_type": {
+      "score": {
+        "count": 5000,
+        "accuracy": 0.5162,
+        "nll": 1.07071483716139,
+        "brier_sum": 0.6046295584310023,
+        "ece_10_bins": 0.03069296172672206,
+        "reliability_bins": [
+          {
+            "bin": 2,
+            "count": 7,
+            "accuracy": 0.2857142857142857,
+            "mean_max_probability": 0.2725972922273933
+          },
+          {
+            "bin": 3,
+            "count": 240,
+            "accuracy": 0.36666666666666664,
+            "mean_max_probability": 0.3675497114241902
+          },
+          {
+            "bin": 4,
+            "count": 1327,
+            "accuracy": 0.4310474755086662,
+            "mean_max_probability": 0.4574226941908441
+          },
+          {
+            "bin": 5,
+            "count": 1950,
+            "accuracy": 0.5287179487179487,
+            "mean_max_probability": 0.5518826334123328
+          },
+          {
+            "bin": 6,
+            "count": 1336,
+            "accuracy": 0.594311377245509,
+            "mean_max_probability": 0.6379145431097357
+          },
+          {
+            "bin": 7,
+            "count": 98,
+            "accuracy": 0.6224489795918368,
+            "mean_max_probability": 0.7281549674053006
+          },
+          {
+            "bin": 8,
+            "count": 21,
+            "accuracy": 0.7142857142857143,
+            "mean_max_probability": 0.8459946440118157
+          },
+          {
+            "bin": 9,
+            "count": 21,
+            "accuracy": 0.8571428571428571,
+            "mean_max_probability": 0.9338621270249006
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 5000,
+            "coverage": 1.0,
+            "error_rate": 0.4838
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 3426,
+            "coverage": 0.6852,
+            "error_rate": 0.43987157034442503
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 42,
+            "coverage": 0.0084,
+            "error_rate": 0.2142857142857143
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 21,
+            "coverage": 0.0042,
+            "error_rate": 0.1428571428571429
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 6,
+            "coverage": 0.0012,
+            "error_rate": 0.0
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "choice": {
+        "count": 6197,
+        "accuracy": 0.8922059060835889,
+        "nll": 0.37101588472460073,
+        "brier_sum": 0.1719885924663805,
+        "ece_10_bins": 0.0731721460215361,
+        "reliability_bins": [
+          {
+            "bin": 3,
+            "count": 1,
+            "accuracy": 0.0,
+            "mean_max_probability": 0.3505654397036418
+          },
+          {
+            "bin": 4,
+            "count": 12,
+            "accuracy": 0.25,
+            "mean_max_probability": 0.4683549850883199
+          },
+          {
+            "bin": 5,
+            "count": 120,
+            "accuracy": 0.39166666666666666,
+            "mean_max_probability": 0.5517401164888317
+          },
+          {
+            "bin": 6,
+            "count": 104,
+            "accuracy": 0.4519230769230769,
+            "mean_max_probability": 0.6557691599995678
+          },
+          {
+            "bin": 7,
+            "count": 191,
+            "accuracy": 0.5235602094240838,
+            "mean_max_probability": 0.7514610573942577
+          },
+          {
+            "bin": 8,
+            "count": 225,
+            "accuracy": 0.56,
+            "mean_max_probability": 0.8543982059518627
+          },
+          {
+            "bin": 9,
+            "count": 5544,
+            "accuracy": 0.939033189033189,
+            "mean_max_probability": 0.9931997652804128
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 6197,
+            "coverage": 1.0,
+            "error_rate": 0.10779409391641115
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 6184,
+            "coverage": 0.9979022107471357,
+            "error_rate": 0.10640362225097022
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 5769,
+            "coverage": 0.9309343230595449,
+            "error_rate": 0.0757496966545328
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 5544,
+            "coverage": 0.894626432144586,
+            "error_rate": 0.060966810966811
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 5327,
+            "coverage": 0.8596094884621591,
+            "error_rate": 0.048995682372817706
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "noul": {
+        "count": 3089,
+        "accuracy": 0.917125283263192,
+        "nll": 0.2486563198013254,
+        "brier_sum": 0.12786965343977844,
+        "ece_10_bins": 0.05082853824249238,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 45,
+            "accuracy": 0.35555555555555557,
+            "mean_max_probability": 0.549129686702675
+          },
+          {
+            "bin": 6,
+            "count": 66,
+            "accuracy": 0.5303030303030303,
+            "mean_max_probability": 0.6457701658596008
+          },
+          {
+            "bin": 7,
+            "count": 77,
+            "accuracy": 0.5584415584415584,
+            "mean_max_probability": 0.7539954796948108
+          },
+          {
+            "bin": 8,
+            "count": 112,
+            "accuracy": 0.6339285714285714,
+            "mean_max_probability": 0.8470282667607371
+          },
+          {
+            "bin": 9,
+            "count": 2789,
+            "accuracy": 0.9566152742918609,
+            "mean_max_probability": 0.9930989135779856
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 3089,
+            "coverage": 1.0,
+            "error_rate": 0.08287471673680802
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 3089,
+            "coverage": 1.0,
+            "error_rate": 0.08287471673680802
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 2901,
+            "coverage": 0.9391388798964067,
+            "error_rate": 0.05584281282316439
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 2789,
+            "coverage": 0.9028811913240531,
+            "error_rate": 0.043384725708139116
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 2670,
+            "coverage": 0.8643573972159275,
+            "error_rate": 0.0337078651685393
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      }
+    },
+    "candidate_count": {
+      "5": {
+        "count": 7085,
+        "accuracy": 0.6094565984474242,
+        "nll": 0.9216230835314193,
+        "brier_sum": 0.5027219034783184,
+        "ece_10_bins": 0.05711602470483243,
+        "reliability_bins": [
+          {
+            "bin": 2,
+            "count": 7,
+            "accuracy": 0.2857142857142857,
+            "mean_max_probability": 0.2725972922273933
+          },
+          {
+            "bin": 3,
+            "count": 241,
+            "accuracy": 0.3651452282157676,
+            "mean_max_probability": 0.3674792372676734
+          },
+          {
+            "bin": 4,
+            "count": 1335,
+            "accuracy": 0.4299625468164794,
+            "mean_max_probability": 0.4574899489653343
+          },
+          {
+            "bin": 5,
+            "count": 2004,
+            "accuracy": 0.5204590818363274,
+            "mean_max_probability": 0.5518977803255707
+          },
+          {
+            "bin": 6,
+            "count": 1387,
+            "accuracy": 0.5861571737563086,
+            "mean_max_probability": 0.638580988829174
+          },
+          {
+            "bin": 7,
+            "count": 182,
+            "accuracy": 0.5274725274725275,
+            "mean_max_probability": 0.7388700671330298
+          },
+          {
+            "bin": 8,
+            "count": 122,
+            "accuracy": 0.5081967213114754,
+            "mean_max_probability": 0.8526868960718923
+          },
+          {
+            "bin": 9,
+            "count": 1807,
+            "accuracy": 0.9075816270060875,
+            "mean_max_probability": 0.9911712790324343
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 7085,
+            "coverage": 1.0,
+            "error_rate": 0.39054340155257583
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 5502,
+            "coverage": 0.7765702187720537,
+            "error_rate": 0.33587786259541985
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 1929,
+            "coverage": 0.27226534932956953,
+            "error_rate": 0.1176775531363401
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 1807,
+            "coverage": 0.25504587155963304,
+            "error_rate": 0.09241837299391253
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 1702,
+            "coverage": 0.24022582921665492,
+            "error_rate": 0.07226792009400707
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "10": {
+        "count": 400,
+        "accuracy": 0.8075,
+        "nll": 0.7956707582148749,
+        "brier_sum": 0.33741516648721404,
+        "ece_10_bins": 0.15528132684665452,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 7,
+            "accuracy": 0.5714285714285714,
+            "mean_max_probability": 0.5415003049835218
+          },
+          {
+            "bin": 6,
+            "count": 6,
+            "accuracy": 0.8333333333333334,
+            "mean_max_probability": 0.6739675081282183
+          },
+          {
+            "bin": 7,
+            "count": 19,
+            "accuracy": 0.42105263157894735,
+            "mean_max_probability": 0.7527967851926572
+          },
+          {
+            "bin": 8,
+            "count": 24,
+            "accuracy": 0.6666666666666666,
+            "mean_max_probability": 0.857319965027581
+          },
+          {
+            "bin": 9,
+            "count": 344,
+            "accuracy": 0.8430232558139535,
+            "mean_max_probability": 0.9885698251249807
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 400,
+            "coverage": 1.0,
+            "error_rate": 0.1925
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 400,
+            "coverage": 1.0,
+            "error_rate": 0.1925
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 368,
+            "coverage": 0.92,
+            "error_rate": 0.1684782608695652
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 344,
+            "coverage": 0.86,
+            "error_rate": 0.15697674418604646
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 317,
+            "coverage": 0.7925,
+            "error_rate": 0.13564668769716093
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "2": {
+        "count": 3089,
+        "accuracy": 0.917125283263192,
+        "nll": 0.2486563198013254,
+        "brier_sum": 0.12786965343977844,
+        "ece_10_bins": 0.05082853824249238,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 45,
+            "accuracy": 0.35555555555555557,
+            "mean_max_probability": 0.549129686702675
+          },
+          {
+            "bin": 6,
+            "count": 66,
+            "accuracy": 0.5303030303030303,
+            "mean_max_probability": 0.6457701658596008
+          },
+          {
+            "bin": 7,
+            "count": 77,
+            "accuracy": 0.5584415584415584,
+            "mean_max_probability": 0.7539954796948108
+          },
+          {
+            "bin": 8,
+            "count": 112,
+            "accuracy": 0.6339285714285714,
+            "mean_max_probability": 0.8470282667607371
+          },
+          {
+            "bin": 9,
+            "count": 2789,
+            "accuracy": 0.9566152742918609,
+            "mean_max_probability": 0.9930989135779856
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 3089,
+            "coverage": 1.0,
+            "error_rate": 0.08287471673680802
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 3089,
+            "coverage": 1.0,
+            "error_rate": 0.08287471673680802
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 2901,
+            "coverage": 0.9391388798964067,
+            "error_rate": 0.05584281282316439
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 2789,
+            "coverage": 0.9028811913240531,
+            "error_rate": 0.043384725708139116
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 2670,
+            "coverage": 0.8643573972159275,
+            "error_rate": 0.0337078651685393
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "6": {
+        "count": 796,
+        "accuracy": 0.9635678391959799,
+        "nll": 0.1369937765528789,
+        "brier_sum": 0.061321371909835436,
+        "ece_10_bins": 0.021205732919720194,
+        "reliability_bins": [
+          {
+            "bin": 4,
+            "count": 2,
+            "accuracy": 0.0,
+            "mean_max_probability": 0.45102058098048603
+          },
+          {
+            "bin": 5,
+            "count": 7,
+            "accuracy": 0.2857142857142857,
+            "mean_max_probability": 0.5517057143294212
+          },
+          {
+            "bin": 6,
+            "count": 1,
+            "accuracy": 1.0,
+            "mean_max_probability": 0.6850662685918535
+          },
+          {
+            "bin": 7,
+            "count": 15,
+            "accuracy": 0.8,
+            "mean_max_probability": 0.7514549534533436
+          },
+          {
+            "bin": 8,
+            "count": 16,
+            "accuracy": 0.75,
+            "mean_max_probability": 0.8454052895390405
+          },
+          {
+            "bin": 9,
+            "count": 755,
+            "accuracy": 0.9801324503311258,
+            "mean_max_probability": 0.9954254148074142
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 796,
+            "coverage": 1.0,
+            "error_rate": 0.03643216080402012
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 794,
+            "coverage": 0.9974874371859297,
+            "error_rate": 0.03400503778337527
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 771,
+            "coverage": 0.9685929648241206,
+            "error_rate": 0.024643320363164745
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 755,
+            "coverage": 0.9484924623115578,
+            "error_rate": 0.019867549668874163
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 740,
+            "coverage": 0.9296482412060302,
+            "error_rate": 0.01756756756756761
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "4": {
+        "count": 1285,
+        "accuracy": 0.9828793774319066,
+        "nll": 0.05424209559245621,
+        "brier_sum": 0.02916124303660049,
+        "ece_10_bins": 0.006820320522655302,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 13,
+            "accuracy": 0.6923076923076923,
+            "mean_max_probability": 0.5490735936031323
+          },
+          {
+            "bin": 6,
+            "count": 11,
+            "accuracy": 0.8181818181818182,
+            "mean_max_probability": 0.6464284916232585
+          },
+          {
+            "bin": 7,
+            "count": 19,
+            "accuracy": 0.7894736842105263,
+            "mean_max_probability": 0.7544270878189362
+          },
+          {
+            "bin": 8,
+            "count": 25,
+            "accuracy": 0.76,
+            "mean_max_probability": 0.8608852691128632
+          },
+          {
+            "bin": 9,
+            "count": 1217,
+            "accuracy": 0.9950698438783895,
+            "mean_max_probability": 0.9965692398825364
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 1285,
+            "coverage": 1.0,
+            "error_rate": 0.017120622568093435
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 1285,
+            "coverage": 1.0,
+            "error_rate": 0.017120622568093435
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 1242,
+            "coverage": 0.9665369649805448,
+            "error_rate": 0.009661835748792313
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 1217,
+            "coverage": 0.9470817120622568,
+            "error_rate": 0.004930156121610518
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 1206,
+            "coverage": 0.9385214007782101,
+            "error_rate": 0.004145936981757914
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "3": {
+        "count": 1328,
+        "accuracy": 0.865210843373494,
+        "nll": 0.4425146950881063,
+        "brier_sum": 0.21616161293996572,
+        "ece_10_bins": 0.09116395166488878,
+        "reliability_bins": [
+          {
+            "bin": 4,
+            "count": 1,
+            "accuracy": 0.0,
+            "mean_max_probability": 0.49015496478576426
+          },
+          {
+            "bin": 5,
+            "count": 35,
+            "accuracy": 0.5428571428571428,
+            "mean_max_probability": 0.5543624688189746
+          },
+          {
+            "bin": 6,
+            "count": 30,
+            "accuracy": 0.36666666666666664,
+            "mean_max_probability": 0.6539779374333897
+          },
+          {
+            "bin": 7,
+            "count": 51,
+            "accuracy": 0.5490196078431373,
+            "mean_max_probability": 0.7512513699328982
+          },
+          {
+            "bin": 8,
+            "count": 57,
+            "accuracy": 0.5614035087719298,
+            "mean_max_probability": 0.8535889422017107
+          },
+          {
+            "bin": 9,
+            "count": 1154,
+            "accuracy": 0.9176776429809359,
+            "mean_max_probability": 0.990975007575776
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 1328,
+            "coverage": 1.0,
+            "error_rate": 0.13478915662650603
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 1327,
+            "coverage": 0.9992469879518072,
+            "error_rate": 0.13413715146948002
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 1211,
+            "coverage": 0.9118975903614458,
+            "error_rate": 0.09909165978530143
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 1154,
+            "coverage": 0.8689759036144579,
+            "error_rate": 0.0823223570190641
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 1089,
+            "coverage": 0.8200301204819277,
+            "error_rate": 0.06795224977043157
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "7": {
+        "count": 303,
+        "accuracy": 0.9570957095709571,
+        "nll": 0.12668026168264676,
+        "brier_sum": 0.06225648714146792,
+        "ece_10_bins": 0.02547085657326182,
+        "reliability_bins": [
+          {
+            "bin": 4,
+            "count": 1,
+            "accuracy": 1.0,
+            "mean_max_probability": 0.4788970168418833
+          },
+          {
+            "bin": 5,
+            "count": 4,
+            "accuracy": 0.25,
+            "mean_max_probability": 0.5459280248923116
+          },
+          {
+            "bin": 6,
+            "count": 5,
+            "accuracy": 0.4,
+            "mean_max_probability": 0.6566135760557726
+          },
+          {
+            "bin": 7,
+            "count": 3,
+            "accuracy": 0.6666666666666666,
+            "mean_max_probability": 0.7303329314043251
+          },
+          {
+            "bin": 8,
+            "count": 2,
+            "accuracy": 0.0,
+            "mean_max_probability": 0.8494086580203564
+          },
+          {
+            "bin": 9,
+            "count": 288,
+            "accuracy": 0.9861111111111112,
+            "mean_max_probability": 0.9959721196820779
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 303,
+            "coverage": 1.0,
+            "error_rate": 0.04290429042904287
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 302,
+            "coverage": 0.9966996699669967,
+            "error_rate": 0.04304635761589404
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 290,
+            "coverage": 0.9570957095709571,
+            "error_rate": 0.020689655172413834
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 288,
+            "coverage": 0.9504950495049505,
+            "error_rate": 0.01388888888888884
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 279,
+            "coverage": 0.9207920792079208,
+            "error_rate": 0.010752688172043001
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      }
+    },
+    "schema_family": {
+      "helpsteer1/helpfulness-v1": {
+        "count": 5000,
+        "accuracy": 0.5162,
+        "nll": 1.07071483716139,
+        "brier_sum": 0.6046295584310023,
+        "ece_10_bins": 0.03069296172672206,
+        "reliability_bins": [
+          {
+            "bin": 2,
+            "count": 7,
+            "accuracy": 0.2857142857142857,
+            "mean_max_probability": 0.2725972922273933
+          },
+          {
+            "bin": 3,
+            "count": 240,
+            "accuracy": 0.36666666666666664,
+            "mean_max_probability": 0.3675497114241902
+          },
+          {
+            "bin": 4,
+            "count": 1327,
+            "accuracy": 0.4310474755086662,
+            "mean_max_probability": 0.4574226941908441
+          },
+          {
+            "bin": 5,
+            "count": 1950,
+            "accuracy": 0.5287179487179487,
+            "mean_max_probability": 0.5518826334123328
+          },
+          {
+            "bin": 6,
+            "count": 1336,
+            "accuracy": 0.594311377245509,
+            "mean_max_probability": 0.6379145431097357
+          },
+          {
+            "bin": 7,
+            "count": 98,
+            "accuracy": 0.6224489795918368,
+            "mean_max_probability": 0.7281549674053006
+          },
+          {
+            "bin": 8,
+            "count": 21,
+            "accuracy": 0.7142857142857143,
+            "mean_max_probability": 0.8459946440118157
+          },
+          {
+            "bin": 9,
+            "count": 21,
+            "accuracy": 0.8571428571428571,
+            "mean_max_probability": 0.9338621270249006
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 5000,
+            "coverage": 1.0,
+            "error_rate": 0.4838
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 3426,
+            "coverage": 0.6852,
+            "error_rate": 0.43987157034442503
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 42,
+            "coverage": 0.0084,
+            "error_rate": 0.2142857142857143
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 21,
+            "coverage": 0.0042,
+            "error_rate": 0.1428571428571429
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 6,
+            "coverage": 0.0012,
+            "error_rate": 0.0
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Flights_1/categorical-v1": {
+        "count": 1765,
+        "accuracy": 0.9473087818696884,
+        "nll": 0.19999274501782122,
+        "brier_sum": 0.09125826346092394,
+        "ece_10_bins": 0.033067516160478816,
+        "reliability_bins": [
+          {
+            "bin": 4,
+            "count": 1,
+            "accuracy": 0.0,
+            "mean_max_probability": 0.4652972095490318
+          },
+          {
+            "bin": 5,
+            "count": 23,
+            "accuracy": 0.5652173913043478,
+            "mean_max_probability": 0.5469865206845091
+          },
+          {
+            "bin": 6,
+            "count": 14,
+            "accuracy": 0.8571428571428571,
+            "mean_max_probability": 0.6626892207949295
+          },
+          {
+            "bin": 7,
+            "count": 38,
+            "accuracy": 0.6842105263157895,
+            "mean_max_probability": 0.7550715472868889
+          },
+          {
+            "bin": 8,
+            "count": 48,
+            "accuracy": 0.7291666666666666,
+            "mean_max_probability": 0.8534986660461632
+          },
+          {
+            "bin": 9,
+            "count": 1641,
+            "accuracy": 0.9664838513101767,
+            "mean_max_probability": 0.9945743772781542
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 1765,
+            "coverage": 1.0,
+            "error_rate": 0.052691218130311634
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 1764,
+            "coverage": 0.9994334277620397,
+            "error_rate": 0.05215419501133789
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 1689,
+            "coverage": 0.9569405099150141,
+            "error_rate": 0.04026050917702784
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 1641,
+            "coverage": 0.9297450424929179,
+            "error_rate": 0.03351614868982333
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 1597,
+            "coverage": 0.9048158640226629,
+            "error_rate": 0.02880400751408896
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Flights_1/intent-v1": {
+        "count": 1771,
+        "accuracy": 0.8198757763975155,
+        "nll": 0.6039963416345938,
+        "brier_sum": 0.27677891761965934,
+        "ece_10_bins": 0.12884638791530872,
+        "reliability_bins": [
+          {
+            "bin": 3,
+            "count": 1,
+            "accuracy": 0.0,
+            "mean_max_probability": 0.3505654397036418
+          },
+          {
+            "bin": 4,
+            "count": 8,
+            "accuracy": 0.25,
+            "mean_max_probability": 0.46864583468390236
+          },
+          {
+            "bin": 5,
+            "count": 51,
+            "accuracy": 0.21568627450980393,
+            "mean_max_probability": 0.5515782498231834
+          },
+          {
+            "bin": 6,
+            "count": 50,
+            "accuracy": 0.38,
+            "mean_max_probability": 0.6570610545280153
+          },
+          {
+            "bin": 7,
+            "count": 74,
+            "accuracy": 0.3918918918918919,
+            "mean_max_probability": 0.7515237678399953
+          },
+          {
+            "bin": 8,
+            "count": 96,
+            "accuracy": 0.4791666666666667,
+            "mean_max_probability": 0.8548158181005073
+          },
+          {
+            "bin": 9,
+            "count": 1491,
+            "accuracy": 0.9020791415157612,
+            "mean_max_probability": 0.9908977867576427
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 1771,
+            "coverage": 1.0,
+            "error_rate": 0.18012422360248448
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 1762,
+            "coverage": 0.9949181253529079,
+            "error_rate": 0.17707150964812712
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 1587,
+            "coverage": 0.8961038961038961,
+            "error_rate": 0.12350346565847514
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 1491,
+            "coverage": 0.841897233201581,
+            "error_rate": 0.09792085848423882
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 1404,
+            "coverage": 0.792772444946358,
+            "error_rate": 0.07549857549857553
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Flights_1/required_inputs-v1": {
+        "count": 1746,
+        "accuracy": 0.9026345933562429,
+        "nll": 0.2917593177902085,
+        "brier_sum": 0.1523134923928766,
+        "ece_10_bins": 0.062410045603771516,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 29,
+            "accuracy": 0.3448275862068966,
+            "mean_max_probability": 0.5532654221785932
+          },
+          {
+            "bin": 6,
+            "count": 41,
+            "accuracy": 0.4878048780487805,
+            "mean_max_probability": 0.6496393448670382
+          },
+          {
+            "bin": 7,
+            "count": 42,
+            "accuracy": 0.5714285714285714,
+            "mean_max_probability": 0.7527200966498774
+          },
+          {
+            "bin": 8,
+            "count": 70,
+            "accuracy": 0.6714285714285714,
+            "mean_max_probability": 0.8493615640363164
+          },
+          {
+            "bin": 9,
+            "count": 1564,
+            "accuracy": 0.9430946291560103,
+            "mean_max_probability": 0.9918276698846678
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 1746,
+            "coverage": 1.0,
+            "error_rate": 0.09736540664375715
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 1746,
+            "coverage": 1.0,
+            "error_rate": 0.09736540664375715
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 1634,
+            "coverage": 0.9358533791523482,
+            "error_rate": 0.06854345165238673
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 1564,
+            "coverage": 0.8957617411225659,
+            "error_rate": 0.05690537084398972
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 1481,
+            "coverage": 0.8482245131729668,
+            "error_rate": 0.04388926401080351
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Flights_2/categorical-v1": {
+        "count": 259,
+        "accuracy": 0.888030888030888,
+        "nll": 0.4604085953299508,
+        "brier_sum": 0.18375259819844258,
+        "ece_10_bins": 0.08335625949480555,
+        "reliability_bins": [
+          {
+            "bin": 4,
+            "count": 1,
+            "accuracy": 0.0,
+            "mean_max_probability": 0.43674395241194025
+          },
+          {
+            "bin": 5,
+            "count": 2,
+            "accuracy": 0.0,
+            "mean_max_probability": 0.5785642736780485
+          },
+          {
+            "bin": 6,
+            "count": 2,
+            "accuracy": 0.5,
+            "mean_max_probability": 0.6403690919006595
+          },
+          {
+            "bin": 7,
+            "count": 9,
+            "accuracy": 0.4444444444444444,
+            "mean_max_probability": 0.7519822134138973
+          },
+          {
+            "bin": 8,
+            "count": 11,
+            "accuracy": 0.6363636363636364,
+            "mean_max_probability": 0.8575483222368342
+          },
+          {
+            "bin": 9,
+            "count": 234,
+            "accuracy": 0.9316239316239316,
+            "mean_max_probability": 0.9936486711976711
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 259,
+            "coverage": 1.0,
+            "error_rate": 0.11196911196911197
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 258,
+            "coverage": 0.9961389961389961,
+            "error_rate": 0.10852713178294571
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 245,
+            "coverage": 0.9459459459459459,
+            "error_rate": 0.08163265306122447
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 234,
+            "coverage": 0.9034749034749034,
+            "error_rate": 0.06837606837606836
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 227,
+            "coverage": 0.8764478764478765,
+            "error_rate": 0.048458149779735726
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Flights_2/intent-v1": {
+        "count": 261,
+        "accuracy": 0.8697318007662835,
+        "nll": 0.35716558292376954,
+        "brier_sum": 0.17947159625440598,
+        "ece_10_bins": 0.09109206530015825,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 8,
+            "accuracy": 0.5,
+            "mean_max_probability": 0.553744670578693
+          },
+          {
+            "bin": 6,
+            "count": 9,
+            "accuracy": 0.1111111111111111,
+            "mean_max_probability": 0.6468874373672224
+          },
+          {
+            "bin": 7,
+            "count": 7,
+            "accuracy": 0.2857142857142857,
+            "mean_max_probability": 0.754728959763016
+          },
+          {
+            "bin": 8,
+            "count": 6,
+            "accuracy": 0.16666666666666666,
+            "mean_max_probability": 0.8479818566625146
+          },
+          {
+            "bin": 9,
+            "count": 231,
+            "accuracy": 0.948051948051948,
+            "mean_max_probability": 0.9963293977666258
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 261,
+            "coverage": 1.0,
+            "error_rate": 0.13026819923371646
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 261,
+            "coverage": 1.0,
+            "error_rate": 0.13026819923371646
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 237,
+            "coverage": 0.9080459770114943,
+            "error_rate": 0.07172995780590719
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 231,
+            "coverage": 0.8850574712643678,
+            "error_rate": 0.051948051948051965
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 224,
+            "coverage": 0.8582375478927203,
+            "error_rate": 0.03125
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Flights_2/required_inputs-v1": {
+        "count": 258,
+        "accuracy": 0.9496124031007752,
+        "nll": 0.10550967299577912,
+        "brier_sum": 0.0631999409758832,
+        "ece_10_bins": 0.0177849621305987,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 5,
+            "accuracy": 0.2,
+            "mean_max_probability": 0.5353430133751172
+          },
+          {
+            "bin": 6,
+            "count": 9,
+            "accuracy": 0.5555555555555556,
+            "mean_max_probability": 0.6276722222732587
+          },
+          {
+            "bin": 7,
+            "count": 9,
+            "accuracy": 0.8888888888888888,
+            "mean_max_probability": 0.7506640780402085
+          },
+          {
+            "bin": 8,
+            "count": 8,
+            "accuracy": 0.75,
+            "mean_max_probability": 0.8477638959489466
+          },
+          {
+            "bin": 9,
+            "count": 227,
+            "accuracy": 0.9911894273127754,
+            "mean_max_probability": 0.9922318092384576
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 258,
+            "coverage": 1.0,
+            "error_rate": 0.050387596899224785
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 258,
+            "coverage": 1.0,
+            "error_rate": 0.050387596899224785
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 235,
+            "coverage": 0.9108527131782945,
+            "error_rate": 0.017021276595744705
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 227,
+            "coverage": 0.8798449612403101,
+            "error_rate": 0.008810572687224627
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 216,
+            "coverage": 0.8372093023255814,
+            "error_rate": 0.00462962962962965
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Hotels_2/categorical-v1": {
+        "count": 375,
+        "accuracy": 0.9893333333333333,
+        "nll": 0.0448578932126952,
+        "brier_sum": 0.021772102106933512,
+        "ece_10_bins": 0.009114201701982728,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 1,
+            "accuracy": 1.0,
+            "mean_max_probability": 0.5079919279285022
+          },
+          {
+            "bin": 7,
+            "count": 2,
+            "accuracy": 1.0,
+            "mean_max_probability": 0.7546739586595894
+          },
+          {
+            "bin": 8,
+            "count": 4,
+            "accuracy": 0.75,
+            "mean_max_probability": 0.8650197542669367
+          },
+          {
+            "bin": 9,
+            "count": 368,
+            "accuracy": 0.9918478260869565,
+            "mean_max_probability": 0.9972149088761507
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 375,
+            "coverage": 1.0,
+            "error_rate": 0.010666666666666713
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 375,
+            "coverage": 1.0,
+            "error_rate": 0.010666666666666713
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 372,
+            "coverage": 0.992,
+            "error_rate": 0.010752688172043001
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 368,
+            "coverage": 0.9813333333333333,
+            "error_rate": 0.008152173913043459
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 363,
+            "coverage": 0.968,
+            "error_rate": 0.008264462809917328
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Hotels_2/intent-v1": {
+        "count": 369,
+        "accuracy": 0.8563685636856369,
+        "nll": 0.44588180767758584,
+        "brier_sum": 0.24077809251816562,
+        "ece_10_bins": 0.10027477881131727,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 13,
+            "accuracy": 0.6153846153846154,
+            "mean_max_probability": 0.5543536210668075
+          },
+          {
+            "bin": 6,
+            "count": 8,
+            "accuracy": 0.75,
+            "mean_max_probability": 0.6572500192353683
+          },
+          {
+            "bin": 7,
+            "count": 15,
+            "accuracy": 0.5333333333333333,
+            "mean_max_probability": 0.7419104850990124
+          },
+          {
+            "bin": 8,
+            "count": 21,
+            "accuracy": 0.5238095238095238,
+            "mean_max_probability": 0.8535609603433232
+          },
+          {
+            "bin": 9,
+            "count": 312,
+            "accuracy": 0.907051282051282,
+            "mean_max_probability": 0.98850177296613
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 369,
+            "coverage": 1.0,
+            "error_rate": 0.14363143631436315
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 369,
+            "coverage": 1.0,
+            "error_rate": 0.14363143631436315
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 333,
+            "coverage": 0.9024390243902439,
+            "error_rate": 0.11711711711711714
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 312,
+            "coverage": 0.8455284552845529,
+            "error_rate": 0.09294871794871795
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 293,
+            "coverage": 0.7940379403794038,
+            "error_rate": 0.08191126279863481
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Hotels_2/required_inputs-v1": {
+        "count": 384,
+        "accuracy": 0.9479166666666666,
+        "nll": 0.10722821627669703,
+        "brier_sum": 0.0661945409332081,
+        "ece_10_bins": 0.025682679384376544,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 4,
+            "accuracy": 0.25,
+            "mean_max_probability": 0.5420735633745978
+          },
+          {
+            "bin": 6,
+            "count": 7,
+            "accuracy": 0.42857142857142855,
+            "mean_max_probability": 0.6645697675904484
+          },
+          {
+            "bin": 7,
+            "count": 10,
+            "accuracy": 0.4,
+            "mean_max_probability": 0.755542925745563
+          },
+          {
+            "bin": 8,
+            "count": 13,
+            "accuracy": 0.6923076923076923,
+            "mean_max_probability": 0.8516616573959838
+          },
+          {
+            "bin": 9,
+            "count": 350,
+            "accuracy": 0.9914285714285714,
+            "mean_max_probability": 0.9954709584381876
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 384,
+            "coverage": 1.0,
+            "error_rate": 0.05208333333333337
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 384,
+            "coverage": 1.0,
+            "error_rate": 0.05208333333333337
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 363,
+            "coverage": 0.9453125,
+            "error_rate": 0.019283746556473802
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 350,
+            "coverage": 0.9114583333333334,
+            "error_rate": 0.008571428571428563
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 341,
+            "coverage": 0.8880208333333334,
+            "error_rate": 0.008797653958944274
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Hotels_3/categorical-v1": {
+        "count": 359,
+        "accuracy": 0.9693593314763231,
+        "nll": 0.10240974096283749,
+        "brier_sum": 0.05135101381195651,
+        "ece_10_bins": 0.021515840028229663,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 2,
+            "accuracy": 0.5,
+            "mean_max_probability": 0.5578847781289151
+          },
+          {
+            "bin": 6,
+            "count": 2,
+            "accuracy": 1.0,
+            "mean_max_probability": 0.6405987251433368
+          },
+          {
+            "bin": 7,
+            "count": 7,
+            "accuracy": 0.7142857142857143,
+            "mean_max_probability": 0.7407121771160233
+          },
+          {
+            "bin": 8,
+            "count": 4,
+            "accuracy": 0.25,
+            "mean_max_probability": 0.8450527857462811
+          },
+          {
+            "bin": 9,
+            "count": 344,
+            "accuracy": 0.9854651162790697,
+            "mean_max_probability": 0.9980360990737384
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 359,
+            "coverage": 1.0,
+            "error_rate": 0.03064066852367686
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 359,
+            "coverage": 1.0,
+            "error_rate": 0.03064066852367686
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 348,
+            "coverage": 0.9693593314763231,
+            "error_rate": 0.02298850574712641
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 344,
+            "coverage": 0.958217270194986,
+            "error_rate": 0.014534883720930258
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 343,
+            "coverage": 0.9554317548746518,
+            "error_rate": 0.014577259475218707
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Hotels_3/intent-v1": {
+        "count": 356,
+        "accuracy": 0.8876404494382022,
+        "nll": 0.40012612058228864,
+        "brier_sum": 0.18313254513364907,
+        "ece_10_bins": 0.07154683703950748,
+        "reliability_bins": [
+          {
+            "bin": 4,
+            "count": 1,
+            "accuracy": 0.0,
+            "mean_max_probability": 0.49015496478576426
+          },
+          {
+            "bin": 5,
+            "count": 6,
+            "accuracy": 0.6666666666666666,
+            "mean_max_probability": 0.538726982713116
+          },
+          {
+            "bin": 6,
+            "count": 8,
+            "accuracy": 0.25,
+            "mean_max_probability": 0.6566383721130262
+          },
+          {
+            "bin": 7,
+            "count": 18,
+            "accuracy": 0.7222222222222222,
+            "mean_max_probability": 0.7545687919395881
+          },
+          {
+            "bin": 8,
+            "count": 19,
+            "accuracy": 0.6842105263157895,
+            "mean_max_probability": 0.8499660804336862
+          },
+          {
+            "bin": 9,
+            "count": 304,
+            "accuracy": 0.9342105263157895,
+            "mean_max_probability": 0.9908821715707262
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 356,
+            "coverage": 1.0,
+            "error_rate": 0.1123595505617978
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 355,
+            "coverage": 0.9971910112359551,
+            "error_rate": 0.10985915492957743
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 323,
+            "coverage": 0.9073033707865169,
+            "error_rate": 0.08049535603715174
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 304,
+            "coverage": 0.8539325842696629,
+            "error_rate": 0.06578947368421051
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 286,
+            "coverage": 0.8033707865168539,
+            "error_rate": 0.05244755244755239
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Hotels_3/required_inputs-v1": {
+        "count": 358,
+        "accuracy": 0.9162011173184358,
+        "nll": 0.3162114618401209,
+        "brier_sum": 0.14247604059012955,
+        "ece_10_bins": 0.06694656138236316,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 1,
+            "accuracy": 1.0,
+            "mean_max_probability": 0.5058283549983067
+          },
+          {
+            "bin": 6,
+            "count": 4,
+            "accuracy": 0.75,
+            "mean_max_probability": 0.6229997103863616
+          },
+          {
+            "bin": 7,
+            "count": 11,
+            "accuracy": 0.45454545454545453,
+            "mean_max_probability": 0.7577796423012594
+          },
+          {
+            "bin": 8,
+            "count": 10,
+            "accuracy": 0.4,
+            "mean_max_probability": 0.8373809889561572
+          },
+          {
+            "bin": 9,
+            "count": 332,
+            "accuracy": 0.9487951807228916,
+            "mean_max_probability": 0.9947449102908263
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 358,
+            "coverage": 1.0,
+            "error_rate": 0.08379888268156421
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 358,
+            "coverage": 1.0,
+            "error_rate": 0.08379888268156421
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 342,
+            "coverage": 0.9553072625698324,
+            "error_rate": 0.06725146198830412
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 332,
+            "coverage": 0.9273743016759777,
+            "error_rate": 0.051204819277108404
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 323,
+            "coverage": 0.9022346368715084,
+            "error_rate": 0.04024767801857587
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Hotels_1/categorical-v1": {
+        "count": 340,
+        "accuracy": 0.9029411764705882,
+        "nll": 0.34126051005632013,
+        "brier_sum": 0.1568026830439682,
+        "ece_10_bins": 0.07008268202117329,
+        "reliability_bins": [
+          {
+            "bin": 4,
+            "count": 1,
+            "accuracy": 1.0,
+            "mean_max_probability": 0.4788970168418833
+          },
+          {
+            "bin": 5,
+            "count": 6,
+            "accuracy": 0.3333333333333333,
+            "mean_max_probability": 0.5523428036211989
+          },
+          {
+            "bin": 6,
+            "count": 6,
+            "accuracy": 0.3333333333333333,
+            "mean_max_probability": 0.6480028442225945
+          },
+          {
+            "bin": 7,
+            "count": 10,
+            "accuracy": 0.6,
+            "mean_max_probability": 0.7447591400807544
+          },
+          {
+            "bin": 8,
+            "count": 5,
+            "accuracy": 0.4,
+            "mean_max_probability": 0.8562900842298014
+          },
+          {
+            "bin": 9,
+            "count": 312,
+            "accuracy": 0.9423076923076923,
+            "mean_max_probability": 0.9947945294712227
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 340,
+            "coverage": 1.0,
+            "error_rate": 0.09705882352941175
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 339,
+            "coverage": 0.9970588235294118,
+            "error_rate": 0.09734513274336287
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 317,
+            "coverage": 0.9323529411764706,
+            "error_rate": 0.06624605678233442
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 312,
+            "coverage": 0.9176470588235294,
+            "error_rate": 0.05769230769230771
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 304,
+            "coverage": 0.8941176470588236,
+            "error_rate": 0.052631578947368474
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Hotels_1/intent-v1": {
+        "count": 342,
+        "accuracy": 0.847953216374269,
+        "nll": 0.5481403858876533,
+        "brier_sum": 0.25198313788038684,
+        "ece_10_bins": 0.11527693904131542,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 8,
+            "accuracy": 0.375,
+            "mean_max_probability": 0.5667212592359214
+          },
+          {
+            "bin": 6,
+            "count": 5,
+            "accuracy": 0.4,
+            "mean_max_probability": 0.6572488111819063
+          },
+          {
+            "bin": 7,
+            "count": 11,
+            "accuracy": 0.45454545454545453,
+            "mean_max_probability": 0.7563474197126291
+          },
+          {
+            "bin": 8,
+            "count": 11,
+            "accuracy": 0.6363636363636364,
+            "mean_max_probability": 0.8629584427338725
+          },
+          {
+            "bin": 9,
+            "count": 307,
+            "accuracy": 0.8892508143322475,
+            "mean_max_probability": 0.989551578291275
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 342,
+            "coverage": 1.0,
+            "error_rate": 0.15204678362573099
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 342,
+            "coverage": 1.0,
+            "error_rate": 0.15204678362573099
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 318,
+            "coverage": 0.9298245614035088,
+            "error_rate": 0.11949685534591192
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 307,
+            "coverage": 0.8976608187134503,
+            "error_rate": 0.11074918566775249
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 286,
+            "coverage": 0.8362573099415205,
+            "error_rate": 0.09790209790209792
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      },
+      "sgd/Hotels_1/required_inputs-v1": {
+        "count": 343,
+        "accuracy": 0.9329446064139941,
+        "nll": 0.22474276671330656,
+        "brier_sum": 0.1058871450032562,
+        "ece_10_bins": 0.04586328844544441,
+        "reliability_bins": [
+          {
+            "bin": 5,
+            "count": 6,
+            "accuracy": 0.5,
+            "mean_max_probability": 0.5525501638448148
+          },
+          {
+            "bin": 6,
+            "count": 5,
+            "accuracy": 0.8,
+            "mean_max_probability": 0.6385161184094358
+          },
+          {
+            "bin": 7,
+            "count": 5,
+            "accuracy": 0.4,
+            "mean_max_probability": 0.7592851704148446
+          },
+          {
+            "bin": 8,
+            "count": 11,
+            "accuracy": 0.45454545454545453,
+            "mean_max_probability": 0.8349394355781347
+          },
+          {
+            "bin": 9,
+            "count": 316,
+            "accuracy": 0.9683544303797469,
+            "mean_max_probability": 0.9956570503238356
+          }
+        ],
+        "risk_coverage": [
+          {
+            "threshold": 0.0,
+            "accepted": 343,
+            "coverage": 1.0,
+            "error_rate": 0.06705539358600587
+          },
+          {
+            "threshold": 0.5,
+            "accepted": 343,
+            "coverage": 1.0,
+            "error_rate": 0.06705539358600587
+          },
+          {
+            "threshold": 0.8,
+            "accepted": 327,
+            "coverage": 0.9533527696793003,
+            "error_rate": 0.04892966360856266
+          },
+          {
+            "threshold": 0.9,
+            "accepted": 316,
+            "coverage": 0.9212827988338192,
+            "error_rate": 0.03164556962025311
+          },
+          {
+            "threshold": 0.95,
+            "accepted": 309,
+            "coverage": 0.9008746355685131,
+            "error_rate": 0.02588996763754048
+          }
+        ],
+        "interpretation": "Descriptive sample metrics; no population calibration guarantee"
+      }
+    }
+  },
+  "data_sha256": "ac1b11d62e55c6094101f71790f5bcd326b1f32afb91311bb334238036311265",
+  "weights_sha256": "b99188eedcbc6e1faab966ed2c827025b29360157298d0cc86e53a103d73bf96",
+  "model_sha256": "cb3c93d5b271993ace8d02a5682b6e1f102eac4128c32f4d2369526a92c18aca",
+  "report_sha256": "6b7f4cbb0b41566a384a12a50b944ca438e06290b991bfda54f8e00f393f657c",
+  "evaluation_source_revision": "7e3ca4099f9a2be81f8f96807d0b31c43a37d7b6",
+  "environment": {
+    "python": "3.14.7",
+    "versions": {
+      "vej": "0.1.0a0",
+      "torch": "2.14.0+rocm7.2",
+      "numpy": "2.5.3",
+      "pydantic": "2.13.5",
+      "safetensors": "0.8.0"
+    },
+    "optional_versions": {
+      "transformers": "5.17.0",
+      "peft": "0.21.0",
+      "accelerate": "1.15.0",
+      "fla-core": "0.5.2",
+      "einops": "0.8.2",
+      "triton-rocm": "3.8.0",
+      "causal-conv1d": null
+    },
+    "torch_build": "2.14.0+rocm7.2"
+  },
+  "scope": "Source/domain-transfer decisions, not end-to-end tool calls or Jev proprietary benchmark. One test example previously viewed; upstream exposure unknown. Test now exposed."
+}

@@ -1,0 +1,44 @@
+{
+  "scope": "Post-hoc descriptive controls added after frozen final evaluation; no training, selection or probability changes. Test-label majority is an in-sample oracle constant control, not a deployable training-fitted baseline. Dynamic Choice labels are not pooled for a semantic majority baseline.",
+  "by_type": {
+    "choice": {
+      "count": 6197,
+      "uniform_random_expected_accuracy": 0.22541052890415486,
+      "candidate_count_distribution": {
+        "3": 1328,
+        "4": 1285,
+        "5": 2085,
+        "6": 796,
+        "7": 303,
+        "10": 400
+      }
+    },
+    "noul": {
+      "count": 3089,
+      "uniform_random_expected_accuracy": 0.5,
+      "candidate_count_distribution": {
+        "2": 3089
+      },
+      "test_target_counts": {
+        "false": 1525,
+        "true": 1564
+      },
+      "posthoc_test_majority_accuracy": 0.5063127225639366
+    },
+    "score": {
+      "count": 5000,
+      "uniform_random_expected_accuracy": 0.2,
+      "candidate_count_distribution": {
+        "5": 5000
+      },
+      "test_target_counts": {
+        "0": 113,
+        "1": 323,
+        "2": 1105,
+        "3": 2422,
+        "4": 1037
+      },
+      "posthoc_test_majority_accuracy": 0.4844
+    }
+  }
+}

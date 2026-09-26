@@ -1,0 +1,1518 @@
+{
+  "scope": "Offline descriptive comparison; supplemental arithmetic treatment specified after launch; no model calls, tuning or significance claims.",
+  "data_sha256": "ac1b11d62e55c6094101f71790f5bcd326b1f32afb91311bb334238036311265",
+  "total": 14286,
+  "strict_valid": 14188,
+  "strict_failures": 98,
+  "adjustment_eligible_non_normalized": 98,
+  "adjusted": 98,
+  "unrecoverable": 0,
+  "original_non_normalized_totals": {
+    "0.99": 98
+  },
+  "adjusted_coverage": 1.0,
+  "strict_response_validity": 0.993140137197256,
+  "strict_accuracy_failures_incorrect": 0.7145457090858183,
+  "adjusted_ties_first_argmax": {
+    "score": 33,
+    "choice": 14,
+    "noul": 13
+  },
+  "strict_jev": {
+    "count": 14188,
+    "accuracy": 0.7194812517620525,
+    "nll": 1.4157850814598465,
+    "brier_sum": 0.3825555962785452,
+    "ece_10_bins": 0.0677861573160417,
+    "reliability_bins": [
+      {
+        "bin": 2,
+        "count": 10,
+        "accuracy": 0.2,
+        "mean_max_probability": 0.27
+      },
+      {
+        "bin": 3,
+        "count": 167,
+        "accuracy": 0.25149700598802394,
+        "mean_max_probability": 0.36251497005988026
+      },
+      {
+        "bin": 4,
+        "count": 694,
+        "accuracy": 0.37175792507204614,
+        "mean_max_probability": 0.4575792507204611
+      },
+      {
+        "bin": 5,
+        "count": 2032,
+        "accuracy": 0.4566929133858268,
+        "mean_max_probability": 0.5449606299212598
+      },
+      {
+        "bin": 6,
+        "count": 2046,
+        "accuracy": 0.5312805474095796,
+        "mean_max_probability": 0.6438465298142717
+      },
+      {
+        "bin": 7,
+        "count": 1675,
+        "accuracy": 0.6149253731343284,
+        "mean_max_probability": 0.7433611940298507
+      },
+      {
+        "bin": 8,
+        "count": 1623,
+        "accuracy": 0.7781885397412199,
+        "mean_max_probability": 0.8472520024645719
+      },
+      {
+        "bin": 9,
+        "count": 5941,
+        "accuracy": 0.9422656118498569,
+        "mean_max_probability": 0.9668506985356
+      }
+    ],
+    "risk_coverage": [
+      {
+        "threshold": 0.0,
+        "accepted": 14188,
+        "coverage": 1.0,
+        "error_rate": 0.28051874823794753
+      },
+      {
+        "threshold": 0.5,
+        "accepted": 13317,
+        "coverage": 0.9386100930363688,
+        "error_rate": 0.2561387699932417
+      },
+      {
+        "threshold": 0.8,
+        "accepted": 7564,
+        "coverage": 0.5331265858471949,
+        "error_rate": 0.09294024325753569
+      },
+      {
+        "threshold": 0.9,
+        "accepted": 5941,
+        "coverage": 0.4187341415280519,
+        "error_rate": 0.05773438815014309
+      },
+      {
+        "threshold": 0.95,
+        "accepted": 4460,
+        "coverage": 0.3143501550606146,
+        "error_rate": 0.045515695067264605
+      }
+    ],
+    "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+    "correct": 10208
+  },
+  "strict_jev_slices": {
+    "choice": {
+      "count": 6174,
+      "accuracy": 0.8309037900874635,
+      "nll": 1.3410740023302246,
+      "brier_sum": 0.23881856171039845,
+      "ece_10_bins": 0.02822319403952052,
+      "reliability_bins": [
+        {
+          "bin": 3,
+          "count": 12,
+          "accuracy": 0.4166666666666667,
+          "mean_max_probability": 0.37083333333333335
+        },
+        {
+          "bin": 4,
+          "count": 90,
+          "accuracy": 0.45555555555555555,
+          "mean_max_probability": 0.4621111111111111
+        },
+        {
+          "bin": 5,
+          "count": 588,
+          "accuracy": 0.47619047619047616,
+          "mean_max_probability": 0.5452891156462585
+        },
+        {
+          "bin": 6,
+          "count": 562,
+          "accuracy": 0.597864768683274,
+          "mean_max_probability": 0.6458896797153025
+        },
+        {
+          "bin": 7,
+          "count": 623,
+          "accuracy": 0.7303370786516854,
+          "mean_max_probability": 0.7448635634028892
+        },
+        {
+          "bin": 8,
+          "count": 740,
+          "accuracy": 0.8094594594594594,
+          "mean_max_probability": 0.8478378378378378
+        },
+        {
+          "bin": 9,
+          "count": 3559,
+          "accuracy": 0.9592582186007306,
+          "mean_max_probability": 0.9783759483000842
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 6174,
+          "coverage": 1.0,
+          "error_rate": 0.1690962099125365
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 6072,
+          "coverage": 0.9834791059280855,
+          "error_rate": 0.16271409749670618
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 4299,
+          "coverage": 0.6963070942662779,
+          "error_rate": 0.06652709932542455
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 3559,
+          "coverage": 0.5764496274700356,
+          "error_rate": 0.04074178139926943
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 3020,
+          "coverage": 0.4891480401684483,
+          "error_rate": 0.02847682119205297
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 5130
+    },
+    "noul": {
+      "count": 3089,
+      "accuracy": 0.9365490449983813,
+      "nll": 0.19173765812284949,
+      "brier_sum": 0.10161256069925542,
+      "ece_10_bins": 0.05779216574943356,
+      "reliability_bins": [
+        {
+          "bin": 5,
+          "count": 151,
+          "accuracy": 0.5695364238410596,
+          "mean_max_probability": 0.5470860927152319
+        },
+        {
+          "bin": 6,
+          "count": 197,
+          "accuracy": 0.7258883248730964,
+          "mean_max_probability": 0.651725888324873
+        },
+        {
+          "bin": 7,
+          "count": 224,
+          "accuracy": 0.8169642857142857,
+          "mean_max_probability": 0.7454910714285715
+        },
+        {
+          "bin": 8,
+          "count": 506,
+          "accuracy": 0.9486166007905138,
+          "mean_max_probability": 0.8520750988142292
+        },
+        {
+          "bin": 9,
+          "count": 2011,
+          "accuracy": 0.9950273495773247,
+          "mean_max_probability": 0.9474589756340128
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 3089,
+          "coverage": 1.0,
+          "error_rate": 0.06345095500161868
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 3089,
+          "coverage": 1.0,
+          "error_rate": 0.06345095500161868
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 2517,
+          "coverage": 0.8148268047911945,
+          "error_rate": 0.014302741358760418
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 2011,
+          "coverage": 0.6510197474910975,
+          "error_rate": 0.004972650422675251
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 1194,
+          "coverage": 0.3865328585302687,
+          "error_rate": 0.0
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 2893
+    },
+    "score": {
+      "count": 4925,
+      "accuracy": 0.4436548223350254,
+      "nll": 2.277175679070865,
+      "brier_sum": 0.7389546802030457,
+      "ece_10_bins": 0.19636954314720811,
+      "reliability_bins": [
+        {
+          "bin": 2,
+          "count": 10,
+          "accuracy": 0.2,
+          "mean_max_probability": 0.27
+        },
+        {
+          "bin": 3,
+          "count": 155,
+          "accuracy": 0.23870967741935484,
+          "mean_max_probability": 0.3618709677419355
+        },
+        {
+          "bin": 4,
+          "count": 604,
+          "accuracy": 0.35927152317880795,
+          "mean_max_probability": 0.45690397350993384
+        },
+        {
+          "bin": 5,
+          "count": 1293,
+          "accuracy": 0.43464810518174785,
+          "mean_max_probability": 0.5445630317092033
+        },
+        {
+          "bin": 6,
+          "count": 1287,
+          "accuracy": 0.47241647241647244,
+          "mean_max_probability": 0.6417482517482518
+        },
+        {
+          "bin": 7,
+          "count": 828,
+          "accuracy": 0.47342995169082125,
+          "mean_max_probability": 0.7416545893719807
+        },
+        {
+          "bin": 8,
+          "count": 377,
+          "accuracy": 0.4880636604774536,
+          "mean_max_probability": 0.8396286472148542
+        },
+        {
+          "bin": 9,
+          "count": 371,
+          "accuracy": 0.49326145552560646,
+          "mean_max_probability": 0.9614016172506737
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 4925,
+          "coverage": 1.0,
+          "error_rate": 0.5563451776649746
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 4156,
+          "coverage": 0.8438578680203046,
+          "error_rate": 0.535851780558229
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 748,
+          "coverage": 0.1518781725888325,
+          "error_rate": 0.5093582887700534
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 371,
+          "coverage": 0.07532994923857868,
+          "error_rate": 0.5067385444743935
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 246,
+          "coverage": 0.0499492385786802,
+          "error_rate": 0.47560975609756095
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 2185,
+      "ordinal": {
+        "count": 4925,
+        "expected_absolute_error": 0.6873725888324873,
+        "expected_bias": -0.19956751269035533,
+        "argmax_absolute_error": 0.6826395939086295,
+        "ranked_probability_score": 0.49395652791878175,
+        "normalized_expected_absolute_error": 0.17184314720812183,
+        "normalized_ranked_probability_score": 0.12348913197969544,
+        "expected_rmse": 0.8840858653201527,
+        "by_level_count": {
+          "5": {
+            "count": 4925,
+            "expected_absolute_error": 0.6873725888324873,
+            "expected_bias": -0.19956751269035533,
+            "argmax_absolute_error": 0.6826395939086295,
+            "ranked_probability_score": 0.49395652791878175,
+            "normalized_expected_absolute_error": 0.17184314720812183,
+            "normalized_ranked_probability_score": 0.12348913197969544,
+            "expected_rmse": 0.8840858653201527
+          }
+        },
+        "interpretation": "Descriptive ordinal metrics in equally spaced caller positions; expected-value errors do not assess the full distribution. RPS is unnormalized; normalized RPS divides each row by K-1. No human-uncertainty calibration claim."
+      }
+    }
+  },
+  "adjusted_jev": {
+    "count": 14286,
+    "accuracy": 0.7175556488870223,
+    "nll": 1.417929987419675,
+    "brier_sum": 0.385013240018436,
+    "ece_10_bins": 0.06880173002600551,
+    "reliability_bins": [
+      {
+        "bin": 2,
+        "count": 10,
+        "accuracy": 0.2,
+        "mean_max_probability": 0.27
+      },
+      {
+        "bin": 3,
+        "count": 168,
+        "accuracy": 0.25595238095238093,
+        "mean_max_probability": 0.3624013949013949
+      },
+      {
+        "bin": 4,
+        "count": 696,
+        "accuracy": 0.37212643678160917,
+        "mean_max_probability": 0.4576140717520028
+      },
+      {
+        "bin": 5,
+        "count": 2081,
+        "accuracy": 0.4541086016338299,
+        "mean_max_probability": 0.5452198098233657
+      },
+      {
+        "bin": 6,
+        "count": 2066,
+        "accuracy": 0.5304937076476283,
+        "mean_max_probability": 0.6441994485024495
+      },
+      {
+        "bin": 7,
+        "count": 1675,
+        "accuracy": 0.6149253731343284,
+        "mean_max_probability": 0.7433611940298507
+      },
+      {
+        "bin": 8,
+        "count": 1642,
+        "accuracy": 0.7740560292326432,
+        "mean_max_probability": 0.8468541074570307
+      },
+      {
+        "bin": 9,
+        "count": 5948,
+        "accuracy": 0.9423335574983187,
+        "mean_max_probability": 0.9668183856045321
+      }
+    ],
+    "risk_coverage": [
+      {
+        "threshold": 0.0,
+        "accepted": 14286,
+        "coverage": 1.0,
+        "error_rate": 0.2824443511129777
+      },
+      {
+        "threshold": 0.5,
+        "accepted": 13412,
+        "coverage": 0.9388212235755284,
+        "error_rate": 0.2583507306889353
+      },
+      {
+        "threshold": 0.8,
+        "accepted": 7590,
+        "coverage": 0.5312893742125158,
+        "error_rate": 0.0940711462450593
+      },
+      {
+        "threshold": 0.9,
+        "accepted": 5948,
+        "coverage": 0.4163516729665407,
+        "error_rate": 0.05766644250168129
+      },
+      {
+        "threshold": 0.95,
+        "accepted": 4460,
+        "coverage": 0.3121937561248775,
+        "error_rate": 0.045515695067264605
+      }
+    ],
+    "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+    "correct": 10251
+  },
+  "adjusted_jev_slices": {
+    "choice": {
+      "count": 6197,
+      "accuracy": 0.8307245441342586,
+      "nll": 1.33835595124618,
+      "brier_sum": 0.23933770010624694,
+      "ece_10_bins": 0.028082584763236766,
+      "reliability_bins": [
+        {
+          "bin": 3,
+          "count": 12,
+          "accuracy": 0.4166666666666667,
+          "mean_max_probability": 0.37083333333333335
+        },
+        {
+          "bin": 4,
+          "count": 90,
+          "accuracy": 0.45555555555555555,
+          "mean_max_probability": 0.4621111111111111
+        },
+        {
+          "bin": 5,
+          "count": 593,
+          "accuracy": 0.47892074198988194,
+          "mean_max_probability": 0.5453756792205359
+        },
+        {
+          "bin": 6,
+          "count": 565,
+          "accuracy": 0.6,
+          "mean_max_probability": 0.6460536336819522
+        },
+        {
+          "bin": 7,
+          "count": 623,
+          "accuracy": 0.7303370786516854,
+          "mean_max_probability": 0.7448635634028892
+        },
+        {
+          "bin": 8,
+          "count": 749,
+          "accuracy": 0.8064085447263017,
+          "mean_max_probability": 0.8474410324877615
+        },
+        {
+          "bin": 9,
+          "count": 3565,
+          "accuracy": 0.9593267882187938,
+          "mean_max_probability": 0.9783103404309577
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 6197,
+          "coverage": 1.0,
+          "error_rate": 0.16927545586574144
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 6095,
+          "coverage": 0.9835404227852187,
+          "error_rate": 0.16292042657916328
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 4314,
+          "coverage": 0.696143295142811,
+          "error_rate": 0.06722299490032457
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 3565,
+          "coverage": 0.5752783604970146,
+          "error_rate": 0.0406732117812062
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 3020,
+          "coverage": 0.487332580280781,
+          "error_rate": 0.02847682119205297
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 5148
+    },
+    "noul": {
+      "count": 3089,
+      "accuracy": 0.9365490449983813,
+      "nll": 0.19173765812284949,
+      "brier_sum": 0.10161256069925542,
+      "ece_10_bins": 0.05779216574943356,
+      "reliability_bins": [
+        {
+          "bin": 5,
+          "count": 151,
+          "accuracy": 0.5695364238410596,
+          "mean_max_probability": 0.5470860927152319
+        },
+        {
+          "bin": 6,
+          "count": 197,
+          "accuracy": 0.7258883248730964,
+          "mean_max_probability": 0.651725888324873
+        },
+        {
+          "bin": 7,
+          "count": 224,
+          "accuracy": 0.8169642857142857,
+          "mean_max_probability": 0.7454910714285715
+        },
+        {
+          "bin": 8,
+          "count": 506,
+          "accuracy": 0.9486166007905138,
+          "mean_max_probability": 0.8520750988142292
+        },
+        {
+          "bin": 9,
+          "count": 2011,
+          "accuracy": 0.9950273495773247,
+          "mean_max_probability": 0.9474589756340128
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 3089,
+          "coverage": 1.0,
+          "error_rate": 0.06345095500161868
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 3089,
+          "coverage": 1.0,
+          "error_rate": 0.06345095500161868
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 2517,
+          "coverage": 0.8148268047911945,
+          "error_rate": 0.014302741358760418
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 2011,
+          "coverage": 0.6510197474910975,
+          "error_rate": 0.004972650422675251
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 1194,
+          "coverage": 0.3865328585302687,
+          "error_rate": 0.0
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 2893
+    },
+    "score": {
+      "count": 5000,
+      "accuracy": 0.442,
+      "nll": 2.2740956688926834,
+      "brier_sum": 0.740648443868993,
+      "ece_10_bins": 0.1976987474747475,
+      "reliability_bins": [
+        {
+          "bin": 2,
+          "count": 10,
+          "accuracy": 0.2,
+          "mean_max_probability": 0.27
+        },
+        {
+          "bin": 3,
+          "count": 156,
+          "accuracy": 0.24358974358974358,
+          "mean_max_probability": 0.36175278425278423
+        },
+        {
+          "bin": 4,
+          "count": 606,
+          "accuracy": 0.35973597359735976,
+          "mean_max_probability": 0.456946194619462
+        },
+        {
+          "bin": 5,
+          "count": 1337,
+          "accuracy": 0.4300673148840688,
+          "mean_max_probability": 0.5449399001231463
+        },
+        {
+          "bin": 6,
+          "count": 1304,
+          "accuracy": 0.4708588957055215,
+          "mean_max_probability": 0.6422590165458264
+        },
+        {
+          "bin": 7,
+          "count": 828,
+          "accuracy": 0.47342995169082125,
+          "mean_max_probability": 0.7416545893719807
+        },
+        {
+          "bin": 8,
+          "count": 387,
+          "accuracy": 0.48320413436692505,
+          "mean_max_probability": 0.8388917599770311
+        },
+        {
+          "bin": 9,
+          "count": 372,
+          "accuracy": 0.4946236559139785,
+          "mean_max_probability": 0.9613424568263278
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 5000,
+          "coverage": 1.0,
+          "error_rate": 0.558
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 4228,
+          "coverage": 0.8456,
+          "error_rate": 0.5383159886471145
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 759,
+          "coverage": 0.1518,
+          "error_rate": 0.5111989459815547
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 372,
+          "coverage": 0.0744,
+          "error_rate": 0.5053763440860215
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 246,
+          "coverage": 0.0492,
+          "error_rate": 0.47560975609756095
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 2210,
+      "ordinal": {
+        "count": 5000,
+        "expected_absolute_error": 0.6894236161616162,
+        "expected_bias": -0.201763898989899,
+        "argmax_absolute_error": 0.6856,
+        "ranked_probability_score": 0.49561447925517804,
+        "normalized_expected_absolute_error": 0.17235590404040405,
+        "normalized_ranked_probability_score": 0.12390361981379451,
+        "expected_rmse": 0.8859047442969015,
+        "by_level_count": {
+          "5": {
+            "count": 5000,
+            "expected_absolute_error": 0.6894236161616162,
+            "expected_bias": -0.201763898989899,
+            "argmax_absolute_error": 0.6856,
+            "ranked_probability_score": 0.49561447925517804,
+            "normalized_expected_absolute_error": 0.17235590404040405,
+            "normalized_ranked_probability_score": 0.12390361981379451,
+            "expected_rmse": 0.8859047442969015
+          }
+        },
+        "interpretation": "Descriptive ordinal metrics in equally spaced caller positions; expected-value errors do not assess the full distribution. RPS is unnormalized; normalized RPS divides each row by K-1. No human-uncertainty calibration claim."
+      }
+    }
+  },
+  "vej_all": {
+    "count": 14286,
+    "accuracy": 0.7659946801063978,
+    "nll": 0.5894483407049975,
+    "brier_sum": 0.31387025473503055,
+    "ece_10_bins": 0.053473467181865325,
+    "reliability_bins": [
+      {
+        "bin": 2,
+        "count": 7,
+        "accuracy": 0.2857142857142857,
+        "mean_max_probability": 0.2725972922273933
+      },
+      {
+        "bin": 3,
+        "count": 241,
+        "accuracy": 0.3651452282157676,
+        "mean_max_probability": 0.3674792372676734
+      },
+      {
+        "bin": 4,
+        "count": 1339,
+        "accuracy": 0.4294249439880508,
+        "mean_max_probability": 0.45752066841845407
+      },
+      {
+        "bin": 5,
+        "count": 2115,
+        "accuracy": 0.51725768321513,
+        "mean_max_probability": 0.5518159740115031
+      },
+      {
+        "bin": 6,
+        "count": 1506,
+        "accuracy": 0.5816733067729084,
+        "mean_max_probability": 0.6394918015812056
+      },
+      {
+        "bin": 7,
+        "count": 366,
+        "accuracy": 0.5573770491803278,
+        "mean_max_probability": 0.7457538270615386
+      },
+      {
+        "bin": 8,
+        "count": 358,
+        "accuracy": 0.5921787709497207,
+        "mean_max_probability": 0.8515995802810609
+      },
+      {
+        "bin": 9,
+        "count": 8354,
+        "accuracy": 0.9446971510653579,
+        "mean_max_probability": 0.9930169348038225
+      }
+    ],
+    "risk_coverage": [
+      {
+        "threshold": 0.0,
+        "accepted": 14286,
+        "coverage": 1.0,
+        "error_rate": 0.23400531989360218
+      },
+      {
+        "threshold": 0.5,
+        "accepted": 12699,
+        "coverage": 0.8889122217555648,
+        "error_rate": 0.1906449326718639
+      },
+      {
+        "threshold": 0.8,
+        "accepted": 8712,
+        "coverage": 0.6098278034439312,
+        "error_rate": 0.0697887970615243
+      },
+      {
+        "threshold": 0.9,
+        "accepted": 8354,
+        "coverage": 0.5847683046339073,
+        "error_rate": 0.0553028489346421
+      },
+      {
+        "threshold": 0.95,
+        "accepted": 8003,
+        "coverage": 0.5601987960240795,
+        "error_rate": 0.043858553042608994
+      }
+    ],
+    "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+    "correct": 10943
+  },
+  "vej_all_slices": {
+    "choice": {
+      "count": 6197,
+      "accuracy": 0.8922059060835889,
+      "nll": 0.37101588472460073,
+      "brier_sum": 0.1719885924663805,
+      "ece_10_bins": 0.0731721460215361,
+      "reliability_bins": [
+        {
+          "bin": 3,
+          "count": 1,
+          "accuracy": 0.0,
+          "mean_max_probability": 0.3505654397036418
+        },
+        {
+          "bin": 4,
+          "count": 12,
+          "accuracy": 0.25,
+          "mean_max_probability": 0.4683549850883199
+        },
+        {
+          "bin": 5,
+          "count": 120,
+          "accuracy": 0.39166666666666666,
+          "mean_max_probability": 0.5517401164888317
+        },
+        {
+          "bin": 6,
+          "count": 104,
+          "accuracy": 0.4519230769230769,
+          "mean_max_probability": 0.6557691599995678
+        },
+        {
+          "bin": 7,
+          "count": 191,
+          "accuracy": 0.5235602094240838,
+          "mean_max_probability": 0.7514610573942577
+        },
+        {
+          "bin": 8,
+          "count": 225,
+          "accuracy": 0.56,
+          "mean_max_probability": 0.8543982059518627
+        },
+        {
+          "bin": 9,
+          "count": 5544,
+          "accuracy": 0.939033189033189,
+          "mean_max_probability": 0.9931997652804128
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 6197,
+          "coverage": 1.0,
+          "error_rate": 0.10779409391641115
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 6184,
+          "coverage": 0.9979022107471357,
+          "error_rate": 0.10640362225097022
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 5769,
+          "coverage": 0.9309343230595449,
+          "error_rate": 0.0757496966545328
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 5544,
+          "coverage": 0.894626432144586,
+          "error_rate": 0.060966810966811
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 5327,
+          "coverage": 0.8596094884621591,
+          "error_rate": 0.048995682372817706
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 5529
+    },
+    "noul": {
+      "count": 3089,
+      "accuracy": 0.917125283263192,
+      "nll": 0.2486563198013254,
+      "brier_sum": 0.12786965343977844,
+      "ece_10_bins": 0.05082853824249238,
+      "reliability_bins": [
+        {
+          "bin": 5,
+          "count": 45,
+          "accuracy": 0.35555555555555557,
+          "mean_max_probability": 0.549129686702675
+        },
+        {
+          "bin": 6,
+          "count": 66,
+          "accuracy": 0.5303030303030303,
+          "mean_max_probability": 0.6457701658596008
+        },
+        {
+          "bin": 7,
+          "count": 77,
+          "accuracy": 0.5584415584415584,
+          "mean_max_probability": 0.7539954796948108
+        },
+        {
+          "bin": 8,
+          "count": 112,
+          "accuracy": 0.6339285714285714,
+          "mean_max_probability": 0.8470282667607371
+        },
+        {
+          "bin": 9,
+          "count": 2789,
+          "accuracy": 0.9566152742918609,
+          "mean_max_probability": 0.9930989135779856
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 3089,
+          "coverage": 1.0,
+          "error_rate": 0.08287471673680802
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 3089,
+          "coverage": 1.0,
+          "error_rate": 0.08287471673680802
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 2901,
+          "coverage": 0.9391388798964067,
+          "error_rate": 0.05584281282316439
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 2789,
+          "coverage": 0.9028811913240531,
+          "error_rate": 0.043384725708139116
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 2670,
+          "coverage": 0.8643573972159275,
+          "error_rate": 0.0337078651685393
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 2833
+    },
+    "score": {
+      "count": 5000,
+      "accuracy": 0.5162,
+      "nll": 1.07071483716139,
+      "brier_sum": 0.6046295584310023,
+      "ece_10_bins": 0.03069296172672206,
+      "reliability_bins": [
+        {
+          "bin": 2,
+          "count": 7,
+          "accuracy": 0.2857142857142857,
+          "mean_max_probability": 0.2725972922273933
+        },
+        {
+          "bin": 3,
+          "count": 240,
+          "accuracy": 0.36666666666666664,
+          "mean_max_probability": 0.3675497114241902
+        },
+        {
+          "bin": 4,
+          "count": 1327,
+          "accuracy": 0.4310474755086662,
+          "mean_max_probability": 0.4574226941908441
+        },
+        {
+          "bin": 5,
+          "count": 1950,
+          "accuracy": 0.5287179487179487,
+          "mean_max_probability": 0.5518826334123328
+        },
+        {
+          "bin": 6,
+          "count": 1336,
+          "accuracy": 0.594311377245509,
+          "mean_max_probability": 0.6379145431097357
+        },
+        {
+          "bin": 7,
+          "count": 98,
+          "accuracy": 0.6224489795918368,
+          "mean_max_probability": 0.7281549674053006
+        },
+        {
+          "bin": 8,
+          "count": 21,
+          "accuracy": 0.7142857142857143,
+          "mean_max_probability": 0.8459946440118157
+        },
+        {
+          "bin": 9,
+          "count": 21,
+          "accuracy": 0.8571428571428571,
+          "mean_max_probability": 0.9338621270249006
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 5000,
+          "coverage": 1.0,
+          "error_rate": 0.4838
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 3426,
+          "coverage": 0.6852,
+          "error_rate": 0.43987157034442503
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 42,
+          "coverage": 0.0084,
+          "error_rate": 0.2142857142857143
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 21,
+          "coverage": 0.0042,
+          "error_rate": 0.1428571428571429
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 6,
+          "coverage": 0.0012,
+          "error_rate": 0.0
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 2581,
+      "ordinal": {
+        "count": 5000,
+        "expected_absolute_error": 0.5670838585821613,
+        "expected_bias": 0.0072900254442653705,
+        "argmax_absolute_error": 0.5292,
+        "ranked_probability_score": 0.3731269514952828,
+        "normalized_expected_absolute_error": 0.14177096464554031,
+        "normalized_ranked_probability_score": 0.0932817378738207,
+        "expected_rmse": 0.7283503988833988,
+        "by_level_count": {
+          "5": {
+            "count": 5000,
+            "expected_absolute_error": 0.5670838585821613,
+            "expected_bias": 0.0072900254442653705,
+            "argmax_absolute_error": 0.5292,
+            "ranked_probability_score": 0.3731269514952828,
+            "normalized_expected_absolute_error": 0.14177096464554031,
+            "normalized_ranked_probability_score": 0.0932817378738207,
+            "expected_rmse": 0.7283503988833988
+          }
+        },
+        "interpretation": "Descriptive ordinal metrics in equally spaced caller positions; expected-value errors do not assess the full distribution. RPS is unnormalized; normalized RPS divides each row by K-1. No human-uncertainty calibration claim."
+      }
+    }
+  },
+  "vej_on_strict_jev_subset": {
+    "count": 14188,
+    "accuracy": 0.7680434169720891,
+    "nll": 0.5847834826563139,
+    "brier_sum": 0.311267906246466,
+    "ece_10_bins": 0.052838811232459704,
+    "reliability_bins": [
+      {
+        "bin": 2,
+        "count": 7,
+        "accuracy": 0.2857142857142857,
+        "mean_max_probability": 0.2725972922273933
+      },
+      {
+        "bin": 3,
+        "count": 237,
+        "accuracy": 0.3670886075949367,
+        "mean_max_probability": 0.36741245280076856
+      },
+      {
+        "bin": 4,
+        "count": 1311,
+        "accuracy": 0.4302059496567506,
+        "mean_max_probability": 0.4574902082759912
+      },
+      {
+        "bin": 5,
+        "count": 2089,
+        "accuracy": 0.517951172809957,
+        "mean_max_probability": 0.5516753348849185
+      },
+      {
+        "bin": 6,
+        "count": 1485,
+        "accuracy": 0.5824915824915825,
+        "mean_max_probability": 0.6394934396774365
+      },
+      {
+        "bin": 7,
+        "count": 363,
+        "accuracy": 0.559228650137741,
+        "mean_max_probability": 0.7457552318581678
+      },
+      {
+        "bin": 8,
+        "count": 358,
+        "accuracy": 0.5921787709497207,
+        "mean_max_probability": 0.8515995802810609
+      },
+      {
+        "bin": 9,
+        "count": 8338,
+        "accuracy": 0.9453106260494123,
+        "mean_max_probability": 0.9930510301088271
+      }
+    ],
+    "risk_coverage": [
+      {
+        "threshold": 0.0,
+        "accepted": 14188,
+        "coverage": 1.0,
+        "error_rate": 0.2319565830279109
+      },
+      {
+        "threshold": 0.5,
+        "accepted": 12633,
+        "coverage": 0.8904003383140682,
+        "error_rate": 0.1891078920288134
+      },
+      {
+        "threshold": 0.8,
+        "accepted": 8696,
+        "coverage": 0.6129123202706512,
+        "error_rate": 0.06922723091076355
+      },
+      {
+        "threshold": 0.9,
+        "accepted": 8338,
+        "coverage": 0.5876797293487455,
+        "error_rate": 0.054689373950587705
+      },
+      {
+        "threshold": 0.95,
+        "accepted": 7991,
+        "coverage": 0.563222441499859,
+        "error_rate": 0.04354899261669376
+      }
+    ],
+    "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+    "correct": 10897
+  },
+  "vej_on_strict_jev_subset_slices": {
+    "choice": {
+      "count": 6174,
+      "accuracy": 0.8934240362811792,
+      "nll": 0.36763141044694914,
+      "brier_sum": 0.17009338374047492,
+      "ece_10_bins": 0.07226219502432753,
+      "reliability_bins": [
+        {
+          "bin": 3,
+          "count": 1,
+          "accuracy": 0.0,
+          "mean_max_probability": 0.3505654397036418
+        },
+        {
+          "bin": 4,
+          "count": 12,
+          "accuracy": 0.25,
+          "mean_max_probability": 0.4683549850883199
+        },
+        {
+          "bin": 5,
+          "count": 119,
+          "accuracy": 0.3949579831932773,
+          "mean_max_probability": 0.551376012353663
+        },
+        {
+          "bin": 6,
+          "count": 101,
+          "accuracy": 0.44554455445544555,
+          "mean_max_probability": 0.6567801997723757
+        },
+        {
+          "bin": 7,
+          "count": 188,
+          "accuracy": 0.526595744680851,
+          "mean_max_probability": 0.7515548426717822
+        },
+        {
+          "bin": 8,
+          "count": 225,
+          "accuracy": 0.56,
+          "mean_max_probability": 0.8543982059518627
+        },
+        {
+          "bin": 9,
+          "count": 5528,
+          "accuracy": 0.9399421128798843,
+          "mean_max_probability": 0.9932517211307661
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 6174,
+          "coverage": 1.0,
+          "error_rate": 0.10657596371882083
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 6161,
+          "coverage": 0.9978943958535795,
+          "error_rate": 0.10517773088784288
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 5753,
+          "coverage": 0.9318108195659216,
+          "error_rate": 0.07491743438206155
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 5528,
+          "coverage": 0.8953676708778749,
+          "error_rate": 0.06005788712011573
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 5315,
+          "coverage": 0.8608681567865242,
+          "error_rate": 0.048541862652869194
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 5516
+    },
+    "noul": {
+      "count": 3089,
+      "accuracy": 0.917125283263192,
+      "nll": 0.2486563198013254,
+      "brier_sum": 0.12786965343977844,
+      "ece_10_bins": 0.05082853824249238,
+      "reliability_bins": [
+        {
+          "bin": 5,
+          "count": 45,
+          "accuracy": 0.35555555555555557,
+          "mean_max_probability": 0.549129686702675
+        },
+        {
+          "bin": 6,
+          "count": 66,
+          "accuracy": 0.5303030303030303,
+          "mean_max_probability": 0.6457701658596008
+        },
+        {
+          "bin": 7,
+          "count": 77,
+          "accuracy": 0.5584415584415584,
+          "mean_max_probability": 0.7539954796948108
+        },
+        {
+          "bin": 8,
+          "count": 112,
+          "accuracy": 0.6339285714285714,
+          "mean_max_probability": 0.8470282667607371
+        },
+        {
+          "bin": 9,
+          "count": 2789,
+          "accuracy": 0.9566152742918609,
+          "mean_max_probability": 0.9930989135779856
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 3089,
+          "coverage": 1.0,
+          "error_rate": 0.08287471673680802
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 3089,
+          "coverage": 1.0,
+          "error_rate": 0.08287471673680802
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 2901,
+          "coverage": 0.9391388798964067,
+          "error_rate": 0.05584281282316439
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 2789,
+          "coverage": 0.9028811913240531,
+          "error_rate": 0.043384725708139116
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 2670,
+          "coverage": 0.8643573972159275,
+          "error_rate": 0.0337078651685393
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 2833
+    },
+    "score": {
+      "count": 4925,
+      "accuracy": 0.5173604060913706,
+      "nll": 1.0678278887232535,
+      "brier_sum": 0.603273734646841,
+      "ece_10_bins": 0.029861631534360004,
+      "reliability_bins": [
+        {
+          "bin": 2,
+          "count": 7,
+          "accuracy": 0.2857142857142857,
+          "mean_max_probability": 0.2725972922273933
+        },
+        {
+          "bin": 3,
+          "count": 236,
+          "accuracy": 0.3686440677966102,
+          "mean_max_probability": 0.36748383844948523
+        },
+        {
+          "bin": 4,
+          "count": 1299,
+          "accuracy": 0.43187066974595845,
+          "mean_max_probability": 0.4573898408227595
+        },
+        {
+          "bin": 5,
+          "count": 1925,
+          "accuracy": 0.5293506493506493,
+          "mean_max_probability": 0.5517533471183836
+        },
+        {
+          "bin": 6,
+          "count": 1318,
+          "accuracy": 0.5955993930197269,
+          "mean_max_probability": 0.6378544209387327
+        },
+        {
+          "bin": 7,
+          "count": 98,
+          "accuracy": 0.6224489795918368,
+          "mean_max_probability": 0.7281549674053006
+        },
+        {
+          "bin": 8,
+          "count": 21,
+          "accuracy": 0.7142857142857143,
+          "mean_max_probability": 0.8459946440118157
+        },
+        {
+          "bin": 9,
+          "count": 21,
+          "accuracy": 0.8571428571428571,
+          "mean_max_probability": 0.9338621270249006
+        }
+      ],
+      "risk_coverage": [
+        {
+          "threshold": 0.0,
+          "accepted": 4925,
+          "coverage": 1.0,
+          "error_rate": 0.4826395939086294
+        },
+        {
+          "threshold": 0.5,
+          "accepted": 3383,
+          "coverage": 0.6869035532994924,
+          "error_rate": 0.43895950339934964
+        },
+        {
+          "threshold": 0.8,
+          "accepted": 42,
+          "coverage": 0.008527918781725888,
+          "error_rate": 0.2142857142857143
+        },
+        {
+          "threshold": 0.9,
+          "accepted": 21,
+          "coverage": 0.004263959390862944,
+          "error_rate": 0.1428571428571429
+        },
+        {
+          "threshold": 0.95,
+          "accepted": 6,
+          "coverage": 0.001218274111675127,
+          "error_rate": 0.0
+        }
+      ],
+      "interpretation": "Descriptive sample metrics; no population calibration guarantee",
+      "correct": 2548,
+      "ordinal": {
+        "count": 4925,
+        "expected_absolute_error": 0.5657240327508062,
+        "expected_bias": 0.0071580254484740116,
+        "argmax_absolute_error": 0.5279187817258884,
+        "ranked_probability_score": 0.37198150556285414,
+        "normalized_expected_absolute_error": 0.14143100818770155,
+        "normalized_ranked_probability_score": 0.09299537639071354,
+        "expected_rmse": 0.7269542910078581,
+        "by_level_count": {
+          "5": {
+            "count": 4925,
+            "expected_absolute_error": 0.5657240327508062,
+            "expected_bias": 0.0071580254484740116,
+            "argmax_absolute_error": 0.5279187817258884,
+            "ranked_probability_score": 0.37198150556285414,
+            "normalized_expected_absolute_error": 0.14143100818770155,
+            "normalized_ranked_probability_score": 0.09299537639071354,
+            "expected_rmse": 0.7269542910078581
+          }
+        },
+        "interpretation": "Descriptive ordinal metrics in equally spaced caller positions; expected-value errors do not assess the full distribution. RPS is unnormalized; normalized RPS divides each row by K-1. No human-uncertainty calibration claim."
+      }
+    }
+  },
+  "counts_by_type": {
+    "choice": {
+      "strict_valid": 6174,
+      "adjusted": 23
+    },
+    "noul": {
+      "strict_valid": 3089
+    },
+    "score": {
+      "strict_valid": 4925,
+      "adjusted": 75
+    }
+  },
+  "model": "jev-1.13",
+  "collection_completed_at": "2026-09-24T10:40:16.347746+00:00",
+  "analysis_date": "2026-09-27",
+  "rounding_rule": {
+    "status": "post-launch arithmetic supplement, not predeclared primary result",
+    "rule": "All other contract checks retained; complete finite map in [0,1], positive total, every value within 1e-12 of a two-decimal value, abs(total-1)<=K*0.005+1e-12. Divide eligible strict failures by observed total; leave strict-valid maps unchanged.",
+    "ties": "first candidate in original order",
+    "raw_responses_modified": false
+  },
+  "integrity": {
+    "raw_record_count": 14286,
+    "raw_records_unchanged": true,
+    "raw_record_set_sha256": "bb592ec995232f8c0fa0ef5b9dafd9a46fcf78d24b210577952fbb26ad1a27fc",
+    "raw_record_set_hash_definition": "SHA256 of UTF-8 sorted filename + TAB + SHA256(file bytes) + LF for all raw record JSON files",
+    "source_file_hashes_match_frozen_manifest": true,
+    "report_recomputation_tolerance": {
+      "relative": 1e-12,
+      "absolute": 1e-12
+    },
+    "source_artifacts_unchanged": true,
+    "analysis_script_sha256": "9871086e4e042c32948fe35983f7f144391b05b9a1cbf209a9de91776a7c5263",
+    "report_sha256": "50b949e482fc650aff76b3070827e98f35f2f87ad08fd89cbbe8073d8c46d248",
+    "vej_report_sha256": "6b7f4cbb0b41566a384a12a50b944ca438e06290b991bfda54f8e00f393f657c"
+  }
+}

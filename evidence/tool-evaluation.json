@@ -1,0 +1,27 @@
+{
+  "status": "complete",
+  "scope": "Reused development workflow diagnostics, not final-test decisions",
+  "source_revision": "b14a36f8b1934762efb171a24fd27bec307f8cba",
+  "report_sha256": "95e0c3a71fcef76fc4e181178bd6217b5335f697ce3e4a86f56f8aa77c2bff67",
+  "weights_sha256": "b99188eedcbc6e1faab966ed2c827025b29360157298d0cc86e53a103d73bf96",
+  "results": {
+    "original": {
+      "count": 12,
+      "exact_accuracy": 0.3333333333333333,
+      "ready_count": 7,
+      "ready_coverage": 0.5833333333333334,
+      "wrong_ready_count": 3,
+      "wrong_ready_rate": 0.42857142857142855,
+      "note": "Dry-run only. Ready is a prediction, not authorization to execute a tool."
+    },
+    "reviewed_v2": {
+      "count": 48,
+      "exact_accuracy": 0.625,
+      "ready_count": 31,
+      "ready_coverage": 0.6458333333333334,
+      "wrong_ready_count": 9,
+      "wrong_ready_rate": 0.2903225806451613,
+      "note": "Dry-run only. Ready is a prediction, not authorization to execute a tool."
+    }
+  }
+}

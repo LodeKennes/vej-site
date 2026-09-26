@@ -1,0 +1,15 @@
+Vej Qwen 2B alpha2
+Vej authors, 2026
+
+This distribution modifies the Qwen/Qwen3.5-2B model by extracting its text
+backbone, adding native decision LoRA parameters and a scalar head, and training
+on native decision supervision. The vision tower and vocabulary output head are
+not part of the native checkpoint. Original model publisher: Qwen Team.
+Base revision: 15852e8c16360a2fea060d615a32b45270f8a8fc
+Source: https://huggingface.co/Qwen/Qwen3.5-2B
+Original license: Apache License 2.0, reproduced in QWEN_LICENSE.
+
+Training sources retain their own licenses and attributions in DATA_SOURCES.md.
+Raw training and test texts are not distributed in this model package.
+The source archive contains third-party skills with their own pinned license
+notices; the Vej Apache license does not supersede those notices.
