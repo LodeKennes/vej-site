@@ -138,7 +138,7 @@
               The data behind <br /><span class="green">the decisions.</span>
             </h1>
             <p class="lead">
-              How Vej was trained, what it was tested on, how it compares with Jev, and where it falls short. The aggregate files behind every number are on this site.
+              How Vej was trained, what it was tested on, how it compares with Jev, and where it falls short. We kept the receipts.
             </p>
           </div>
           <div class="specimen" aria-hidden="true">
@@ -331,13 +331,13 @@
             </p>
             <ol>
               <li>
-                <strong>Public pilot.</strong> 4,096 training and 256 development decisions; two epochs, 512 updates, selected at step 256.
+                <strong>Public pilot.</strong> 4,096 training and 256 development decisions. Two epochs, 512 updates, selected at step 256.
               </li>
               <li>
-                <strong>Expanded training.</strong> 32,768 training and 2,048 development decisions; two epochs, selected at step 1,280 with validation NLL 0.636590.
+                <strong>Expanded training.</strong> 32,768 training and 2,048 development decisions. Two epochs, selected at step 1,280 with validation NLL 0.636590.
               </li>
               <li>
-                <strong>First 100k stage.</strong> 100,002 training and 28,572 validation decisions. An unexpected system reboot interrupted training; the saved selected checkpoint was step 1,024 with validation NLL 0.492022.
+                <strong>First 100k stage.</strong> 100,002 training and 28,572 validation decisions. An unexpected system reboot interrupted training. The saved selected checkpoint was step 1,024 with validation NLL 0.492022.
               </li>
               <li>
                 <strong>Recovery stage.</strong> Initialized with a fresh optimizer state, seed 43, across one shuffled epoch of the same corpus (6,251 updates). Step 6,144 was selected by lowest pooled validation NLL of 0.458497.
@@ -347,7 +347,7 @@
               </li>
             </ol>
             <p>
-              Recovery repeated example exposure rather than performing an exact optimizer resume. These training stages overlap; their counts cannot be summed to claim unique training volume. A larger pool of 530,762 candidate rows was prepared and screened, but not all rows were trained on.
+              Recovery repeated example exposure rather than performing an exact optimizer resume. Training stages overlap, so their counts cannot be summed to claim unique volume.
             </p>
             <p>
               Vej workflows represent authored cases covering customer support, security, billing, and agent traces. Public sources supply natural language inference relations, intent classifications, human preference comparisons, and task dialogue state.
@@ -359,21 +359,13 @@
           <div class="prose">
             <h2>A split is a protocol.</h2>
             <p>
-              A split is a rule about what each slice of the data may be used for, not just three files. Training updates model parameters. Validation repeatedly evaluates checkpoints to select the best step by pooled NLL. The final test was evaluated exactly once after checkpoint selection was finalized, with no temperature scaling, threshold fitting, or checkpoint selection performed on test results. No post-hoc calibration artifact is applied.
+              A split is a protocol for how each slice of data may be used, not just three files. Training updates parameters, validation selects checkpoints, and the final test was evaluated once.
             </p>
             <p>
-              These roles represent Vej's protocol derived from source training payloads, not the original publishers' official benchmark splits. The test set consists of 5,000 HelpSteer1 ratings and 9,286 Schema-Guided Dialogue decisions. For SGD, Flights and Hotels families supply test rows, while Events, Services, and Homes supply validation. Because both HelpSteer1 and SGD also supply training examples, this evaluation measures source and domain transfer, not a clean unseen-source benchmark.
+              The test set holds 5,000 HelpSteer1 ratings and 9,286 Schema-Guided Dialogue decisions. Both test sources also contribute training data, so this measures domain transfer rather than an unseen benchmark.
             </p>
             <p>
-              Grouping by dialogue and prompt, deterministic selection, length screening, and exact string overlap checks were enforced. These checks preserve specific boundaries; they do not prove conceptual independence.
-            </p>
-            <div class="notice">
-              <p>
-                <strong>Known exposure boundaries:</strong> twelve inherited WANLI validation decisions had exposure in earlier training lineages. Another historical component retains 19 training decisions without new held-out selections. Base model pretraining overlap is unknown. One test example was inspected during initial comparator setup. The entire test set is now exposed for future model development.
-              </p>
-            </div>
-            <p>
-              The training corpus contains 68,719 Choice, 13,771 Noul, and 17,512 Score decisions. Validation contains 19,526 Choice, 4,182 Noul, and 4,864 Score decisions. These proportions differ from the final test mixture; consequently, validation accuracy (81.70%) and final test accuracy (76.60%) do not measure matched distributions.
+              Known exposure includes twelve inherited WANLI validation decisions, 19 historical training decisions, and one inspected comparator example.
             </p>
           </div>
         </section>
@@ -382,7 +374,7 @@
           <div class="section-head">
             <h2>What was measured.</h2>
             <p>
-              Exact label accuracy on 14,286 frozen decisions evaluated on 26 September 2026. This test measures categorical decision accuracy. It is not end-to-end tool execution, and it is not Jev's own benchmark.
+              Exact label accuracy on 14,286 frozen decisions evaluated on 26 September 2026. This test measures categorical decision accuracy, not end-to-end tool execution.
             </p>
           </div>
           <div class="table-wrap">
@@ -425,20 +417,20 @@
             <div>
               <h3>Score needs more work.</h3>
               <p>
-                Vej achieves 51.62% exact-level accuracy on Score, compared to 48.44% for a post-hoc test-majority control. That control is calculated from test labels post-hoc and is not a deployable baseline.
+                51.62% exact-level accuracy against 48.44% for a post-hoc test-majority control that uses the test labels.
               </p>
             </div>
             <div>
               <h3>Tool readiness is not permission.</h3>
               <p>
-                In separate development diagnostics, Vej scored 30 of 48 complete tool cases, with nine incorrect calls among 31 ready predictions. Predicting that a tool is ready is an informational output, not authorization to execute.
+                Development suites passed 30 of 48 harder tool cases, with nine wrong calls among 31 "ready" predictions. Details below.
               </p>
             </div>
           </div>
           <div class="prose" style="margin-top: 24px">
             <h3>Calibration and confidence distribution</h3>
             <p>
-              Across the final test, overall negative log-likelihood is 0.589448, summed Brier score is 0.313870, and descriptive ten-bin expected calibration error (ECE) is 0.053473. No post-hoc calibration was applied. Decisions with maximum probability ≥ 0.9 cover 58.48% of the test set with an error rate of 5.53%. The 0.8 to 0.9 confidence bin shows 59.22% accuracy at 85.16% mean confidence. These descriptive metrics do not establish safe automated execution thresholds.
+              Across the final test, overall negative log-likelihood is 0.589448, summed Brier score is 0.313870, and descriptive ten-bin expected calibration error (ECE) is 0.053473. No post-hoc calibration was applied. Decisions with maximum probability ≥ 0.9 cover 58.48% of the test set with an error rate of 5.53%. The 0.8 to 0.9 confidence bin shows 59.22% accuracy at 85.16% mean confidence.
             </p>
           </div>
           <p style="margin-top: 24px">
@@ -456,7 +448,7 @@
           <p class="eyebrow">Hosted comparison / Same test rows</p>
           <h2>Vej and Jev on the same rows.</h2>
           <p class="lead">
-            Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model and API. To evaluate how Vej compares with Jev's decision contract, hosted Jev 1.13 was tested against the exact same 14,286 held-out decisions. Across the full sample, Vej achieved 76.60% exact accuracy (10,943 correct) compared to 71.76% (10,251 correct) for hosted Jev 1.13 using Jev's documented post-launch rounding adjustment. Vej leads overall and on Choice and Score; Jev leads on Noul. The 4.84 percentage point difference reflects this fixed test sample, not a claim of general superiority, broader transfer, or statistical significance.
+            Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model and API. To evaluate how Vej compares with Jev's decision contract, hosted Jev 1.13 was tested against the exact same 14,286 held-out decisions. Across the full sample, Vej achieved 76.60% exact accuracy (10,943 correct) compared to 71.76% (10,251 correct) for hosted Jev 1.13 using Jev's documented post-launch rounding adjustment. Vej leads overall and on Choice and Score. Jev leads on Noul. The 4.84 percentage point difference reflects this fixed test sample, not a claim of general superiority, broader transfer, or statistical significance.
           </p>
           <div class="table-wrap">
             <table class="metrics">
@@ -464,7 +456,7 @@
                 class="small"
                 style="text-align: left; margin: 24px 0 12px"
               >
-                Same-row exact accuracy on 14,286 decisions; Jev uses the rounding-adjusted supplement
+                Same-row exact accuracy on 14,286 decisions. Jev uses the rounding-adjusted supplement.
               </caption>
               <thead>
                 <tr>
@@ -508,17 +500,9 @@
             </table>
           </div>
           <div class="prose" style="margin-top: 32px">
-            <h3>Strict format validity versus prediction accuracy</h3>
+            <h3>How it was compared</h3>
             <p>
-              Jev returned 14,188 strictly valid responses out of 14,286, representing 99.31% format validity. Strict validity measures adherence to response formatting, not prediction correctness. On those 14,188 strictly valid rows, Jev scored 71.95% accuracy while Vej scored 76.80% on the exact same rows. Counting all 98 non-normalized responses as incorrect yields an overall accuracy of 71.45% for Jev. On strict subsets, Jev scored 83.09% on Choice (6,174 rows), 93.65% on Noul (3,089 rows), and 44.37% on Score (4,925 rows).
-            </p>
-            <h3>The supplemental rounding adjustment</h3>
-            <p>
-              All 98 strict failures were complete response maps whose probabilities summed to 0.99 due to two-decimal output precision. Dividing these maps by their sum restored normalization to 1.0 without changing argmax selections. This adjustment recovered 23 Choice and 75 Score rows, leaving zero unrecoverable responses. No requests were retried and raw records were not overwritten.
-            </p>
-            <h3>What makes this comparison valid and what limits it</h3>
-            <p>
-              The comparison matched dataset hash, row order, question identifiers, target labels, and candidate ordering. Each question was evaluated in a separate hosted request with full state and no local truncation. Noul probability p was represented as [p, 1-p]. Both models resolved argmax ties by candidate order and computed expected scores outside the model using zero-based indices. Jev's two-decimal outputs can create ties and zeros; renormalizing does not restore lost precision. Hosted latency includes network transit, rate limits, and retries, so no serving speed or cost comparison was made.
+              The comparison matched dataset hash, row order, question identifiers, and candidate ordering. Hosted Jev returned 14,188 strictly valid responses (71.95% vs 76.80% for Vej on those rows), while 98 non-normalized maps summed to 0.99 due to two-decimal output precision. This is one fixed test, not Jev's own benchmark. Speed and cost were not compared.
             </p>
             <p>
               <a href="evidence/jev-comparison.json"
@@ -532,9 +516,6 @@
           <p class="eyebrow">Development diagnostics</p>
           <div class="prose">
             <h2>Where tool use falls short.</h2>
-            <p>
-              Separate development suites were used to evaluate multi-step workflow actions and tool call readiness.
-            </p>
             <ul>
               <li>
                 Across 64 complete workflow actions, Vej completed 60 actions correctly, but made two critical errors where the wrong action was selected.
@@ -547,7 +528,7 @@
               </li>
             </ul>
             <p>
-              These diagnostics represent internal development suites, not a clean held-out test. Evaluating intent classification and parameter presence does not measure global tool routing, permission to act, or real-world API success.
+              These are development suites, not a held-out test, and they do not measure real tool execution.
             </p>
             <p>
               <a href="evidence/tool-evaluation.json"
@@ -560,9 +541,9 @@
         <section class="section reading-grid" id="identities">
           <p class="eyebrow">Frozen identities</p>
           <div class="prose">
-            <h2>Hashes you can check.</h2>
+            <h2>Hashes you can check. Bring a terminal.</h2>
             <p>
-              Evaluation was conducted on a workstation with an AMD Radeon RX 9070 XT 16 GiB, Python 3.14.7, PyTorch 2.14.0+rocm7.2, Transformers 5.17.0, PEFT 0.21.0, and fla-core 0.5.2. CPU execution provides a functional fallback rather than bit-identical reproduction.
+              Evaluation was conducted on an AMD Radeon RX 9070 XT 16 GiB workstation with PyTorch 2.14 and ROCm 7.2.
             </p>
             <div class="hash-row">
               <p>
@@ -634,7 +615,7 @@
             </div>
             <p id="copy-status" role="status" class="small"></p>
             <p class="small" style="margin-top: 24px">
-              No individual example predictions or raw training texts are hosted on this website. No claims of population confidence, Jev parity, safe autonomous tool execution, or serving latency are made.
+              No individual example predictions or raw training texts are hosted on this website.
             </p>
           </div>
         </section>
@@ -649,7 +630,7 @@
               alt="Vej"
               width="76"
               height="40" /></picture
-        ></a><span>Native decisions. Research alpha · 2026</span>
+        ></a><span>Research alpha · 2026. No actual vegetables were harmed while building this model.</span>
         <nav aria-label="Footer">
           <a href="brand.html">Brand</a><a href="licenses.html">Licenses</a
           ><a href="model.html#availability">Availability</a

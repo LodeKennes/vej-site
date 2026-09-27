@@ -137,7 +137,7 @@
             Run Vej <br /><span class="green">yourself.</span>
           </h1>
           <p class="lead">
-            Vej Qwen 2B alpha2 returns native probabilities over outcomes you supply. It runs on your own GPU, and your code applies the policy.
+            Vej Qwen 2B alpha2 returns native probabilities over outcomes you supply. It runs on your own GPU, and your code applies the policy. Bring your own electricity.
           </p>
           <div class="actions">
             <a class="button" href="#runtime">Run it on your GPU</a
@@ -159,7 +159,7 @@
               ><span>Scalar score</span>
             </div>
             <p style="margin-top: 24px">
-              State, question, and candidate text are concatenated and passed through the model to produce a scalar score. Candidate scores are normalized into probabilities within each independent question. Choice preserves semantic option names and descriptions. Noul assesses true and false outcomes. Score evaluates rubric levels independently, and application code calculates the zero-based expected score.
+              State, question, and candidate text are concatenated and passed through the model to produce a scalar score. Candidate scores are normalized into probabilities within each independent question, with zero-based rubric expectations computed in application code.
             </p>
             <dl class="detail-list">
               <dt>Base model</dt>
@@ -182,9 +182,6 @@
               <dt>Execution mode</dt>
               <dd>Independent candidate batching with repeated state encoding</dd>
             </dl>
-            <p>
-              State encoding is repeated for each candidate outcome. Shared-state reuse remains experimental and is not enabled in this release. No serving latency advantage has been measured. Timings from the earlier DeBERTa alpha1 do not apply to this checkpoint.
-            </p>
           </div>
         </section>
         <section class="section reading-grid" id="availability">
@@ -196,15 +193,9 @@
               <a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
                 >Kennes/vej-qwen-2b-alpha2</a
               >
-              on Hugging Face as a private model. Access is restricted to
-              authorized account members. It is not currently a public weight
-              download.
-            </p>
-            <p>
-              The private package contains the complete native checkpoint,
-              tokenizer assets, matching Vej source code snapshot, model card,
-              dataset documentation, aggregate metrics, licenses, and SHA256
-              checksums. No raw dataset texts are bundled.
+              on Hugging Face as a private model for authorized account members.
+              The package contains the native checkpoint, tokenizer assets,
+              source code snapshot, metrics, and checksums.
             </p>
             <p>
               The core development repository at
@@ -212,7 +203,7 @@
               is also private. This public website is hosted from
               <a href="https://github.com/LodeKennes/vej-site"
                 >LodeKennes/vej-site</a
-              >, which contains only website source files and static assets.
+              >.
             </p>
             <div class="link-list">
               <a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
@@ -237,7 +228,7 @@ uv sync --frozen --extra cpu --extra qwen
 HF_HUB_OFFLINE=1 uv run --frozen --extra cpu --extra qwen python -m vej predict \
   examples/decisions.json --checkpoint /path/to/download/checkpoint --device cpu</pre>
             <p>
-              CPU execution is a functional fallback and can be slow. The backbone remains BF16; disabling autocast does not convert it to FP32. For compatible CUDA or ROCm environments, install the source package with its <code>qwen</code> extra in your GPU environment, then execute:
+              CPU execution is a functional fallback and can be slow. The backbone remains BF16. Disabling autocast does not convert it to FP32. For compatible CUDA or ROCm environments, install the source package with its <code>qwen</code> extra in your GPU environment, then execute:
             </p>
             <pre class="code">
 HF_HUB_OFFLINE=1 python -m vej predict examples/decisions.json \
@@ -245,13 +236,10 @@ HF_HUB_OFFLINE=1 python -m vej predict examples/decisions.json \
   --precision bfloat16 --candidate-batch-size 4</pre>
             <h3>vLLM compatibility</h3>
             <p>
-              This checkpoint cannot currently run with stock <code>vllm serve</code>. Vej exports a custom native state dict containing the trained FP32 scalar head and LoRA weights rather than a standard causal language model or sequence classification export. Passing <code>--runner pooling</code> does not load these weights.
+              This checkpoint cannot currently run with stock <code>vllm serve</code>. Vej exports a custom native state dict with an FP32 scalar head and LoRA weights rather than a standard language model export.
             </p>
             <p>
-              A compatible export must implement last valid-token readout, support the learned scalar head, preserve exact candidate formatting, and apply question-wise normalization. That integration is not implemented or tested.
-            </p>
-            <p>
-              vLLM provides <a href="https://docs.vllm.ai/en/latest/models/pooling_models/">pooling interfaces</a> and <a href="https://docs.vllm.ai/en/latest/contributing/model/registration/">custom model registration</a>. These are architectural references for future work, not evidence that the current release operates under vLLM (checked 27 September 2026). Use Vej's native loader. Generic PEFT loaders, <code>AutoModelForCausalLM</code>, and hosted inference providers are not supported interfaces.
+              vLLM provides <a href="https://docs.vllm.ai/en/latest/models/pooling_models/">pooling interfaces</a> and <a href="https://docs.vllm.ai/en/latest/contributing/model/registration/">custom model registration</a> as references for future work. Use Vej's native loader. Generic PEFT loaders and causal language model runners are not supported.
             </p>
           </div>
         </section>
@@ -260,13 +248,10 @@ HF_HUB_OFFLINE=1 python -m vej predict examples/decisions.json \
           <div class="prose">
             <h2>Research decision support. <br />Known limits.</h2>
             <p>
-              The final test recorded 76.60% exact accuracy across 14,286 decisions. Score accuracy (51.62%) and tool diagnostics remain weak. Confidence values are descriptive sample metrics, not population calibration guarantees. Type safety and normalized probabilities do not establish factual accuracy, instruction following, or safety to execute tools.
+              The final test recorded 76.60% exact accuracy across 14,286 decisions. Score accuracy and tool diagnostics remain weak, confidence is not calibrated, and probabilities are not permission to act. Keep independent policy checks around consequential actions; the same-test comparison with <a href="https://typesafe.ai">hosted Jev</a> is on the <a href="evaluation.html#jev">evaluation page</a>.
             </p>
             <p>
-              Always place independent application policies around consequential actions. This alpha release makes no claims of autonomous tool safety, production readiness, or general <a href="https://typesafe.ai">Jev</a> parity. Review the <a href="evaluation.html#jev">same-test hosted Jev comparison</a> with its documented rounding and exposure constraints.
-            </p>
-            <p>
-              Vej code and model adaptations use Apache-2.0. Qwen base assets and all original training datasets retain their respective terms. See <a href="licenses.html">licenses and attribution</a>.
+              Vej code and model adaptations use Apache-2.0, while Qwen base assets and training datasets retain their respective terms. See <a href="licenses.html">licenses and attribution</a>.
             </p>
           </div>
         </section>
@@ -282,7 +267,7 @@ HF_HUB_OFFLINE=1 python -m vej predict examples/decisions.json \
               width="76"
               height="40" /></picture
         ></a>
-        <span>Native decisions. Research alpha · 2026</span>
+        <span>Research alpha · 2026. No actual vegetables were harmed while building this model.</span>
         <nav aria-label="Footer">
           <a href="brand.html">Brand</a><a href="licenses.html">Licenses</a
           ><a href="model.html#availability">Availability</a
