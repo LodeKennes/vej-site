@@ -26,20 +26,20 @@ Contact: [lode@lodekennes.com](mailto:lode@lodekennes.com). Access to the checkp
 - 2026-10-08 accepted design: EU-hosted API in development; content retention wording is a design goal.
 
 ## Primary Pages
-- [Draft data processing agreement](https://lodekennes.github.io/vej-site/dpa.html): Customer DPA draft for legal review, including unresolved placeholders.
-- [Overview](https://lodekennes.github.io/vej-site/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
-- [Evaluation](https://lodekennes.github.io/vej-site/evaluation.html): Ten training sources, split protocol, held-out accuracy, same-test Jev comparison, and SHA256 hashes.
-- [Model card](https://lodekennes.github.io/vej-site/model.html): Architecture, private availability, verbatim local inference CLI commands, vLLM status, and limits.
-- [Licences](https://lodekennes.github.io/vej-site/licenses.html): Attribution and terms for code, Qwen base model, training datasets, and bundled fonts.
-- [Brand](https://lodekennes.github.io/vej-site/brand.html): The Open Pod visual identity, colour schemes, and vector assets.
+- [Draft data processing agreement](https://itsvej.com/dpa.html): Customer DPA draft for legal review, including unresolved placeholders.
+- [Overview](https://itsvej.com/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
+- [Evaluation](https://itsvej.com/evaluation.html): Ten training sources, split protocol, held-out accuracy, same-test Jev comparison, and SHA256 hashes.
+- [Model card](https://itsvej.com/model.html): Architecture, private availability, verbatim local inference CLI commands, vLLM status, and limits.
+- [Licences](https://itsvej.com/licenses.html): Attribution and terms for code, Qwen base model, training datasets, and bundled fonts.
+- [Brand](https://itsvej.com/brand.html): The Open Pod visual identity, colour schemes, and vector assets.
 
 ## Aggregate Evidence Files
-- [evaluation.json](https://lodekennes.github.io/vej-site/evidence/evaluation.json): Full metrics, slice breakdowns, and reliability bins across all 14,286 test decisions.
-- [jev-comparison.json](https://lodekennes.github.io/vej-site/evidence/jev-comparison.json): Same-test aggregate comparison between Vej alpha2 and hosted Jev 1.13, including strict and adjusted metrics.
-- [tool-evaluation.json](https://lodekennes.github.io/vej-site/evidence/tool-evaluation.json): Diagnostic results on workflow actions and tool call readiness.
-- [descriptive-controls.json](https://lodekennes.github.io/vej-site/evidence/descriptive-controls.json): Post-hoc majority and descriptive baseline controls.
-- [DATA_SOURCES.md](https://lodekennes.github.io/vej-site/evidence/DATA_SOURCES.md): Publisher sources, split allocations, and original licence notices.
-- [DATASET_CARD.md](https://lodekennes.github.io/vej-site/evidence/DATASET_CARD.md): Dataset composition, selection rules, and filtering criteria.
+- [evaluation.json](https://itsvej.com/evidence/evaluation.json): Full metrics, slice breakdowns, and reliability bins across all 14,286 test decisions.
+- [jev-comparison.json](https://itsvej.com/evidence/jev-comparison.json): Same-test aggregate comparison between Vej alpha2 and hosted Jev 1.13, including strict and adjusted metrics.
+- [tool-evaluation.json](https://itsvej.com/evidence/tool-evaluation.json): Diagnostic results on workflow actions and tool call readiness.
+- [descriptive-controls.json](https://itsvej.com/evidence/descriptive-controls.json): Post-hoc majority and descriptive baseline controls.
+- [DATA_SOURCES.md](https://itsvej.com/evidence/DATA_SOURCES.md): Publisher sources, split allocations, and original licence notices.
+- [DATASET_CARD.md](https://itsvej.com/evidence/DATASET_CARD.md): Dataset composition, selection rules, and filtering criteria.
 
 ## Repositories
 - [Model on Hugging Face (private)](https://huggingface.co/Kennes/vej-qwen-2b-alpha2)

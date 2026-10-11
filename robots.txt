@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://lodekennes.github.io/vej-site/sitemap.xml
+Sitemap: https://itsvej.com/sitemap.xml
