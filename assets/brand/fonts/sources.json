@@ -33,5 +33,36 @@
       "url": "https://raw.githubusercontent.com/google/fonts/23e54b51ddffbc7713c583748e3bd86f62b1fa4a/ofl/ibmplexmono/OFL.txt",
       "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
     }
-  ]
+  ],
+  "subsets": [
+    {
+      "file": "Fraunces.woff2",
+      "source": "Fraunces.ttf",
+      "commands": [
+        ".venv/bin/uv --cache-dir /tmp/vsa/uv-cache run --no-project --with fonttools --with brotli fonttools varLib.instancer assets/brand/fonts/Fraunces.ttf wght=500 SOFT=0 WONK=1 --output /tmp/vsa/Fraunces.ttf",
+        ".venv/bin/uv --cache-dir /tmp/vsa/uv-cache run --no-project --with fonttools --with brotli pyftsubset /tmp/vsa/Fraunces.ttf --output-file=assets/brand/fonts/Fraunces.woff2 --flavor=woff2 --unicodes='U+0000-00FF,U+0100-024F,U+2000-206F,U+20AC,U+2190-21FF,U+2265' --layout-features='*'"
+      ],
+      "sha256": "870f8a1922b6e8894701df2eb2220d64881af2d4ddd1ec3a8e303b17cb709f9b"
+    },
+    {
+      "file": "VejSans.woff2",
+      "source": "IBMPlexSans.ttf",
+      "commands": [
+        ".venv/bin/uv --cache-dir /tmp/vsa/uv-cache run --no-project --with fonttools --with brotli fonttools varLib.instancer assets/brand/fonts/IBMPlexSans.ttf wght=400:500 wdth=100 --output /tmp/vsa/IBMPlexSans.ttf",
+        ".venv/bin/uv --cache-dir /tmp/vsa/uv-cache run --no-project --with fonttools --with brotli pyftsubset /tmp/vsa/IBMPlexSans.ttf --output-file=assets/brand/fonts/IBMPlexSans.woff2 --flavor=woff2 --unicodes='U+0000-00FF,U+0100-024F,U+2000-206F,U+20AC,U+2190-21FF,U+2265' --layout-features='*'",
+        ".venv/bin/uv --cache-dir /tmp/vsa/uv-cache run --no-project --with fonttools --with brotli python - <<'PY'\nfrom fontTools.ttLib import TTFont\nfont = TTFont(\"assets/brand/fonts/IBMPlexSans.woff2\")\nfor record in font[\"name\"].names:\n    if record.nameID in (1, 2, 3, 4, 6, 16, 17, 21, 22, 25) or record.nameID >= 256:\n        value = record.toUnicode().replace(\"IBM Plex Sans\", \"Vej Sans\").replace(\"IBMPlexSans\", \"VejSans\")\n        assert \"plex\" not in value.lower(), (record.nameID, value)\n        record.string = value.encode(record.getEncoding())\nassert all(\"plex\" not in record.toUnicode().lower() for record in font[\"name\"].names)\nfont.recalcTimestamp = False\nfont.save(\"assets/brand/fonts/VejSans.woff2\")\nPY"
+      ],
+      "sha256": "286c01bd14b122d33ffcbd76590eda0e74e0970306e47f47b087dda7b614c92d"
+    },
+    {
+      "file": "VejMono.woff2",
+      "source": "IBMPlexMono.ttf",
+      "commands": [
+        ".venv/bin/uv --cache-dir /tmp/vsa/uv-cache run --no-project --with fonttools --with brotli pyftsubset assets/brand/fonts/IBMPlexMono.ttf --output-file=assets/brand/fonts/IBMPlexMono.woff2 --flavor=woff2 --unicodes='U+0000-00FF,U+0100-024F,U+2000-206F,U+20AC,U+2190-21FF,U+2265' --layout-features='*'",
+        ".venv/bin/uv --cache-dir /tmp/vsa/uv-cache run --no-project --with fonttools --with brotli python - <<'PY'\nfrom fontTools.ttLib import TTFont\nfont = TTFont(\"assets/brand/fonts/IBMPlexMono.woff2\")\nfor record in font[\"name\"].names:\n    if record.nameID in (1, 2, 3, 4, 6, 16, 17, 21, 22, 25) or record.nameID >= 256:\n        value = record.toUnicode().replace(\"IBM Plex Mono\", \"Vej Mono\").replace(\"IBMPlexMono\", \"VejMono\")\n        assert \"plex\" not in value.lower(), (record.nameID, value)\n        record.string = value.encode(record.getEncoding())\nassert all(\"plex\" not in record.toUnicode().lower() for record in font[\"name\"].names)\nfont.recalcTimestamp = False\nfont.save(\"assets/brand/fonts/VejMono.woff2\")\nPY"
+      ],
+      "sha256": "1f32d6cf4038beb92f897401432914cba00f9f1f03e7a5ff3dad3fecebac5819"
+    }
+  ],
+  "notice": "Vej Sans and Vej Mono are subsets of IBM Plex Sans/Mono © IBM Corp., renamed as the OFL requires for modified versions because \"Plex\" is a Reserved Font Name."
 }

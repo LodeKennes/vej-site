@@ -1,18 +1,18 @@
 @font-face {
   font-family: "Fraunces";
-  src: url("assets/brand/fonts/Fraunces.ttf") format("truetype");
-  font-weight: 100 900;
+  src: url("assets/brand/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 500;
   font-display: swap;
 }
 @font-face {
-  font-family: "IBM Plex Sans";
-  src: url("assets/brand/fonts/IBMPlexSans.ttf") format("truetype");
-  font-weight: 100 900;
+  font-family: "Vej Sans";
+  src: url("assets/brand/fonts/VejSans.woff2") format("woff2");
+  font-weight: 400 500;
   font-display: swap;
 }
 @font-face {
-  font-family: "IBM Plex Mono";
-  src: url("assets/brand/fonts/IBMPlexMono.ttf") format("truetype");
+  font-family: "Vej Mono";
+  src: url("assets/brand/fonts/VejMono.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
@@ -107,7 +107,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Vej Sans", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   font-size: 17px;
 }
@@ -171,7 +171,7 @@ button:focus-visible {
 th,
 .footnotes,
 .mono {
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 .nav a {
   display: inline-flex;
@@ -290,7 +290,7 @@ p {
   align-items: center;
   font-size: 11px;
   color: var(--text-2);
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 .status:before {
   content: "";
@@ -355,7 +355,7 @@ p {
   margin-bottom: 8px;
 }
 .value {
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
   font-size: 13px;
   font-variant-numeric: tabular-nums;
 }
@@ -373,7 +373,7 @@ p {
   font-size: 11px;
   color: var(--text-2);
   margin: 24px 0 0;
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 .expectation {
   font-size: 13px;
@@ -417,7 +417,7 @@ p {
   color: var(--text-2);
 }
 .number {
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
   font-size: 11px;
   color: var(--accent);
   margin-bottom: 20px;
@@ -430,7 +430,7 @@ p {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
   font-size: 13px;
 }
 .pipeline .arrow {
@@ -474,7 +474,7 @@ th.numeric {
   font-size: 17px;
 }
 .metrics td.numeric {
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
   font-size: 19px;
   font-variant-numeric: tabular-nums;
 }
@@ -493,7 +493,7 @@ th.numeric {
 }
 .limits h3 {
   font:
-    500 16px "IBM Plex Sans",
+    500 16px "Vej Sans",
     "Helvetica Neue",
     Arial,
     sans-serif;
@@ -674,7 +674,7 @@ footer a {
 .code {
   background: var(--field-bg);
   color: var(--field-text);
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
   font-size: 12px;
   padding: 24px;
   white-space: pre-wrap;
@@ -682,7 +682,7 @@ footer a {
   line-height: 1.8;
 }
 .hash {
-  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
   font-size: 11px;
   overflow-wrap: anywhere;
   color: var(--text-2);
@@ -811,7 +811,7 @@ footer a {
   border-bottom: 1px solid var(--rule);
 }
 .faq dt {
-  font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Vej Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 500;
   font-size: 19px;
   line-height: 1.35;
@@ -920,7 +920,7 @@ footer a {
     margin-bottom: 12px;
   }
   .pipeline {
-    flex-wrap: wrap;
+    flex-direction: column;
     font-size: 11px;
     padding: 24px;
   }
@@ -965,7 +965,7 @@ footer a {
     letter-spacing: -0.055em;
   }
   .counts .micro {
-    font-size: 9px;
+    font-size: 11px;
   }
   .reading-grid {
     grid-template-columns: 1fr;
@@ -1098,3 +1098,16 @@ footer a {
   margin: 20px 0 0;
 }
 
+
+.prose code {
+  overflow-wrap: anywhere;
+}
+.metrics td.difference,
+.prose code.nowrap {
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .pipeline .arrow {
+    transform: rotate(90deg);
+  }
+}

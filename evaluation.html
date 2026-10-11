@@ -64,23 +64,23 @@
     <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
     <link
       rel="preload"
-      href="assets/brand/fonts/Fraunces.ttf"
+      href="assets/brand/fonts/Fraunces.woff2"
       as="font"
-      type="font/ttf"
+      type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="assets/brand/fonts/IBMPlexSans.ttf"
+      href="assets/brand/fonts/VejSans.woff2"
       as="font"
-      type="font/ttf"
+      type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="assets/brand/fonts/IBMPlexMono.ttf"
+      href="assets/brand/fonts/VejMono.woff2"
       as="font"
-      type="font/ttf"
+      type="font/woff2"
       crossorigin
     />
     <link rel="stylesheet" href="styles.css" />
@@ -92,6 +92,7 @@
         "headline": "The data behind the decisions.",
         "description": "How Vej alpha2 was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev.",
         "datePublished": "2026-09-26",
+        "dateModified": "2026-10-10",
         "url": "https://lodekennes.github.io/vej-site/evaluation.html",
         "about": "Vej Qwen 2B alpha2 evaluation",
         "author": {
@@ -125,8 +126,7 @@
         <nav class="nav" aria-label="Main">
           <a href="evaluation.html" aria-current="page">Evaluation</a
           ><a href="model.html">Model card</a
-          ><a href="https://github.com/LodeKennes/vej-site"
-            >Website source <span aria-hidden="true">→</span></a
+          ><a href="model.html#runtime">Run locally</a
           >
         </nav>
       </header>
@@ -175,7 +175,7 @@
         <section class="section" id="sources">
           <h2>Ten sources. Explicit roles.</h2>
           <p class="lead">
-            Counts represent Vej decision rows after task selection, formatting, and screening. External links connect directly to the original academic and commercial publishers. Source texts retain their original licenses.
+            Counts represent Vej decision rows after task selection, formatting, and screening. External links connect directly to the original academic and commercial publishers. Source texts retain their original licences.
           </p>
           <p class="small mobile-table-hint">
             On narrow screens, scroll the source table horizontally.
@@ -188,7 +188,7 @@
           >
             <table class="source-table">
               <caption class="sr-only">
-                Source decisions by Vej split role and original license
+                Source decisions by Vej split role and original licence
               </caption>
               <thead>
                 <tr>
@@ -308,7 +308,7 @@
             </table>
           </div>
           <p class="small" style="margin-top: 24px">
-            No raw dataset payloads are hosted on this website. Vej's Apache-2.0 license does not relicense source texts. MultiNLI fiction genres are excluded.
+            No raw dataset payloads are hosted on this website. Vej's Apache-2.0 licence does not relicense source texts. MultiNLI fiction genres are excluded.
           </p>
           <div class="link-list">
             <a href="evidence/DATA_SOURCES.md" download
@@ -377,7 +377,7 @@
               Exact label accuracy on 14,286 frozen decisions evaluated on 26 September 2026. This test measures categorical decision accuracy, not end-to-end tool execution.
             </p>
           </div>
-          <div class="table-wrap">
+          <div class="table-wrap" role="region" tabindex="0" aria-label="Alpha2 accuracy by primitive">
             <table class="metrics">
               <caption class="sr-only">
                 Vej alpha2 final test exact accuracy by primitive
@@ -450,14 +450,11 @@
           <p class="lead">
             Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model and API. To evaluate how Vej compares with Jev's decision contract, hosted Jev 1.13 was tested against the exact same 14,286 held-out decisions. Across the full sample, Vej achieved 76.60% exact accuracy (10,943 correct) compared to 71.76% (10,251 correct) for hosted Jev 1.13 using Jev's documented post-launch rounding adjustment. Vej leads overall and on Choice and Score. Jev leads on Noul. The 4.84 percentage point difference reflects this fixed test sample, not a claim of general superiority, broader transfer, or statistical significance.
           </p>
-          <div class="table-wrap">
+          <p class="small">Same-row exact accuracy on 14,286 decisions. Jev uses the rounding-adjusted supplement.</p>
+          <p class="micro mobile-table-hint">Scroll horizontally to see the full comparison.</p>
+          <div class="table-wrap" role="region" tabindex="0" aria-label="Vej and Jev accuracy comparison">
             <table class="metrics">
-              <caption
-                class="small"
-                style="text-align: left; margin: 24px 0 12px"
-              >
-                Same-row exact accuracy on 14,286 decisions. Jev uses the rounding-adjusted supplement.
-              </caption>
+              <caption class="sr-only">Vej and Jev same-row exact accuracy</caption>
               <thead>
                 <tr>
                   <th scope="col">Primitive</th>
@@ -473,28 +470,28 @@
                   <td class="numeric">6,197</td>
                   <td class="numeric"><strong>89.22%</strong></td>
                   <td class="numeric">83.07%</td>
-                  <td class="numeric">Vej (+6.15)</td>
+                  <td class="numeric difference">Vej (+6.15)</td>
                 </tr>
                 <tr>
                   <th scope="row">Noul</th>
                   <td class="numeric">3,089</td>
                   <td class="numeric">91.71%</td>
                   <td class="numeric"><strong>93.65%</strong></td>
-                  <td class="numeric">Jev (+1.94)</td>
+                  <td class="numeric difference">Jev (+1.94)</td>
                 </tr>
                 <tr>
                   <th scope="row">Score (exact level)</th>
                   <td class="numeric">5,000</td>
                   <td class="numeric"><strong>51.62%</strong></td>
                   <td class="numeric">44.20%</td>
-                  <td class="numeric">Vej (+7.42)</td>
+                  <td class="numeric difference">Vej (+7.42)</td>
                 </tr>
                 <tr class="total">
                   <th scope="row">Overall</th>
                   <td class="numeric">14,286</td>
                   <td class="numeric"><strong>76.60%</strong></td>
                   <td class="numeric">71.76%</td>
-                  <td class="numeric">Vej (+4.84)</td>
+                  <td class="numeric difference">Vej (+4.84)</td>
                 </tr>
               </tbody>
             </table>
@@ -502,7 +499,7 @@
           <div class="prose" style="margin-top: 32px">
             <h3>How it was compared</h3>
             <p>
-              The comparison matched dataset hash, row order, question identifiers, and candidate ordering. Hosted Jev returned 14,188 strictly valid responses (71.95% vs 76.80% for Vej on those rows), while 98 non-normalized maps summed to 0.99 due to two-decimal output precision. This is one fixed test, not Jev's own benchmark. Speed and cost were not compared.
+              The comparison matched dataset hash, row order, question identifiers, and candidate ordering. Hosted Jev returned 14,188 strictly valid responses (71.95% vs 76.80% for Vej on those rows), while 98 non-normalised maps summed to 0.99 due to two-decimal output precision. This is one fixed test, not Jev's own benchmark. Speed and cost were not compared.
             </p>
             <p>
               <a href="evidence/jev-comparison.json"
@@ -632,7 +629,7 @@
               height="40" /></picture
         ></a><span>Research alpha · 2026. No actual vegetables were harmed while building this model.</span>
         <nav aria-label="Footer">
-          <a href="brand.html">Brand</a><a href="licenses.html">Licenses</a
+          <a href="brand.html">Brand</a><a href="licenses.html">Licences</a
           ><a href="model.html#availability">Availability</a
           ><a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
             >Hugging Face <span aria-hidden="true">→</span></a

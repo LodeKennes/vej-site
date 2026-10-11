@@ -31,8 +31,13 @@ Accuracy on the same 14,286 test decisions:
 
 ## Status
 
-**Research alpha.** Text only. Source and weights are not yet publicly available; authorized users can follow the [local setup](https://lodekennes.github.io/vej-site/model.html#runtime). The [model card](https://lodekennes.github.io/vej-site/model.html) covers access and runtime support.
+**Research alpha.** Text decisions; an untrained vision input path also exists. No vision decision quality has been measured. Source and weights are not yet publicly available; authorized users can follow the [local setup](https://lodekennes.github.io/vej-site/model.html#runtime). The [model card](https://lodekennes.github.io/vej-site/model.html) covers access and runtime support.
 
 Tool reliability remains limited: 30/48 harder development cases passed. Keep execution behind your own policy checks; probabilities are not permission to act.
 
 [Training data](https://lodekennes.github.io/vej-site/evaluation.html#sources) · [Licensing](https://lodekennes.github.io/vej-site/licenses.html)
+
+## SDK compatibility
+
+Use the [text-only Jev/Clef adapter](docs/CLEF.md) to call a local Vej checkpoint
+with the official Jev (TypeSafe) Python SDK or Cloudflare SDK.

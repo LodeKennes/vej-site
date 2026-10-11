@@ -8,7 +8,7 @@
     <title>Vej · State in, probabilities out. Self-hosted decision model</title>
     <meta
       name="description"
-      content="Vej is a 2B model you run on your own GPU. It returns native probabilities over outcomes you define, with no prose to parse and no hosted API. Research alpha."
+      content="Vej is a 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     />
     <meta
       property="og:description"
-      content="Vej is a 2B model you run on your own GPU. It returns native probabilities over outcomes you define, with no prose to parse and no hosted API. Research alpha."
+      content="Vej is a 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -54,7 +54,7 @@
     />
     <meta
       name="twitter:description"
-      content="Vej is a 2B model you run on your own GPU. It returns native probabilities over outcomes you define, with no prose to parse and no hosted API. Research alpha."
+      content="Vej is a 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
     />
     <meta
       name="twitter:image"
@@ -67,23 +67,23 @@
     <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
     <link
       rel="preload"
-      href="assets/brand/fonts/Fraunces.ttf"
+      href="assets/brand/fonts/Fraunces.woff2"
       as="font"
-      type="font/ttf"
+      type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="assets/brand/fonts/IBMPlexSans.ttf"
+      href="assets/brand/fonts/VejSans.woff2"
       as="font"
-      type="font/ttf"
+      type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="assets/brand/fonts/IBMPlexMono.ttf"
+      href="assets/brand/fonts/VejMono.woff2"
       as="font"
-      type="font/ttf"
+      type="font/woff2"
       crossorigin
     />
     <link rel="stylesheet" href="styles.css" />
@@ -94,9 +94,10 @@
         "@graph": [
           {
             "@type": "WebSite",
+            "dateModified": "2026-10-10",
             "name": "Vej",
             "url": "https://lodekennes.github.io/vej-site/",
-            "description": "Vej is a 2B model you run on your own GPU. It returns native probabilities over outcomes you define, with no prose to parse and no hosted API. Research alpha.",
+            "description": "Vej is a 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha.",
             "publisher": {
               "@id": "https://lodekennes.github.io/vej-site/#person"
             }
@@ -113,7 +114,7 @@
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Linux",
             "softwareVersion": "Qwen 2B alpha2",
-            "description": "Vej is a 2B text model for your own GPU. Define outcomes and Vej returns native probabilities. No prose to parse, no hosted API. Your code makes the call.",
+            "description": "Vej is a 2B text model for your own GPU. Define outcomes and Vej returns native probabilities. No prose to parse. Call it through the CLI, local HTTP, or Jev/Clef SDK wire formats. Your code makes the call.",
             "license": "https://www.apache.org/licenses/LICENSE-2.0",
             "author": {
               "@id": "https://lodekennes.github.io/vej-site/#person"
@@ -124,6 +125,14 @@
           {
             "@type": "FAQPage",
             "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is there a hosted API?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Not today. An EU-hosted option is in development, designed so that request content is not stored on our side. That is a design goal until the launch checks pass."
+                }
+              },
               {
                 "@type": "Question",
                 "name": "What does Vej return?",
@@ -137,7 +146,7 @@
                 "name": "How is Vej different from Jev?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Jev is TypeSafe's hosted decision model and API. Vej offers the same three question types as a 2B model you run yourself, and scored 76.60% against hosted Jev's 71.76% on the same 14,286-decision test."
+                  "text": "Jev is TypeSafe's hosted decision model and API. Vej offers the same three question types as a 2B model you run yourself, and scored 76.60% against hosted Jev's 71.76% on the same 14,286-decision test. This is not a claim of general superiority."
                 }
               },
               {
@@ -169,7 +178,7 @@
                 "name": "What does \"Noul\" mean?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Noul assesses whether a statement holds. It is an intentional product term, not a typo. We checked."
+                  "text": "Noul assesses whether a statement holds. It is an intentional product term, not a typo."
                 }
               },
               {
@@ -177,7 +186,7 @@
                 "name": "Why the pea pod?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "A pod holds a small number of outcomes you can count, which is the whole idea. Also, it looked good."
+                  "text": "A pod holds a small number of outcomes you can count, which is the whole idea."
                 }
               }
             ]
@@ -204,8 +213,7 @@
         <nav class="nav" aria-label="Main">
           <a href="evaluation.html">Evaluation</a
           ><a href="model.html">Model card</a
-          ><a href="https://github.com/LodeKennes/vej-site"
-            >Website source <span aria-hidden="true">→</span></a
+          ><a href="model.html#runtime">Run locally</a
           >
         </nav>
       </header>
@@ -217,7 +225,7 @@
               State in, <br /><span class="green">probabilities</span> <br />out.
             </h1>
             <p class="lead">
-              Vej is a 2B text model you run on your own GPU. Describe a situation and the outcomes that matter; Vej returns a probability for each. No prose to parse, no hosted API. Your code makes the call.
+              Vej is a 2B text model you run on your own GPU. Describe a situation and the outcomes that matter; Vej returns a probability for each. No prose to parse. Call it through the CLI, local HTTP, or Jev/Clef SDK wire formats. Your code makes the call.
             </p>
             <div class="actions">
               <a class="button" href="evaluation.html">See how Vej scored</a
@@ -265,7 +273,7 @@
               booked flight. Fare rules are missing.
             </div>
             <div
-              id="decision-panel"
+              id="decision-panel" aria-live="polite"
               role="tabpanel"
               aria-labelledby="tab-choice"
               tabindex="0"
@@ -303,7 +311,7 @@
               <p id="expectation" class="expectation" hidden></p>
             </div>
             <p class="example-note">
-              Illustrative values. No model runs in your browser, and no peas were consulted.
+              Illustrative values. No model runs in your browser.
             </p>
             <noscript
               ><p class="small">
@@ -334,9 +342,9 @@
             </div>
             <div>
               <p class="number">03 / CONTROL</p>
-              <h3>An API you do not run.</h3>
+              <h3>Data that leaves your process.</h3>
               <p>
-                Each decision sends internal state to an external endpoint. You inherit their latency, limits, and terms for a call that belongs inside your process.
+                Each decision sends internal state to an endpoint you do not control. Run Vej inside your own infrastructure, or, in future, on a planned EU service designed not to retain your content.
               </p>
             </div>
           </div>
@@ -369,7 +377,7 @@
               <p class="number">03 / ACT</p>
               <h3>Apply your policy.</h3>
               <p>
-                Each answer sums to one. Your code sets thresholds and gates actions. Vej never executes anything. It is a model, not an intern.
+                Each answer sums to one. Your code sets thresholds and gates actions. Vej never executes anything.
               </p>
             </div>
           </div>
@@ -458,21 +466,53 @@
               </p>
             </div>
             <div>
-              <h3>Runs where your data lives. Which is not in someone else's cloud.</h3>
+              <h3>Runs where your data lives.</h3>
               <p>
                 Trained and evaluated on a single 16 GB consumer GPU. CPU works when speed does not matter. At inference nothing leaves your machine.
               </p>
             </div>
             <div>
-              <h3>Every claim is checkable.</h3>
+              <h3>Published aggregate evidence.</h3>
               <p>
-                All ten sources are listed with license and role. Weights and splits are pinned by SHA256, with aggregate metrics on this site.
+                Every number here has a published aggregate file and a pinned hash. Weights and splits are private; the weight hash is for authorised users. All ten sources are listed with licence and role.
               </p>
             </div>
             <div>
               <h3>Apache-2.0 code and adaptations.</h3>
               <p>
                 Vej code and adaptations are Apache-2.0. Base model and datasets retain their own terms.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="use-cases">
+          <p class="eyebrow">Where it fits</p>
+          <div class="section-head">
+            <h2>Four places a distribution <br />beats a paragraph.</h2>
+          </div>
+          <div class="limits">
+            <div>
+              <h3>Route a request.</h3>
+              <p>
+                A support message could mean billing, security, or cancellation. Vej returns probabilities for each route so clear cases dispatch and split cases escalate.
+              </p>
+            </div>
+            <div>
+              <h3>Gate a tool call.</h3>
+              <p>
+                A refund needs a verified account ID. Ask Noul whether the requirement holds and block the call on a confident no.
+              </p>
+            </div>
+            <div>
+              <h3>Score a reply against a rubric.</h3>
+              <p>
+                Grade answers against your rubric. Score returns a distribution over levels, and your code computes the expected position.
+              </p>
+            </div>
+            <div>
+              <h3>Decide when to escalate.</h3>
+              <p>
+                A workflow hits conflicting instructions. Ask Choice to weigh retry, fallback and human handoff, then apply your policy threshold.
               </p>
             </div>
           </div>
@@ -485,7 +525,8 @@
               HelpSteer1 ratings and Schema-Guided Dialogue decisions, frozen before the final run.
             </p>
           </div>
-          <div class="table-wrap">
+          <p class="small mobile-table-hint">Scroll horizontally to see the full comparison.</p>
+          <div class="table-wrap" role="region" tabindex="0" aria-label="Accuracy comparison">
             <table class="metrics">
               <caption class="sr-only">
                 Exact accuracy of Vej alpha2 and hosted Jev 1.13 on the same 14,286 test decisions
@@ -531,7 +572,7 @@
           </p>
           <div class="limits">
             <div>
-              <h3>Score needs more work. We know.</h3>
+              <h3>Score needs more work.</h3>
               <p>
                 51.62% exact-level accuracy against 48.44% for a post-hoc majority control that uses the test labels.
               </p>
@@ -554,36 +595,15 @@
             >
           </p>
         </section>
-        <section class="section" id="use-cases">
-          <p class="eyebrow">Where it fits</p>
-          <div class="section-head">
-            <h2>Four places a distribution <br />beats a paragraph.</h2>
-          </div>
-          <div class="limits">
-            <div>
-              <h3>Route a request.</h3>
-              <p>
-                A support message could mean billing, security, or cancellation. Vej returns probabilities for each route so clear cases dispatch and split cases escalate.
-              </p>
-            </div>
-            <div>
-              <h3>Gate a tool call.</h3>
-              <p>
-                A refund needs a verified account ID. Ask Noul whether the requirement holds and block the call on a confident no.
-              </p>
-            </div>
-            <div>
-              <h3>Score a reply against a rubric.</h3>
-              <p>
-                Grade answers against your rubric. Score returns a distribution over levels, and your code computes the expected position.
-              </p>
-            </div>
-            <div>
-              <h3>Decide when to escalate.</h3>
-              <p>
-                A workflow hits conflicting instructions. Ask Choice to weigh retry, fallback and human handoff, then apply your policy threshold.
-              </p>
-            </div>
+        <section class="section reading-grid" id="status">
+          <p class="eyebrow">Status / October 2026</p>
+          <div class="prose">
+            <h2>Ways to run. Work still to do.</h2>
+            <p>With the private checkpoint, use the CLI, a local HTTP server, or the Jev and Cloudflare Clef SDK wire formats. An experimental vLLM export also exists; its numerical and contract parity gates have not passed. See <a href="model.html#runtime">local inference</a>.</p>
+            <h3>Research status</h3>
+            <p>The Noul improvement programme paused on 9 October without promoting a new model. No candidate beat alpha2's Noul development reference while also passing the checks that protect its other results. Alpha2 and its published evaluation remain unchanged.</p>
+            <h3>A hosted option is in development.</h3>
+            <p>We are building an EU-hosted API for Choice, Noul and Score: a realtime endpoint, Jev and Clef wire formats, and batch jobs that read from and write to your own EU object storage. It is designed so that request content is not stored on our side; that remains a design goal until the launch checks pass. It will not replace self-hosting.</p>
           </div>
         </section>
         <section class="section" id="questions">
@@ -594,6 +614,11 @@
           </div>
           <dl class="faq">
             <div>
+              <dt>Is there a hosted API?</dt>
+              <dd>Not today. An EU-hosted option is in development, designed so that request content is not stored on our side. That is a design goal until the launch checks pass.</dd>
+            </div>
+
+            <div>
               <dt>What does Vej return?</dt>
               <dd>
                 A probability for each outcome you define, within each independent question. Choice picks named outcomes, Noul assesses statements, and Score rates rubric levels.
@@ -602,7 +627,7 @@
             <div>
               <dt>How is Vej different from Jev?</dt>
               <dd>
-                Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model and API. Vej offers the same three question types as a 2B model you run yourself, and scored 76.60% against hosted Jev's 71.76% on the <a href="evaluation.html#jev">same 14,286-decision test</a>.
+                Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model and API. Vej offers the same three question types as a 2B model you run yourself, and scored 76.60% against hosted Jev's 71.76% on the <a href="evaluation.html#jev">same 14,286-decision test</a>. This is not a claim of general superiority.
               </dd>
             </div>
             <div>
@@ -626,13 +651,13 @@
             <div>
               <dt>What does &ldquo;Noul&rdquo; mean?</dt>
               <dd>
-                Noul assesses whether a statement holds. It is an intentional product term, not a typo. We checked.
+                Noul assesses whether a statement holds. It is an intentional product term, not a typo.
               </dd>
             </div>
             <div>
               <dt>Why the pea pod?</dt>
               <dd>
-                A pod holds a small number of outcomes you can count, which is the whole idea. Also, it looked good.
+                A pod holds a small number of outcomes you can count, which is the whole idea.
               </dd>
             </div>
           </dl>
@@ -644,13 +669,7 @@
               Then the model card. Then, if you hold the checkpoint, your GPU.
             </p>
             <div class="link-list">
-              <a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
-                >Model on Hugging Face (private)</a
-              ><a href="https://github.com/LodeKennes/Vej"
-                >Vej source on GitHub (private)</a
-              ><a href="https://github.com/LodeKennes/vej-site"
-                >Website source</a
-              >
+              <a href="model.html">Model card</a><a href="model.html#runtime">Run locally</a><a href="evaluation.html">Evaluation</a><a href="licenses.html">Licences</a>
             </div>
           </div>
           <div class="actions">
@@ -673,7 +692,7 @@
               height="40" /></picture
         ></a><span>Research alpha · 2026. No actual vegetables were harmed while building this model.</span>
         <nav aria-label="Footer">
-          <a href="brand.html">Brand</a><a href="licenses.html">Licenses</a
+          <a href="brand.html">Brand</a><a href="licenses.html">Licences</a
           ><a href="model.html#availability">Availability</a
           ><a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
             >Hugging Face <span aria-hidden="true">→</span></a
