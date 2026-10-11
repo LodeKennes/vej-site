@@ -4,7 +4,7 @@
 
 Last updated: 2026-10-10.
 
-Contact: [lode@lodekennes.com](mailto:lode@lodekennes.com). Access to the checkpoint is by request.
+Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Access to the checkpoint is by request.
 
 ## Key Facts
 - Three primitives: Choice (pick among named options), Noul (assess statement truth as true/false), Score (rate rubric levels with expectation computed in caller code).
