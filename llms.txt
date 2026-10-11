@@ -4,6 +4,8 @@
 
 Last updated: 2026-10-10.
 
+Contact: [lode@lodekennes.com](mailto:lode@lodekennes.com). Access to the checkpoint is by request.
+
 ## Key Facts
 - Three primitives: Choice (pick among named options), Noul (assess statement truth as true/false), Score (rate rubric levels with expectation computed in caller code).
 - Architecture: Frozen BF16 Qwen3.5-2B text backbone, rank-16 alpha-32 LoRA adapters, and a trained FP32 scalar decision head (~16.82M trainable parameters).
@@ -24,6 +26,7 @@ Last updated: 2026-10-10.
 - 2026-10-08 accepted design: EU-hosted API in development; content retention wording is a design goal.
 
 ## Primary Pages
+- [Draft data processing agreement](https://lodekennes.github.io/vej-site/dpa.html): Customer DPA draft for legal review, including unresolved placeholders.
 - [Overview](https://lodekennes.github.io/vej-site/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
 - [Evaluation](https://lodekennes.github.io/vej-site/evaluation.html): Ten training sources, split protocol, held-out accuracy, same-test Jev comparison, and SHA256 hashes.
 - [Model card](https://lodekennes.github.io/vej-site/model.html): Architecture, private availability, verbatim local inference CLI commands, vLLM status, and limits.
