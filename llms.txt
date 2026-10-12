@@ -38,6 +38,7 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Access to the checkpoint i
 - [Draft data processing agreement](https://itsvej.com/dpa/): Customer DPA draft for legal review, including unresolved placeholders.
 - [Overview](https://itsvej.com/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
 - [Models](https://itsvej.com/models/): The model family and public availability.
+- [Use cases](https://itsvej.com/use-cases/): Proposed APIs beyond Choice, Noul and Score, with industry use cases and sample requests. None of these APIs is available.
 - [Access and waitlists](https://itsvej.com/access/): Pea access requests, separate model waitlists and newsletter signup.
 - [Evaluation](https://itsvej.com/evaluation/): Ten training sources, split protocol, held-out accuracy, same-test Jev comparison, and SHA256 hashes.
 - [Model card](https://itsvej.com/models/pea/): Architecture, private availability, verbatim local inference CLI commands, vLLM status, and limits.

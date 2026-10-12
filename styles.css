@@ -1696,3 +1696,45 @@ form[data-state="error"] .form-feedback {
 form[aria-busy="true"] input {
   opacity: 0.7;
 }
+/* Use cases page: linked index of proposed APIs. */
+.api-index {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.api-index a {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  padding: 20px 22px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  color: var(--text);
+  text-decoration: none;
+}
+.api-index a:hover {
+  border-color: var(--accent);
+}
+.api-index strong {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  font-size: 22px;
+}
+.api-index a > span:last-child {
+  font-size: 15px;
+  color: var(--text-2);
+}
+.api-endpoint {
+  margin: 12px 0 0;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (max-width: 1050px) {
+  .api-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .api-index { grid-template-columns: 1fr; }
+}
