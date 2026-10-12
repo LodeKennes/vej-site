@@ -122,3 +122,81 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
     if (!dropdown.contains(event.target)) dropdown.open = false;
   });
 });
+
+// Page motion: enhance native navigation without delaying it or hiding content.
+(() => {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const animations = new Set();
+  function enter(element, delay = 0) {
+    if (reducedMotion.matches || !element.animate) return;
+    const animation = element.animate(
+      [{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }],
+      { duration: 480, delay, fill: "backwards", easing: "cubic-bezier(0.22, 1, 0.36, 1)" },
+    );
+    animations.add(animation);
+    animation.finished.catch(() => {}).finally(() => animations.delete(animation));
+  }
+  function intro(event) {
+    // The native page transition already animates arrivals from another page.
+    if (event?.viewTransition || performance.getEntriesByType("navigation")[0]?.type === "back_forward") return;
+    document.querySelectorAll(".hero > :first-child, .hero > .decision, .page-hero").forEach((element, index) => enter(element, index * 70));
+  }
+  if ("PageRevealEvent" in window) {
+    window.addEventListener("pagereveal", intro, { once: true });
+  } else {
+    requestAnimationFrame(() => intro());
+  }
+  if ("IntersectionObserver" in window && !reducedMotion.matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        if (entry.target.getBoundingClientRect().top >= 0) enter(entry.target);
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".model-card, .section-head").forEach((element) => {
+      // Leave the first viewport and direct fragment destinations visible immediately.
+      if (element.getBoundingClientRect().top >= window.innerHeight) observer.observe(element);
+    });
+    reducedMotion.addEventListener("change", () => {
+      if (reducedMotion.matches) observer.disconnect();
+    });
+  }
+  reducedMotion.addEventListener("change", () => {
+    if (reducedMotion.matches) animations.forEach((animation) => animation.cancel());
+  });
+
+  const indicator = document.createElement("div");
+  indicator.className = "page-loading";
+  indicator.setAttribute("aria-hidden", "true");
+  const status = document.createElement("div");
+  status.className = "sr-only";
+  status.setAttribute("role", "status");
+  document.body.append(indicator, status);
+  let loadingTimer;
+  let recoveryTimer;
+  function resetLoading() {
+    clearTimeout(loadingTimer);
+    clearTimeout(recoveryTimer);
+    document.documentElement.classList.remove("is-navigating");
+    status.textContent = "";
+  }
+  document.addEventListener("click", (event) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = event.target.closest?.("a[href]");
+    if (!link || link.hasAttribute("download") || (link.target && link.target !== "_self")) return;
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin || !/\/$|\.html$/.test(url.pathname)) return;
+    if (url.pathname === location.pathname && url.search === location.search) return;
+    resetLoading();
+    // Fast pages need no spinner; this is an indeterminate wait indicator, not a percentage.
+    loadingTimer = setTimeout(() => {
+      document.documentElement.classList.add("is-navigating");
+      status.textContent = "Loading page.";
+    }, 180);
+    // Recover if navigation is cancelled or the destination does not respond.
+    recoveryTimer = setTimeout(resetLoading, 10000);
+  });
+  window.addEventListener("pageshow", resetLoading);
+  window.addEventListener("pagehide", resetLoading);
+})();

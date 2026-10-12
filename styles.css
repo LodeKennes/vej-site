@@ -1539,3 +1539,106 @@ summary:focus-visible, input:focus-visible {
 .reading-grid.compact .prose {
   max-width: 880px;
 }
+
+/* Native page transitions keep the header steady while the content changes. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+  .header {
+    view-transition-name: site-header;
+  }
+  main {
+    view-transition-name: page-content;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-group(site-header),
+  ::view-transition-old(site-header),
+  ::view-transition-new(site-header) {
+    animation: none;
+  }
+  ::view-transition-old(page-content) {
+    animation: page-out 160ms ease-out both;
+  }
+  ::view-transition-new(page-content) {
+    animation: page-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .track span {
+    transform-origin: left;
+    animation: probability-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .button, .nav a, .model-card, .model-card-top img, .model-options a, form input {
+    transition: transform 180ms ease-out, background-color 180ms ease-out,
+      border-color 180ms ease-out, color 180ms ease-out, box-shadow 180ms ease-out;
+  }
+  .button:active {
+    transform: translateY(1px);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .button:hover {
+      transform: translateY(-2px);
+    }
+    .model-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 24px rgb(0 0 0 / 6%);
+    }
+    .model-card:hover .model-card-top img {
+      transform: rotate(-3deg);
+    }
+  }
+}
+@keyframes page-out {
+  to { opacity: 0; }
+}
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes probability-in {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.page-loading {
+  position: fixed;
+  z-index: 100;
+  inset: 0 0 auto;
+  height: 3px;
+  overflow: hidden;
+  background: var(--track-bg);
+  opacity: 0;
+  pointer-events: none;
+}
+.page-loading::after {
+  content: "";
+  display: block;
+  width: 35%;
+  height: 100%;
+  background: var(--accent);
+}
+.is-navigating .page-loading {
+  opacity: 1;
+}
+.is-navigating, .is-navigating a {
+  cursor: progress;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .is-navigating .page-loading::after {
+    animation: page-wait 1100ms ease-in-out infinite;
+  }
+}
+@keyframes page-wait {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(390%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
