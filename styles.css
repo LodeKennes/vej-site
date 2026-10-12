@@ -1738,3 +1738,164 @@ form[aria-busy="true"] input {
 @media (max-width: 760px) {
   .api-index { grid-template-columns: 1fr; }
 }
+/* Use cases page: view switch and step-by-step examples. */
+.view-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 12px 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+.view-toggle {
+  display: inline-flex;
+  border: 1px solid var(--rule);
+}
+.view-toggle button {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: 12px "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.view-toggle button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+main:not([data-view="code"]) .code-view,
+main[data-view="code"] .story-view {
+  display: none;
+}
+.story-wrap {
+  margin: 48px 0 24px;
+  max-width: 760px;
+}
+.story {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  border-left: 1px solid var(--rule);
+}
+.story li {
+  position: relative;
+  margin: 0 0 16px 28px;
+  padding: 18px 22px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+.story li::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  top: 24px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.story li p {
+  margin: 6px 0 0;
+}
+.story-actor {
+  color: var(--accent);
+}
+.story-meter {
+  margin-top: 14px;
+}
+.story-result {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 10px;
+  border: 1px solid var(--focus);
+  font: 12px "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+.story-replay {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.story li.armed {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.story li.armed .track span {
+  width: 0;
+}
+.story li.armed .story-result {
+  opacity: 0;
+}
+.story li.armed.shown {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--order, 0) * 0.45s);
+}
+.story li.armed.shown .track span {
+  width: var(--width);
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--order, 0) * 0.45s + 0.3s);
+}
+.story li.armed.shown .story-result {
+  opacity: 1;
+  transition: opacity 0.4s ease calc(var(--order, 0) * 0.45s + 0.6s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .story li,
+  .story .track span,
+  .story-result {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .story .track span {
+    width: var(--width) !important;
+  }
+}
+.sample-step + .sample-step {
+  margin-top: 32px;
+}
+.sample-title {
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+html:has(.view-bar) {
+  scroll-padding-top: 88px;
+  /* The view switch keeps the position itself; browser anchoring would move it twice. */
+  overflow-anchor: none;
+}
+main:has(.view-bar) .page-hero {
+  padding: 40px 0 24px;
+}
+main:has(.view-bar) #overview {
+  padding-top: 40px;
+}
+.api .pair > div {
+  min-width: 0;
+}
+.api .code {
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow-x: auto;
+  font-size: 13px;
+}
+.api .code:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.view-bar .text-link {
+  margin-left: 20px;
+}
+@media (max-width: 760px) {
+  .api .code {
+    padding: 16px;
+  }
+}

@@ -234,6 +234,61 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   });
 });
 
+// Use cases: switch between the step-by-step view and the code, and reveal example steps.
+(() => {
+  const main = document.querySelector("main");
+  const bar = document.querySelector(".view-bar");
+  if (!bar) return;
+  const buttons = bar.querySelectorAll("button[data-view]");
+  function setView(view) {
+    if (view === "code") main.dataset.view = "code";
+    else delete main.dataset.view;
+    buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.view === (view || "story"))));
+  }
+  buttons.forEach((button) => button.addEventListener("click", () => {
+    // Keep the section that the reader is in at the same screen position.
+    const anchor = [...document.querySelectorAll(".api")].find((api) => api.getBoundingClientRect().bottom > window.innerHeight / 2);
+    const before = anchor?.getBoundingClientRect().top;
+    setView(button.dataset.view);
+    if (anchor) window.scrollBy({ top: anchor.getBoundingClientRect().top - before, behavior: "instant" });
+    const url = new URL(location.href);
+    if (button.dataset.view === "code") url.searchParams.set("view", "code");
+    else url.searchParams.delete("view");
+    history.replaceState(history.state, "", url);
+  }));
+  setView(new URLSearchParams(location.search).get("view"));
+  bar.hidden = false;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (!("IntersectionObserver" in window) || reducedMotion.matches) return;
+  const observer = new IntersectionObserver((entries) => {
+    let order = 0;
+    entries.forEach((entry) => {
+      // Hide a step only after the observer reports it, so steps never stay hidden.
+      if (!entry.isIntersecting) return entry.target.classList.add("armed");
+      observer.unobserve(entry.target);
+      entry.target.style.setProperty("--order", order++);
+      entry.target.classList.add("shown");
+    });
+  }, { threshold: 0.1 });
+  const steps = document.querySelectorAll(".story li");
+  steps.forEach((step) => observer.observe(step));
+  document.querySelectorAll(".story-replay").forEach((replay) => {
+    replay.hidden = false;
+    replay.addEventListener("click", () => replay.parentElement.querySelectorAll(".story li").forEach((step, index) => {
+      step.classList.remove("shown");
+      step.classList.add("armed");
+      void step.offsetWidth; // Restart the transition.
+      step.style.setProperty("--order", index);
+      step.classList.add("shown");
+    }));
+  });
+  reducedMotion.addEventListener("change", () => {
+    observer.disconnect();
+    steps.forEach((step) => step.classList.remove("armed"));
+  });
+})();
+
 // Page motion: enhance native navigation without delaying it or hiding content.
 (() => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
