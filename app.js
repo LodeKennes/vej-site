@@ -99,16 +99,125 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
   });
 });
 
-// Mock forms only: no network, storage, mailto navigation or personal data in feedback.
-document.querySelectorAll("[data-mock-form]").forEach((form) => {
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+// Signup forms: save only after the server confirms a database write.
+(() => {
+  const SITE_KEY = "0x4AAAAAAFUX432RgVYn0q-y";
+  const ENDPOINT = "https://forms.itsvej.com/submit";
+  let challengePromise;
+  function loadChallenge() {
+    if (window.turnstile) return Promise.resolve(window.turnstile);
+    if (challengePromise) return challengePromise;
+    challengePromise = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.async = true;
+      const fail = () => {
+        clearTimeout(timer);
+        script.remove();
+        challengePromise = null;
+        reject(new Error("Browser check unavailable"));
+      };
+      const timer = setTimeout(fail, 15000);
+      script.onerror = fail;
+      script.onload = () => { clearTimeout(timer); resolve(window.turnstile); };
+      document.head.append(script);
+    });
+    return challengePromise;
+  }
+  document.querySelectorAll("[data-signup-form]").forEach((form) => {
+    const button = form.querySelector('button[type="submit"]');
+    const retry = form.querySelector("[data-retry]");
     const feedback = form.querySelector(".form-feedback");
-    feedback.textContent = `${form.dataset.model} preview complete. Nothing was sent or saved. No access request or waitlist entry was created. Email hello@itsvej.com to contact us.`;
-    form.reset();
+    const label = button.textContent;
+    let token = "";
+    let widget;
+    let submitting = false;
+    function checkFailed(message) {
+      token = "";
+      button.disabled = true;
+      retry.hidden = false;
+      if (!submitting && form.dataset.state !== "success") { feedback.textContent = message; form.dataset.state = "error"; }
+    }
+    async function prepare() {
+      retry.hidden = true;
+      feedback.textContent = "Checking your browser.";
+      form.dataset.state = "checking";
+      try {
+        const challenge = await loadChallenge();
+        if (widget !== undefined) { challenge.reset(widget); return; }
+        widget = challenge.render(form.querySelector("[data-turnstile]"), {
+          sitekey: SITE_KEY, action: form.dataset.kind, size: "compact", appearance: "interaction-only",
+          callback: (value) => {
+            token = value;
+            button.disabled = submitting;
+            retry.hidden = true;
+            if (form.dataset.state === "checking") { feedback.textContent = ""; form.dataset.state = "idle"; }
+          },
+          "expired-callback": () => checkFailed("The browser check expired. Please retry it."),
+          "error-callback": () => checkFailed("The browser check failed. Please retry it or email hello@itsvej.com."),
+          "timeout-callback": () => checkFailed("The browser check timed out. Please retry it."),
+        });
+      } catch {
+        checkFailed("The form could not load. Please retry the browser check or email hello@itsvej.com.");
+      }
+    }
+    retry.addEventListener("click", prepare);
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (submitting || !form.reportValidity()) return;
+      if (!token) { checkFailed("Complete the browser check, then try again."); return; }
+      const fields = new FormData(form);
+      const data = {
+        kind: form.dataset.kind, email: fields.get("email"), name: fields.get("name") || "",
+        company: fields.get("company") || "", website: fields.get("website") || "",
+        consent: fields.get("consent") === "on", token,
+      };
+      const controls = [...form.querySelectorAll("input, button")];
+      submitting = true;
+      controls.forEach(control => { control.disabled = true; });
+      form.setAttribute("aria-busy", "true");
+      form.dataset.state = "submitting";
+      button.textContent = "Sending…";
+      feedback.textContent = "Saving your request.";
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 15000);
+      let failure;
+      try {
+        const response = await fetch(ENDPOINT, {
+          method: "POST", headers: { "Content-Type": "application/json" }, credentials: "omit",
+          body: JSON.stringify(data), signal: controller.signal,
+        });
+        const result = await response.json();
+        if (!response.ok || result.ok !== true) {
+          failure = typeof result.message === "string" ? result.message : null;
+          throw new Error("Not saved");
+        }
+        form.reset();
+        form.dataset.state = "success";
+        feedback.textContent = {
+          pea_access: "Pea access request saved. We will review it and contact you.",
+          pepper_waitlist: "You are on the Pepper waitlist.",
+          pumpkin_waitlist: "You are on the Pumpkin waitlist.",
+          newsletter: "You are subscribed to Vej updates.",
+        }[form.dataset.kind];
+      } catch {
+        form.dataset.state = "error";
+        feedback.textContent = failure || "We could not save the form. Your details are still here. Please try again.";
+      } finally {
+        clearTimeout(timer);
+        submitting = false;
+        controls.forEach(control => { control.disabled = false; });
+        form.removeAttribute("aria-busy");
+        button.textContent = label;
+        token = "";
+        button.disabled = true;
+        if (widget !== undefined) window.turnstile.reset(widget);
+      }
+    });
+    // Cancel native submission before the browser check can enable this button.
+    prepare();
   });
-  form.querySelector('button[type="submit"]').disabled = false;
-});
+})();
 
 // Keep the model dropdown keyboard friendly without changing its link-based navigation.
 document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => {

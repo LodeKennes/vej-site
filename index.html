@@ -86,8 +86,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=8f1b83221ba0" />
-    <script src="/app.js?v=ee95f9ad7697" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=ebcc65809290" />
+    <script src="/app.js?v=4b521d219fd6" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -122,8 +122,8 @@
       "name": "Pea",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Linux",
-      "softwareVersion": "Pea research alpha",
-      "description": "Pea is Vej’s current 2B text decision model. It returns a probability for each outcome you supply. Research alpha; checkpoint access by request.",
+      "softwareVersion": "Pea",
+      "description": "Pea is Vej’s current 2B text decision model. It returns a probability for each outcome you supply. Completed model; checkpoint access by request.",
       "license": "https://www.apache.org/licenses/LICENSE-2.0",
       "author": {
         "@id": "https://itsvej.com/#vej"
@@ -139,7 +139,7 @@
           "name": "Which models can I use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pea is the current research alpha, with private checkpoint access by request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available."
+            "text": "Pea is the current completed model, with private checkpoint access by request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available."
           }
         },
         {
@@ -168,10 +168,10 @@
         },
         {
           "@type": "Question",
-          "name": "Is Pea production-ready?",
+          "name": "What are Pea’s limits?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pea is a research alpha. Score accuracy and tool diagnostics remain weak. Confidence is not calibrated. The published evaluation is one test. It does not guarantee general performance."
+            "text": "Pea is a completed model. Score accuracy and tool diagnostics remain weak. Confidence is not calibrated. The published evaluation is one test. It does not guarantee general performance."
           }
         }
       ]
@@ -294,10 +294,10 @@
 <section class="section model-family" id="models" aria-labelledby="models-heading">
           <div class="section-head"><div><h2 id="models-heading">Models</h2></div><p>Pea is our current model. Pepper and Pumpkin are in private development and unavailable for public use. Only Pea has published results.</p></div>
           <div class="model-grid"><article class="model-card model-pea" id="pea" aria-labelledby="pea-heading">
-              <div class="model-card-top"><p class="micro">Current · Research alpha</p><img src="/assets/brand/models/pea.svg" alt="" width="112" height="112" /></div>
+              <div class="model-card-top"><p class="micro">Current · Completed model</p><img src="/assets/brand/models/pea.svg" alt="" width="112" height="112" /></div>
               <h3 id="pea-heading">Pea <span class="model-size">2B</span></h3>
               <p>Define a situation and its possible outcomes. Pea returns a probability for each. Checkpoint access is by request.</p>
-              <div class="model-links"><a href="/models/pea/">Explore Pea <span aria-hidden="true">→</span></a><a href="/access/#pea">Email for access <span aria-hidden="true">→</span></a></div>
+              <div class="model-links"><a href="/models/pea/">Explore Pea <span aria-hidden="true">→</span></a><a href="/access/#pea">Request access <span aria-hidden="true">→</span></a></div>
             </article><article class="model-card model-pepper" id="pepper" aria-labelledby="pepper-heading">
               <div class="model-card-top"><p class="micro">Unavailable · In development</p><img src="/assets/brand/models/pepper.svg" alt="" width="112" height="112" /></div>
               <h3 id="pepper-heading">Pepper <span class="model-size">8B</span></h3>
@@ -346,63 +346,65 @@
           <div class="pair">
             <div>
               <p class="micro">REQUEST · examples/decisions.json</p>
-              <pre class="code">{
-  "state": {
-    "message": "Please cancel my subscription. I have not provided an account ID.",
-    "account_id": null,
-    "account_verified": false
-  },
-  "questions": {
-    "route": {
-      "type": "choice",
-      "question": "Which action best matches the request?",
-      "options": {
-        "cancel_subscription": "Cancel an existing subscription",
-        "lookup_invoice": "Retrieve a billing invoice",
-        "none": "Neither offered action applies"
-      }
-    },
-    "can_execute": {
-      "type": "noul",
-      "statement": "The account is verified and its ID is available."
-    },
-    "completeness": {
-      "type": "score",
-      "question": "How complete is the information needed to execute cancellation?",
-      "levels": [
-        "The account ID and account verification are both missing",
-        "Exactly one of account ID or account verification is missing",
-        "The account ID is available and the account is verified"
-      ]
-    }
-  }
-}</pre>
+              <pre class="code"><code class="language-json"><span class="p">{</span>
+<span class="w">  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please cancel my subscription. I have not provided an account ID."</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"account_verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Which action best matches the request?"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"cancel_subscription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancel an existing subscription"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"lookup_invoice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Retrieve a billing invoice"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"none"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Neither offered action applies"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"can_execute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"noul"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"statement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The account is verified and its ID is available."</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"completeness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"score"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How complete is the information needed to execute cancellation?"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"levels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"The account ID and account verification are both missing"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"Exactly one of account ID or account verification is missing"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"The account ID is available and the account is verified"</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
             </div>
             <div>
               <p class="micro">ILLUSTRATIVE RESPONSE · abridged</p>
-              <pre class="code">{
-  "answers": {
-    "route": {
-      "type": "choice",
-      "choice": "cancel_subscription",
-      "probabilities": {
-        "cancel_subscription": 0.91,
-        "lookup_invoice": 0.05,
-        "none": 0.04
-      }
-    },
-    "can_execute": {
-      "type": "noul",
-      "noul": 0.02,
-      "probabilities": { "true": 0.02, "false": 0.98 }
-    },
-    "completeness": {
-      "type": "score",
-      "score": 0.14,
-      "probabilities": [0.88, 0.10, 0.02]
-    }
-  }
-}</pre>
+              <pre class="code"><code class="language-json"><span class="p">{</span>
+<span class="w">  </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"choice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel_subscription"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"probabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"cancel_subscription"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.91</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"lookup_invoice"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"none"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.04</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"can_execute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"noul"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"noul"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"probabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"true"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span><span class="w"> </span><span class="nt">"false"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.98</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"completeness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"score"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.14</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"probabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.88</span><span class="p">,</span><span class="w"> </span><span class="mf">0.10</span><span class="p">,</span><span class="w"> </span><span class="mf">0.02</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
             </div>
           </div>
           <div class="pipeline">
@@ -527,14 +529,14 @@
           <div class="prose">
             <h2>Development</h2>
             <p>Run Pea through the CLI, a local HTTP server or the Jev and Cloudflare Clef SDK formats. The vLLM export is experimental. It has not passed the checks for numerical accuracy and contract parity. See <a href="/models/pea/#runtime">local inference</a>.</p>
-            <h3>Pea research</h3>
-            <p>We paused Noul development on 9 October. No candidate improved its development result and passed the checks for the other tasks. Pea and its published results have not changed.</p>
+            <h3>Pea release</h3>
+            <p>Pea is complete and available by request. Its published results describe the released checkpoint.</p>
             <h3>Hosted API</h3>
             <p>We are building an EU-hosted API for Choice, Noul and Score. Plans include Jev and Clef formats and batch jobs with your EU storage. We plan to keep request content out of our storage. We must verify this before launch. Self-hosting will remain available. <a href="/dpa/">Draft data processing agreement</a>.</p>
           </div>
         </section>
-<section class="section" id="questions"><div class="section-head"><div><h2>Questions</h2></div></div><dl class="faq"><div><dt>Which models can I use?</dt><dd>Pea is the current research alpha, with private checkpoint access by request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available.</dd></div><div><dt>What does Pea return?</dt><dd>A probability for each outcome you define. Choice weighs named options, Noul assesses statements, and Score rates rubric levels. Your code decides what happens next.</dd></div><div><dt>Can I run Pea on my own hardware?</dt><dd>Yes, with authorised checkpoint and source access. Supported inference uses the native loader on your GPU; CPU execution is a slower fallback. The model card includes setup instructions and current limits.</dd></div><div><dt>Is there a hosted API?</dt><dd>Not today. An EU-hosted option is in development. The public website does not run inference or accept model inputs.</dd></div><div><dt>Is Pea production-ready?</dt><dd>Pea is a research alpha. Score accuracy and tool diagnostics remain weak. Confidence is not calibrated. The published evaluation is one test. It does not guarantee general performance.</dd></div></dl><p><a href="/models/pea/">Pea model card</a> · <a href="/access/">Access and waitlist form previews</a> · <a href="/licenses/">Licences</a></p></section>
-<section class="cta"><div><h2>Access and waitlists</h2><p>Explore the current model or preview an access request. Pepper and Pumpkin remain unavailable; their waitlists are previews too.</p></div><div class="actions"><a class="button" href="/access/">Access &amp; waitlists</a><a class="button secondary" href="mailto:hello@itsvej.com">Contact Vej</a></div></section>
+<section class="section" id="questions"><div class="section-head"><div><h2>Questions</h2></div></div><dl class="faq"><div><dt>Which models can I use?</dt><dd>Pea is the current completed model, with private checkpoint access by request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available.</dd></div><div><dt>What does Pea return?</dt><dd>A probability for each outcome you define. Choice weighs named options, Noul assesses statements, and Score rates rubric levels. Your code decides what happens next.</dd></div><div><dt>Can I run Pea on my own hardware?</dt><dd>Yes, with authorised checkpoint and source access. Supported inference uses the native loader on your GPU; CPU execution is a slower fallback. The model card includes setup instructions and current limits.</dd></div><div><dt>Is there a hosted API?</dt><dd>Not today. An EU-hosted option is in development. The public website does not run inference or accept model inputs.</dd></div><div><dt>What are Pea’s limits?</dt><dd>Pea is a completed model. Score accuracy and tool diagnostics remain weak. Confidence is not calibrated. The published evaluation is one test. It does not guarantee general performance.</dd></div></dl><p><a href="/models/pea/">Pea model card</a> · <a href="/access/">Access and waitlists</a> · <a href="/licenses/">Licences</a></p></section>
+<section class="section newsletter" id="newsletter"><h2>Newsletter</h2><noscript><p>Enable JavaScript to subscribe, or contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p></noscript><p>Model releases, results and Vej news.</p><form data-signup-form data-kind="newsletter"><label for="newsletter-email">Email address <span>(required)</span></label><input id="newsletter-email" name="email" type="email" autocomplete="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Use an email address such as name@example.com." required maxlength="254" /><label class="consent" for="newsletter-consent"><input id="newsletter-consent" name="consent" type="checkbox" required />Send me Vej updates by email.</label><div class="form-trap" aria-hidden="true"><label for="newsletter-website">Leave this field empty</label><input id="newsletter-website" name="website" autocomplete="off" tabindex="-1" /></div><div data-turnstile></div><button class="button" type="submit" disabled>Subscribe</button><button class="button secondary" type="button" data-retry hidden>Retry browser check</button><p class="form-feedback" role="status" aria-live="polite"></p><p class="small">We use these details for this request or list. <a href="/privacy/">Privacy</a>.</p></form></section><section class="cta"><div><h2>Access and waitlists</h2><p>Request Pea access or join a waitlist. Pepper and Pumpkin remain unavailable.</p></div><div class="actions"><a class="button" href="/access/">Access &amp; waitlists</a><a class="button secondary" href="mailto:hello@itsvej.com">Contact Vej</a></div></section>
 </main>
       <footer>
         <a href="/" aria-label="Vej home"
@@ -549,7 +551,7 @@
         ></a><span>Vej builds Pea, Pepper and Pumpkin. · 2026</span>
         <nav aria-label="Footer">
           <a href="mailto:hello@itsvej.com">Contact</a>
-          <a href="/dpa/">Draft DPA</a>
+          <a href="/access/#newsletter">Newsletter</a><a href="/privacy/">Privacy</a><a href="/dpa/">Draft DPA</a>
           <a href="/brand/">Brand</a><a href="/licenses/">Licences</a
           ><a href="/models/#compare">Availability</a
           ><a href="mailto:hello@itsvej.com"

@@ -1642,3 +1642,54 @@ summary:focus-visible, input:focus-visible {
     animation: none !important;
   }
 }
+
+/* Code tokens use a local build-time highlighter; no runtime CDN dependency. */
+.code code {
+  font: inherit;
+  padding: 0;
+  background: transparent;
+}
+.code .nt, .code .nv, .code .nb { color: #92C9EE; }
+.code .s, .code .s1, .code .s2 { color: #A6D9B4; }
+.code .mi, .code .mf, .code .kc, .code .o { color: #EAC386; }
+.code .c, .code .c1 { color: #A6AA9F; }
+.newsletter {
+  max-width: 680px;
+}
+.newsletter form {
+  max-width: 480px;
+}
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.5;
+}
+.consent input {
+  width: 20px;
+  min-height: 20px;
+  height: 20px;
+  flex: none;
+  margin: 0;
+  accent-color: var(--accent);
+}
+.form-trap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+form [data-turnstile] {
+  margin: 8px 0;
+}
+form[data-state="success"] .form-feedback {
+  color: var(--accent);
+}
+form[data-state="error"] .form-feedback {
+  border-left: 3px solid var(--focus);
+  padding-left: 12px;
+}
+form[aria-busy="true"] input {
+  opacity: 0.7;
+}

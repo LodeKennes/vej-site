@@ -83,8 +83,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=8f1b83221ba0" />
-    <script src="/app.js?v=ee95f9ad7697" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=ebcc65809290" />
+    <script src="/app.js?v=4b521d219fd6" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -132,7 +132,7 @@
       <main id="main"><section class="page-hero model-hero">
           <img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" />
           <h1>Pea</h1>
-          <p class="lead">Pea is Vej’s current 2B text decision model. Define a situation and its possible outcomes. Pea returns a probability for each outcome. Your code decides what happens next.</p><p class="status">Current research alpha · Checkpoint access by request</p>
+          <p class="lead">Pea is Vej’s current 2B text decision model. Define a situation and its possible outcomes. Pea returns a probability for each outcome. Your code decides what happens next.</p><p class="status">Completed model · Access by request</p>
           <div class="actions"><a class="button" href="/access/#pea">Request Pea access</a><a class="button secondary" href="/evaluation/">Pea’s evaluation</a></div>
         </section>
         <nav class="section-index" aria-label="On this page"><a href="#availability">Access</a><a href="#runtime">Run Pea</a><a href="#architecture">Architecture</a><a href="#limits">Limits</a></nav><section class="section reading-grid compact" id="availability">
@@ -155,7 +155,7 @@
             <p>The experimental Pea classification export is also private on Hugging Face.</p>
             <div class="link-list">
               <a href="/access/#pea"
-                >Preview an access request</a
+                >Request access</a
               ><span>Vej source on GitHub (private)</span
               ><a href="https://github.com/LodeKennes/vej-site"
                 >Website source</a
@@ -168,18 +168,19 @@
             <p>
               Use your authorised Hugging Face account to download the release package. Verify <code>SHA256SUMS</code>. Extract <code>vej-source.tar.gz</code>. Run predictions from that directory. Python 3.12 to 3.14 is supported. Install the locked runtime dependencies by following the README supplied with your release package before running these commands.
             </p>
-            <pre class="code">
-HF_HUB_OFFLINE=1 python -m vej predict \
-  examples/decisions.json --checkpoint /path/to/download/checkpoint --device cpu</pre>
+            <pre class="code"><code class="language-bash"><span class="nv">HF_HUB_OFFLINE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>vej<span class="w"> </span>predict<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>examples/decisions.json<span class="w"> </span>--checkpoint<span class="w"> </span>/path/to/download/checkpoint<span class="w"> </span>--device<span class="w"> </span>cpu
+</code></pre>
             <p>
               CPU execution is a functional fallback and can be slow. The backbone remains BF16. Disabling autocast does not convert it to FP32. For compatible CUDA or ROCm environments, follow the supplied installation instructions in your GPU environment, then execute:
             </p>
-            <pre class="code">
-HF_HUB_OFFLINE=1 python -m vej predict examples/decisions.json \
-  --checkpoint /path/to/download/checkpoint --device cuda \
-  --precision bfloat16 --candidate-batch-size 4</pre>
+            <pre class="code"><code class="language-bash"><span class="nv">HF_HUB_OFFLINE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>vej<span class="w"> </span>predict<span class="w"> </span>examples/decisions.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--checkpoint<span class="w"> </span>/path/to/download/checkpoint<span class="w"> </span>--device<span class="w"> </span>cuda<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--precision<span class="w"> </span>bfloat16<span class="w"> </span>--candidate-batch-size<span class="w"> </span><span class="m">4</span>
+</code></pre>
             <h3>Local HTTP and SDKs</h3>
-            <pre class="code">vej serve --backend local --checkpoint /path/to/download/checkpoint --device cuda</pre>
+            <pre class="code"><code class="language-bash">vej<span class="w"> </span>serve<span class="w"> </span>--backend<span class="w"> </span><span class="nb">local</span><span class="w"> </span>--checkpoint<span class="w"> </span>/path/to/download/checkpoint<span class="w"> </span>--device<span class="w"> </span>cuda
+</code></pre>
             <p>The server binds to <code>127.0.0.1</code> by default, without authentication. Keep it local. It exposes <code>POST /v1/predict</code>, <code>/healthz</code>, <code>/readyz</code> and <code>/metrics</code>; native responses include <code>usage.processed_tokens</code>.</p>
             <p>The official TypeSafe (Jev) Python SDK uses <code>POST /v1/systemone</code>. Cloudflare Clef uses <code>POST /client/v4/accounts/{account_id}/ai/run/@cf/cloudflare/{clef|clef-flash}</code>. Both text wire formats work on local and experimental vLLM backends.</p>
             <p>The serving commands, SDK adapters, vLLM exporter and context override require the current private Vej source with its locked model runtime dependencies. The source archive bundled with the Pea release predates these features; the prediction commands above work with that archive.</p>
@@ -244,7 +245,7 @@ HF_HUB_OFFLINE=1 python -m vej predict examples/decisions.json \
         <span>Vej builds Pea, Pepper and Pumpkin. · 2026</span>
         <nav aria-label="Footer">
           <a href="mailto:hello@itsvej.com">Contact</a>
-          <a href="/dpa/">Draft DPA</a>
+          <a href="/access/#newsletter">Newsletter</a><a href="/privacy/">Privacy</a><a href="/dpa/">Draft DPA</a>
           <a href="/brand/">Brand</a><a href="/licenses/">Licences</a
           ><a href="/models/#compare">Availability</a
           ><a href="mailto:hello@itsvej.com"
