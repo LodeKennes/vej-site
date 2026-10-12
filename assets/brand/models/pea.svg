@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="pea-title pea-desc">
   <title id="pea-title">Pea</title>
-  <desc id="pea-desc">A diagonal closed green pod with three pea-shaped curves and a seam cut.</desc>
-  <defs><mask id="pea-seam"><rect width="128" height="128" fill="white"/><path d="M30 76C49 46 73 33 96 32" fill="none" stroke="black" stroke-width="5" stroke-linecap="round"/></mask></defs>
-  <g transform="translate(-2 8)">
-    <path fill="#4C8A5A" mask="url(#pea-seam)" d="M16 86C36 54 68 24 110 22C106 35 102 42 97 45C96 59 87 68 76 65C74 80 64 87 53 82C47 94 37 99 27 93C22 94 18 90 16 86Z"/>
-    <path class="stem" fill="#245C3A" d="M109 18L113 6L119 8L115 20Z M110 18L102 10L108 10L114 16L116 8L121 10L116 19Z"/>
-  </g>
-  <style>@media(prefers-color-scheme:dark){.stem{fill:#7CBE8E}}</style>
+  <desc id="pea-desc">Three round green peas in a small horizontal pod with a curling tendril.</desc>
+  <path class="stem" d="M17 51C7 43 8 31 17 29C27 27 30 38 22 40" fill="none" stroke="#245C3A" stroke-width="5" stroke-linecap="round"/>
+  <path fill="#245C3A" d="M13 61C37 35 89 34 116 55C96 44 37 42 13 61Z M13 67C38 78 85 88 116 59C102 89 58 102 27 83C20 79 16 74 13 67Z"/>
+  <circle fill="#4C8A5A" cx="34" cy="60" r="13"/>
+  <circle fill="#4C8A5A" cx="64" cy="64" r="14"/>
+  <circle fill="#4C8A5A" cx="95" cy="59" r="13"/>
+  <path d="M30 54L33 52M60 57L63 55M91 53L94 51" fill="none" stroke="#F5F2EB" stroke-width="4" stroke-linecap="round"/>
+  <style>@media(prefers-color-scheme:dark){.stem{stroke:#7CBE8E}path[fill="#245C3A"]{fill:#7CBE8E}circle{fill:#A6D9B4}}</style>
 </svg>

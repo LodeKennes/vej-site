@@ -98,3 +98,27 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
     }
   });
 });
+
+// Mock forms only: no network, storage, mailto navigation or personal data in feedback.
+document.querySelectorAll("[data-mock-form]").forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const feedback = form.querySelector(".form-feedback");
+    feedback.textContent = `${form.dataset.model} preview complete. Nothing was sent or saved. No access request or waitlist entry was created. Email hello@itsvej.com to contact us.`;
+    form.reset();
+  });
+  form.querySelector('button[type="submit"]').disabled = false;
+});
+
+// Keep the model dropdown keyboard friendly without changing its link-based navigation.
+document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => {
+  dropdown.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && dropdown.open) {
+      dropdown.open = false;
+      dropdown.querySelector("summary").focus();
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (!dropdown.contains(event.target)) dropdown.open = false;
+  });
+});

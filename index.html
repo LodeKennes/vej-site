@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <meta name="author" content="Lode Kennes" />
-    <title>Vej · State in, probabilities out. Self-hosted decision model</title>
+    <title>Vej · Pea, Pepper and Pumpkin decision models</title>
     <meta
       name="description"
-      content="Pea is Vej’s current 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
+      content="Vej builds decision models: Pea (2B), Pepper (8B) and Pumpkin (27B). Explore Pea’s evaluation and follow the models in private development."
     />
     <meta
       name="theme-color"
@@ -25,11 +25,11 @@
     <meta property="og:locale" content="en_GB" />
     <meta
       property="og:title"
-      content="Vej · State in, probabilities out. Self-hosted decision model"
+      content="Vej · Pea, Pepper and Pumpkin decision models"
     />
     <meta
       property="og:description"
-      content="Pea is Vej’s current 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
+      content="Vej builds decision models: Pea (2B), Pepper (8B) and Pumpkin (27B). Explore Pea’s evaluation and follow the models in private development."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -50,11 +50,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Vej · State in, probabilities out. Self-hosted decision model"
+      content="Vej · Pea, Pepper and Pumpkin decision models"
     />
     <meta
       name="twitter:description"
-      content="Pea is Vej’s current 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
+      content="Vej builds decision models: Pea (2B), Pepper (8B) and Pumpkin (27B). Explore Pea’s evaluation and follow the models in private development."
     />
     <meta
       name="twitter:image"
@@ -86,114 +86,98 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/app.js" defer></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "dateModified": "2026-10-10",
-            "name": "Vej",
-            "url": "https://itsvej.com/",
-            "description": "Pea is Vej’s current 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha.",
-            "publisher": {
-              "@id": "https://itsvej.com/#person"
-            }
-          },
-          {
-            "@type": "Person",
-            "@id": "https://itsvej.com/#person",
-            "name": "Lode Kennes",
-            "url": "https://github.com/LodeKennes"
-          },
-          {
-            "@type": "SoftwareApplication",
-            "name": "Vej",
-            "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Linux",
-            "softwareVersion": "Pea research alpha",
-            "description": "Pea is Vej’s current 2B text model for your own GPU. Define outcomes and Vej returns native probabilities. No prose to parse. Call it through the CLI, local HTTP, or Jev/Clef SDK wire formats. Your code makes the call.",
-            "license": "https://www.apache.org/licenses/LICENSE-2.0",
-            "author": {
-              "@id": "https://itsvej.com/#person"
-            },
-            "url": "https://itsvej.com/",
-            "softwareRequirements": "Python 3.12–3.14"
-          },
-          {
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "Is there a hosted API?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Not today. An EU-hosted option is in development, designed so that request content is not stored on our side. That is a design goal until the launch checks pass."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What does Vej return?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A probability for each outcome you define, within each independent question. Choice picks named outcomes, Noul assesses statements, and Score rates rubric levels."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How is Vej different from Jev?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Jev is TypeSafe's hosted decision model and API. Pea offers the same three question types as a 2B model you run yourself, and scored 76.60% against hosted Jev's 71.76% on the same 14,286-decision test. This is not a claim of general superiority."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can I run Vej on my own hardware?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. Inference runs locally through Vej's native loader on a GPU, or on CPU when speed does not matter. The checkpoint is about 3.6 GiB and was trained and evaluated on one 16 GB card."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is Vej open source?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Vej code and adaptations are Apache-2.0, while the base model and datasets keep their own terms. Pea weights are private on Hugging Face. Access to the checkpoint is by request. Contact <a href=\"mailto:hello@itsvej.com\">hello@itsvej.com</a>."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is Vej production-ready?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. Vej is a text-only research alpha. Score accuracy and tool diagnostics remain weak, confidence is not calibrated, and no serving-speed claim is made."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What does \"Noul\" mean?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Noul assesses whether a statement holds. It is an intentional product term, not a typo."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Why the pea pod?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A pod holds a small number of outcomes you can count, which is the whole idea."
-                }
-              }
-            ]
-          }
-        ]
+    <link rel="stylesheet" href="/styles.css?v=ef80c7887dd4" />
+    <script src="/app.js?v=97b4d9ec9c25" defer></script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "dateModified": "2026-10-12",
+      "name": "Vej",
+      "url": "https://itsvej.com/",
+      "description": "Vej builds decision models: Pea (2B), Pepper (8B) and Pumpkin (27B). Explore Pea’s evaluation and follow the models in private development.",
+      "publisher": {
+        "@id": "https://itsvej.com/#vej"
       }
-    </script>
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://itsvej.com/#vej",
+      "name": "Vej",
+      "url": "https://itsvej.com/",
+      "logo": "https://itsvej.com/assets/brand/logo.svg",
+      "founder": {
+        "@id": "https://itsvej.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://itsvej.com/#person",
+      "name": "Lode Kennes",
+      "url": "https://github.com/LodeKennes"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Pea",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Linux",
+      "softwareVersion": "Pea research alpha",
+      "description": "Pea is Vej’s current 2B text decision model. It returns a probability for each outcome you supply. Research alpha; checkpoint access by request.",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "author": {
+        "@id": "https://itsvej.com/#vej"
+      },
+      "url": "https://itsvej.com/models/pea/",
+      "softwareRequirements": "Python 3.12–3.14"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which models can I use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pea is the current research alpha, with private checkpoint access by request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Pea return?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A probability for each outcome you define. Choice weighs named options, Noul assesses statements, and Score rates rubric levels. Your code decides what happens next."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run Pea on my own hardware?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, with authorised checkpoint and source access. Supported inference uses the native loader on your GPU; CPU execution is a slower fallback. The model card includes setup instructions and current limits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a hosted API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not today. An EU-hosted option is in development. The public website does not run inference or accept model inputs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Pea production-ready?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pea is a research alpha. Score accuracy and tool diagnostics remain weak. Confidence is not calibrated. The published evaluation is one test. It does not guarantee general performance."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -211,35 +195,20 @@
               height="66" /></picture
         ></a>
         <nav class="nav" aria-label="Main">
-          <a href="/#models">Models</a>
-          <a href="/evaluation/">Evaluation</a
-          ><a href="/model/">Model card</a
-          ><a href="/model/#runtime">Run locally</a
-          >
+          <a href="/models/">Models</a>
+          <a href="/evaluation/">Evaluation</a>
+          <a href="/access/">Request access</a>
         </nav>
       </header>
       <main id="main">
-        <section class="hero">
+<section class="hero">
           <div>
-            <p class="eyebrow">Vej / Native decision model</p>
-            <h1>
-              State in, <br /><span class="green">probabilities</span> <br />out.
-            </h1>
-            <p class="lead">
-              Pea is Vej’s current 2B text model you run on your own GPU. Describe a situation and the outcomes that matter; Vej returns a probability for each. No prose to parse. Call it through the CLI, local HTTP, or Jev/Clef SDK wire formats. Your code makes the call.
-            </p>
-            <div class="actions">
-              <a class="button" href="/evaluation/">See how Vej scored</a
-              ><a class="button secondary" href="/model/"
-                >Read the model card</a
-              >
-            </div>
-            <p class="status">
-              Pea research alpha · Text only · Private checkpoint
-            </p>
+            <h1>Vej builds <br /><span class="green">decision models.</span></h1>
+            <p class="lead">Define a situation and its possible outcomes. Our models return probabilities for your code. Pea is available by request. Pepper and Pumpkin are in development.</p>
+            <div class="actions"><a class="button" href="/models/">Meet the models</a><a class="button secondary" href="/evaluation/">Pea’s evaluation</a></div>
+            <div class="family-strip" role="group" aria-label="Model availability"><a href="/models/#pea"><strong>Pea · 2B</strong><span>Current · By request</span></a><a href="/models/#pepper"><strong>Pepper · 8B</strong><span>Unavailable</span></a><a href="/models/#pumpkin"><strong>Pumpkin · 27B</strong><span>Unavailable</span></a></div>
           </div>
           <div class="decision">
-            <p class="eyebrow">A native decision</p>
             <div class="tabs" role="tablist" aria-label="Decision primitive">
               <button
                 id="tab-choice"
@@ -321,40 +290,32 @@
             >
           </div>
         </section>
-        <section class="section" id="problem">
-          <p class="eyebrow">The problem</p>
-          <div class="section-head">
-            <h2>Chat models answer. <br />Your workflow needs a decision.</h2>
-          </div>
-          <div class="columns">
-            <div>
-              <p class="number">01 / PARSING</p>
-              <h3>Prose you have to parse.</h3>
-              <p>
-                A yes, a category or a rating comes back wrapped in sentences or loosely shaped JSON. So you add schema prompts, validators and retries, and the workflow still stops when one reply arrives wearing markdown.
-              </p>
-            </div>
-            <div>
-              <p class="number">02 / CONFIDENCE</p>
-              <h3>A confidence that is not a probability.</h3>
-              <p>
-                Ask how sure it is and it writes a number. Nothing makes those numbers sum to one or hold steady between calls. You cannot trust a threshold.
-              </p>
-            </div>
-            <div>
-              <p class="number">03 / CONTROL</p>
-              <h3>Data that leaves your process.</h3>
-              <p>
-                Each decision sends internal state to an endpoint you do not control. Run Vej inside your own infrastructure, or, in future, on a planned EU service designed not to retain your content.
-              </p>
-            </div>
-          </div>
+
+<section class="section model-family" id="models" aria-labelledby="models-heading">
+          <div class="section-head"><div><h2 id="models-heading">Models</h2></div><p>Pea is our current model. Pepper and Pumpkin are in private development and unavailable for public use. Only Pea has published results.</p></div>
+          <div class="model-grid"><article class="model-card model-pea" id="pea" aria-labelledby="pea-heading">
+              <div class="model-card-top"><p class="micro">Current · Research alpha</p><img src="/assets/brand/models/pea.svg" alt="" width="112" height="112" /></div>
+              <h3 id="pea-heading">Pea <span class="model-size">2B</span></h3>
+              <p>Define a situation and its possible outcomes. Pea returns a probability for each. Checkpoint access is by request.</p>
+              <div class="model-links"><a href="/models/pea/">Explore Pea <span aria-hidden="true">→</span></a><a href="/access/#pea">Email for access <span aria-hidden="true">→</span></a></div>
+            </article><article class="model-card model-pepper" id="pepper" aria-labelledby="pepper-heading">
+              <div class="model-card-top"><p class="micro">Unavailable · In development</p><img src="/assets/brand/models/pepper.svg" alt="" width="112" height="112" /></div>
+              <h3 id="pepper-heading">Pepper <span class="model-size">8B</span></h3>
+              <p>Pepper is the middle sibling. We are building and testing it privately with companies. It has no public release or evaluation.</p>
+              <div class="model-links"><a href="/evaluation/pepper/">Development status <span aria-hidden="true">→</span></a><a href="/access/#pepper">Join the waitlist <span aria-hidden="true">→</span></a></div>
+            </article><article class="model-card model-pumpkin" id="pumpkin" aria-labelledby="pumpkin-heading">
+              <div class="model-card-top"><p class="micro">Unavailable · In development</p><img src="/assets/brand/models/pumpkin.svg" alt="" width="112" height="112" /></div>
+              <h3 id="pumpkin-heading">Pumpkin <span class="model-size">27B</span></h3>
+              <p>Pumpkin is the largest model in the family. We are researching and testing it privately with companies. It has no public release or evaluation.</p>
+              <div class="model-links"><a href="/evaluation/pumpkin/">Development status <span aria-hidden="true">→</span></a><a href="/access/#pumpkin">Join the waitlist <span aria-hidden="true">→</span></a></div>
+            </article></div>
+          <p class="model-roadmap-note">2B, 8B and 27B describe model size. Size does not establish performance.</p>
         </section>
-        <section class="section" id="how-it-works">
+<section class="section" id="how-it-works">
           <span id="contract"></span>
-          <p class="eyebrow">How it works</p>
+          <span id="problem"></span><span id="why"></span>
           <div class="section-head">
-            <h2>Three steps from <br />situation to probabilities.</h2>
+            <h2>How it works</h2>
             <p>
               One request carries up to 128 independent questions, each scored on its own.
             </p>
@@ -454,54 +415,21 @@
             ><span>Probabilities</span>
           </div>
         </section>
-        <section class="section" id="why">
-          <p class="eyebrow">Why Vej</p>
+<section class="section" id="use-cases">
           <div class="section-head">
-            <h2>Numbers your code can use. <br />Hardware you already own.</h2>
-          </div>
-          <div class="limits">
-            <div>
-              <h3>Decisions as distributions.</h3>
-              <p>
-                Every question returns probabilities summing to one over your outcomes. Route, gate, and score without parsing a word.
-              </p>
-            </div>
-            <div>
-              <h3>Runs where your data lives.</h3>
-              <p>
-                Trained and evaluated on a single 16 GB consumer GPU. CPU works when speed does not matter. At inference nothing leaves your machine.
-              </p>
-            </div>
-            <div>
-              <h3>Published aggregate evidence.</h3>
-              <p>
-                Every number here has a published aggregate file and a pinned hash. Weights and splits are private; the weight hash is for authorised users. All ten sources are listed with licence and role.
-              </p>
-            </div>
-            <div>
-              <h3>Apache-2.0 code and adaptations.</h3>
-              <p>
-                Vej code and adaptations are Apache-2.0. Base model and datasets retain their own terms.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section class="section" id="use-cases">
-          <p class="eyebrow">Where it fits</p>
-          <div class="section-head">
-            <h2>Four places a distribution <br />beats a paragraph.</h2>
+            <h2>Uses</h2>
           </div>
           <div class="limits">
             <div>
               <h3>Route a request.</h3>
               <p>
-                A support message could mean billing, security, or cancellation. Vej returns probabilities for each route so clear cases dispatch and split cases escalate.
+                Pea returns probabilities for billing, security and cancellation. Your code can route clear requests and send uncertain requests to a person.
               </p>
             </div>
             <div>
               <h3>Gate a tool call.</h3>
               <p>
-                A refund needs a verified account ID. Ask Noul whether the requirement holds and block the call on a confident no.
+                A refund requires a verified account ID. Use Noul to assess this condition. Your code must check the account before it issues a refund.
               </p>
             </div>
             <div>
@@ -513,15 +441,14 @@
             <div>
               <h3>Decide when to escalate.</h3>
               <p>
-                A workflow hits conflicting instructions. Ask Choice to weigh retry, fallback and human handoff, then apply your policy threshold.
+                Use Choice to compare a retry, an alternative action and a review by a person. Your code applies the decision threshold.
               </p>
             </div>
           </div>
         </section>
-        <section class="section" id="evidence">
-          <p class="eyebrow">Evaluation / 26 September 2026</p>
+<section class="section" id="evidence">
           <div class="section-head">
-            <h2>Tested on 14,286 held-out decisions. <br />Compared with Jev on the same rows.</h2>
+            <h2>Pea evaluation</h2>
             <p>
               HelpSteer1 ratings and Schema-Guided Dialogue decisions, frozen before the final run.
             </p>
@@ -579,7 +506,7 @@
               </p>
             </div>
             <div>
-              <h3>Tool readiness is not permission.</h3>
+              <h3>Tool use needs checks.</h3>
               <p>
                 A development suite passed 30 of 48 harder tool cases. Probabilities are not permission to act; keep execution behind your own checks.
               </p>
@@ -596,125 +523,19 @@
             >
           </p>
         </section>
-        <section class="section model-family" id="models" aria-labelledby="models-heading">
-          <div class="section-head">
-            <div><p class="eyebrow">The model family</p><h2 id="models-heading">Pea today. <br />Two more in the garden.</h2></div>
-            <p>Pea is our current model. Pepper and Pumpkin are larger models being developed and tested privately with companies. Only Pea has published results.</p>
-          </div>
-          <div class="model-grid">
-            <article class="model-card model-current" aria-labelledby="pea-heading">
-              <div class="model-card-top"><p class="micro">01 / Current research alpha</p><img src="/assets/brand/models/pea.svg" alt="" width="112" height="112" /></div>
-              <h3 id="pea-heading">Pea <span class="model-size">2B</span></h3>
-              <p class="model-tagline">Small name. Native probabilities.</p>
-              <p>The first one out of the pod. Adapted from an open-weight text backbone, Pea weighs the outcomes you define and returns native probabilities. Your code makes the call.</p>
-              <p class="model-proof">76.60% exact accuracy on our 14,286-decision evaluation.</p>
-              <p class="model-facts">Text only · Private checkpoint · Access by request</p>
-              <div class="model-links"><a href="/model/">Meet Pea <span aria-hidden="true">→</span></a><a href="/evaluation/">Evaluation <span aria-hidden="true">→</span></a></div>
-            </article>
-            <article class="model-card" aria-labelledby="pepper-heading">
-              <div class="model-card-top"><p class="micro">02 / In development</p><img src="/assets/brand/models/pepper.svg" alt="" width="112" height="112" /></div>
-              <h3 id="pepper-heading">Pepper <span class="model-size">8B</span></h3>
-              <p class="model-tagline">The middle sibling. Still in the kitchen.</p>
-              <p>Being built now and tested privately with companies. What we learn there shapes the recipe.</p>
-              <p class="model-facts">In development · Private company testing</p>
-              <p class="model-release-note">No public release or published benchmarks yet.</p>
-            </article>
-            <article class="model-card" aria-labelledby="pumpkin-heading">
-              <div class="model-card-top"><p class="micro">03 / Research &amp; development</p><img src="/assets/brand/models/pumpkin.svg" alt="" width="112" height="112" /></div>
-              <h3 id="pumpkin-heading">Pumpkin <span class="model-size">27B</span></h3>
-              <p class="model-tagline">The big one in the patch. Not ripe yet.</p>
-              <p>Our 27B model is in research and development, tested privately with companies. Growing behind the scenes.</p>
-              <p class="model-facts">Research &amp; development · Private company testing</p>
-              <p class="model-release-note">No public release or published benchmarks yet.</p>
-            </article>
-          </div>
-          <p class="model-roadmap-note">Published benchmark results on this site apply only to Pea. Pepper and Pumpkin remain in private development; their capabilities and public release details are not yet published.</p>
-        </section>
-        <section class="section reading-grid" id="status">
-          <p class="eyebrow">Status / October 2026</p>
+<section class="section reading-grid compact" id="status">
           <div class="prose">
-            <h2>Ways to run. Work still to do.</h2>
-            <p>With the private checkpoint, use the CLI, a local HTTP server, or the Jev and Cloudflare Clef SDK wire formats. An experimental vLLM export also exists; its numerical and contract parity gates have not passed. See <a href="/model/#runtime">local inference</a>.</p>
-            <h3>Research status</h3>
-            <p>The Noul improvement programme paused on 9 October without promoting a new model. No candidate beat Pea’s Noul development reference while also passing the checks that protect its other results. Pea and its published evaluation remain unchanged.</p>
-            <h3>A hosted option is in development.</h3>
-            <p>We are building an EU-hosted API for Choice, Noul and Score: a realtime endpoint, Jev and Clef wire formats, and batch jobs that read from and write to your own EU object storage. It is designed so that request content is not stored on our side; that remains a design goal until the launch checks pass. It will not replace self-hosting. <a href="/dpa/">Draft data processing agreement</a>.</p>
+            <h2>Development</h2>
+            <p>Run Pea through the CLI, a local HTTP server or the Jev and Cloudflare Clef SDK formats. The vLLM export is experimental. It has not passed the checks for numerical accuracy and contract parity. See <a href="/models/pea/#runtime">local inference</a>.</p>
+            <h3>Pea research</h3>
+            <p>We paused Noul development on 9 October. No candidate improved its development result and passed the checks for the other tasks. Pea and its published results have not changed.</p>
+            <h3>Hosted API</h3>
+            <p>We are building an EU-hosted API for Choice, Noul and Score. Plans include Jev and Clef formats and batch jobs with your EU storage. We plan to keep request content out of our storage. We must verify this before launch. Self-hosting will remain available. <a href="/dpa/">Draft data processing agreement</a>.</p>
           </div>
         </section>
-        <section class="section" id="questions">
-          <p class="eyebrow">Questions</p>
-          <div class="section-head">
-            <h2>Straight answers.</h2>
-            <p>What Vej returns, how it compares, and what it does not claim.</p>
-          </div>
-          <dl class="faq">
-            <div>
-              <dt>Is there a hosted API?</dt>
-              <dd>Not today. An EU-hosted option is in development, designed so that request content is not stored on our side. That is a design goal until the launch checks pass.</dd>
-            </div>
-
-            <div>
-              <dt>What does Vej return?</dt>
-              <dd>
-                A probability for each outcome you define, within each independent question. Choice picks named outcomes, Noul assesses statements, and Score rates rubric levels.
-              </dd>
-            </div>
-            <div>
-              <dt>How is Vej different from Jev?</dt>
-              <dd>
-                Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model and API. Pea offers the same three question types as a 2B model you run yourself, and scored 76.60% against hosted Jev's 71.76% on the <a href="/evaluation/#jev">same 14,286-decision test</a>. This is not a claim of general superiority.
-              </dd>
-            </div>
-            <div>
-              <dt>Can I run Vej on my own hardware?</dt>
-              <dd>
-                Yes. Inference runs locally through Vej's <a href="/model/#runtime">native loader</a> on a GPU, or on CPU when speed does not matter. The checkpoint is about 3.6 GiB and was trained and evaluated on one 16 GB card.
-              </dd>
-            </div>
-            <div>
-              <dt>Is Vej open source?</dt>
-              <dd>
-                Vej code and adaptations are Apache-2.0, while the base model and datasets keep their <a href="/licenses/">own terms</a>. Pea weights are private on Hugging Face. See <a href="/model/#availability">checkpoint availability</a>. Access to the checkpoint is by request. Contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.
-              </dd>
-            </div>
-            <div>
-              <dt>Is Vej production-ready?</dt>
-              <dd>
-                No. Vej is a text-only research alpha. Score accuracy and tool diagnostics remain weak, confidence is not calibrated, and no serving-speed claim is made.
-              </dd>
-            </div>
-            <div>
-              <dt>What does &ldquo;Noul&rdquo; mean?</dt>
-              <dd>
-                Noul assesses whether a statement holds. It is an intentional product term, not a typo.
-              </dd>
-            </div>
-            <div>
-              <dt>Why the pea pod?</dt>
-              <dd>
-                A pod holds a small number of outcomes you can count, which is the whole idea.
-              </dd>
-            </div>
-          </dl>
-        </section>
-        <section class="cta">
-          <div>
-            <h2>Start with the evidence.</h2>
-            <p>
-              Then the model card. Then, if you hold the checkpoint, your GPU.
-            </p>
-            <div class="link-list">
-              <a href="/model/">Model card</a><a href="/model/#runtime">Run locally</a><a href="/evaluation/">Evaluation</a><a href="/licenses/">Licences</a><a href="mailto:hello@itsvej.com">Request checkpoint access</a>
-            </div>
-          </div>
-          <div class="actions">
-            <a class="button" href="/evaluation/">See how Vej scored</a
-            ><a class="button secondary" href="/model/"
-              >Read the model card</a
-            >
-          </div>
-        </section>
-      </main>
+<section class="section" id="questions"><div class="section-head"><div><h2>Questions</h2></div></div><dl class="faq"><div><dt>Which models can I use?</dt><dd>Pea is the current research alpha, with private checkpoint access by request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available.</dd></div><div><dt>What does Pea return?</dt><dd>A probability for each outcome you define. Choice weighs named options, Noul assesses statements, and Score rates rubric levels. Your code decides what happens next.</dd></div><div><dt>Can I run Pea on my own hardware?</dt><dd>Yes, with authorised checkpoint and source access. Supported inference uses the native loader on your GPU; CPU execution is a slower fallback. The model card includes setup instructions and current limits.</dd></div><div><dt>Is there a hosted API?</dt><dd>Not today. An EU-hosted option is in development. The public website does not run inference or accept model inputs.</dd></div><div><dt>Is Pea production-ready?</dt><dd>Pea is a research alpha. Score accuracy and tool diagnostics remain weak. Confidence is not calibrated. The published evaluation is one test. It does not guarantee general performance.</dd></div></dl><p><a href="/models/pea/">Pea model card</a> · <a href="/access/">Access and waitlist form previews</a> · <a href="/licenses/">Licences</a></p></section>
+<section class="cta"><div><h2>Access and waitlists</h2><p>Explore the current model or preview an access request. Pepper and Pumpkin remain unavailable; their waitlists are previews too.</p></div><div class="actions"><a class="button" href="/access/">Access &amp; waitlists</a><a class="button secondary" href="mailto:hello@itsvej.com">Contact Vej</a></div></section>
+</main>
       <footer>
         <a href="/" aria-label="Vej home"
           ><picture
@@ -725,14 +546,14 @@
               alt="Vej"
               width="76"
               height="40" /></picture
-        ></a><span>Research alpha · 2026. No actual vegetables were harmed while building this model.</span>
+        ></a><span>Vej builds Pea, Pepper and Pumpkin. · 2026</span>
         <nav aria-label="Footer">
           <a href="mailto:hello@itsvej.com">Contact</a>
           <a href="/dpa/">Draft DPA</a>
           <a href="/brand/">Brand</a><a href="/licenses/">Licences</a
-          ><a href="/model/#availability">Availability</a
+          ><a href="/models/#compare">Availability</a
           ><a href="mailto:hello@itsvej.com"
-            >Request access <span aria-hidden="true">→</span></a
+            >Email for access <span aria-hidden="true">→</span></a
           ><a href="https://github.com/LodeKennes/vej-site"
             >Website source <span aria-hidden="true">→</span></a
           >

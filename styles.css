@@ -1269,3 +1269,273 @@ footer a {
 .model-current .model-facts {
   margin-top: 0;
 }
+
+/* Family-first presentation, with model-specific evidence and honest form previews. */
+.hero {
+  padding: 64px 0;
+  gap: 56px;
+}
+.hero h1 {
+  font-size: clamp(54px, 6.3vw, 92px);
+}
+.family-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 32px;
+}
+.family-strip a {
+  color: var(--text);
+  text-decoration: none;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+.family-strip strong {
+  display: block;
+  font-size: 14px;
+}
+.family-strip span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-2);
+  margin-top: 6px;
+}
+.model-links {
+  margin-top: auto;
+  padding-top: 8px;
+}
+.model-card > p {
+  margin-bottom: 24px;
+}
+.model-card-top .micro {
+  min-height: 22px;
+}
+.model-card h3 {
+  margin-bottom: 24px;
+}
+.model-family {
+  padding-top: 48px;
+}
+.model-roadmap-note {
+  margin-bottom: 0;
+}
+#models, #pea, #pepper, #pumpkin, #availability, #runtime {
+  scroll-margin-top: 24px;
+}
+.evaluation-switcher {
+  padding-top: 40px;
+}
+.evaluation-switcher details {
+  position: relative;
+  width: min(100%, 420px);
+}
+.evaluation-switcher summary {
+  list-style: none;
+  cursor: pointer;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  border: 1px solid var(--rule);
+  padding: 14px 18px;
+  background: var(--surface);
+  font-size: 16px;
+}
+.evaluation-switcher summary::-webkit-details-marker {
+  display: none;
+}
+.evaluation-switcher summary::after {
+  content: "⌄";
+  font-size: 20px;
+}
+.evaluation-switcher details[open] summary::after {
+  content: "⌃";
+}
+.evaluation-switcher summary span {
+  color: var(--text-2);
+  font-size: 12px;
+  margin-left: auto;
+}
+.model-options {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 8px);
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: 8px;
+  box-shadow: 0 12px 28px rgb(0 0 0 / 10%);
+}
+.model-options a {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 4px;
+  min-height: 64px;
+  color: var(--text);
+  text-decoration: none;
+}
+.model-options a:hover, .model-options a[aria-current="page"] {
+  background: var(--row-highlight);
+}
+.model-options strong {
+  font-size: 16px;
+}
+.model-options span {
+  color: var(--text-2);
+  font-size: 12px;
+}
+.evaluation-hero {
+  padding: 48px 0;
+}
+.availability-panel {
+  max-width: 760px;
+}
+.access-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 40px 0 64px;
+}
+.access-card {
+  scroll-margin-top: 24px;
+}
+.access-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.access-card-heading img {
+  flex: none;
+}
+.access-card h2 {
+  font-size: 30px;
+}
+.access-card .micro {
+  margin-bottom: 8px;
+}
+.preview-notice {
+  max-width: 760px;
+  border-left: 3px solid var(--focus);
+  background: var(--surface);
+  padding: 20px 24px;
+  margin-top: 28px;
+  font-size: 15px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+form label {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+form label span {
+  color: var(--text-2);
+  font-size: 12px;
+}
+form input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  margin-bottom: 20px;
+}
+form button {
+  margin-top: 8px;
+}
+form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.form-feedback {
+  font-size: 14px;
+  margin: 16px 0 0;
+}
+.form-feedback:empty {
+  margin: 0;
+}
+summary:focus-visible, input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+@media (max-width: 1050px) {
+  .access-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .hero {
+    padding: 40px 0;
+    gap: 40px;
+  }
+  .family-strip {
+    gap: 8px;
+  }
+  .family-strip strong {
+    font-size: 13px;
+  }
+  .model-card-top {
+    flex-direction: row;
+  }
+  .model-card-top img {
+    width: 72px;
+    height: 72px;
+  }
+  .model-family {
+    padding-top: 32px;
+  }
+  .model-pepper, .model-pumpkin {
+    display: grid;
+    grid-template-columns: 1fr 64px;
+    column-gap: 20px;
+  }
+  .model-pepper .model-card-top, .model-pumpkin .model-card-top {
+    display: contents;
+  }
+  .model-pepper .micro, .model-pumpkin .micro {
+    grid-column: 1;
+    margin: 0;
+  }
+  .model-pepper img, .model-pumpkin img {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    width: 64px;
+    height: 64px;
+  }
+  .model-pepper h3, .model-pumpkin h3 {
+    grid-column: 1;
+    margin: 12px 0;
+    font-size: 34px;
+  }
+  .model-pepper > p, .model-pumpkin > p {
+    grid-column: 1 / -1;
+    margin-bottom: 16px;
+  }
+  .model-pepper .model-links, .model-pumpkin .model-links {
+    grid-column: 1 / -1;
+  }
+  .model-hero h1 {
+    font-size: clamp(44px, 11vw, 70px);
+  }
+  .evaluation-switcher {
+    padding-top: 24px;
+  }
+  .access-grid {
+    gap: 20px;
+  }
+}
+
+/* Sections without side labels use the full content column. */
+.reading-grid.compact {
+  grid-template-columns: 1fr;
+}
+.reading-grid.compact .prose {
+  max-width: 880px;
+}

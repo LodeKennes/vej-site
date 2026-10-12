@@ -1,6 +1,6 @@
 # Vej
 
-> Pea is Vej’s current 2B text model you run yourself that returns native probabilities over developer-supplied outcomes. It provides native distributions without text generation, JSON parsing, or answer-token scoring. Apache-2.0 code and adaptations, research alpha, text only.
+> Vej is the company building Pea (2B), Pepper (8B) and Pumpkin (27B). Pea is the current text model you run yourself that returns native probabilities over developer-supplied outcomes. It provides native distributions without text generation, JSON parsing, or answer-token scoring. Apache-2.0 code and adaptations, research alpha, text only.
 
 Last updated: 2026-10-12.
 
@@ -30,11 +30,17 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Access to the checkpoint i
 - 2026-10-09 research pause: no new checkpoint promoted.
 - 2026-10-08 accepted design: EU-hosted API in development; content retention wording is a design goal.
 
+## Forms
+- Access and waitlist forms are mock previews only. They send no emails and store no data.
+- Actual enquiries: hello@itsvej.com.
+
 ## Primary Pages
 - [Draft data processing agreement](https://itsvej.com/dpa/): Customer DPA draft for legal review, including unresolved placeholders.
 - [Overview](https://itsvej.com/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
+- [Models](https://itsvej.com/models/): The model family and public availability.
+- [Access and waitlists](https://itsvej.com/access/): Clearly labelled mock forms.
 - [Evaluation](https://itsvej.com/evaluation/): Ten training sources, split protocol, held-out accuracy, same-test Jev comparison, and SHA256 hashes.
-- [Model card](https://itsvej.com/model/): Architecture, private availability, verbatim local inference CLI commands, vLLM status, and limits.
+- [Model card](https://itsvej.com/models/pea/): Architecture, private availability, verbatim local inference CLI commands, vLLM status, and limits.
 - [Licences](https://itsvej.com/licenses/): Attribution and terms for code, upstream base model, training datasets, and bundled fonts.
 - [Brand](https://itsvej.com/brand/): The Open Pod visual identity, colour schemes, and vector assets.
 
@@ -47,7 +53,7 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Access to the checkpoint i
 - [DATASET_CARD.md](https://itsvej.com/evidence/DATASET_CARD.md): Dataset composition, selection rules, and filtering criteria.
 
 ## Repositories
-- [Pea availability](https://itsvej.com/model/#availability)
+- [Pea availability](https://itsvej.com/models/pea/#availability)
 - [Vej source on GitHub (private)](https://github.com/LodeKennes/Vej)
 - [Website source](https://github.com/LodeKennes/vej-site)
 
