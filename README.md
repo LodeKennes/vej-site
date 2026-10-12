@@ -4,7 +4,7 @@
 
 Vej is a 2B text model that returns probabilities directly. Describe a situation and the possible outcomes; Vej assigns a probability to each. Route requests, check for missing information, or score a response against a rubric. Your code decides what happens next.
 
-[Explore Vej](https://itsvej.com/) · [Run locally](https://itsvej.com/model.html#runtime) · [Evaluation](https://itsvej.com/evaluation.html)
+[Explore Vej](https://itsvej.com/) · [Run locally](https://itsvej.com/model/#runtime) · [Evaluation](https://itsvej.com/evaluation/)
 
 ## Why Vej?
 
@@ -27,15 +27,15 @@ Accuracy on the same 14,286 test decisions:
 | Rate against a rubric · Score | **51.62%** | 44.20% |
 | **Overall** | **76.60%** | 71.76% |
 
-¹ Jev uses the documented post-launch rounding adjustment. This is one test of dialogue decisions and response ratings, not Jev’s official benchmark. Score requires an exact rubric-level match. [Method, strict results and limitations →](https://itsvej.com/evaluation.html#jev)
+¹ Jev uses the documented post-launch rounding adjustment. This is one test of dialogue decisions and response ratings, not Jev’s official benchmark. Score requires an exact rubric-level match. [Method, strict results and limitations →](https://itsvej.com/evaluation/#jev)
 
 ## Status
 
-**Research alpha.** Text decisions; an untrained vision input path also exists. No vision decision quality has been measured. Source and weights are not yet publicly available; authorized users can follow the [local setup](https://itsvej.com/model.html#runtime). The [model card](https://itsvej.com/model.html) covers access and runtime support.
+**Research alpha.** Text decisions; an untrained vision input path also exists. No vision decision quality has been measured. Source and weights are not yet publicly available; authorized users can follow the [local setup](https://itsvej.com/model/#runtime). The [model card](https://itsvej.com/model/) covers access and runtime support.
 
 Tool reliability remains limited: 30/48 harder development cases passed. Keep execution behind your own policy checks; probabilities are not permission to act.
 
-[Training data](https://itsvej.com/evaluation.html#sources) · [Licensing](https://itsvej.com/licenses.html)
+[Training data](https://itsvej.com/evaluation/#sources) · [Licensing](https://itsvej.com/licenses/)
 
 ## SDK compatibility
 

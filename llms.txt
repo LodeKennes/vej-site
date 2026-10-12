@@ -26,12 +26,12 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Access to the checkpoint i
 - 2026-10-08 accepted design: EU-hosted API in development; content retention wording is a design goal.
 
 ## Primary Pages
-- [Draft data processing agreement](https://itsvej.com/dpa.html): Customer DPA draft for legal review, including unresolved placeholders.
+- [Draft data processing agreement](https://itsvej.com/dpa/): Customer DPA draft for legal review, including unresolved placeholders.
 - [Overview](https://itsvej.com/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
-- [Evaluation](https://itsvej.com/evaluation.html): Ten training sources, split protocol, held-out accuracy, same-test Jev comparison, and SHA256 hashes.
-- [Model card](https://itsvej.com/model.html): Architecture, private availability, verbatim local inference CLI commands, vLLM status, and limits.
-- [Licences](https://itsvej.com/licenses.html): Attribution and terms for code, Qwen base model, training datasets, and bundled fonts.
-- [Brand](https://itsvej.com/brand.html): The Open Pod visual identity, colour schemes, and vector assets.
+- [Evaluation](https://itsvej.com/evaluation/): Ten training sources, split protocol, held-out accuracy, same-test Jev comparison, and SHA256 hashes.
+- [Model card](https://itsvej.com/model/): Architecture, private availability, verbatim local inference CLI commands, vLLM status, and limits.
+- [Licences](https://itsvej.com/licenses/): Attribution and terms for code, Qwen base model, training datasets, and bundled fonts.
+- [Brand](https://itsvej.com/brand/): The Open Pod visual identity, colour schemes, and vector assets.
 
 ## Aggregate Evidence Files
 - [evaluation.json](https://itsvej.com/evidence/evaluation.json): Full metrics, slice breakdowns, and reliability bins across all 14,286 test decisions.
