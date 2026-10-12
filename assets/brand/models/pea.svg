@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="pea-title pea-desc">
+  <title id="pea-title">Pea</title>
+  <desc id="pea-desc">A diagonal closed green pod with three pea-shaped curves and a seam cut.</desc>
+  <defs><mask id="pea-seam"><rect width="128" height="128" fill="white"/><path d="M30 76C49 46 73 33 96 32" fill="none" stroke="black" stroke-width="5" stroke-linecap="round"/></mask></defs>
+  <g transform="translate(-2 8)">
+    <path fill="#4C8A5A" mask="url(#pea-seam)" d="M16 86C36 54 68 24 110 22C106 35 102 42 97 45C96 59 87 68 76 65C74 80 64 87 53 82C47 94 37 99 27 93C22 94 18 90 16 86Z"/>
+    <path class="stem" fill="#245C3A" d="M109 18L113 6L119 8L115 20Z M110 18L102 10L108 10L114 16L116 8L121 10L116 19Z"/>
+  </g>
+  <style>@media(prefers-color-scheme:dark){.stem{fill:#7CBE8E}}</style>
+</svg>

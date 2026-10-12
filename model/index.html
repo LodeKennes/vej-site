@@ -8,7 +8,7 @@
     <title>Run Vej yourself · Vej</title>
     <meta
       name="description"
-      content="Run Vej on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the alpha2 release."
+      content="Run Vej on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the Pea release."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Run Vej yourself · Vej" />
     <meta
       property="og:description"
-      content="Run Vej on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the alpha2 release."
+      content="Run Vej on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the Pea release."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -51,7 +51,7 @@
     <meta name="twitter:title" content="Run Vej yourself · Vej" />
     <meta
       name="twitter:description"
-      content="Run Vej on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the alpha2 release."
+      content="Run Vej on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the Pea release."
     />
     <meta
       name="twitter:image"
@@ -90,11 +90,11 @@
         "@context": "https://schema.org",
         "@type": "TechArticle",
         "headline": "Run Vej yourself.",
-        "description": "Run Vej on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the alpha2 release.",
+        "description": "Run Vej on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the Pea release.",
         "datePublished": "2026-09-26",
         "dateModified": "2026-10-10",
         "url": "https://itsvej.com/model/",
-        "about": "Vej Qwen 2B alpha2 checkpoint",
+        "about": "Vej Pea checkpoint",
         "author": {
           "@type": "Person",
           "name": "Lode Kennes",
@@ -124,6 +124,7 @@
               height="66" /></picture
         ></a>
         <nav class="nav" aria-label="Main">
+          <a href="/#models">Models</a>
           <a href="/evaluation/">Evaluation</a
           ><a href="/model/" aria-current="page">Model card</a
           ><a href="/model/#runtime">Run locally</a
@@ -131,13 +132,14 @@
         </nav>
       </header>
       <main id="main">
-        <section class="page-hero">
-          <p class="eyebrow">Model card / Research alpha</p>
+        <section class="page-hero model-hero">
+          <img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" />
+          <p class="eyebrow">Pea / Model card / Research alpha</p>
           <h1>
-            Run Vej <br /><span class="green">yourself.</span>
+            Meet Pea. <br /><span class="green">Run it yourself.</span>
           </h1>
           <p class="lead">
-            Vej Qwen 2B alpha2 returns native probabilities over outcomes you supply. It runs on your own GPU, and your code applies the policy.
+            Pea is Vej’s current 2B-class text research alpha. It returns native probabilities over outcomes you supply. It runs on your own GPU, and your code applies the policy.
           </p>
           <div class="actions">
             <a class="button" href="#runtime">Run it on your GPU</a
@@ -154,7 +156,7 @@
           <div class="prose">
             <h2>A decision head, not text generation.</h2>
             <p>
-              Qwen3.5-2B provides the pretrained text backbone. Vej freezes its base BF16 parameters and trains rank-16, alpha-32 LoRA adapters alongside a custom FP32 scalar decision head. There is no vocabulary projection head or token generator in this text-only checkpoint. This checkpoint makes text decisions; the codebase also carries an untrained vision input path, and no vision decision quality has been measured.
+              Pea uses a pretrained 2B text backbone. Vej freezes its base BF16 parameters and trains rank-16, alpha-32 LoRA adapters alongside a custom FP32 scalar decision head. There is no vocabulary projection head or token generator in this text-only checkpoint. This checkpoint makes text decisions; the codebase also carries an untrained vision input path, and no vision decision quality has been measured.
             </p>
             <div class="pipeline">
               <span>State + question + outcome</span
@@ -167,10 +169,7 @@
             <dl class="detail-list">
               <dt>Base model</dt>
               <dd>
-                <a
-                  href="https://huggingface.co/Qwen/Qwen3.5-2B/tree/15852e8c16360a2fea060d615a32b45270f8a8fc"
-                  >Qwen/Qwen3.5-2B, revision 15852e8</a
-                >
+                <a href="/evidence/NOTICE.txt">pretrained text backbone (revision 15852e8)</a>
               </dd>
               <dt>Text backbone</dt>
               <dd>Approximately 1.88 billion parameters (frozen BF16)</dd>
@@ -179,7 +178,7 @@
               <dt>Checkpoint size</dt>
               <dd>Full native state dict, approximately 3.6 GiB</dd>
               <dt>Input token limit</dt>
-              <dd>2,048 tokens per rendered candidate by default (overlong inputs fail closed). The native Qwen loader accepts <code>--max-length 49152</code>; long-context quality is not validated.</dd>
+              <dd>2,048 tokens per rendered candidate by default (overlong inputs fail closed). The native Pea loader accepts <code>--max-length 49152</code>; long-context quality is not validated.</dd>
               <dt>Selected checkpoint</dt>
               <dd>Recovery step 6,144 (lowest pooled validation NLL: 0.458497)</dd>
               <dt>Execution mode</dt>
@@ -193,11 +192,7 @@
             <h2>Privately published on Hugging Face.</h2>
             <p>Access to the checkpoint is by request. Contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p>
             <p>
-              The checkpoint is hosted at
-              <a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
-                >Kennes/vej-qwen-2b-alpha2</a
-              >
-              on Hugging Face as a private model for authorised account members.
+              Pea is hosted on Hugging Face as a private model for authorised account members. Repository access and the release package are supplied after approval.
               The package contains the native checkpoint, tokenizer assets,
               source code snapshot, metrics, and checksums.
             </p>
@@ -209,10 +204,10 @@
                 >LodeKennes/vej-site</a
               >.
             </p>
-            <p>The experimental classification export is also private on Hugging Face: <code>Kennes/vej-qwen-2b-alpha2-vllm</code>.</p>
+            <p>The experimental Pea classification export is also private on Hugging Face.</p>
             <div class="link-list">
-              <a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
-                >Model on Hugging Face (private)</a
+              <a href="/model/#availability"
+                >Request Pea access</a
               ><a href="https://github.com/LodeKennes/Vej"
                 >Vej source on GitHub (private)</a
               ><a href="https://github.com/LodeKennes/vej-site"
@@ -226,14 +221,13 @@
           <div class="prose">
             <h2>Run it on your GPU.</h2>
             <p>
-              Authorised users can download the release package with their authorised Hugging Face account, verify SHA256SUMS, extract vej-source.tar.gz, and run predictions directly from that source directory. Python 3.12 to 3.14 is supported.
+              Authorised users can download the release package with their authorised Hugging Face account, verify SHA256SUMS, extract vej-source.tar.gz, and run predictions directly from that source directory. Python 3.12 to 3.14 is supported. Install the locked runtime dependencies by following the README supplied with your release package before running these commands.
             </p>
             <pre class="code">
-uv sync --frozen --extra cpu --extra qwen
-HF_HUB_OFFLINE=1 uv run --frozen --extra cpu --extra qwen python -m vej predict \
+HF_HUB_OFFLINE=1 python -m vej predict \
   examples/decisions.json --checkpoint /path/to/download/checkpoint --device cpu</pre>
             <p>
-              CPU execution is a functional fallback and can be slow. The backbone remains BF16. Disabling autocast does not convert it to FP32. For compatible CUDA or ROCm environments, install the source package with its <code>qwen</code> extra in your GPU environment, then execute:
+              CPU execution is a functional fallback and can be slow. The backbone remains BF16. Disabling autocast does not convert it to FP32. For compatible CUDA or ROCm environments, follow the supplied installation instructions in your GPU environment, then execute:
             </p>
             <pre class="code">
 HF_HUB_OFFLINE=1 python -m vej predict examples/decisions.json \
@@ -243,9 +237,9 @@ HF_HUB_OFFLINE=1 python -m vej predict examples/decisions.json \
             <pre class="code">vej serve --backend local --checkpoint /path/to/download/checkpoint --device cuda</pre>
             <p>The server binds to <code>127.0.0.1</code> by default, without authentication. Keep it local. It exposes <code>POST /v1/predict</code>, <code>/healthz</code>, <code>/readyz</code> and <code>/metrics</code>; native responses include <code>usage.processed_tokens</code>.</p>
             <p>The official TypeSafe (Jev) Python SDK uses <code>POST /v1/systemone</code>. Cloudflare Clef uses <code>POST /client/v4/accounts/{account_id}/ai/run/@cf/cloudflare/{clef|clef-flash}</code>. Both text wire formats work on local and experimental vLLM backends.</p>
-            <p>The serving commands, SDK adapters, vLLM exporter and context override require the current private Vej source with its <code>qwen</code> runtime dependencies. The source archive bundled with the alpha2 release predates these features; the prediction commands above work with that archive.</p>
+            <p>The serving commands, SDK adapters, vLLM exporter and context override require the current private Vej source with its locked model runtime dependencies. The source archive bundled with the Pea release predates these features; the prediction commands above work with that archive.</p>
             <h3>Experimental vLLM export</h3>
-            <p><code>vej export-vllm</code> writes a self-contained classification export for vLLM ≥ 0.27, using <code class="nowrap">--runner pooling</code> <code class="nowrap">--convert classify</code>. The private published export can also be served without those flags. The recorded alpha2 runs have not passed the numerical and contract parity gates; this remains experimental, not a supported serving path. Use Vej’s native loader for supported inference.</p>
+            <p><code>vej export-vllm</code> writes a self-contained classification export for vLLM ≥ 0.27, using <code class="nowrap">--runner pooling</code> <code class="nowrap">--convert classify</code>. The private published export can also be served without those flags. The recorded Pea runs have not passed the numerical and contract parity gates; this remains experimental, not a supported serving path. Use Vej’s native loader for supported inference.</p>
           </div>
         </section>
         <section class="section reading-grid" id="limits">
@@ -256,7 +250,7 @@ HF_HUB_OFFLINE=1 python -m vej predict examples/decisions.json \
               The final test recorded 76.60% exact accuracy across 14,286 decisions. Score accuracy and tool diagnostics remain weak, confidence is not calibrated, and probabilities are not permission to act. Keep independent policy checks around consequential actions; the same-test comparison with <a href="https://typesafe.ai">hosted Jev</a> is on the <a href="/evaluation/#jev">evaluation page</a>.
             </p>
             <p>
-              Vej code and model adaptations use Apache-2.0, while Qwen base assets and training datasets retain their respective terms. See <a href="/licenses/">licences and attribution</a>.
+              Vej code and model adaptations use Apache-2.0, while upstream base assets and training datasets retain their respective terms. See <a href="/licenses/">licences and attribution</a>.
             </p>
           </div>
         </section>
@@ -278,8 +272,8 @@ HF_HUB_OFFLINE=1 python -m vej predict examples/decisions.json \
           <a href="/dpa/">Draft DPA</a>
           <a href="/brand/">Brand</a><a href="/licenses/">Licences</a
           ><a href="/model/#availability">Availability</a
-          ><a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
-            >Hugging Face <span aria-hidden="true">→</span></a
+          ><a href="mailto:hello@itsvej.com"
+            >Request access <span aria-hidden="true">→</span></a
           ><a href="https://github.com/LodeKennes/vej-site"
             >Website source <span aria-hidden="true">→</span></a
           >

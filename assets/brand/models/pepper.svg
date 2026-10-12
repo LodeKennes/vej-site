@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="pepper-title pepper-desc">
+  <title id="pepper-title">Pepper</title>
+  <desc id="pepper-desc">A tall red bell pepper with sculpted shoulders, three tapered lobes and a bent stem.</desc>
+  <defs><mask id="pepper-grooves"><rect width="128" height="128" fill="white"/><path d="M47 56C47 69 49 91 55 103M80 56C80 70 77 92 73 103" fill="none" stroke="black" stroke-width="5" stroke-linecap="round"/></mask></defs>
+  <path class="body" fill="#B23A2E" mask="url(#pepper-grooves)" d="M64 34C55 28 40 28 34 37C26 47 30 65 33 81L37 103C40 114 48 119 55 111C61 121 68 121 74 111C83 119 91 111 93 100L96 79C99 57 100 44 91 36C83 29 73 29 64 34Z"/>
+  <path class="stem" fill="#245C3A" d="M60 30L58 18L66 8L76 8L76 16L70 16L66 21L69 30Z"/>
+  <style>@media(prefers-color-scheme:dark){.stem{fill:#7CBE8E}.body{fill:#C9473A}}</style>
+</svg>

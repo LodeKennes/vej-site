@@ -1,27 +1,32 @@
 # Vej
 
-> Vej is a 2B text model you run yourself that returns native probabilities over developer-supplied outcomes. It provides native distributions without text generation, JSON parsing, or answer-token scoring. Apache-2.0 code and adaptations, research alpha, text only.
+> Pea is Vej’s current 2B text model you run yourself that returns native probabilities over developer-supplied outcomes. It provides native distributions without text generation, JSON parsing, or answer-token scoring. Apache-2.0 code and adaptations, research alpha, text only.
 
-Last updated: 2026-10-10.
+Last updated: 2026-10-12.
+
+## Model family
+- Pea (green): Current 2B text research alpha. Access by request. All published results describe Pea.
+- Pepper (red): 8B model in development, being built and tested privately with companies. No public release or published benchmarks.
+- Pumpkin (orange): 27B model under research and development, being tested privately with companies. No public release or published benchmarks.
 
 Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Access to the checkpoint is by request.
 
 ## Key Facts
 - Three primitives: Choice (pick among named options), Noul (assess statement truth as true/false), Score (rate rubric levels with expectation computed in caller code).
-- Architecture: Frozen BF16 Qwen3.5-2B text backbone, rank-16 alpha-32 LoRA adapters, and a trained FP32 scalar decision head (~16.82M trainable parameters).
+- Architecture: Pea uses a frozen BF16 2B pretrained text backbone, rank-16 alpha-32 LoRA adapters, and a trained FP32 scalar decision head (~16.82M trainable parameters).
 - Checkpoint: Full native state dict of ~3.6 GiB. Runs on a single 16 GB GPU or CPU fallback. Repeated state encoding. An experimental private vLLM classification export exists; numerical and contract parity gates have not passed. Use the native loader for supported inference.
 - Test performance: 76.60% exact accuracy overall across 14,286 frozen test decisions (Choice 89.22%, Noul 91.71%, Score 51.62%).
 - Hosted Jev comparison: Hosted Jev 1.13 scored 71.76% overall on the same test rows with documented rounding adjustment. Jev returned 99.31% strict format validity. This is not a claim of general superiority.
-- Availability: Checkpoint is hosted privately on Hugging Face (Kennes/vej-qwen-2b-alpha2) for authorised account members. Core development repository is private.
-- Licensing: Vej code and model adaptations are Apache-2.0. Qwen base model and original datasets retain their respective terms.
+- Availability: Checkpoint is hosted privately on Hugging Face (Pea; access by request) for authorised account members. Core development repository is private.
+- Licensing: Vej code and model adaptations are Apache-2.0. The upstream base model and original datasets retain their respective terms.
 
 - Interfaces: `vej predict` CLI; `vej serve --backend local` with `/v1/predict`, `/v1/systemone` for the TypeSafe Python SDK, and the Cloudflare Clef Workers AI route. All require private checkpoint access. Serving, SDK adapters, export and the context override require current private Vej source; the release source archive predates them.
-- Context: 2,048 tokens per rendered candidate by default; native Qwen accepts `--max-length 49152`. Long-context quality is not validated.
+- Context: 2,048 tokens per rendered candidate by default; native Pea accepts `--max-length 49152`. Long-context quality is not validated.
 - Vision: Text decisions; an untrained vision input path also exists. No vision decision quality has been measured.
-- Research: Noul improvement work paused on 2026-10-09 without promoting a new model; alpha2 and its published evaluation are unchanged.
+- Research: Noul improvement work paused on 2026-10-09 without promoting a new model; Pea and its published evaluation are unchanged.
 
 ## Changes since September
-- 2026-10-10 site update: documents local HTTP, Jev/Clef SDK compatibility, the experimental private `Kennes/vej-qwen-2b-alpha2-vllm` export, and the context override.
+- 2026-10-10 site update: documents local HTTP, Jev/Clef SDK compatibility, the experimental private Pea classification export, and the context override.
 - 2026-10-09 research pause: no new checkpoint promoted.
 - 2026-10-08 accepted design: EU-hosted API in development; content retention wording is a design goal.
 
@@ -30,19 +35,19 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Access to the checkpoint i
 - [Overview](https://itsvej.com/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
 - [Evaluation](https://itsvej.com/evaluation/): Ten training sources, split protocol, held-out accuracy, same-test Jev comparison, and SHA256 hashes.
 - [Model card](https://itsvej.com/model/): Architecture, private availability, verbatim local inference CLI commands, vLLM status, and limits.
-- [Licences](https://itsvej.com/licenses/): Attribution and terms for code, Qwen base model, training datasets, and bundled fonts.
+- [Licences](https://itsvej.com/licenses/): Attribution and terms for code, upstream base model, training datasets, and bundled fonts.
 - [Brand](https://itsvej.com/brand/): The Open Pod visual identity, colour schemes, and vector assets.
 
 ## Aggregate Evidence Files
 - [evaluation.json](https://itsvej.com/evidence/evaluation.json): Full metrics, slice breakdowns, and reliability bins across all 14,286 test decisions.
-- [jev-comparison.json](https://itsvej.com/evidence/jev-comparison.json): Same-test aggregate comparison between Vej alpha2 and hosted Jev 1.13, including strict and adjusted metrics.
+- [jev-comparison.json](https://itsvej.com/evidence/jev-comparison.json): Same-test aggregate comparison between Vej Pea and hosted Jev 1.13, including strict and adjusted metrics.
 - [tool-evaluation.json](https://itsvej.com/evidence/tool-evaluation.json): Diagnostic results on workflow actions and tool call readiness.
 - [descriptive-controls.json](https://itsvej.com/evidence/descriptive-controls.json): Post-hoc majority and descriptive baseline controls.
 - [DATA_SOURCES.md](https://itsvej.com/evidence/DATA_SOURCES.md): Publisher sources, split allocations, and original licence notices.
 - [DATASET_CARD.md](https://itsvej.com/evidence/DATASET_CARD.md): Dataset composition, selection rules, and filtering criteria.
 
 ## Repositories
-- [Model on Hugging Face (private)](https://huggingface.co/Kennes/vej-qwen-2b-alpha2)
+- [Pea availability](https://itsvej.com/model/#availability)
 - [Vej source on GitHub (private)](https://github.com/LodeKennes/Vej)
 - [Website source](https://github.com/LodeKennes/vej-site)
 

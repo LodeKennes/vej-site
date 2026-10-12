@@ -8,7 +8,7 @@
     <title>Vej · State in, probabilities out. Self-hosted decision model</title>
     <meta
       name="description"
-      content="Vej is a 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
+      content="Pea is Vej’s current 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     />
     <meta
       property="og:description"
-      content="Vej is a 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
+      content="Pea is Vej’s current 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -54,7 +54,7 @@
     />
     <meta
       name="twitter:description"
-      content="Vej is a 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
+      content="Pea is Vej’s current 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha."
     />
     <meta
       name="twitter:image"
@@ -97,7 +97,7 @@
             "dateModified": "2026-10-10",
             "name": "Vej",
             "url": "https://itsvej.com/",
-            "description": "Vej is a 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha.",
+            "description": "Pea is Vej’s current 2B text model returning native probabilities over outcomes you define. Run it through the CLI, local HTTP or Jev/Clef SDK wire formats. Research alpha.",
             "publisher": {
               "@id": "https://itsvej.com/#person"
             }
@@ -113,8 +113,8 @@
             "name": "Vej",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Linux",
-            "softwareVersion": "Qwen 2B alpha2",
-            "description": "Vej is a 2B text model for your own GPU. Define outcomes and Vej returns native probabilities. No prose to parse. Call it through the CLI, local HTTP, or Jev/Clef SDK wire formats. Your code makes the call.",
+            "softwareVersion": "Pea research alpha",
+            "description": "Pea is Vej’s current 2B text model for your own GPU. Define outcomes and Vej returns native probabilities. No prose to parse. Call it through the CLI, local HTTP, or Jev/Clef SDK wire formats. Your code makes the call.",
             "license": "https://www.apache.org/licenses/LICENSE-2.0",
             "author": {
               "@id": "https://itsvej.com/#person"
@@ -146,7 +146,7 @@
                 "name": "How is Vej different from Jev?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Jev is TypeSafe's hosted decision model and API. Vej offers the same three question types as a 2B model you run yourself, and scored 76.60% against hosted Jev's 71.76% on the same 14,286-decision test. This is not a claim of general superiority."
+                  "text": "Jev is TypeSafe's hosted decision model and API. Pea offers the same three question types as a 2B model you run yourself, and scored 76.60% against hosted Jev's 71.76% on the same 14,286-decision test. This is not a claim of general superiority."
                 }
               },
               {
@@ -162,7 +162,7 @@
                 "name": "Is Vej open source?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Vej code and adaptations are Apache-2.0, while the base model and datasets keep their own terms. Weights are private on Hugging Face as Kennes/vej-qwen-2b-alpha2. Access to the checkpoint is by request. Contact <a href=\"mailto:hello@itsvej.com\">hello@itsvej.com</a>."
+                  "text": "Vej code and adaptations are Apache-2.0, while the base model and datasets keep their own terms. Pea weights are private on Hugging Face. Access to the checkpoint is by request. Contact <a href=\"mailto:hello@itsvej.com\">hello@itsvej.com</a>."
                 }
               },
               {
@@ -211,6 +211,7 @@
               height="66" /></picture
         ></a>
         <nav class="nav" aria-label="Main">
+          <a href="/#models">Models</a>
           <a href="/evaluation/">Evaluation</a
           ><a href="/model/">Model card</a
           ><a href="/model/#runtime">Run locally</a
@@ -225,7 +226,7 @@
               State in, <br /><span class="green">probabilities</span> <br />out.
             </h1>
             <p class="lead">
-              Vej is a 2B text model you run on your own GPU. Describe a situation and the outcomes that matter; Vej returns a probability for each. No prose to parse. Call it through the CLI, local HTTP, or Jev/Clef SDK wire formats. Your code makes the call.
+              Pea is Vej’s current 2B text model you run on your own GPU. Describe a situation and the outcomes that matter; Vej returns a probability for each. No prose to parse. Call it through the CLI, local HTTP, or Jev/Clef SDK wire formats. Your code makes the call.
             </p>
             <div class="actions">
               <a class="button" href="/evaluation/">See how Vej scored</a
@@ -234,7 +235,7 @@
               >
             </div>
             <p class="status">
-              Qwen 2B alpha2 · Text only · Private checkpoint
+              Pea research alpha · Text only · Private checkpoint
             </p>
           </div>
           <div class="decision">
@@ -529,13 +530,13 @@
           <div class="table-wrap" role="region" tabindex="0" aria-label="Accuracy comparison">
             <table class="metrics">
               <caption class="sr-only">
-                Exact accuracy of Vej alpha2 and hosted Jev 1.13 on the same 14,286 test decisions
+                Exact accuracy of Vej Pea and hosted Jev 1.13 on the same 14,286 test decisions
               </caption>
               <thead>
                 <tr>
                   <th scope="col">Task</th>
                   <th scope="col" class="numeric">Decisions</th>
-                  <th scope="col" class="numeric">Vej alpha2</th>
+                  <th scope="col" class="numeric">Vej Pea</th>
                   <th scope="col" class="numeric">Hosted Jev 1.13¹</th>
                 </tr>
               </thead>
@@ -595,13 +596,47 @@
             >
           </p>
         </section>
+        <section class="section model-family" id="models" aria-labelledby="models-heading">
+          <div class="section-head">
+            <div><p class="eyebrow">The model family</p><h2 id="models-heading">Pea today. <br />Two more in the garden.</h2></div>
+            <p>Pea is our current model. Pepper and Pumpkin are larger models being developed and tested privately with companies. Only Pea has published results.</p>
+          </div>
+          <div class="model-grid">
+            <article class="model-card model-current" aria-labelledby="pea-heading">
+              <div class="model-card-top"><p class="micro">01 / Current research alpha</p><img src="/assets/brand/models/pea.svg" alt="" width="112" height="112" /></div>
+              <h3 id="pea-heading">Pea <span class="model-size">2B</span></h3>
+              <p class="model-tagline">Small name. Native probabilities.</p>
+              <p>The first one out of the pod. Adapted from an open-weight text backbone, Pea weighs the outcomes you define and returns native probabilities. Your code makes the call.</p>
+              <p class="model-proof">76.60% exact accuracy on our 14,286-decision evaluation.</p>
+              <p class="model-facts">Text only · Private checkpoint · Access by request</p>
+              <div class="model-links"><a href="/model/">Meet Pea <span aria-hidden="true">→</span></a><a href="/evaluation/">Evaluation <span aria-hidden="true">→</span></a></div>
+            </article>
+            <article class="model-card" aria-labelledby="pepper-heading">
+              <div class="model-card-top"><p class="micro">02 / In development</p><img src="/assets/brand/models/pepper.svg" alt="" width="112" height="112" /></div>
+              <h3 id="pepper-heading">Pepper <span class="model-size">8B</span></h3>
+              <p class="model-tagline">The middle sibling. Still in the kitchen.</p>
+              <p>Being built now and tested privately with companies. What we learn there shapes the recipe.</p>
+              <p class="model-facts">In development · Private company testing</p>
+              <p class="model-release-note">No public release or published benchmarks yet.</p>
+            </article>
+            <article class="model-card" aria-labelledby="pumpkin-heading">
+              <div class="model-card-top"><p class="micro">03 / Research &amp; development</p><img src="/assets/brand/models/pumpkin.svg" alt="" width="112" height="112" /></div>
+              <h3 id="pumpkin-heading">Pumpkin <span class="model-size">27B</span></h3>
+              <p class="model-tagline">The big one in the patch. Not ripe yet.</p>
+              <p>Our 27B model is in research and development, tested privately with companies. Growing behind the scenes.</p>
+              <p class="model-facts">Research &amp; development · Private company testing</p>
+              <p class="model-release-note">No public release or published benchmarks yet.</p>
+            </article>
+          </div>
+          <p class="model-roadmap-note">Published benchmark results on this site apply only to Pea. Pepper and Pumpkin remain in private development; their capabilities and public release details are not yet published.</p>
+        </section>
         <section class="section reading-grid" id="status">
           <p class="eyebrow">Status / October 2026</p>
           <div class="prose">
             <h2>Ways to run. Work still to do.</h2>
             <p>With the private checkpoint, use the CLI, a local HTTP server, or the Jev and Cloudflare Clef SDK wire formats. An experimental vLLM export also exists; its numerical and contract parity gates have not passed. See <a href="/model/#runtime">local inference</a>.</p>
             <h3>Research status</h3>
-            <p>The Noul improvement programme paused on 9 October without promoting a new model. No candidate beat alpha2's Noul development reference while also passing the checks that protect its other results. Alpha2 and its published evaluation remain unchanged.</p>
+            <p>The Noul improvement programme paused on 9 October without promoting a new model. No candidate beat Pea’s Noul development reference while also passing the checks that protect its other results. Pea and its published evaluation remain unchanged.</p>
             <h3>A hosted option is in development.</h3>
             <p>We are building an EU-hosted API for Choice, Noul and Score: a realtime endpoint, Jev and Clef wire formats, and batch jobs that read from and write to your own EU object storage. It is designed so that request content is not stored on our side; that remains a design goal until the launch checks pass. It will not replace self-hosting. <a href="/dpa/">Draft data processing agreement</a>.</p>
           </div>
@@ -627,7 +662,7 @@
             <div>
               <dt>How is Vej different from Jev?</dt>
               <dd>
-                Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model and API. Vej offers the same three question types as a 2B model you run yourself, and scored 76.60% against hosted Jev's 71.76% on the <a href="/evaluation/#jev">same 14,286-decision test</a>. This is not a claim of general superiority.
+                Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model and API. Pea offers the same three question types as a 2B model you run yourself, and scored 76.60% against hosted Jev's 71.76% on the <a href="/evaluation/#jev">same 14,286-decision test</a>. This is not a claim of general superiority.
               </dd>
             </div>
             <div>
@@ -639,7 +674,7 @@
             <div>
               <dt>Is Vej open source?</dt>
               <dd>
-                Vej code and adaptations are Apache-2.0, while the base model and datasets keep their <a href="/licenses/">own terms</a>. Weights are private on Hugging Face as <a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2">Kennes/vej-qwen-2b-alpha2 (private)</a>. Access to the checkpoint is by request. Contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.
+                Vej code and adaptations are Apache-2.0, while the base model and datasets keep their <a href="/licenses/">own terms</a>. Pea weights are private on Hugging Face. See <a href="/model/#availability">checkpoint availability</a>. Access to the checkpoint is by request. Contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.
               </dd>
             </div>
             <div>
@@ -696,8 +731,8 @@
           <a href="/dpa/">Draft DPA</a>
           <a href="/brand/">Brand</a><a href="/licenses/">Licences</a
           ><a href="/model/#availability">Availability</a
-          ><a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
-            >Hugging Face <span aria-hidden="true">→</span></a
+          ><a href="mailto:hello@itsvej.com"
+            >Request access <span aria-hidden="true">→</span></a
           ><a href="https://github.com/LodeKennes/vej-site"
             >Website source <span aria-hidden="true">→</span></a
           >

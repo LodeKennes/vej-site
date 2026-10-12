@@ -8,7 +8,7 @@
     <title>Evaluation and training data · Vej</title>
     <meta
       name="description"
-      content="How Vej alpha2 was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev."
+      content="How Vej Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Evaluation and training data · Vej" />
     <meta
       property="og:description"
-      content="How Vej alpha2 was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev."
+      content="How Vej Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -51,7 +51,7 @@
     <meta name="twitter:title" content="Evaluation and training data · Vej" />
     <meta
       name="twitter:description"
-      content="How Vej alpha2 was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev."
+      content="How Vej Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev."
     />
     <meta
       name="twitter:image"
@@ -90,11 +90,11 @@
         "@context": "https://schema.org",
         "@type": "TechArticle",
         "headline": "The data behind the decisions.",
-        "description": "How Vej alpha2 was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev.",
+        "description": "How Vej Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev.",
         "datePublished": "2026-09-26",
         "dateModified": "2026-10-10",
         "url": "https://itsvej.com/evaluation/",
-        "about": "Vej Qwen 2B alpha2 evaluation",
+        "about": "Vej Pea evaluation",
         "author": {
           "@type": "Person",
           "name": "Lode Kennes",
@@ -124,6 +124,7 @@
               height="66" /></picture
         ></a>
         <nav class="nav" aria-label="Main">
+          <a href="/#models">Models</a>
           <a href="/evaluation/" aria-current="page">Evaluation</a
           ><a href="/model/">Model card</a
           ><a href="/model/#runtime">Run locally</a
@@ -324,10 +325,7 @@
             <h2>How the checkpoint was trained.</h2>
             <p>
               Vej trains rank-16, alpha-32 LoRA adapters and a native FP32 scalar decision head on a frozen
-              <a
-                href="https://huggingface.co/Qwen/Qwen3.5-2B/tree/15852e8c16360a2fea060d615a32b45270f8a8fc"
-                >Qwen3.5-2B text backbone (revision 15852e8)</a
-              >. The original generative pretraining objective does not determine Vej's decision-oriented output interface.
+              <a href="/evidence/NOTICE.txt">pretrained text backbone (revision 15852e8)</a>. The original generative pretraining objective does not determine Vej's decision-oriented output interface.
             </p>
             <ol>
               <li>
@@ -370,17 +368,17 @@
           </div>
         </section>
         <section class="section" id="final-test">
-          <p class="eyebrow">Final test / Qwen 2B alpha2</p>
+          <p class="eyebrow">Final test / Pea research alpha</p>
           <div class="section-head">
             <h2>What was measured.</h2>
             <p>
               Exact label accuracy on 14,286 frozen decisions evaluated on 26 September 2026. This test measures categorical decision accuracy, not end-to-end tool execution.
             </p>
           </div>
-          <div class="table-wrap" role="region" tabindex="0" aria-label="Alpha2 accuracy by primitive">
+          <div class="table-wrap" role="region" tabindex="0" aria-label="Pea accuracy by primitive">
             <table class="metrics">
               <caption class="sr-only">
-                Vej alpha2 final test exact accuracy by primitive
+                Vej Pea final test exact accuracy by primitive
               </caption>
               <thead>
                 <tr>
@@ -459,7 +457,7 @@
                 <tr>
                   <th scope="col">Primitive</th>
                   <th scope="col" class="numeric">Rows</th>
-                  <th scope="col" class="numeric">Vej alpha2</th>
+                  <th scope="col" class="numeric">Vej Pea</th>
                   <th scope="col" class="numeric">Hosted Jev 1.13</th>
                   <th scope="col" class="numeric">Difference (points)</th>
                 </tr>
@@ -633,8 +631,8 @@
           <a href="/dpa/">Draft DPA</a>
           <a href="/brand/">Brand</a><a href="/licenses/">Licences</a
           ><a href="/model/#availability">Availability</a
-          ><a href="https://huggingface.co/Kennes/vej-qwen-2b-alpha2"
-            >Hugging Face <span aria-hidden="true">→</span></a
+          ><a href="mailto:hello@itsvej.com"
+            >Request access <span aria-hidden="true">→</span></a
           ><a href="https://github.com/LodeKennes/vej-site"
             >Website source <span aria-hidden="true">→</span></a
           >
