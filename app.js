@@ -145,8 +145,10 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
       try {
         const challenge = await loadChallenge();
         if (widget !== undefined) { challenge.reset(widget); return; }
-        widget = challenge.render(form.querySelector("[data-turnstile]"), {
-          sitekey: SITE_KEY, action: form.dataset.kind, size: "compact", appearance: "interaction-only",
+        const container = form.querySelector("[data-turnstile]");
+        widget = challenge.render(container, {
+          sitekey: SITE_KEY, action: form.dataset.kind,
+          size: container.clientWidth >= 300 ? "flexible" : "compact", appearance: "interaction-only",
           callback: (value) => {
             token = value;
             button.disabled = submitting;

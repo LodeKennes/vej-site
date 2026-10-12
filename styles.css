@@ -1530,6 +1530,9 @@ summary:focus-visible, input:focus-visible {
   .access-grid {
     gap: 20px;
   }
+  .access-card {
+    padding: 22px;
+  }
 }
 
 /* Sections without side labels use the full content column. */
