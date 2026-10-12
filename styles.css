@@ -1982,3 +1982,54 @@ main:has(.view-bar) #overview {
     max-width: 90%;
   }
 }
+/* Use cases page: timeline lanes separate your team or system from Pea. */
+.story li.step-app::before {
+  background: var(--text-2);
+}
+.story li.step-pea {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-left: 72px;
+  background: transparent;
+  border: 1px dashed var(--accent);
+  border-radius: 12px;
+}
+.story li.step-pea::before {
+  left: -78px;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+}
+.story li.step-pea > div {
+  flex: 1;
+  min-width: 0;
+}
+.story-legend {
+  display: flex;
+  gap: 20px;
+  margin: 12px 0 0;
+  color: var(--text-2);
+}
+.story-legend span::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 8px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.legend-app::before {
+  background: var(--text-2);
+}
+.legend-pea::before {
+  border: 2px solid var(--accent);
+}
+@media (max-width: 760px) {
+  .story li.step-pea {
+    margin-left: 44px;
+  }
+  .story li.step-pea::before {
+    left: -50px;
+  }
+}
