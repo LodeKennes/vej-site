@@ -8,7 +8,7 @@
     <title>Pea evaluation · Vej</title>
     <meta
       name="description"
-      content="How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev."
+      content="How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, a same-test comparison with hosted Jev, a pre-registered comparison with prompted open models, and the paper."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Pea evaluation · Vej" />
     <meta
       property="og:description"
-      content="How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev."
+      content="How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, a same-test comparison with hosted Jev, a pre-registered comparison with prompted open models, and the paper."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -51,7 +51,7 @@
     <meta name="twitter:title" content="Pea evaluation · Vej" />
     <meta
       name="twitter:description"
-      content="How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev."
+      content="How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, a same-test comparison with hosted Jev, a pre-registered comparison with prompted open models, and the paper."
     />
     <meta
       name="twitter:image"
@@ -90,7 +90,7 @@
         "@context": "https://schema.org",
         "@type": "TechArticle",
         "headline": "The data behind the decisions.",
-        "description": "How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, ten training sources, split protocol, a same-test comparison with hosted Jev.",
+        "description": "How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, a same-test comparison with hosted Jev, a pre-registered comparison with prompted open models, and the paper.",
         "datePublished": "2026-09-26",
         "dateModified": "2026-10-10",
         "url": "https://itsvej.com/evaluation/",
@@ -130,7 +130,7 @@
           <a href="/access/">Request access</a>
         </nav>
       </header>
-      <main id="main"><nav class="evaluation-switcher" aria-label="Evaluation by model"><details><summary>Model: Pea · 2B <span>Current</span></summary><div class="model-options"><a href="/evaluation/" aria-current="page"><strong>Pea · 2B</strong><span>Current · Published results</span></a><a href="/evaluation/pepper/"><strong>Pepper · 8B</strong><span>Unavailable · No public results</span></a><a href="/evaluation/pumpkin/"><strong>Pumpkin · 27B</strong><span>Unavailable · No public results</span></a></div></details></nav><section class="page-hero model-hero evaluation-hero"><img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" /><h1>Pea evaluation</h1><p class="lead">We tested the current Pea checkpoint on 14,286 decisions. These results describe Pea only. Pepper and Pumpkin have no public results.</p></section><nav class="section-index" aria-label="Pea evaluation sections"><a href="#final-test">Results &amp; limits</a><a href="#jev">Jev comparison</a><a href="#diagnostics">Tool diagnostics</a><a href="#exposure">Test protocol</a><a href="#lineage">Training</a><a href="#sources">Sources</a><a href="#identities">Hashes</a></nav><section class="section" id="final-test">
+      <main id="main"><nav class="evaluation-switcher" aria-label="Evaluation by model"><details><summary>Model: Pea · 2B <span>Current</span></summary><div class="model-options"><a href="/evaluation/" aria-current="page"><strong>Pea · 2B</strong><span>Current · Published results</span></a><a href="/evaluation/pepper/"><strong>Pepper · 8B</strong><span>Unavailable · No public results</span></a><a href="/evaluation/pumpkin/"><strong>Pumpkin · 27B</strong><span>Unavailable · No public results</span></a></div></details></nav><section class="page-hero model-hero evaluation-hero"><img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" /><h1>Pea evaluation</h1><p class="lead">We tested the current Pea checkpoint on 14,286 decisions. These results describe Pea only. Pepper and Pumpkin have no public results.</p></section><nav class="section-index" aria-label="Pea evaluation sections"><a href="#final-test">Results &amp; limits</a><a href="#jev">Jev comparison</a><a href="#open-models">Open models</a><a href="#diagnostics">Tool diagnostics</a><a href="#exposure">Test protocol</a><a href="#lineage">Training</a><a href="#sources">Sources</a><a href="#identities">Hashes</a></nav><section class="section" id="final-test">
           <div class="section-head">
             <h2>Test results</h2>
             <p>
@@ -262,6 +262,93 @@
             <p>
               <a href="/evidence/jev-comparison.json"
                 >Aggregate comparison and evidence hashes
+                <span aria-hidden="true">→</span></a
+              >
+            </p>
+          </div>
+        </section><section class="section" id="open-models">
+          <h2>Pea against prompted open models.</h2>
+          <p class="lead">
+            Our paper compares Pea with open 2B, 4B and 9B instruct models from the same family as Pea's backbone, asked for probabilities in the two usual ways: reading the probabilities of answer letters, or asking for a JSON object of probabilities. Every system answered the same 14,286 test decisions. The comparison was pre-registered before any of these models ran; Pea's own results were already known. Pea is ahead of every prompted model, including a 9B model.
+          </p>
+          <p class="small">Exact accuracy and log loss (NLL, lower is better). Invalid answers count as wrong. The 9B model ran with FP8 weights and is reported outside the pre-registered tests.</p>
+          <p class="micro mobile-table-hint">Scroll horizontally to see the full comparison.</p>
+          <div class="table-wrap" role="region" tabindex="0" aria-label="Pea and prompted open models">
+            <table class="metrics">
+              <caption class="sr-only">Pea and prompted open models on the same 14,286 decisions</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Model</th>
+                  <th scope="col">How it answers</th>
+                  <th scope="col" class="numeric">Accuracy</th>
+                  <th scope="col" class="numeric">NLL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="total">
+                  <th scope="row">Pea · 2B</th>
+                  <td>Scores each outcome</td>
+                  <td class="numeric"><strong>76.60%</strong></td>
+                  <td class="numeric"><strong>0.589</strong></td>
+                </tr>
+                <tr>
+                  <th scope="row">Open 2B model</th>
+                  <td>Answer letter</td>
+                  <td class="numeric">55.38%</td>
+                  <td class="numeric">1.134</td>
+                </tr>
+                <tr>
+                  <th scope="row">Open 2B model</th>
+                  <td>Written probabilities</td>
+                  <td class="numeric">42.27%</td>
+                  <td class="numeric">4.643</td>
+                </tr>
+                <tr>
+                  <th scope="row">Open 4B model</th>
+                  <td>Answer letter</td>
+                  <td class="numeric">50.31%</td>
+                  <td class="numeric">1.237</td>
+                </tr>
+                <tr>
+                  <th scope="row">Open 4B model</th>
+                  <td>Written probabilities</td>
+                  <td class="numeric">55.66%</td>
+                  <td class="numeric">13.858</td>
+                </tr>
+                <tr>
+                  <th scope="row">Open 9B model · FP8</th>
+                  <td>Answer letter</td>
+                  <td class="numeric">62.30%</td>
+                  <td class="numeric">1.003</td>
+                </tr>
+                <tr>
+                  <th scope="row">Open 9B model · FP8</th>
+                  <td>Written probabilities</td>
+                  <td class="numeric">55.66%</td>
+                  <td class="numeric">12.614</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="prose" style="margin-top: 32px">
+            <h3>What the paper found</h3>
+            <p>
+              Prompted models fail in recognisable ways. Three of the four 2B and 4B setups give the same answer to every, or almost every, question about whether an action's required inputs are known. Letter answers follow the order of the options: reversing the options changed the 2B model's answer on 36% of Choice decisions, and Pea's on 0.2%. Written probabilities are often invalid or put all probability on one answer.
+            </p>
+            <p>
+              Pea is not the fastest. Each outcome is scored on its own, so the conversation is read once per outcome. On one RX 9070 XT with prefix caching, Pea served 9.38 decisions per second at a median of 102 ms. The open 2B model answering with a letter served 20.88 per second at 57 ms, with far lower accuracy. Pea's advantage is decision quality, not speed.
+            </p>
+            <p>
+              Limits: no generative model was fine-tuned on the same data, so the paper compares Pea with prompting, not with an equally trained generative model. Rating questions remain Pea's weakest area. This is one English test set.
+            </p>
+            <p>
+              <a href="/paper/vej-native-candidate-probabilities.pdf"
+                >Read the paper (PDF)
+                <span aria-hidden="true">→</span></a
+              >
+              ·
+              <a href="/paper/vej-paper-supplement.zip"
+                >Supplementary data (ZIP)
                 <span aria-hidden="true">→</span></a
               >
             </p>
