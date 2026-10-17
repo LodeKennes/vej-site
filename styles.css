@@ -2034,3 +2034,20 @@ main:has(.view-bar) #overview {
     left: -50px;
   }
 }
+
+/* Keep implementation detail available without interrupting the examples. */
+.technical-notes {
+  margin: 24px 0;
+  padding: 12px 0;
+  border-block: 1px solid var(--rule);
+}
+.technical-notes summary {
+  cursor: pointer;
+  padding-block: 10px;
+  font-weight: 500;
+}
+.technical-notes > p {
+  margin-top: 16px;
+  color: var(--text-2);
+  line-height: 1.65;
+}

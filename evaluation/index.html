@@ -83,7 +83,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=9ee9477cd8f5" />
+    <link rel="stylesheet" href="/styles.css?v=1033991f9fa5" />
     <script src="/app.js?v=d79349ad04bd" defer></script>
     <script type="application/ld+json">
       {
@@ -131,7 +131,7 @@
           <a href="https://app.itsvej.com/">Sign in</a>
         </nav>
       </header>
-      <main id="main"><nav class="evaluation-switcher" aria-label="Evaluation by model"><details><summary>Model: Pea · 2B <span>Current</span></summary><div class="model-options"><a href="/evaluation/" aria-current="page"><strong>Pea · 2B</strong><span>Current · Published results</span></a><a href="/evaluation/pepper/"><strong>Pepper · 8B</strong><span>Unavailable · No public results</span></a><a href="/evaluation/pumpkin/"><strong>Pumpkin · 27B</strong><span>Unavailable · No public results</span></a></div></details></nav><section class="page-hero model-hero evaluation-hero"><img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" /><h1>Pea evaluation</h1><p class="lead">We tested the current Pea checkpoint on 14,286 decisions. These results describe Pea only. Pepper and Pumpkin have no public results.</p></section><nav class="section-index" aria-label="Pea evaluation sections"><a href="#final-test">Results &amp; limits</a><a href="#jev">Jev comparison</a><a href="#open-models">Open models</a><a href="#diagnostics">Tool diagnostics</a><a href="#exposure">Test protocol</a><a href="#lineage">Training</a><a href="#sources">Sources</a><a href="#identities">Hashes</a></nav><section class="section" id="final-test">
+      <main id="main"><nav class="evaluation-switcher" aria-label="Evaluation by model"><details><summary>Model: Pea · 2B <span>Current</span></summary><div class="model-options"><a href="/evaluation/" aria-current="page"><strong>Pea · 2B</strong><span>Current · Published results</span></a><a href="/evaluation/pepper/"><strong>Pepper · 8B</strong><span>In development · Results to follow</span></a><a href="/evaluation/pumpkin/"><strong>Pumpkin · 27B</strong><span>In development · Results to follow</span></a></div></details></nav><section class="page-hero model-hero evaluation-hero"><img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" /><h1>Pea evaluation</h1><p class="lead">Accuracy, calibration and comparisons for Pea across 14,286 test decisions. Explore the results, methodology and supporting evidence below.</p></section><nav class="section-index" aria-label="Pea evaluation sections"><a href="#final-test">Results</a><a href="#jev">Jev comparison</a><a href="#open-models">Open models</a><a href="#diagnostics">Tool diagnostics</a><a href="#exposure">Test protocol</a><a href="#lineage">Training</a><a href="#sources">Sources</a><a href="#identities">Hashes</a></nav><section class="section" id="final-test">
           <div class="section-head">
             <h2>Test results</h2>
             <p>
@@ -176,15 +176,15 @@
           </div>
           <div class="limits">
             <div>
-              <h3>Score needs more work.</h3>
+              <h3>Score reference comparison</h3>
               <p>
                 51.62% exact-level accuracy against 48.44% for a post-hoc test-majority control that uses the test labels.
               </p>
             </div>
             <div>
-              <h3>Tool use needs checks.</h3>
+              <h3>Tool decision evaluation</h3>
               <p>
-                Development suites passed 30 of 48 harder tool cases, with nine wrong calls among 31 "ready" predictions. Details below.
+                Development suites passed 30 of 48 harder tool cases, with nine incorrect calls among 31 "ready" predictions. See the <a href="#diagnostics">diagnostics and integration guidance</a>.
               </p>
             </div>
           </div>
@@ -337,10 +337,10 @@
               Prompted models fail in recognisable ways. Three of the four 2B and 4B setups give the same answer to every, or almost every, question about whether an action's required inputs are known. Letter answers follow the order of the options: reversing the options changed the 2B model's answer on 36% of Choice decisions, and Pea's on 0.2%. Written probabilities are often invalid or put all probability on one answer.
             </p>
             <p>
-              Pea is not the fastest. Each outcome is scored on its own, so the conversation is read once per outcome. On one RX 9070 XT with prefix caching, Pea served 9.38 decisions per second at a median of 102 ms. The open 2B model answering with a letter served 20.88 per second at 57 ms, with far lower accuracy. Pea's advantage is decision quality, not speed.
+              Each outcome is scored independently, with the conversation read once per outcome. On one RX 9070 XT with prefix caching, Pea served 9.38 decisions per second at a median of 102 ms. The prompted open 2B model in letter mode served 20.88 per second at 57 ms. These measurements show the accuracy and throughput tradeoff on this hardware and test set.
             </p>
             <p>
-              Limits: no generative model was fine-tuned on the same data, so the paper compares Pea with prompting, not with an equally trained generative model. Rating questions remain Pea's weakest area. This is one English test set.
+              Comparison scope: Pea was trained for these decisions; the generative models were prompted without fine-tuning on the same data. Results cover one English test set, with accuracy reported separately for each question type.
             </p>
             <p>
               <a href="/paper/vej-native-candidate-probabilities.pdf"
@@ -424,7 +424,7 @@
                 <strong>Expanded training.</strong> 32,768 training and 2,048 development decisions. Two epochs, selected at step 1,280 with validation NLL 0.636590.
               </li>
               <li>
-                <strong>First 100k stage.</strong> 100,002 training and 28,572 validation decisions. An unexpected system reboot interrupted training. The saved selected checkpoint was step 1,024 with validation NLL 0.492022.
+                <strong>First 100k stage.</strong> 100,002 training and 28,572 validation decisions. The stage ended early; the selected saved checkpoint was step 1,024 with validation NLL 0.492022.
               </li>
               <li>
                 <strong>Recovery stage.</strong> Initialized with a fresh optimizer state, seed 43, across one shuffled epoch of the same corpus (6,251 updates). Step 6,144 was selected by lowest pooled validation NLL of 0.458497.

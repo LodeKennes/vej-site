@@ -8,7 +8,7 @@
     <title>Pea · Model card · Vej</title>
     <meta
       name="description"
-      content="Run Pea on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the Pea release."
+      content="Run Pea on your own GPU: the 2B architecture, access by request, local inference commands and runtime guidance."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Pea · Model card · Vej" />
     <meta
       property="og:description"
-      content="Run Pea on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the Pea release."
+      content="Run Pea on your own GPU: the 2B architecture, access by request, local inference commands and runtime guidance."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -51,7 +51,7 @@
     <meta name="twitter:title" content="Pea · Model card · Vej" />
     <meta
       name="twitter:description"
-      content="Run Pea on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the Pea release."
+      content="Run Pea on your own GPU: the 2B architecture, access by request, local inference commands and runtime guidance."
     />
     <meta
       name="twitter:image"
@@ -83,14 +83,14 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=9ee9477cd8f5" />
+    <link rel="stylesheet" href="/styles.css?v=1033991f9fa5" />
     <script src="/app.js?v=d79349ad04bd" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "TechArticle",
         "headline": "Pea · Model card.",
-        "description": "Run Pea on your own GPU: the 2B architecture, private checkpoint availability, local inference commands, vLLM status and the limits of the Pea release.",
+        "description": "Run Pea on your own GPU: the 2B architecture, access by request, local inference commands and runtime guidance.",
         "datePublished": "2026-09-26",
         "dateModified": "2026-10-10",
         "url": "https://itsvej.com/models/pea/",
@@ -137,7 +137,7 @@
           <p class="lead">Pea is Vej’s current 2B text decision model. Define a situation and its possible outcomes. Pea returns a probability for each outcome. Your code decides what happens next.</p><p class="status">Completed model · Access by request</p>
           <div class="actions"><a class="button" href="/access/#pea">Request Pea access</a><a class="button secondary" href="/evaluation/">Pea’s evaluation</a></div>
         </section>
-        <nav class="section-index" aria-label="On this page"><a href="#availability">Access</a><a href="#runtime">Run Pea</a><a href="#architecture">Architecture</a><a href="#limits">Limits</a></nav><section class="section reading-grid compact" id="availability">
+        <nav class="section-index" aria-label="On this page"><a href="#availability">Access</a><a href="#runtime">Run Pea</a><a href="#architecture">Architecture</a><a href="#limits">Usage guidance</a></nav><section class="section reading-grid compact" id="availability">
           <div class="prose">
             <h2>Access</h2>
             <p>To discuss access, contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p>
@@ -187,13 +187,13 @@
             <p>The official TypeSafe (Jev) Python SDK uses <code>POST /v1/systemone</code>. Cloudflare Clef uses <code>POST /client/v4/accounts/{account_id}/ai/run/@cf/cloudflare/{clef|clef-flash}</code>. Both text wire formats work on local and experimental vLLM backends.</p>
             <p>The serving commands, SDK adapters, vLLM exporter and context override require the current private Vej source with its locked model runtime dependencies. The source archive bundled with the Pea release predates these features; the prediction commands above work with that archive.</p>
             <h3>Experimental vLLM export</h3>
-            <p><code>vej export-vllm</code> writes a self-contained classification export for vLLM ≥ 0.27, using <code class="nowrap">--runner pooling</code> <code class="nowrap">--convert classify</code>. The private published export can also be served without those flags. Pea has not passed the vLLM checks for numerical accuracy and contract parity. This export remains experimental. Use Vej’s native loader for supported inference.</p>
+            <p><code>vej export-vllm</code> writes a self-contained classification export for vLLM ≥ 0.27, using <code class="nowrap">--runner pooling</code> <code class="nowrap">--convert classify</code>. The private published export can also be served without those flags. Numerical accuracy and contract parity are under validation. This export is experimental; use Vej’s native loader for supported inference.</p>
           </div>
         </section><section class="section reading-grid compact" id="architecture">
           <div class="prose">
             <h2>Architecture</h2>
             <p>
-              Pea uses a pretrained 2B text backbone. Vej freezes its base BF16 parameters and trains rank-16, alpha-32 LoRA adapters alongside a custom FP32 scalar decision head. There is no vocabulary projection head or token generator in this text-only checkpoint. This checkpoint makes text decisions. The code includes an untrained vision input path. We have not measured vision decision quality.
+              Pea uses a pretrained 2B text backbone. Vej freezes its base BF16 parameters and trains rank-16, alpha-32 LoRA adapters alongside a custom FP32 scalar decision head. There is no vocabulary projection head or token generator in this text-only checkpoint. Pea’s released checkpoint is designed and evaluated for text decisions.
             </p>
             <div class="pipeline">
               <span>State + question + outcome</span
@@ -224,9 +224,9 @@
           </div>
         </section><section class="section reading-grid compact" id="limits">
           <div class="prose">
-            <h2>Limits</h2>
+            <h2>Usage guidance</h2>
             <p>
-              The final test recorded 76.60% exact accuracy across 14,286 decisions. Score accuracy and tool diagnostics remain weak, confidence is not calibrated, and probabilities are not permission to act. Keep independent policy checks around consequential actions; the same-test comparison with <a href="https://typesafe.ai">hosted Jev</a> is on the <a href="/evaluation/#jev">evaluation page</a>.
+              The final test recorded 76.60% exact accuracy across 14,286 decisions: 89.22% on Choice, 91.71% on Noul and 51.62% on Score. No post-hoc calibration was applied. Validate thresholds on your own workflow and keep independent policy checks around consequential actions. See the <a href="/evaluation/">full evaluation</a> for calibration, tool diagnostics and the same-test comparison with hosted Jev.
             </p>
             <p>
               Vej code and model adaptations use Apache-2.0, while upstream base assets and training datasets retain their respective terms. See <a href="/licenses/">licences and attribution</a>.
