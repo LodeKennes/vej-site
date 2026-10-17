@@ -93,7 +93,7 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "dateModified": "2026-10-12",
+      "dateModified": "2026-10-18",
       "name": "Vej",
       "url": "https://itsvej.com/",
       "description": "Vej builds decision models: Pea (2B), Pepper (8B) and Pumpkin (27B). Explore Pea’s evaluation and follow the models in private development.",
@@ -123,7 +123,7 @@
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Linux",
       "softwareVersion": "Pea",
-      "description": "Pea is Vej’s current 2B text decision model. It returns a probability for each outcome you supply. Completed model; checkpoint access by request.",
+      "description": "Pea is Vej’s current 2B text decision model. It returns a probability for each outcome you supply. Completed model; limited hosted early access and private checkpoint access by request.",
       "license": "https://www.apache.org/licenses/LICENSE-2.0",
       "author": {
         "@id": "https://itsvej.com/#vej"
@@ -139,7 +139,7 @@
           "name": "Which models can I use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pea is the current completed model, with private checkpoint access by request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available."
+            "text": "Pea is the current completed model, with limited hosted early access and private checkpoint access by request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available."
           }
         },
         {
@@ -163,7 +163,7 @@
           "name": "Is there a hosted API?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "An EU-hosted API is in development. Today, request Pea access to run inference on your own hardware."
+            "text": "Yes. The hosted API is live in limited early access, by request: Pea only, text only. Sign in to the console with an API key. Capacity is limited, with no uptime guarantee yet."
           }
         },
         {
@@ -206,9 +206,9 @@
 <section class="hero">
           <div>
             <h1>Vej builds <br /><span class="green">decision models.</span></h1>
-            <p class="lead">Define a situation and its possible outcomes. Our models return probabilities for your code. Pea is available by request. Pepper and Pumpkin are in development.</p>
-            <div class="actions"><a class="button" href="/models/">Meet the models</a><a class="button secondary" href="/evaluation/">Pea’s evaluation</a></div>
-            <div class="family-strip" role="group" aria-label="Model availability"><a href="/models/#pea"><strong>Pea · 2B</strong><span>Current · By request</span></a><a href="/models/#pepper"><strong>Pepper · 8B</strong><span>In development</span></a><a href="/models/#pumpkin"><strong>Pumpkin · 27B</strong><span>In development</span></a></div>
+            <p class="lead">Define a situation and its possible outcomes. Our models return probabilities for your code. Pea’s hosted API is live in limited early access, by request. Pepper and Pumpkin are in development.</p>
+            <div class="actions"><a class="button" href="/access/#pea">Request access</a><a class="button secondary" href="https://app.itsvej.com/">Sign in to the console</a></div>
+            <div class="family-strip" role="group" aria-label="Model availability"><a href="/models/#pea"><strong>Pea · 2B</strong><span>Limited early access</span></a><a href="/models/#pepper"><strong>Pepper · 8B</strong><span>In development</span></a><a href="/models/#pumpkin"><strong>Pumpkin · 27B</strong><span>In development</span></a></div>
           </div>
           <div class="decision">
             <div class="tabs" role="tablist" aria-label="Decision primitive">
@@ -294,11 +294,11 @@
         </section>
 
 <section class="section model-family" id="models" aria-labelledby="models-heading">
-          <div class="section-head"><div><h2 id="models-heading">Models</h2></div><p>Pea is available by request, with published evaluation results. Pepper and Pumpkin are in private development; join their waitlists for release updates.</p></div>
+          <div class="section-head"><div><h2 id="models-heading">Models</h2></div><p>Pea has limited hosted early access by request, with published native evaluation results. Pepper and Pumpkin are in private development; join their waitlists for release updates.</p></div>
           <div class="model-grid"><article class="model-card model-pea" id="pea" aria-labelledby="pea-heading">
               <div class="model-card-top"><p class="micro">Current · Completed model</p><img src="/assets/brand/models/pea.svg" alt="" width="112" height="112" /></div>
               <h3 id="pea-heading">Pea <span class="model-size">2B</span></h3>
-              <p>Define a situation and its possible outcomes. Pea returns a probability for each. Checkpoint access is by request.</p>
+              <p>Define a situation and its possible outcomes. Pea returns a probability for each. Limited hosted early access and private checkpoint access are by request.</p>
               <div class="model-links"><a href="/models/pea/">Explore Pea <span aria-hidden="true">→</span></a><a href="/access/#pea">Request access <span aria-hidden="true">→</span></a></div>
             </article><article class="model-card model-pepper" id="pepper" aria-labelledby="pepper-heading">
               <div class="model-card-top"><p class="micro">In development · Waitlist open</p><img src="/assets/brand/models/pepper.svg" alt="" width="112" height="112" /></div>
@@ -451,7 +451,7 @@
           </div>
           <p>
             <a class="text-link" href="/use-cases/"
-              >See proposed APIs and their use cases <span aria-hidden="true">→</span></a
+              >See Beta APIs and their use cases <span aria-hidden="true">→</span></a
             >
           </p>
         </section>
@@ -520,16 +520,16 @@
         </section>
 <section class="section reading-grid compact" id="status">
           <div class="prose">
-            <h2>Development</h2>
+            <h2>Availability</h2>
             <p>Run Pea through the native CLI, a local HTTP server or the Jev and Cloudflare Clef SDK formats. See the <a href="/models/pea/#runtime">setup instructions and experimental runtime options</a>.</p>
             <h3>Pea release</h3>
-            <p>Pea is complete and available by request. Its published results describe the released checkpoint.</p>
+            <p>Pea is complete, with limited hosted early access and private checkpoint access by request. Its published results describe the native checkpoint.</p>
             <h3>Hosted API</h3>
-            <p>We are building an EU-hosted API for Choice, Noul and Score, with Jev and Clef formats and batch jobs using your EU storage. Keeping request content out of our storage is a design goal, subject to launch validation. Self-hosting remains an option. <a href="/dpa/">Draft data processing agreement</a>.</p>
+            <p>The hosted API is live at <a href="https://api.itsvej.com/">api.itsvej.com</a> in limited early access. Pea only, text only; image input is refused. Choice, Noul and Score are live on <code>/v1/predict</code>, alongside the Jev and Cloudflare-compatible formats. It runs Pea’s native reference runtime; hosted probabilities are uncalibrated. Capacity is limited, with no uptime guarantee yet.</p><p><a href="/access/#pea">Request access</a>, then <a href="https://app.itsvej.com/">sign in to the console</a> with an API key.</p><p><a href="/use-cases/">Beta modes</a> are also live; states require organization retention opt-in and store history encrypted by Vej. Batch routes exist, but jobs are not open: approved EU storage hosts are not configured yet. Self-hosting remains an option. <a href="/dpa/">Draft data processing agreement</a>.</p>
           </div>
         </section>
-<section class="section" id="questions"><div class="section-head"><div><h2>Questions</h2></div></div><dl class="faq"><div><dt>Which models can I use?</dt><dd>Pea is the current completed model, with private checkpoint access by request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available.</dd></div><div><dt>What does Pea return?</dt><dd>A probability for each outcome you define. Choice weighs named options, Noul assesses statements, and Score rates rubric levels. Your code decides what happens next.</dd></div><div><dt>Can I run Pea on my own hardware?</dt><dd>Yes, with authorised checkpoint and source access. Supported inference uses the native loader on your GPU; CPU execution is a slower fallback. The model card includes setup instructions and current limits.</dd></div><div><dt>Is there a hosted API?</dt><dd>An EU-hosted API is in development. Today, request Pea access to run inference on your own hardware.</dd></div><div><dt>How should I use Pea’s probabilities?</dt><dd>Set thresholds using examples from your own workflow, and pair tool actions with independent policy checks. Pea’s published evaluation reports accuracy and calibration across 14,286 decisions; probabilities have no post-hoc calibration applied.</dd></div></dl><p><a href="/models/pea/">Pea model card</a> · <a href="/access/">Access and waitlists</a> · <a href="/licenses/">Licences</a></p></section>
-<section class="section newsletter" id="newsletter"><h2>Newsletter</h2><noscript><p>Enable JavaScript to subscribe, or contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p></noscript><p>Model releases, results and Vej news.</p><form data-signup-form data-kind="newsletter"><label for="newsletter-email">Email address <span>(required)</span></label><input id="newsletter-email" name="email" type="email" autocomplete="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Use an email address such as name@example.com." required maxlength="254" /><label class="consent" for="newsletter-consent"><input id="newsletter-consent" name="consent" type="checkbox" required />Send me Vej updates by email.</label><div class="form-trap" aria-hidden="true"><label for="newsletter-website">Leave this field empty</label><input id="newsletter-website" name="website" autocomplete="off" tabindex="-1" /></div><div data-turnstile></div><button class="button" type="submit" disabled>Subscribe</button><button class="button secondary" type="button" data-retry hidden>Retry browser check</button><p class="form-feedback" role="status" aria-live="polite"></p><p class="small">We use these details for this request or list. <a href="/privacy/">Privacy</a>.</p></form></section><section class="cta"><div><h2>Access and waitlists</h2><p>Request Pea access or join the Pepper and Pumpkin waitlists for release updates.</p></div><div class="actions"><a class="button" href="/access/">Access &amp; waitlists</a><a class="button secondary" href="mailto:hello@itsvej.com">Contact Vej</a></div></section>
+<section class="section" id="questions"><div class="section-head"><div><h2>Questions</h2></div></div><dl class="faq"><div><dt>Which models can I use?</dt><dd>Pea is the current completed model, with limited hosted early access and private checkpoint access by request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available.</dd></div><div><dt>What does Pea return?</dt><dd>A probability for each outcome you define. Choice weighs named options, Noul assesses statements, and Score rates rubric levels. Your code decides what happens next.</dd></div><div><dt>Can I run Pea on my own hardware?</dt><dd>Yes, with authorised checkpoint and source access. Supported inference uses the native loader on your GPU; CPU execution is a slower fallback. The model card includes setup instructions and current limits.</dd></div><div><dt>Is there a hosted API?</dt><dd>Yes. The hosted API is live in limited early access, by request: Pea only, text only. Sign in to the console with an API key. Capacity is limited, with no uptime guarantee yet.</dd></div><div><dt>How should I use Pea’s probabilities?</dt><dd>Set thresholds using examples from your own workflow, and pair tool actions with independent policy checks. Pea’s published evaluation reports accuracy and calibration across 14,286 decisions; probabilities have no post-hoc calibration applied.</dd></div></dl><p><a href="/models/pea/">Pea model card</a> · <a href="/access/">Access and waitlists</a> · <a href="/licenses/">Licences</a></p></section>
+<section class="section newsletter" id="newsletter"><h2>Newsletter</h2><noscript><p>Enable JavaScript to subscribe, or contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p></noscript><p>Model releases, results and Vej news.</p><form data-signup-form data-kind="newsletter"><label for="newsletter-email">Email address <span>(required)</span></label><input id="newsletter-email" name="email" type="email" autocomplete="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Use an email address such as name@example.com." required maxlength="254" /><label class="consent" for="newsletter-consent"><input id="newsletter-consent" name="consent" type="checkbox" required />Send me Vej updates by email.</label><div class="form-trap" aria-hidden="true"><label for="newsletter-website">Leave this field empty</label><input id="newsletter-website" name="website" autocomplete="off" tabindex="-1" /></div><div data-turnstile></div><button class="button" type="submit" disabled>Subscribe</button><button class="button secondary" type="button" data-retry hidden>Retry browser check</button><p class="form-feedback" role="status" aria-live="polite"></p><p class="small">We use these details for this request or list. <a href="/privacy/">Privacy</a>.</p></form></section><section class="cta"><div><h2>Access and waitlists</h2><p>Request Pea access or join the Pepper and Pumpkin waitlists for release updates.</p></div><div class="actions"><a class="button" href="/access/">Access &amp; waitlists</a><a class="button secondary" href="https://app.itsvej.com/">Sign in to the console</a></div></section>
 </main>
       <footer>
         <a href="/" aria-label="Vej home"
