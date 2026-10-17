@@ -83,7 +83,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=414af4c47ed2" />
+    <link rel="stylesheet" href="/styles.css?v=9ee9477cd8f5" />
     <script src="/app.js?v=d79349ad04bd" defer></script>
     <script type="application/ld+json">
       {
@@ -120,6 +120,7 @@
           <a href="/evaluation/">Evaluation</a>
           <a href="/use-cases/">Use cases</a>
           <a href="/access/">Request access</a>
+          <a href="https://app.itsvej.com/">Sign in</a>
         </nav>
       </header>
       <main id="main">
@@ -260,7 +261,10 @@
         <p>Before signing, identify the actual approved hosting chain, including any separate control-plane/Postgres host and downstream provider parties that process data. The provider review identifies publications and unresolved questions. Its global lists are not automatically approved here. There is no managed inference API subprocessor. The customer's own EU bucket provider is chosen/contracted by the customer; confirm its role and permissions per customer, rather than treating it as an undisclosed Vej storage supplier.</p>
         </div>
         </section>
-      </main>
+      <section class="section"><h2>Draft state retention clarification</h2>
+        <p>Optional encrypted state retention remains disabled pending measured size limits and legal/provider approval. Live state reads expire after 24 hours idle or 30 days from creation. Activity never extends the absolute deadline. Deletion and withdrawal deny reads before asynchronous object cleanup completes; failed deletion remains pending.</p>
+        <p>Live-store deletion confirmation does not prove erasure from provider replicas, snapshots, database backups or WAL. Backup purge deadlines and restoration safeguards must be agreed before hosted launch. Restores must remain isolated until expiry and revocation reconciliation prevents content resurrection. These are draft requirements, not a provider deletion guarantee.</p></section>
+    </main>
       <footer>
         <a href="/" aria-label="Vej home"
           ><picture
@@ -274,6 +278,7 @@
         ></a>
         <span>Vej builds Pea, Pepper and Pumpkin. · 2026</span>
         <nav aria-label="Footer">
+          <a href="https://app.itsvej.com/">Sign in</a>
           <a href="mailto:hello@itsvej.com">Contact</a>
           <a href="/access/#newsletter">Newsletter</a><a href="/privacy/">Privacy</a><a href="/dpa/">Draft DPA</a>
           <a href="/brand/">Brand</a><a href="/licenses/">Licences</a

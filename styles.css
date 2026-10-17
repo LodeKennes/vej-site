@@ -873,6 +873,7 @@ footer a {
     height: 49px;
   }
   .nav {
+    flex-wrap: wrap;
     gap: 16px;
   }
   .nav a {
