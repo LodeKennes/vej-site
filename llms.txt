@@ -9,7 +9,7 @@ Last updated: 2026-10-18.
 - Pepper (red): 8B model in development, being built and tested privately with companies. No public release or published benchmarks.
 - Pumpkin (orange): 27B model under research and development, being tested privately with companies. No public release or published benchmarks.
 
-Contact: [send a message](https://itsvej.com/contact/). Hosted API access is by request. Pea 1 weights require an approved Hugging Face access request. Sign in to the [console](https://app.itsvej.com/) with an API key.
+Contact: [send a message](https://itsvej.com/contact/). Hosted API access starts with a [console account](https://app.itsvej.com/sign-up) and manual approval. Sign in with your account; API keys authenticate API clients. Pea 1 weights require a separate approved Hugging Face access request.
 
 ## Key Facts
 - Three primitives: Choice (pick among named options), Noul (assess statement truth as true/false), Score (rate rubric levels with expectation computed in caller code).
@@ -32,7 +32,8 @@ Contact: [send a message](https://itsvej.com/contact/). Hosted API access is by 
 - 2026-10-18 hosted status: limited early access is live, by request, using Pea’s native reference runtime. States are hosted Beta with organization retention opt-in and encrypted history storage. Batch is not open yet. Pea 1 weights are listed at https://huggingface.co/ItsVej/pea-1 and require an approved Hugging Face access request.
 
 ## Forms
-- Access requests, model waitlists, newsletter signups and contact messages are stored in a separate Cloudflare D1 database in the EU. Access is reviewed; a saved request does not grant model access.
+- Hosted Pea access uses [console signup](https://app.itsvej.com/sign-up), followed by manual admin approval. Console accounts are separate from the website forms.
+- Model waitlists, newsletter signups and contact messages stay in the private EU Cloudflare D1 database used by forms.itsvej.com. A waitlist entry does not grant model access.
 - Contact messages are saved from the [contact form](https://itsvej.com/contact/) so Vej can reply. A saved message is not a support contract.
 
 ## Primary Pages
@@ -41,7 +42,7 @@ Contact: [send a message](https://itsvej.com/contact/). Hosted API access is by 
 - [Overview](https://itsvej.com/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
 - [Models](https://itsvej.com/models/): The model family and public availability.
 - [Use cases](https://itsvej.com/use-cases/): Live hosted Beta APIs beyond Choice, Noul and Score, with industry use cases, sample requests and quality limits.
-- [Access and waitlists](https://itsvej.com/access/): Pea access requests, separate model waitlists and newsletter signup.
+- [Access and waitlists](https://itsvej.com/access/): Console signup for Pea, separate model waitlists and newsletter signup.
 - [Evaluation](https://itsvej.com/evaluation/): Held-out accuracy, the same-test Jev comparison, and the pre-registered open-model comparison.
 - [Model card](https://itsvej.com/models/pea/): Limited hosted early access, Pea 1 weights by approved request, local inference, and limits.
 - [Licences](https://itsvej.com/licenses/): Attribution and terms for code, upstream base model, training datasets, and bundled fonts.
