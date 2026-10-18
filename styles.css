@@ -383,6 +383,9 @@ p {
   border-top: 1px solid var(--rule);
   padding: 72px 0;
 }
+.section > h2 {
+  margin-bottom: 24px;
+}
 .section-head {
   display: flex;
   justify-content: space-between;

@@ -8,7 +8,7 @@
     <title>Pea evaluation · Vej</title>
     <meta
       name="description"
-      content="Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and prompted open models."
+      content="Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and Qwen3.5."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Pea evaluation · Vej" />
     <meta
       property="og:description"
-      content="Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and prompted open models."
+      content="Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and Qwen3.5."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -51,7 +51,7 @@
     <meta name="twitter:title" content="Pea evaluation · Vej" />
     <meta
       name="twitter:description"
-      content="Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and prompted open models."
+      content="Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and Qwen3.5."
     />
     <meta
       name="twitter:image"
@@ -83,14 +83,14 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=a62dec6f4cf7" />
+    <link rel="stylesheet" href="/styles.css?v=30f87691d4c9" />
     <script src="/app.js?v=aac23ae6588a" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "TechArticle",
         "headline": "The data behind the decisions.",
-        "description": "Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and prompted open models.",
+        "description": "Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and Qwen3.5.",
         "datePublished": "2026-09-26",
         "dateModified": "2026-10-18",
         "url": "https://itsvej.com/evaluation/",
@@ -130,7 +130,7 @@
           <a href="https://app.itsvej.com/">Sign in</a>
         </nav>
       </header>
-      <main id="main"><nav class="evaluation-switcher" aria-label="Evaluation by model"><details><summary>Model: Pea <span>Current</span></summary><div class="model-options"><a href="/evaluation/" aria-current="page"><img src="/assets/brand/models/pea.svg" alt="" width="36" height="36" />Pea</a><a href="/evaluation/pepper/"><img src="/assets/brand/models/pepper.svg" alt="" width="36" height="36" />Pepper</a><a href="/evaluation/pumpkin/"><img src="/assets/brand/models/pumpkin.svg" alt="" width="36" height="36" />Pumpkin</a></div></details></nav><section class="page-hero model-hero evaluation-hero"><img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" /><h1>Pea evaluation</h1><p class="lead">Exact accuracy on 14,286 held-out decisions, compared with hosted Jev and prompted open models.</p></section><nav class="section-index" aria-label="Pea evaluation sections"><a href="#final-test">Results</a><a href="#jev">Jev comparison</a><a href="#open-models">Open models</a></nav><section class="section" id="final-test">
+      <main id="main"><nav class="evaluation-switcher" aria-label="Evaluation by model"><details><summary>Model: Pea <span>Current</span></summary><div class="model-options"><a href="/evaluation/" aria-current="page"><img src="/assets/brand/models/pea.svg" alt="" width="36" height="36" />Pea</a><a href="/evaluation/pepper/"><img src="/assets/brand/models/pepper.svg" alt="" width="36" height="36" />Pepper</a><a href="/evaluation/pumpkin/"><img src="/assets/brand/models/pumpkin.svg" alt="" width="36" height="36" />Pumpkin</a></div></details></nav><section class="page-hero model-hero evaluation-hero"><img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" /><h1>Pea evaluation</h1><p class="lead">Exact accuracy on 14,286 held-out decisions, compared with hosted Jev and Qwen3.5.</p></section><nav class="section-index" aria-label="Pea evaluation sections"><a href="#final-test">Results</a><a href="#jev">Jev comparison</a><a href="#open-models">Qwen</a></nav><section class="section" id="final-test">
           <div class="section-head">
             <h2>Test results</h2>
             <p>Exact label accuracy on 14,286 frozen decisions evaluated on 26 September 2026.</p>
@@ -256,8 +256,8 @@
             </table>
           </div>
         </section><section class="section" id="open-models">
-          <h2>Pea against prompted open models.</h2>
-          <p>Prompted open 2B, 4B and 9B models answered the same 14,286 decisions. The comparison was pre-registered before those models ran. Pea is ahead of every prompted model on exact accuracy, including the 9B model.</p>
+          <h2>Pea against Qwen models.</h2>
+          <p>Prompted Qwen3.5-2B, Qwen3.5-4B and Qwen3.5-9B answered the same 14,286 decisions. The comparison was pre-registered before those models ran. Pea is ahead of each of them on exact accuracy, including Qwen3.5-9B.</p>
           <figure class="chart">
             <figcaption>
               <p class="micro">Exact accuracy</p>
@@ -271,17 +271,17 @@
                 <span class="rank-value">76.60%</span>
               </li>
               <li style="--v: 62.30">
-                <span class="rank-name">Open 9B model · FP8</span>
+                <span class="rank-name">Qwen3.5-9B · FP8</span>
                 <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                 <span class="rank-value">62.30%</span>
               </li>
               <li style="--v: 55.38">
-                <span class="rank-name">Open 2B model</span>
+                <span class="rank-name">Qwen3.5-2B</span>
                 <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                 <span class="rank-value">55.38%</span>
               </li>
               <li style="--v: 50.31">
-                <span class="rank-name">Open 4B model</span>
+                <span class="rank-name">Qwen3.5-4B</span>
                 <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                 <span class="rank-value">50.31%</span>
               </li>
@@ -293,7 +293,7 @@
           <figure class="chart">
             <figcaption>
               <p class="micro">Accuracy by question type</p>
-              <p>Each group keeps the same order: Pea, 2B, 4B, 9B. The scale runs from 0 to 100.</p>
+              <p>Each group keeps the same order: Pea, Qwen3.5-2B, Qwen3.5-4B, Qwen3.5-9B. The scale runs from 0 to 100.</p>
             </figcaption>
             <div class="chart-multiples">
               <div>
@@ -305,17 +305,17 @@
                     <span class="rank-value">89.22%</span>
                   </li>
                   <li style="--v: 63.8">
-                    <span class="rank-name">Open 2B</span>
+                    <span class="rank-name">Qwen3.5-2B</span>
                     <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                     <span class="rank-value">63.8%</span>
                   </li>
                   <li style="--v: 57.3">
-                    <span class="rank-name">Open 4B</span>
+                    <span class="rank-name">Qwen3.5-4B</span>
                     <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                     <span class="rank-value">57.3%</span>
                   </li>
                   <li style="--v: 74.2">
-                    <span class="rank-name">Open 9B</span>
+                    <span class="rank-name">Qwen3.5-9B</span>
                     <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                     <span class="rank-value">74.2%</span>
                   </li>
@@ -330,17 +330,17 @@
                     <span class="rank-value">91.71%</span>
                   </li>
                   <li style="--v: 49.4">
-                    <span class="rank-name">Open 2B</span>
+                    <span class="rank-name">Qwen3.5-2B</span>
                     <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                     <span class="rank-value">49.4%</span>
                   </li>
                   <li style="--v: 50.1">
-                    <span class="rank-name">Open 4B</span>
+                    <span class="rank-name">Qwen3.5-4B</span>
                     <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                     <span class="rank-value">50.1%</span>
                   </li>
                   <li style="--v: 73.6">
-                    <span class="rank-name">Open 9B</span>
+                    <span class="rank-name">Qwen3.5-9B</span>
                     <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                     <span class="rank-value">73.6%</span>
                   </li>
@@ -355,17 +355,17 @@
                     <span class="rank-value">51.62%</span>
                   </li>
                   <li style="--v: 48.6">
-                    <span class="rank-name">Open 2B</span>
+                    <span class="rank-name">Qwen3.5-2B</span>
                     <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                     <span class="rank-value">48.6%</span>
                   </li>
                   <li style="--v: 41.7">
-                    <span class="rank-name">Open 4B</span>
+                    <span class="rank-name">Qwen3.5-4B</span>
                     <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                     <span class="rank-value">41.7%</span>
                   </li>
                   <li style="--v: 40.6">
-                    <span class="rank-name">Open 9B</span>
+                    <span class="rank-name">Qwen3.5-9B</span>
                     <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
                     <span class="rank-value">40.6%</span>
                   </li>
@@ -415,24 +415,24 @@
                 <span class="slope-nums"><span class="sr-only">Shortest third </span>78.5% · <span class="sr-only">middle third </span>71.7% · <span class="sr-only">longest third </span>79.7%</span>
               </li>
               <li>
-                <span class="slope-label"><span class="dot is-9" aria-hidden="true"></span>Open 9B</span>
+                <span class="slope-label"><span class="dot is-9" aria-hidden="true"></span>Qwen3.5-9B</span>
                 <span class="slope-nums"><span class="sr-only">Shortest third </span>61.9% · <span class="sr-only">middle third </span>59.2% · <span class="sr-only">longest third </span>65.8%</span>
               </li>
               <li>
-                <span class="slope-label"><span class="dot is-2" aria-hidden="true"></span>Open 2B</span>
+                <span class="slope-label"><span class="dot is-2" aria-hidden="true"></span>Qwen3.5-2B</span>
                 <span class="slope-nums"><span class="sr-only">Shortest third </span>58.2% · <span class="sr-only">middle third </span>50.8% · <span class="sr-only">longest third </span>57.2%</span>
               </li>
               <li>
-                <span class="slope-label"><span class="dot is-4" aria-hidden="true"></span>Open 4B</span>
+                <span class="slope-label"><span class="dot is-4" aria-hidden="true"></span>Qwen3.5-4B</span>
                 <span class="slope-nums"><span class="sr-only">Shortest third </span>50.5% · <span class="sr-only">middle third </span>48.3% · <span class="sr-only">longest third </span>52.1%</span>
               </li>
             </ul>
           </figure>
-          <p class="small">Exact accuracy and log loss (NLL, lower is better). Invalid answers count as wrong. The 9B model ran with FP8 weights and is reported outside the pre-registered tests.</p>
+          <p class="small">Exact accuracy and log loss (NLL, lower is better). Invalid answers count as wrong. Qwen3.5-9B ran with FP8 weights and is reported outside the pre-registered tests.</p>
           <p class="micro mobile-table-hint">Scroll horizontally to see the full comparison.</p>
-          <div class="table-wrap" role="region" tabindex="0" aria-label="Pea and prompted open models">
+          <div class="table-wrap" role="region" tabindex="0" aria-label="Pea and Qwen3.5">
             <table class="metrics">
-              <caption class="sr-only">Pea and prompted open models on the same 14,286 decisions</caption>
+              <caption class="sr-only">Pea and Qwen3.5 on the same 14,286 decisions</caption>
               <thead>
                 <tr>
                   <th scope="col">Model</th>
@@ -447,17 +447,17 @@
                   <td class="numeric"><strong>0.589</strong></td>
                 </tr>
                 <tr>
-                  <th scope="row">Open 2B model</th>
+                  <th scope="row">Qwen3.5-2B</th>
                   <td class="numeric">55.38%</td>
                   <td class="numeric">1.134</td>
                 </tr>
                 <tr>
-                  <th scope="row">Open 4B model</th>
+                  <th scope="row">Qwen3.5-4B</th>
                   <td class="numeric">50.31%</td>
                   <td class="numeric">1.237</td>
                 </tr>
                 <tr>
-                  <th scope="row">Open 9B model · FP8</th>
+                  <th scope="row">Qwen3.5-9B · FP8</th>
                   <td class="numeric">62.30%</td>
                   <td class="numeric">1.003</td>
                 </tr>
