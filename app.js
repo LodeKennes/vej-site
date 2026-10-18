@@ -128,31 +128,37 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
     const button = form.querySelector('button[type="submit"]');
     const retry = form.querySelector("[data-retry]");
     const feedback = form.querySelector(".form-feedback");
+    const container = form.querySelector("[data-turnstile]");
     const label = button.textContent;
     let token = "";
     let widget;
     let submitting = false;
+    function showChallenge() { container.classList.add("is-interactive"); }
+    function hideChallenge() { container.classList.remove("is-interactive"); }
     function checkFailed(message) {
       token = "";
       button.disabled = true;
       retry.hidden = false;
+      showChallenge();
       if (!submitting && form.dataset.state !== "success") { feedback.textContent = message; form.dataset.state = "error"; }
     }
     async function prepare() {
       retry.hidden = true;
-      feedback.textContent = "Checking your browser.";
-      form.dataset.state = "checking";
+      hideChallenge();
+      if (!submitting && form.dataset.state !== "success") { feedback.textContent = ""; form.dataset.state = "checking"; }
       try {
         const challenge = await loadChallenge();
         if (widget !== undefined) { challenge.reset(widget); return; }
-        const container = form.querySelector("[data-turnstile]");
         widget = challenge.render(container, {
           sitekey: SITE_KEY, action: form.dataset.kind,
-          size: container.clientWidth >= 300 ? "flexible" : "compact", appearance: "interaction-only",
+          // Managed widget: no box unless Cloudflare requires a click. Size applies only then.
+          size: form.clientWidth >= 300 ? "flexible" : "compact", appearance: "interaction-only",
+          "before-interactive-callback": showChallenge,
           callback: (value) => {
             token = value;
             button.disabled = submitting;
             retry.hidden = true;
+            hideChallenge();
             if (form.dataset.state === "checking") { feedback.textContent = ""; form.dataset.state = "idle"; }
           },
           "expired-callback": () => checkFailed("The browser check expired. Please retry it."),
@@ -213,6 +219,7 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
         button.textContent = label;
         token = "";
         button.disabled = true;
+        hideChallenge();
         if (widget !== undefined) window.turnstile.reset(widget);
       }
     });
