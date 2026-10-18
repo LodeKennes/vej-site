@@ -1,26 +1,26 @@
 # Vej
 
-> Vej is the company building Pea (2B), Pepper (8B) and Pumpkin (27B). Pea is the current text model, available through limited hosted early access or private checkpoint access by request, that returns native probabilities over developer-supplied outcomes. It provides native distributions without text generation, JSON parsing, or answer-token scoring. Apache-2.0 code and adaptations, completed model, text only.
+> Vej is the company building Pea (2B), Pepper (8B) and Pumpkin (27B). Pea is the current text model, available through limited hosted early access or as Pea 1 weights at https://huggingface.co/ItsVej/pea-1 after an approved Hugging Face access request, that returns native probabilities over developer-supplied outcomes. It provides native distributions without text generation, JSON parsing, or answer-token scoring. Apache-2.0 code and adaptations, completed model, text only.
 
 Last updated: 2026-10-18.
 
 ## Model family
-- Pea (green): Current 2B text completed model. Limited hosted early access and private checkpoint access by request. All published results describe Pea.
+- Pea (green): Current 2B text completed model. Limited hosted early access. Pea 1 weights are listed at https://huggingface.co/ItsVej/pea-1 and require an approved Hugging Face access request. All published results describe Pea.
 - Pepper (red): 8B model in development, being built and tested privately with companies. No public release or published benchmarks.
 - Pumpkin (orange): 27B model under research and development, being tested privately with companies. No public release or published benchmarks.
 
-Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API and private checkpoint access are by request. Sign in to the [console](https://app.itsvej.com/) with an API key.
+Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API access is by request. Pea 1 weights require an approved Hugging Face access request. Sign in to the [console](https://app.itsvej.com/) with an API key.
 
 ## Key Facts
 - Three primitives: Choice (pick among named options), Noul (assess statement truth as true/false), Score (rate rubric levels with expectation computed in caller code).
 - Test performance: 76.60% exact accuracy overall across 14,286 frozen test decisions (Choice 89.22%, Noul 91.71%, Score 51.62%).
 - Paper (2026-10-13): "Native Candidate Probabilities from a 2B Decoder on a Single Consumer GPU". Pre-registered comparison on the same 14,286 decisions: Pea 76.60% accuracy, NLL 0.589; prompted open 2B/4B instruct models in the comparison at most 55.66% accuracy and at best NLL 1.134; the 9B model in FP8 (descriptive) 62.30%, NLL 1.003. Pea is not the fastest: 9.38 decisions/s with prefix caching versus 20.88 for letter-mode prompting of the open 2B model on one RX 9070 XT. PDF: https://itsvej.com/paper/vej-native-candidate-probabilities.pdf
 - Hosted Jev comparison: Hosted Jev 1.13 scored 71.76% overall on the same test rows with documented rounding adjustment. Jev returned 99.31% strict format validity. This is not a claim of general superiority.
-- Availability: The hosted API is live in limited early access at https://api.itsvej.com (Pea only, text only; image input is refused). Capacity is limited, with no uptime guarantee yet. Checkpoint is hosted privately on Hugging Face (Pea; access by request) for authorised account members. Core development repository is private.
+- Availability: The hosted API is live in limited early access at https://api.itsvej.com (Pea only, text only; image input is refused). Capacity is limited, with no uptime guarantee yet. Pea 1 weights are listed at https://huggingface.co/ItsVej/pea-1. Downloads require an approved Hugging Face access request. The repository root is the serving export and checkpoint/ is the native checkpoint. Core development repository is private.
 - Licensing: Vej code and model adaptations are Apache-2.0. The upstream base model and original datasets retain their respective terms.
 
 - Hosted interfaces: GA `/v1/predict` for Choice, Noul and Score, `/v1/systemone` for Jev, and Cloudflare-compatible formats are live. Hosted use requires an API key, not checkpoint access.
-- Local interfaces: `vej predict` CLI; `vej serve --backend local` with `/v1/predict`, `/v1/systemone` for the TypeSafe Python SDK, and the Cloudflare Clef Workers AI route. All require private checkpoint access. Serving, SDK adapters, export and the context override require current private Vej source; the release source archive predates them.
+- Local interfaces: `vej predict` CLI; `vej serve --backend local` with `/v1/predict`, `/v1/systemone` for the TypeSafe Python SDK, and the Cloudflare Clef Workers AI route. Local inference requires the Pea 1 weights and the private Vej source. Serving, SDK adapters, export and the context override require current private Vej source.
 - Context: 2,048 tokens per rendered candidate by default; native Pea accepts `--max-length 49152`. Long-context quality is not validated.
 - Modality: The released Pea checkpoint is designed and evaluated for text decisions.
 - Research: Noul improvement work paused on 2026-10-09 without promoting a new model; Pea and its published evaluation are unchanged.
@@ -29,7 +29,7 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API and private che
 - 2026-10-13 paper: published the Pea paper and its supplement; the evaluation page adds the open-model comparison.
 - 2026-10-10 site update: documents local HTTP, Jev/Clef SDK compatibility, the experimental private Pea classification export, and the context override.
 - 2026-10-09 research pause: no new checkpoint promoted.
-- 2026-10-18 hosted status: limited early access is live, by request, using Pea’s native reference runtime. States are hosted Beta with organization retention opt-in and encrypted history storage. Batch is not open yet.
+- 2026-10-18 hosted status: limited early access is live, by request, using Pea’s native reference runtime. States are hosted Beta with organization retention opt-in and encrypted history storage. Batch is not open yet. Pea 1 weights are listed at https://huggingface.co/ItsVej/pea-1 and require an approved Hugging Face access request.
 
 ## Forms
 - Access requests, model waitlists and newsletter signups are stored in a separate Cloudflare D1 database in the EU. Access is reviewed; a saved request does not grant model access.
@@ -43,7 +43,7 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API and private che
 - [Use cases](https://itsvej.com/use-cases/): Live hosted Beta APIs beyond Choice, Noul and Score, with industry use cases, sample requests and quality limits.
 - [Access and waitlists](https://itsvej.com/access/): Pea access requests, separate model waitlists and newsletter signup.
 - [Evaluation](https://itsvej.com/evaluation/): Ten training sources, split protocol, held-out accuracy, same-test Jev comparison, and SHA256 hashes.
-- [Model card](https://itsvej.com/models/pea/): Limited hosted early access, private checkpoint access, local inference CLI commands, and limits.
+- [Model card](https://itsvej.com/models/pea/): Limited hosted early access, Pea 1 weights by approved request, local inference, and limits.
 - [Licences](https://itsvej.com/licenses/): Attribution and terms for code, upstream base model, training datasets, and bundled fonts.
 - [Brand](https://itsvej.com/brand/): The Open Pod visual identity, colour schemes, and vector assets.
 

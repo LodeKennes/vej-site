@@ -142,19 +142,19 @@
             <h2>Access</h2>
             <p>The hosted Pea API is live in limited early access, by request. <a href="/access/#pea">Request access</a>, then <a href="https://app.itsvej.com/">sign in to the console</a> with an API key. Text only; capacity is limited, with no uptime guarantee yet. Hosted probabilities are uncalibrated. For questions, contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p>
             <p>
-              Pea is hosted on Hugging Face as a private model for authorised account members. Repository access and the release package are supplied after approval.
-              The package contains the native checkpoint, tokenizer assets,
-              source code snapshot, metrics, and checksums.
+              Pea 1 weights are listed at
+              <a href="https://huggingface.co/ItsVej/pea-1">ItsVej/pea-1</a>.
+              Download requires an approved Hugging Face access request.
+              The repository root is the serving export. The native checkpoint is in <code>checkpoint/</code>.
             </p>
             <p>
               The core development repository at
               <span>LodeKennes/Vej</span>
-              is also private. This public website is hosted from
+              is private. This public website is hosted from
               <a href="https://github.com/LodeKennes/vej-site"
                 >LodeKennes/vej-site</a
               >.
             </p>
-            <p>The experimental Pea classification export is also private on Hugging Face.</p>
             <div class="link-list">
               <a href="/access/#pea"
                 >Request access</a
@@ -168,7 +168,7 @@
           <div class="prose">
             <h2>Run Pea locally</h2>
             <p>
-              Use your authorised Hugging Face account to download the release package. Verify <code>SHA256SUMS</code>. Extract <code>vej-source.tar.gz</code>. Run predictions from that directory. Python 3.12 to 3.14 is supported. Install the locked runtime dependencies by following the README supplied with your release package before running these commands.
+              Download <a href="https://huggingface.co/ItsVej/pea-1">ItsVej/pea-1</a> after your Hugging Face access request is approved. The native checkpoint is the <code>checkpoint</code> directory in that download. Python 3.12 to 3.14 is supported. <code>vej predict</code> still needs the private Vej source and its locked dependencies.
             </p>
             <pre class="code"><code class="language-bash"><span class="nv">HF_HUB_OFFLINE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>vej<span class="w"> </span>predict<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>examples/decisions.json<span class="w"> </span>--checkpoint<span class="w"> </span>/path/to/download/checkpoint<span class="w"> </span>--device<span class="w"> </span>cpu
@@ -185,9 +185,9 @@
 </code></pre>
             <p>The server binds to <code>127.0.0.1</code> by default, without authentication. Keep it local. It exposes <code>POST /v1/predict</code>, <code>/healthz</code>, <code>/readyz</code> and <code>/metrics</code>; native responses include <code>usage.processed_tokens</code>.</p>
             <p>The official TypeSafe (Jev) Python SDK uses <code>POST /v1/systemone</code>. Cloudflare Clef uses <code>POST /client/v4/accounts/{account_id}/ai/run/@cf/cloudflare/{clef|clef-flash}</code>. Both text wire formats work on local and experimental vLLM backends.</p>
-            <p>The serving commands, SDK adapters, vLLM exporter and context override require the current private Vej source with its locked model runtime dependencies. The source archive bundled with the Pea release predates these features; the prediction commands above work with that archive.</p>
-            <h3>Experimental vLLM export</h3>
-            <p><code>vej export-vllm</code> writes a self-contained classification export for vLLM ≥ 0.27, using <code class="nowrap">--runner pooling</code> <code class="nowrap">--convert classify</code>. The private published export can also be served without those flags. Numerical accuracy and contract parity are under validation. This export is experimental; use Vej’s native loader for supported inference.</p>
+            <p>The serving commands, SDK adapters, exporter and context override require the current private Vej source with its locked model runtime dependencies. The prediction commands above use that source with the downloaded <code>checkpoint</code> directory.</p>
+            <h3>Serving export</h3>
+            <p>The root of <a href="https://huggingface.co/ItsVej/pea-1">ItsVej/pea-1</a> is a classification export for vLLM ≥ 0.27. <code>vllm serve ItsVej/pea-1</code> needs no extra flags. On one RX 9070 XT with vLLM 0.27.1, top-1 agreement with the native loader was 1.0 and the largest probability gap was 7.15e-3. The native checkpoint under <code>checkpoint/</code> remains the reference loader.</p>
           </div>
         </section><section class="section reading-grid compact" id="architecture">
           <div class="prose">
