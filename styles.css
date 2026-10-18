@@ -1396,6 +1396,430 @@ footer a {
 .evaluation-hero {
   padding: 48px 0;
 }
+
+/* Evaluation charts. --v is an exact accuracy from 0 to 100. */
+.chart {
+  margin: 28px 0 8px;
+}
+.chart figcaption {
+  margin: 0;
+}
+.chart figcaption .micro {
+  display: block;
+  margin: 0 0 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.chart figcaption p:last-child {
+  max-width: 68ch;
+  margin: 0 0 22px;
+  color: var(--text-2);
+  font-size: 15px;
+}
+.chart + .chart {
+  border-top: 1px solid var(--rule);
+  padding-top: 36px;
+  margin-top: 36px;
+}
+.stat-chart {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 10px;
+}
+.stat-y {
+  position: relative;
+  height: 168px;
+  margin-top: 52px;
+  color: var(--text-2);
+  font: 12px/1 "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+.stat-y span {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+}
+.stat-y span:nth-child(2) {
+  top: 50%;
+}
+.stat-y span:nth-child(3) {
+  top: 100%;
+}
+.stat-bars {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 22px;
+  margin: 0;
+  padding: 0;
+}
+.stat-value {
+  display: flex;
+  align-items: flex-end;
+  height: 52px;
+  color: var(--accent);
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.stat-plot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 168px;
+  border-bottom: 1px solid var(--text);
+  background: linear-gradient(var(--text-2), var(--text-2)) 0 50% / 100% 1px no-repeat;
+}
+.stat-meter {
+  display: block;
+  width: min(64px, 72%);
+  height: calc(var(--v) * 1.68px);
+  background: var(--accent);
+  transform-origin: center bottom;
+}
+.stat-name {
+  display: block;
+  margin-top: 12px;
+  font-size: 15px;
+}
+.stat-n {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-2);
+  font: 12px/1.4 "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+.chart-scale,
+.chart-rank li {
+  display: grid;
+  grid-template-columns: minmax(168px, 220px) minmax(0, 1fr) 76px;
+  column-gap: 16px;
+  align-items: center;
+}
+.chart-scale {
+  margin: 0 0 8px;
+  color: var(--text-2);
+  font: 12px/1 "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+.chart-ticks {
+  grid-column: 2;
+  display: flex;
+  justify-content: space-between;
+}
+.chart-rank {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 13px;
+}
+.rank-name {
+  font-size: 15px;
+  line-height: 1.3;
+}
+.rank-how {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-2);
+  font-size: 12px;
+}
+.rank-track {
+  height: 11px;
+  background-color: var(--track-bg);
+  background-image:
+    linear-gradient(var(--text-2), var(--text-2)),
+    linear-gradient(var(--text-2), var(--text-2)),
+    linear-gradient(var(--text-2), var(--text-2));
+  background-size: 1px 100%, 1px 100%, 1px 100%;
+  background-position: 25% 0, 50% 0, 75% 0;
+  background-repeat: no-repeat;
+}
+.rank-fill {
+  display: block;
+  height: 100%;
+  width: calc(var(--v) * 1%);
+  background: var(--text-2);
+  transform-origin: left center;
+}
+.is-pea .rank-fill,
+.swatch.is-pea {
+  background: var(--accent);
+}
+.is-written .rank-fill,
+.swatch.is-written {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--text-2);
+}
+.rank-value {
+  font: 15px/1.2 "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.is-pea .rank-value {
+  color: var(--accent);
+}
+.chart-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  color: var(--text-2);
+  font-size: 13px;
+}
+.chart-key li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.swatch {
+  width: 28px;
+  height: 11px;
+  flex: none;
+  background: var(--text-2);
+}
+.chart-multiples {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 36px;
+}
+.chart-multiples h3 {
+  margin: 0 0 14px;
+  font-size: 26px;
+}
+.chart-multiples .chart-rank li {
+  grid-template-columns: minmax(0, 1fr) auto;
+  row-gap: 6px;
+}
+.chart-multiples .rank-name {
+  grid-column: 1;
+  font-size: 14px;
+}
+.chart-multiples .rank-value {
+  grid-column: 2;
+  font-size: 13px;
+}
+.chart-multiples .rank-track {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+.slope {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  column-gap: 12px;
+}
+.slope-y,
+.slope-plot {
+  height: 280px;
+}
+.slope-y {
+  position: relative;
+  color: var(--text-2);
+  font: 12px/1 "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+.slope-y span {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+}
+.slope-plot {
+  position: relative;
+}
+.slope-plot svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.slope-grid line {
+  stroke: var(--text-2);
+  stroke-width: 1;
+  stroke-opacity: 0.45;
+  vector-effect: non-scaling-stroke;
+}
+.length-line {
+  fill: none;
+  stroke: var(--text-2);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.length-line.is-pea {
+  stroke: var(--accent);
+  stroke-width: 2.5;
+}
+.length-line.is-4 {
+  stroke-dasharray: 1.4 1.5;
+}
+.length-line.is-9 {
+  stroke-dasharray: 0.4 1.5;
+}
+.dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  transform: translate(-50%, -50%);
+  background: var(--text-2);
+}
+.dot.is-pea {
+  width: 11px;
+  height: 11px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.dot.is-2 {
+  border-radius: 1px;
+}
+.dot.is-4 {
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.dot.is-9 {
+  background: var(--bg);
+  border: 2px solid var(--text);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.slope-x {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+.slope-key {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px 24px;
+  margin-top: 22px;
+}
+.slope-key li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  color: var(--text);
+  font-size: 14px;
+}
+.slope-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.slope-key .dot {
+  position: static;
+  transform: none;
+}
+.slope-key .dot.is-4 {
+  transform: rotate(45deg);
+}
+.slope-nums {
+  color: var(--text-2);
+  font: 13px/1.4 "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+.slope-key li.is-pea .slope-nums {
+  color: var(--accent);
+}
+@media (max-width: 900px) {
+  .slope-key {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .stat-chart {
+    grid-template-columns: 1fr;
+  }
+  .stat-y {
+    display: none;
+  }
+  .stat-bars {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 16px;
+  }
+  .stat-value {
+    font-size: 32px;
+  }
+  .chart-scale,
+  .chart-rank li {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 6px;
+  }
+  .chart-ticks {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .rank-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .rank-name {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .rank-value {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+  }
+  .chart-multiples {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .slope-y,
+  .slope-plot {
+    height: 220px;
+  }
+  .slope-x {
+    font-size: 13px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stat-meter,
+  .rank-fill {
+    animation: chart-grow 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .stat-bars li:nth-child(2) .stat-meter,
+  .chart-rank li:nth-child(2) .rank-fill {
+    animation-delay: 50ms;
+  }
+  .stat-bars li:nth-child(3) .stat-meter,
+  .chart-rank li:nth-child(3) .rank-fill {
+    animation-delay: 100ms;
+  }
+  .stat-bars li:nth-child(4) .stat-meter,
+  .chart-rank li:nth-child(4) .rank-fill {
+    animation-delay: 150ms;
+  }
+  .chart-rank li:nth-child(5) .rank-fill {
+    animation-delay: 200ms;
+  }
+  .chart-rank li:nth-child(6) .rank-fill {
+    animation-delay: 250ms;
+  }
+  .chart-rank li:nth-child(7) .rank-fill {
+    animation-delay: 300ms;
+  }
+}
+@keyframes chart-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stat-meter {
+    animation-name: chart-rise;
+  }
+}
+@keyframes chart-rise {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
 .availability-panel {
   max-width: 760px;
 }

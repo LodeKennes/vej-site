@@ -83,7 +83,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=b96b21e53cc5" />
+    <link rel="stylesheet" href="/styles.css?v=69d0219f9728" />
     <script src="/app.js?v=aac23ae6588a" defer></script>
     <script type="application/ld+json">
       {
@@ -136,6 +136,41 @@
             <h2>Test results</h2>
             <p>Exact label accuracy on 14,286 frozen decisions evaluated on 26 September 2026.</p>
           </div>
+          <figure class="chart chart-results">
+            <figcaption>
+              <p class="micro">Exact accuracy by question type</p>
+              <p>Share of decisions with the exact label. The scale runs from 0 to 100.</p>
+            </figcaption>
+            <div class="stat-chart">
+              <div class="stat-y" aria-hidden="true"><span>100</span><span>50</span><span>0</span></div>
+              <ul class="stat-bars">
+                <li style="--v: 89.22">
+                  <span class="stat-value">89.22%</span>
+                  <span class="stat-plot" aria-hidden="true"><span class="stat-meter"></span></span>
+                  <span class="stat-name">Choice</span>
+                  <span class="stat-n">6,197 decisions</span>
+                </li>
+                <li style="--v: 91.71">
+                  <span class="stat-value">91.71%</span>
+                  <span class="stat-plot" aria-hidden="true"><span class="stat-meter"></span></span>
+                  <span class="stat-name">Noul</span>
+                  <span class="stat-n">3,089 decisions</span>
+                </li>
+                <li style="--v: 51.62">
+                  <span class="stat-value">51.62%</span>
+                  <span class="stat-plot" aria-hidden="true"><span class="stat-meter"></span></span>
+                  <span class="stat-name">Score</span>
+                  <span class="stat-n">5,000 decisions</span>
+                </li>
+                <li style="--v: 76.60">
+                  <span class="stat-value">76.60%</span>
+                  <span class="stat-plot" aria-hidden="true"><span class="stat-meter"></span></span>
+                  <span class="stat-name">Overall</span>
+                  <span class="stat-n">14,286 decisions</span>
+                </li>
+              </ul>
+            </div>
+          </figure>
           <div class="table-wrap" role="region" tabindex="0" aria-label="Pea accuracy by primitive">
             <table class="metrics">
               <caption class="sr-only">
@@ -224,6 +259,193 @@
         </section><section class="section" id="open-models">
           <h2>Pea against prompted open models.</h2>
           <p>Prompted open 2B, 4B and 9B models answered the same 14,286 decisions. The comparison was pre-registered before those models ran. Pea is ahead of every prompted model on exact accuracy, including the 9B model.</p>
+          <figure class="chart">
+            <figcaption>
+              <p class="micro">Exact accuracy</p>
+              <p>Sorted by exact accuracy. The scale runs from 0 to 100. Invalid answers count as wrong.</p>
+            </figcaption>
+            <p class="chart-scale" aria-hidden="true"><span class="chart-ticks"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></span></p>
+            <ol class="chart-rank">
+              <li class="is-pea" style="--v: 76.60">
+                <span class="rank-name">Pea · 2B <span class="rank-how">Scores each outcome</span></span>
+                <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                <span class="rank-value">76.60%</span>
+              </li>
+              <li class="is-letter" style="--v: 62.30">
+                <span class="rank-name">Open 9B model · FP8 <span class="rank-how">Answer letter</span></span>
+                <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                <span class="rank-value">62.30%</span>
+              </li>
+              <li class="is-written" style="--v: 55.66">
+                <span class="rank-name">Open 4B model <span class="rank-how">Written probabilities</span></span>
+                <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                <span class="rank-value">55.66%</span>
+              </li>
+              <li class="is-written" style="--v: 55.66">
+                <span class="rank-name">Open 9B model · FP8 <span class="rank-how">Written probabilities</span></span>
+                <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                <span class="rank-value">55.66%</span>
+              </li>
+              <li class="is-letter" style="--v: 55.38">
+                <span class="rank-name">Open 2B model <span class="rank-how">Answer letter</span></span>
+                <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                <span class="rank-value">55.38%</span>
+              </li>
+              <li class="is-letter" style="--v: 50.31">
+                <span class="rank-name">Open 4B model <span class="rank-how">Answer letter</span></span>
+                <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                <span class="rank-value">50.31%</span>
+              </li>
+              <li class="is-written" style="--v: 42.27">
+                <span class="rank-name">Open 2B model <span class="rank-how">Written probabilities</span></span>
+                <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                <span class="rank-value">42.27%</span>
+              </li>
+            </ol>
+            <ul class="chart-key">
+              <li><span class="swatch is-pea" aria-hidden="true"></span>Pea · 2B</li>
+              <li><span class="swatch is-letter" aria-hidden="true"></span>Answer letter</li>
+              <li><span class="swatch is-written" aria-hidden="true"></span>Written probabilities</li>
+            </ul>
+          </figure>
+          <figure class="chart">
+            <figcaption>
+              <p class="micro">Accuracy by question type</p>
+              <p>Letter answers, except Pea, which scores each outcome. Each group keeps the same order: Pea, 2B, 4B, 9B. Written probabilities stay in the table. The scale runs from 0 to 100.</p>
+            </figcaption>
+            <div class="chart-multiples">
+              <div>
+                <h3>Choice</h3>
+                <ol class="chart-rank">
+                  <li class="is-pea" style="--v: 89.22">
+                    <span class="rank-name">Pea · 2B</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">89.22%</span>
+                  </li>
+                  <li style="--v: 63.8">
+                    <span class="rank-name">Open 2B · letter</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">63.8%</span>
+                  </li>
+                  <li style="--v: 57.3">
+                    <span class="rank-name">Open 4B · letter</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">57.3%</span>
+                  </li>
+                  <li style="--v: 74.2">
+                    <span class="rank-name">Open 9B · letter</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">74.2%</span>
+                  </li>
+                </ol>
+              </div>
+              <div>
+                <h3>Noul</h3>
+                <ol class="chart-rank">
+                  <li class="is-pea" style="--v: 91.71">
+                    <span class="rank-name">Pea · 2B</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">91.71%</span>
+                  </li>
+                  <li style="--v: 49.4">
+                    <span class="rank-name">Open 2B · letter</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">49.4%</span>
+                  </li>
+                  <li style="--v: 50.1">
+                    <span class="rank-name">Open 4B · letter</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">50.1%</span>
+                  </li>
+                  <li style="--v: 73.6">
+                    <span class="rank-name">Open 9B · letter</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">73.6%</span>
+                  </li>
+                </ol>
+              </div>
+              <div>
+                <h3>Score</h3>
+                <ol class="chart-rank">
+                  <li class="is-pea" style="--v: 51.62">
+                    <span class="rank-name">Pea · 2B</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">51.62%</span>
+                  </li>
+                  <li style="--v: 48.6">
+                    <span class="rank-name">Open 2B · letter</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">48.6%</span>
+                  </li>
+                  <li style="--v: 41.7">
+                    <span class="rank-name">Open 4B · letter</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">41.7%</span>
+                  </li>
+                  <li style="--v: 40.6">
+                    <span class="rank-name">Open 9B · letter</span>
+                    <span class="rank-track" aria-hidden="true"><span class="rank-fill"></span></span>
+                    <span class="rank-value">40.6%</span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </figure>
+          <figure class="chart">
+            <figcaption>
+              <p class="micro">Accuracy by input length</p>
+              <p>Letter answers on the shortest, middle and longest third of the inputs. Pea’s longest third matches its shortest.</p>
+            </figcaption>
+            <div class="slope" aria-hidden="true">
+              <div class="slope-y"><span style="top: 0%">100</span><span style="top: 25%">75</span><span style="top: 50%">50</span><span style="top: 75%">25</span><span style="top: 100%">0</span></div>
+              <div class="slope-plot">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <g class="slope-grid">
+                    <line x1="0" y1="0" x2="100" y2="0"></line>
+                    <line x1="0" y1="25" x2="100" y2="25"></line>
+                    <line x1="0" y1="50" x2="100" y2="50"></line>
+                    <line x1="0" y1="75" x2="100" y2="75"></line>
+                    <line x1="0" y1="100" x2="100" y2="100"></line>
+                  </g>
+                  <polyline class="length-line is-4" points="16.7,49.5 50,51.7 83.3,47.9"></polyline>
+                  <polyline class="length-line is-2" points="16.7,41.8 50,49.2 83.3,42.8"></polyline>
+                  <polyline class="length-line is-9" points="16.7,38.1 50,40.8 83.3,34.2"></polyline>
+                  <polyline class="length-line is-pea" points="16.7,21.5 50,28.3 83.3,20.3"></polyline>
+                </svg>
+                <span class="dot is-4" style="left: 16.7%; top: 49.5%"></span>
+                <span class="dot is-4" style="left: 50%; top: 51.7%"></span>
+                <span class="dot is-4" style="left: 83.3%; top: 47.9%"></span>
+                <span class="dot is-2" style="left: 16.7%; top: 41.8%"></span>
+                <span class="dot is-2" style="left: 50%; top: 49.2%"></span>
+                <span class="dot is-2" style="left: 83.3%; top: 42.8%"></span>
+                <span class="dot is-9" style="left: 16.7%; top: 38.1%"></span>
+                <span class="dot is-9" style="left: 50%; top: 40.8%"></span>
+                <span class="dot is-9" style="left: 83.3%; top: 34.2%"></span>
+                <span class="dot is-pea" style="left: 16.7%; top: 21.5%"></span>
+                <span class="dot is-pea" style="left: 50%; top: 28.3%"></span>
+                <span class="dot is-pea" style="left: 83.3%; top: 20.3%"></span>
+              </div>
+              <div class="slope-x"><span>Shortest third</span><span>Middle third</span><span>Longest third</span></div>
+            </div>
+            <ul class="chart-key slope-key">
+              <li class="is-pea">
+                <span class="slope-label"><span class="dot is-pea" aria-hidden="true"></span>Pea · 2B</span>
+                <span class="slope-nums"><span class="sr-only">Shortest third </span>78.5% · <span class="sr-only">middle third </span>71.7% · <span class="sr-only">longest third </span>79.7%</span>
+              </li>
+              <li>
+                <span class="slope-label"><span class="dot is-9" aria-hidden="true"></span>Open 9B · letter</span>
+                <span class="slope-nums"><span class="sr-only">Shortest third </span>61.9% · <span class="sr-only">middle third </span>59.2% · <span class="sr-only">longest third </span>65.8%</span>
+              </li>
+              <li>
+                <span class="slope-label"><span class="dot is-2" aria-hidden="true"></span>Open 2B · letter</span>
+                <span class="slope-nums"><span class="sr-only">Shortest third </span>58.2% · <span class="sr-only">middle third </span>50.8% · <span class="sr-only">longest third </span>57.2%</span>
+              </li>
+              <li>
+                <span class="slope-label"><span class="dot is-4" aria-hidden="true"></span>Open 4B · letter</span>
+                <span class="slope-nums"><span class="sr-only">Shortest third </span>50.5% · <span class="sr-only">middle third </span>48.3% · <span class="sr-only">longest third </span>52.1%</span>
+              </li>
+            </ul>
+          </figure>
           <p class="small">Exact accuracy and log loss (NLL, lower is better). Invalid answers count as wrong. The 9B model ran with FP8 weights and is reported outside the pre-registered tests.</p>
           <p class="micro mobile-table-hint">Scroll horizontally to see the full comparison.</p>
           <div class="table-wrap" role="region" tabindex="0" aria-label="Pea and prompted open models">
