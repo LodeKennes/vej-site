@@ -187,7 +187,7 @@
             <p>The official TypeSafe (Jev) Python SDK uses <code>POST /v1/systemone</code>. Cloudflare Clef uses <code>POST /client/v4/accounts/{account_id}/ai/run/@cf/cloudflare/{clef|clef-flash}</code>. Both text wire formats work on local and experimental vLLM backends.</p>
             <p>The serving commands, SDK adapters, exporter and context override require the current private Vej source with its locked model runtime dependencies. The prediction commands above use that source with the downloaded <code>checkpoint</code> directory.</p>
             <h3>Serving export</h3>
-            <p>The root of <a href="https://huggingface.co/ItsVej/pea-1">ItsVej/pea-1</a> is a classification export for vLLM ≥ 0.27. <code>vllm serve ItsVej/pea-1</code> needs no extra flags. On one RX 9070 XT with vLLM 0.27.1, top-1 agreement with the native loader was 1.0 and the largest probability gap was 7.15e-3. The native checkpoint under <code>checkpoint/</code> remains the reference loader.</p>
+            <p>The root of <a href="https://huggingface.co/ItsVej/pea-1">ItsVej/pea-1</a> is a classification export for vLLM ≥ 0.27. <code>vllm serve ItsVej/pea-1</code> needs no extra flags. The native checkpoint under <code>checkpoint/</code> remains the reference loader.</p>
           </div>
         </section><section class="section reading-grid compact" id="architecture">
           <div class="prose">

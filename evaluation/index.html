@@ -337,7 +337,7 @@
               Prompted models fail in recognisable ways. Three of the four 2B and 4B setups give the same answer to every, or almost every, question about whether an action's required inputs are known. Letter answers follow the order of the options: reversing the options changed the 2B model's answer on 36% of Choice decisions, and Pea's on 0.2%. Written probabilities are often invalid or put all probability on one answer.
             </p>
             <p>
-              Each outcome is scored independently, with the conversation read once per outcome. On one RX 9070 XT with prefix caching, Pea served 9.38 decisions per second at a median of 102 ms. The prompted open 2B model in letter mode served 20.88 per second at 57 ms. These measurements show the accuracy and throughput tradeoff on this hardware and test set.
+              Each outcome is scored independently, with the conversation read once per outcome. With prefix caching, Pea served 9.38 decisions per second at a median of 102 ms. The prompted open 2B model in letter mode served 20.88 per second at 57 ms. These measurements show the accuracy and throughput tradeoff on this test set.
             </p>
             <p>
               Comparison scope: Pea was trained for these decisions; the generative models were prompted without fine-tuning on the same data. Results cover one English test set, with accuracy reported separately for each question type.
@@ -588,9 +588,6 @@
         </section><section class="section reading-grid compact" id="identities">
           <div class="prose">
             <h2>Checksums</h2>
-            <p>
-              Evaluation was conducted on an AMD Radeon RX 9070 XT 16 GiB workstation with PyTorch 2.14 and ROCm 7.2.
-            </p>
             <div class="hash-row">
               <p>
                 <span class="small">Weights · SHA256</span><br /><code
