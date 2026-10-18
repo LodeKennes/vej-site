@@ -72,7 +72,7 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API access is by re
 - [Website privacy](https://itsvej.com/privacy/): Signup data, purpose and removal requests.
 - [Newsletter](https://itsvej.com/access/#newsletter): Vej updates by email.
 
-Hosted Pea currently runs the native reference runtime. Hosted probabilities are not calibrated yet; responses report calibration_status "uncalibrated". Published native evaluations remain native checkpoint results, not a separate hosted evaluation.
+Hosted Pea currently runs the native reference runtime. Hosted Choice, Noul and Score probabilities use temperature 1.334, fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. That scale does not make a stated probability a guaranteed frequency on a new workflow. Published native evaluations remain temperature-1 checkpoint results, not a separate hosted evaluation. Estimate responses still report calibration_status "uncalibrated".
 
 If hosted Pea moves to vLLM, probabilities may differ from the native reference by up to about 0.05 (five percentage points) in development checks. Served-runtime temperature fitting and separate held-out verification would be needed. This development tolerance is not a claim of native equivalence or a universal error bound.
 

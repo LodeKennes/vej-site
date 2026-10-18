@@ -191,7 +191,7 @@
           <div class="prose" style="margin-top: 24px">
             <h3>Calibration and confidence distribution</h3>
             <p>
-              Overall negative log-likelihood is 0.589448. The summed Brier score is 0.313870. Descriptive ten-bin expected calibration error (ECE) is 0.053473. No post-hoc calibration was applied. Decisions with maximum probability ≥ 0.9 cover 58.48% of the test set with an error rate of 5.53%. The 0.8 to 0.9 confidence bin shows 59.22% accuracy at 85.16% mean confidence.
+              Overall negative log-likelihood is 0.589448. The summed Brier score is 0.313870. Descriptive ten-bin expected calibration error (ECE) is 0.053473. These figures use temperature 1, with no post-hoc calibration. Decisions with maximum probability ≥ 0.9 cover 58.48% of the test set with an error rate of 5.53%. The 0.8 to 0.9 confidence bin shows 59.22% accuracy at 85.16% mean confidence. The hosted runtime divides logits by 1.334 before the softmax. That temperature was fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. It does not change the published exact-match accuracy, and it was not fit on this test.
             </p>
           </div>
           <p style="margin-top: 24px">
@@ -413,7 +413,7 @@
           <div class="prose">
             <h2>Training</h2>
             <p>
-              Vej trains rank-16, alpha-32 LoRA adapters and a native FP32 scalar decision head on a frozen
+              Vej trains rank-16 LoRA adapters and a native FP32 scalar decision head on a frozen
               <a href="/evidence/NOTICE.txt">pretrained text backbone (revision 15852e8)</a>. The original generative pretraining objective does not determine Vej's decision-oriented output interface.
             </p>
             <ol>
@@ -664,7 +664,7 @@
               No individual example predictions or raw training texts are hosted on this website.
             </p>
           </div>
-        </section><section class="section" id="hosted-runtime"><h2>Hosted runtime</h2><p>The hosted API is live in limited early access, by request. It serves Pea’s native reference runtime for text only; image input is refused. Hosted probabilities are not calibrated yet (<code>calibration_status: "uncalibrated"</code>). Capacity is limited, with no uptime guarantee yet. Published evaluations describe the native checkpoint, not a separate hosted evaluation.</p><p>If hosted Pea moves to vLLM, probabilities may differ from the native reference by up to about 0.05 (five percentage points) in development checks. Served-runtime temperature fitting and separate held-out verification would be needed. This development tolerance is not a claim of native equivalence or a universal error bound.</p></section>
+        </section><section class="section" id="hosted-runtime"><h2>Hosted runtime</h2><p>The hosted API is live in limited early access, by request. It serves Pea’s native reference runtime for text only; image input is refused. Hosted Choice, Noul and Score probabilities use temperature 1.334, fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. That scale does not make a stated probability a guaranteed frequency on a new workflow. Capacity is limited, with no uptime guarantee yet. Published evaluations describe the native checkpoint at temperature 1, not a separate hosted evaluation.</p><p>If hosted Pea moves to vLLM, probabilities may differ from the native reference by up to about 0.05 (five percentage points) in development checks. Served-runtime temperature fitting and separate held-out verification would be needed. This development tolerance is not a claim of native equivalence or a universal error bound.</p></section>
       </main>
       <footer>
         <a href="/" aria-label="Vej home"
