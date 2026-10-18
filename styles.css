@@ -1434,7 +1434,6 @@ footer a {
 form {
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 form label {
   font-size: 14px;
@@ -1692,19 +1691,9 @@ summary:focus-visible, input:focus-visible {
   clip-path: inset(50%);
 }
 form [data-turnstile] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
   margin: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
 }
 form [data-turnstile].is-interactive {
-  position: static;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  clip-path: none;
   margin: 8px 0;
 }
 form[data-state="success"] .form-feedback {
