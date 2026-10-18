@@ -8,7 +8,7 @@
     <title>Pea evaluation · Vej</title>
     <meta
       name="description"
-      content="How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, a same-test comparison with hosted Jev, a pre-registered comparison with prompted open models, and the paper."
+      content="Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and prompted open models."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Pea evaluation · Vej" />
     <meta
       property="og:description"
-      content="How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, a same-test comparison with hosted Jev, a pre-registered comparison with prompted open models, and the paper."
+      content="Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and prompted open models."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -51,7 +51,7 @@
     <meta name="twitter:title" content="Pea evaluation · Vej" />
     <meta
       name="twitter:description"
-      content="How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, a same-test comparison with hosted Jev, a pre-registered comparison with prompted open models, and the paper."
+      content="Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and prompted open models."
     />
     <meta
       name="twitter:image"
@@ -83,14 +83,14 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=3b49c556d3ab" />
-    <script src="/app.js?v=c3beb7cb2fc6" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=b96b21e53cc5" />
+    <script src="/app.js?v=aac23ae6588a" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "TechArticle",
         "headline": "The data behind the decisions.",
-        "description": "How Pea was tested: 14,286 held-out decisions, 76.60% exact accuracy, a same-test comparison with hosted Jev, a pre-registered comparison with prompted open models, and the paper.",
+        "description": "Pea scored 76.60% exact accuracy on 14,286 held-out decisions, compared with hosted Jev and prompted open models.",
         "datePublished": "2026-09-26",
         "dateModified": "2026-10-18",
         "url": "https://itsvej.com/evaluation/",
@@ -131,12 +131,10 @@
           <a href="https://app.itsvej.com/">Sign in</a>
         </nav>
       </header>
-      <main id="main"><nav class="evaluation-switcher" aria-label="Evaluation by model"><details><summary>Model: Pea · 2B <span>Current</span></summary><div class="model-options"><a href="/evaluation/" aria-current="page"><strong>Pea · 2B</strong><span>Current · Published results</span></a><a href="/evaluation/pepper/"><strong>Pepper · 8B</strong><span>In development · Results to follow</span></a><a href="/evaluation/pumpkin/"><strong>Pumpkin · 27B</strong><span>In development · Results to follow</span></a></div></details></nav><section class="page-hero model-hero evaluation-hero"><img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" /><h1>Pea evaluation</h1><p class="lead">Accuracy, calibration and comparisons for Pea across 14,286 test decisions. Explore the results, methodology and supporting evidence below.</p></section><nav class="section-index" aria-label="Pea evaluation sections"><a href="#final-test">Results</a><a href="#jev">Jev comparison</a><a href="#open-models">Open models</a><a href="#diagnostics">Tool diagnostics</a><a href="#exposure">Test protocol</a><a href="#lineage">Training</a><a href="#sources">Sources</a><a href="#identities">Hashes</a></nav><section class="section" id="final-test">
+      <main id="main"><nav class="evaluation-switcher" aria-label="Evaluation by model"><details><summary>Model: Pea · 2B <span>Current</span></summary><div class="model-options"><a href="/evaluation/" aria-current="page"><strong>Pea · 2B</strong><span>Current · Published results</span></a><a href="/evaluation/pepper/"><strong>Pepper · 8B</strong><span>In development · Results to follow</span></a><a href="/evaluation/pumpkin/"><strong>Pumpkin · 27B</strong><span>In development · Results to follow</span></a></div></details></nav><section class="page-hero model-hero evaluation-hero"><img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" /><h1>Pea evaluation</h1><p class="lead">Exact accuracy on 14,286 held-out decisions, compared with hosted Jev and prompted open models.</p></section><nav class="section-index" aria-label="Pea evaluation sections"><a href="#final-test">Results</a><a href="#jev">Jev comparison</a><a href="#open-models">Open models</a></nav><section class="section" id="final-test">
           <div class="section-head">
             <h2>Test results</h2>
-            <p>
-              Exact label accuracy on 14,286 frozen decisions evaluated on 26 September 2026. This test measures categorical decision accuracy, not end-to-end tool execution.
-            </p>
+            <p>Exact label accuracy on 14,286 frozen decisions evaluated on 26 September 2026.</p>
           </div>
           <div class="table-wrap" role="region" tabindex="0" aria-label="Pea accuracy by primitive">
             <table class="metrics">
@@ -174,42 +172,10 @@
               </tbody>
             </table>
           </div>
-          <div class="limits">
-            <div>
-              <h3>Score reference comparison</h3>
-              <p>
-                51.62% exact-level accuracy against 48.44% for a post-hoc test-majority control that uses the test labels.
-              </p>
-            </div>
-            <div>
-              <h3>Tool decision evaluation</h3>
-              <p>
-                Development suites passed 30 of 48 harder tool cases, with nine incorrect calls among 31 "ready" predictions. See the <a href="#diagnostics">diagnostics and integration guidance</a>.
-              </p>
-            </div>
-          </div>
-          <div class="prose" style="margin-top: 24px">
-            <h3>Calibration and confidence distribution</h3>
-            <p>
-              Overall negative log-likelihood is 0.589448. The summed Brier score is 0.313870. Descriptive ten-bin expected calibration error (ECE) is 0.053473. These figures use temperature 1, with no post-hoc calibration. Decisions with maximum probability ≥ 0.9 cover 58.48% of the test set with an error rate of 5.53%. The 0.8 to 0.9 confidence bin shows 59.22% accuracy at 85.16% mean confidence. The hosted runtime divides logits by 1.334 before the softmax. That temperature was fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. It does not change the published exact-match accuracy, and it was not fit on this test.
-            </p>
-          </div>
-          <p style="margin-top: 24px">
-            <a href="/evidence/evaluation.json"
-              >Full aggregate evaluation JSON
-              <span aria-hidden="true">→</span></a
-            >
-            &nbsp;
-            <a href="/evidence/descriptive-controls.json"
-              >Descriptive controls <span aria-hidden="true">→</span></a
-            >
-          </p>
+          <p>Score exact-level accuracy is 51.62%, against 48.44% for a post-hoc test-majority control that uses the test labels. These figures use temperature 1. The hosted API uses temperature 1.334. That scale does not make a stated probability a guaranteed frequency on a new workflow.</p>
         </section><section class="section" id="jev">
           <h2>Pea and Jev on the same rows.</h2>
-          <p class="lead">
-            Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model and API. To evaluate how Pea compares with Jev's decision contract, hosted Jev 1.13 was tested against the exact same 14,286 held-out decisions. Pea achieved 76.60% exact accuracy (10,943 correct). Hosted Jev 1.13 achieved 71.76% (10,251 correct) with its documented rounding adjustment. Pea leads overall and on Choice and Score. Jev leads on Noul. The difference is 4.84 percentage points on this test. It does not establish general superiority, broader transfer or statistical significance.
-          </p>
-          <p class="small">Same-row exact accuracy on 14,286 decisions. Jev uses the rounding-adjusted supplement.</p>
+          <p>Jev is <a href="https://typesafe.ai">TypeSafe</a>’s hosted decision model. Hosted Jev 1.13 scored these same rows with its documented rounding adjustment. The difference is 4.84 percentage points on this test. It does not establish general superiority, broader transfer or statistical significance.</p>
           <p class="micro mobile-table-hint">Scroll horizontally to see the full comparison.</p>
           <div class="table-wrap" role="region" tabindex="0" aria-label="Pea and Jev accuracy comparison">
             <table class="metrics">
@@ -255,23 +221,9 @@
               </tbody>
             </table>
           </div>
-          <div class="prose" style="margin-top: 32px">
-            <h3>How it was compared</h3>
-            <p>
-              The comparison matched dataset hash, row order, question identifiers, and candidate ordering. Hosted Jev returned 14,188 strictly valid responses. On these rows, Jev achieved 71.95% accuracy and Pea achieved 76.80%. The other 98 probability maps summed to 0.99 because of two-decimal output precision. This is one fixed test, not Jev's own benchmark. Speed and cost were not compared.
-            </p>
-            <p>
-              <a href="/evidence/jev-comparison.json"
-                >Aggregate comparison and evidence hashes
-                <span aria-hidden="true">→</span></a
-              >
-            </p>
-          </div>
         </section><section class="section" id="open-models">
           <h2>Pea against prompted open models.</h2>
-          <p class="lead">
-            Our paper compares Pea with open 2B, 4B and 9B instruct models from the same family as Pea's backbone, asked for probabilities in the two usual ways: reading the probabilities of answer letters, or asking for a JSON object of probabilities. Every system answered the same 14,286 test decisions. The comparison was pre-registered before any of these models ran; Pea's own results were already known. Pea is ahead of every prompted model, including a 9B model.
-          </p>
+          <p>Prompted open 2B, 4B and 9B models answered the same 14,286 decisions. The comparison was pre-registered before those models ran. Pea is ahead of every prompted model on exact accuracy, including the 9B model.</p>
           <p class="small">Exact accuracy and log loss (NLL, lower is better). Invalid answers count as wrong. The 9B model ran with FP8 weights and is reported outside the pre-registered tests.</p>
           <p class="micro mobile-table-hint">Scroll horizontally to see the full comparison.</p>
           <div class="table-wrap" role="region" tabindex="0" aria-label="Pea and prompted open models">
@@ -331,337 +283,8 @@
               </tbody>
             </table>
           </div>
-          <div class="prose" style="margin-top: 32px">
-            <h3>What the paper found</h3>
-            <p>
-              Prompted models fail in recognisable ways. Three of the four 2B and 4B setups give the same answer to every, or almost every, question about whether an action's required inputs are known. Letter answers follow the order of the options: reversing the options changed the 2B model's answer on 36% of Choice decisions, and Pea's on 0.2%. Written probabilities are often invalid or put all probability on one answer.
-            </p>
-            <p>
-              Each outcome is scored independently, with the conversation read once per outcome. With prefix caching, Pea served 9.38 decisions per second at a median of 102 ms. The prompted open 2B model in letter mode served 20.88 per second at 57 ms. These measurements show the accuracy and throughput tradeoff on this test set.
-            </p>
-            <p>
-              Comparison scope: Pea was trained for these decisions; the generative models were prompted without fine-tuning on the same data. Results cover one English test set, with accuracy reported separately for each question type.
-            </p>
-            <p>
-              <a href="/paper/vej-native-candidate-probabilities.pdf"
-                >Read the paper (PDF)
-                <span aria-hidden="true">→</span></a
-              >
-              ·
-              <a href="/paper/vej-paper-supplement.zip"
-                >Supplementary data (ZIP)
-                <span aria-hidden="true">→</span></a
-              >
-            </p>
-          </div>
-        </section><section class="section reading-grid compact" id="diagnostics">
-          <div class="prose">
-            <h2>Tool diagnostics</h2>
-            <ul>
-              <li>
-                Across 64 complete workflow actions, Pea completed 60 actions correctly, but made two critical errors where the wrong action was selected.
-              </li>
-              <li>
-                On 48 harder tool diagnostic cases, Pea completed 30 cases, with nine incorrect calls among 31 ready predictions.
-              </li>
-              <li>
-                On 12 original tool cases, Pea completed 4 cases, with three incorrect calls among seven ready predictions.
-              </li>
-            </ul>
-            <p>
-              These are development suites, not a held-out test, and they do not measure real tool execution.
-            </p>
-            <p>
-              <a href="/evidence/tool-evaluation.json"
-                >Aggregate tool diagnostic evidence
-                <span aria-hidden="true">→</span></a
-              >
-            </p>
-          </div>
-        </section><section class="section reading-grid compact" id="exposure">
-          <div class="prose">
-            <h2>Data roles</h2>
-            <p>
-              Each data split has a defined role. Training updates parameters. Validation selects checkpoints. We evaluated the final test once.
-            </p>
-            <p>
-              The test set holds 5,000 HelpSteer1 ratings and 9,286 Schema-Guided Dialogue decisions. Both test sources also contribute training data, so this measures domain transfer rather than an unseen benchmark.
-            </p>
-            <p>
-              Known exposure includes twelve inherited WANLI validation decisions, 19 historical training decisions, and one inspected comparator example.
-            </p>
-          </div>
-        </section><div class="counts">
-          <div>
-            <span class="display">100,002</span
-            ><span class="micro">Training</span>
-          </div>
-          <div>
-            <span class="display">28,572</span
-            ><span class="micro">Validation</span>
-          </div>
-          <div>
-            <span class="display">14,286</span
-            ><span class="micro">Final test</span>
-          </div>
-        </div>
-        <p class="small">
-          142,860 decisions · 70 / 20 / 10 split · Correlated projections, not
-          unique conversations
-        </p>
-        <section class="section reading-grid compact" id="lineage">
-          <div class="prose">
-            <h2>Training</h2>
-            <p>
-              Vej trains rank-16 LoRA adapters and a native FP32 scalar decision head on a frozen
-              <a href="/evidence/NOTICE.txt">pretrained text backbone (revision 15852e8)</a>. The original generative pretraining objective does not determine Vej's decision-oriented output interface.
-            </p>
-            <ol>
-              <li>
-                <strong>Public pilot.</strong> 4,096 training and 256 development decisions. Two epochs, 512 updates, selected at step 256.
-              </li>
-              <li>
-                <strong>Expanded training.</strong> 32,768 training and 2,048 development decisions. Two epochs, selected at step 1,280 with validation NLL 0.636590.
-              </li>
-              <li>
-                <strong>First 100k stage.</strong> 100,002 training and 28,572 validation decisions. The stage ended early; the selected saved checkpoint was step 1,024 with validation NLL 0.492022.
-              </li>
-              <li>
-                <strong>Recovery stage.</strong> Initialized with a fresh optimizer state, seed 43, across one shuffled epoch of the same corpus (6,251 updates). Step 6,144 was selected by lowest pooled validation NLL of 0.458497.
-              </li>
-              <li>
-                <strong>Final evaluation.</strong> The selected checkpoint was tested against all 14,286 frozen test decisions on 26 September 2026.
-              </li>
-            </ol>
-            <p>
-              Recovery repeated example exposure rather than performing an exact optimizer resume. Training stages overlap, so their counts cannot be summed to claim unique volume.
-            </p>
-            <p>
-              Vej workflows represent authored cases covering customer support, security, billing, and agent traces. Public sources supply natural language inference relations, intent classifications, human preference comparisons, and task dialogue state.
-            </p>
-          </div>
-        </section><section class="section" id="sources">
-          <h2>Data sources</h2>
-          <p class="lead">
-            Counts represent Vej decision rows after task selection, formatting, and screening. External links connect directly to the original academic and commercial publishers. Source texts retain their original licences.
-          </p>
-          <p class="small mobile-table-hint">
-            On narrow screens, scroll the source table horizontally.
-          </p>
-          <div
-            class="table-wrap"
-            role="region"
-            aria-label="Training source counts, horizontally scrollable"
-            tabindex="0"
-          >
-            <table class="source-table">
-              <caption class="sr-only">
-                Source decisions by Vej split role and original licence
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Source</th>
-                  <th scope="col" class="numeric">Training</th>
-                  <th scope="col" class="numeric">Validation</th>
-                  <th scope="col" class="numeric">Test</th>
-                  <th scope="col">Terms</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <a href="https://huggingface.co/datasets/alisawuffles/WANLI"
-                      >WANLI</a
-                    >
-                  </td>
-                  <td class="numeric">6,144</td>
-                  <td class="numeric">1,024</td>
-                  <td class="numeric">0</td>
-                  <td>CC BY 4.0</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="https://github.com/clinc/oos-eval">CLINC150/OOS</a>
-                  </td>
-                  <td class="numeric">7,424</td>
-                  <td class="numeric">1,024</td>
-                  <td class="numeric">0</td>
-                  <td>CC BY 3.0</td>
-                </tr>
-                <tr>
-                  <td><a href="#lineage">Vej workflows</a></td>
-                  <td class="numeric">3,072</td>
-                  <td class="numeric">384</td>
-                  <td class="numeric">0</td>
-                  <td>Apache-2.0</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="https://huggingface.co/datasets/nvidia/HelpSteer2"
-                      >HelpSteer2</a
-                    >
-                  </td>
-                  <td class="numeric">9,000</td>
-                  <td class="numeric">800</td>
-                  <td class="numeric">0</td>
-                  <td>CC BY 4.0</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="https://cims.nyu.edu/~sbowman/multinli/"
-                      >MultiNLI</a
-                    >
-                  </td>
-                  <td class="numeric">30,000</td>
-                  <td class="numeric">9,000</td>
-                  <td class="numeric">0</td>
-                  <td>Selected OANC terms</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="https://nlp.stanford.edu/projects/snli/">SNLI</a>
-                  </td>
-                  <td class="numeric">2,048</td>
-                  <td class="numeric">512</td>
-                  <td class="numeric">0</td>
-                  <td>CC BY-SA 4.0</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="https://huggingface.co/datasets/Anthropic/hh-rlhf"
-                      >HH-RLHF</a
-                    >
-                  </td>
-                  <td class="numeric">15,000</td>
-                  <td class="numeric">2,500</td>
-                  <td class="numeric">0</td>
-                  <td>MIT</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a
-                      href="https://github.com/PolyAI-LDN/task-specific-datasets"
-                      >BANKING77</a
-                    >
-                  </td>
-                  <td class="numeric">3,072</td>
-                  <td class="numeric">384</td>
-                  <td class="numeric">0</td>
-                  <td>CC BY 4.0</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="https://huggingface.co/datasets/nvidia/HelpSteer"
-                      >HelpSteer1</a
-                    >
-                  </td>
-                  <td class="numeric">8,000</td>
-                  <td class="numeric">4,000</td>
-                  <td class="numeric">5,000</td>
-                  <td>CC BY 4.0</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a
-                      href="https://github.com/google-research-datasets/dstc8-schema-guided-dialogue"
-                      >Schema-Guided Dialogue</a
-                    >
-                  </td>
-                  <td class="numeric">16,242</td>
-                  <td class="numeric">8,944</td>
-                  <td class="numeric">9,286</td>
-                  <td>CC BY-SA 4.0</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="small" style="margin-top: 24px">
-            No raw dataset payloads are hosted on this website. Vej's Apache-2.0 licence does not relicense source texts. MultiNLI fiction genres are excluded.
-          </p>
-          <div class="link-list">
-            <a href="/evidence/DATA_SOURCES.md" download
-              >Download source notices (Markdown)</a
-            ><a href="/evidence/DATASET_CARD.md" download
-              >Download dataset card (Markdown)</a
-            >
-          </div>
-        </section><section class="section reading-grid compact" id="identities">
-          <div class="prose">
-            <h2>Checksums</h2>
-            <div class="hash-row">
-              <p>
-                <span class="small">Weights · SHA256</span><br /><code
-                  class="hash"
-                  id="hash-0"
-                  >b99188eedcbc6e1faab966ed2c827025b29360157298d0cc86e53a103d73bf96</code
-                >
-              </p>
-              <button
-                class="copy"
-                data-copy="hash-0"
-                aria-label="Copy weights checksum"
-                hidden
-              >
-                Copy
-              </button>
-            </div>
-            <div class="hash-row">
-              <p>
-                <span class="small">Training · SHA256</span><br /><code
-                  class="hash"
-                  id="hash-1"
-                  >4b338fa71c6ec02161ad698c3f3789672897cbed4dd036f6a822f6cc6c38fea6</code
-                >
-              </p>
-              <button
-                class="copy"
-                data-copy="hash-1"
-                aria-label="Copy training checksum"
-                hidden
-              >
-                Copy
-              </button>
-            </div>
-            <div class="hash-row">
-              <p>
-                <span class="small">Validation · SHA256</span><br /><code
-                  class="hash"
-                  id="hash-2"
-                  >488de164255ee1e22334a844051b1e837d5f8afa5cc7792159c93a7838ad53bc</code
-                >
-              </p>
-              <button
-                class="copy"
-                data-copy="hash-2"
-                aria-label="Copy validation checksum"
-                hidden
-              >
-                Copy
-              </button>
-            </div>
-            <div class="hash-row">
-              <p>
-                <span class="small">Final test · SHA256</span><br /><code
-                  class="hash"
-                  id="hash-3"
-                  >ac1b11d62e55c6094101f71790f5bcd326b1f32afb91311bb334238036311265</code
-                >
-              </p>
-              <button
-                class="copy"
-                data-copy="hash-3"
-                aria-label="Copy final test checksum"
-                hidden
-              >
-                Copy
-              </button>
-            </div>
-            <p id="copy-status" role="status" class="small"></p>
-            <p class="small" style="margin-top: 24px">
-              No individual example predictions or raw training texts are hosted on this website.
-            </p>
-          </div>
-        </section><section class="section" id="hosted-runtime"><h2>Hosted runtime</h2><p>The hosted API is live in limited early access, by request. It serves Pea’s native reference runtime for text only; image input is refused. Hosted Choice, Noul and Score probabilities use temperature 1.334, fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. That scale does not make a stated probability a guaranteed frequency on a new workflow. Capacity is limited, with no uptime guarantee yet. Published evaluations describe the native checkpoint at temperature 1, not a separate hosted evaluation.</p><p>If hosted Pea moves to vLLM, probabilities may differ from the native reference by up to about 0.05 (five percentage points) in development checks. Served-runtime temperature fitting and separate held-out verification would be needed. This development tolerance is not a claim of native equivalence or a universal error bound.</p></section>
+          <p><a href="/paper/vej-native-candidate-probabilities.pdf">Read the paper (PDF) <span aria-hidden="true">→</span></a></p>
+        </section>
       </main>
       <footer>
         <div class="footer-brand">
@@ -679,7 +302,7 @@
         </div>
         <nav aria-label="Footer">
           <a href="https://app.itsvej.com/">Sign in</a>
-          <a href="mailto:hello@itsvej.com">Contact</a>
+          <a href="/contact/">Contact</a>
           <a href="/privacy/">Privacy</a>
         </nav>
       </footer>

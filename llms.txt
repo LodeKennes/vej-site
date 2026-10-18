@@ -9,7 +9,7 @@ Last updated: 2026-10-18.
 - Pepper (red): 8B model in development, being built and tested privately with companies. No public release or published benchmarks.
 - Pumpkin (orange): 27B model under research and development, being tested privately with companies. No public release or published benchmarks.
 
-Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API access is by request. Pea 1 weights require an approved Hugging Face access request. Sign in to the [console](https://app.itsvej.com/) with an API key.
+Contact: [send a message](https://itsvej.com/contact/). Hosted API access is by request. Pea 1 weights require an approved Hugging Face access request. Sign in to the [console](https://app.itsvej.com/) with an API key.
 
 ## Key Facts
 - Three primitives: Choice (pick among named options), Noul (assess statement truth as true/false), Score (rate rubric levels with expectation computed in caller code).
@@ -32,8 +32,8 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API access is by re
 - 2026-10-18 hosted status: limited early access is live, by request, using Pea’s native reference runtime. States are hosted Beta with organization retention opt-in and encrypted history storage. Batch is not open yet. Pea 1 weights are listed at https://huggingface.co/ItsVej/pea-1 and require an approved Hugging Face access request.
 
 ## Forms
-- Access requests, model waitlists and newsletter signups are stored in a separate Cloudflare D1 database in the EU. Access is reviewed; a saved request does not grant model access.
-- Actual enquiries: hello@itsvej.com.
+- Access requests, model waitlists, newsletter signups and contact messages are stored in a separate Cloudflare D1 database in the EU. Access is reviewed; a saved request does not grant model access.
+- Contact messages are saved from the [contact form](https://itsvej.com/contact/) so Vej can reply. A saved message is not a support contract.
 
 ## Primary Pages
 - [Paper (PDF)](https://itsvej.com/paper/vej-native-candidate-probabilities.pdf): Pea's method, pre-registered comparison with prompted open models, calibration and serving benchmark.
@@ -42,7 +42,7 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API access is by re
 - [Models](https://itsvej.com/models/): The model family and public availability.
 - [Use cases](https://itsvej.com/use-cases/): Live hosted Beta APIs beyond Choice, Noul and Score, with industry use cases, sample requests and quality limits.
 - [Access and waitlists](https://itsvej.com/access/): Pea access requests, separate model waitlists and newsletter signup.
-- [Evaluation](https://itsvej.com/evaluation/): Ten training sources, split protocol, held-out accuracy, same-test Jev comparison, and SHA256 hashes.
+- [Evaluation](https://itsvej.com/evaluation/): Held-out accuracy, the same-test Jev comparison, and the pre-registered open-model comparison.
 - [Model card](https://itsvej.com/models/pea/): Limited hosted early access, Pea 1 weights by approved request, local inference, and limits.
 - [Licences](https://itsvej.com/licenses/): Attribution and terms for code, upstream base model, training datasets, and bundled fonts.
 - [Brand](https://itsvej.com/brand/): The Open Pod visual identity, colour schemes, and vector assets.
@@ -61,7 +61,7 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API access is by re
 - [Website source](https://github.com/LodeKennes/vej-site)
 
 ## Usage guidance
-- Evaluation detail: Score exact accuracy is 51.62%; tool development diagnostics passed 30 of 48 harder cases. See the full evaluation for scope and methodology.
+- Evaluation detail: Score exact accuracy is 51.62% on the published test. The evaluation page reports that result and the two comparisons. Tool development diagnostics are not part of the published test.
 - No calibrated risk: Descriptive probabilities are not guarantees of correctness or authorisation to execute tools.
 - No speed claim: Inference uses repeated state encoding; development measurements exist; no production latency, capacity or speed advantage is claimed.
 - Hosted Beta: `/v1beta` risk targets with calibrations, alignments, estimate, annotate, feedback, given, bind, flows, effort and rankings are live. Effort executes standard only; fast and careful are not available. Beta availability does not establish quality or promotion to `/v1`.
@@ -69,7 +69,8 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API access is by re
 - States: `/v1beta/states` is live as Beta. An organization administrator must opt in via `PUT /v1beta/retention/states` with `{"enabled":true}`. Vej stores history encrypted in temporary local-directory Beta storage. Sessions expire after 24 hours idle or 30 days from creation, whichever comes first; activity never extends the absolute deadline. Revocation denies access and schedules physical erasure. History is capped at 100,000 code points and full history is re-read for predictions; no cache saving is claimed.
 - Batch: Routes exist, but running jobs requires approved EU storage hosts, which are not configured yet. Batch is not open.
 
-- [Website privacy](https://itsvej.com/privacy/): Signup data, purpose and removal requests.
+- [Contact](https://itsvej.com/contact/): Send a message. Vej stores it to reply.
+- [Website privacy](https://itsvej.com/privacy/): Signup and contact data, purpose and removal requests.
 - [Newsletter](https://itsvej.com/access/#newsletter): Vej updates by email.
 
 Hosted Pea currently runs the native reference runtime. Hosted Choice, Noul and Score probabilities use temperature 1.334, fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. That scale does not make a stated probability a guaranteed frequency on a new workflow. Published native evaluations remain temperature-1 checkpoint results, not a separate hosted evaluation. Estimate responses still report calibration_status "uncalibrated".

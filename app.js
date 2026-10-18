@@ -180,13 +180,16 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
         company: fields.get("company") || "", website: fields.get("website") || "",
         consent: fields.get("consent") === "on", token,
       };
-      const controls = [...form.querySelectorAll("input, button")];
+      // Only the contact form has a message. Other forms must not send one.
+      const message = fields.get("message");
+      if (typeof message === "string") data.message = message;
+      const controls = [...form.querySelectorAll("input, textarea, button")];
       submitting = true;
       controls.forEach(control => { control.disabled = true; });
       form.setAttribute("aria-busy", "true");
       form.dataset.state = "submitting";
       button.textContent = "Sending…";
-      feedback.textContent = "Saving your request.";
+      feedback.textContent = form.dataset.kind === "contact" ? "Saving your message." : "Saving your request.";
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 15000);
       let failure;
@@ -207,6 +210,7 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
           pepper_waitlist: "You are on the Pepper waitlist.",
           pumpkin_waitlist: "You are on the Pumpkin waitlist.",
           newsletter: "You are subscribed to Vej updates.",
+          contact: "Your message is saved. We will reply by email.",
         }[form.dataset.kind];
       } catch {
         form.dataset.state = "error";

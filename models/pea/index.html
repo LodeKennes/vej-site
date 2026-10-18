@@ -83,8 +83,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=3b49c556d3ab" />
-    <script src="/app.js?v=c3beb7cb2fc6" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=b96b21e53cc5" />
+    <script src="/app.js?v=aac23ae6588a" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -140,7 +140,7 @@
         <nav class="section-index" aria-label="On this page"><a href="#availability">Access</a><a href="#runtime">Run Pea</a><a href="#architecture">Architecture</a><a href="#limits">Usage guidance</a></nav><section class="section reading-grid compact" id="availability">
           <div class="prose">
             <h2>Access</h2>
-            <p>The hosted Pea API is live in limited early access, by request. <a href="/access/#pea">Request access</a>, then <a href="https://app.itsvej.com/">sign in to the console</a> with an API key. Text only; capacity is limited, with no uptime guarantee yet. Hosted Choice, Noul and Score probabilities use temperature 1.334. For questions, contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p>
+            <p>The hosted Pea API is live in limited early access, by request. <a href="/access/#pea">Request access</a>, then <a href="https://app.itsvej.com/">sign in to the console</a> with an API key. Text only; capacity is limited, with no uptime guarantee yet. Hosted Choice, Noul and Score probabilities use temperature 1.334. For questions, use the <a href="/contact/">contact form</a>.</p>
             <p>
               Pea 1 weights are listed at
               <a href="https://huggingface.co/ItsVej/pea-1">ItsVej/pea-1</a>.
@@ -226,13 +226,13 @@
           <div class="prose">
             <h2>Usage guidance</h2>
             <p>
-              The final test recorded 76.60% exact accuracy across 14,286 decisions: 89.22% on Choice, 91.71% on Noul and 51.62% on Score. Those figures use temperature 1. The hosted runtime applies temperature 1.334. Validate thresholds on your own workflow and keep independent policy checks around consequential actions. See the <a href="/evaluation/">full evaluation</a> for calibration, tool diagnostics and the same-test comparison with hosted Jev.
+              The final test recorded 76.60% exact accuracy across 14,286 decisions: 89.22% on Choice, 91.71% on Noul and 51.62% on Score. Those figures use temperature 1. The hosted runtime applies temperature 1.334. Validate thresholds on your own workflow and keep independent policy checks around consequential actions. See the <a href="/evaluation/">evaluation</a> for the same-test comparison with hosted Jev.
             </p>
             <p>
               Vej code and model adaptations use Apache-2.0, while upstream base assets and training datasets retain their respective terms. See <a href="/licenses/">licences and attribution</a>.
             </p>
           </div>
-        </section><section class="section" id="hosted-runtime"><h2>Hosted runtime</h2><p>The hosted API is live in limited early access, by request. It serves Pea’s native reference runtime for text only; image input is refused. Hosted Choice, Noul and Score probabilities use temperature 1.334, fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. That scale does not make a stated probability a guaranteed frequency on a new workflow. Capacity is limited, with no uptime guarantee yet. Published evaluations describe the native checkpoint at temperature 1, not a separate hosted evaluation.</p><p>If hosted Pea moves to vLLM, probabilities may differ from the native reference by up to about 0.05 (five percentage points) in development checks. Served-runtime temperature fitting and separate held-out verification would be needed. This development tolerance is not a claim of native equivalence or a universal error bound.</p></section>
+        </section><section class="section reading-grid compact" id="hosted-runtime"><div class="prose"><h2>Hosted runtime</h2><p>The hosted API is live in limited early access, by request. It serves Pea’s native reference runtime for text only; image input is refused. Hosted Choice, Noul and Score probabilities use temperature 1.334, fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. That scale does not make a stated probability a guaranteed frequency on a new workflow. Capacity is limited, with no uptime guarantee yet. Published evaluations describe the native checkpoint at temperature 1, not a separate hosted evaluation.</p><p>If hosted Pea moves to vLLM, probabilities may differ from the native reference by up to about 0.05 (five percentage points) in development checks. Served-runtime temperature fitting and separate held-out verification would be needed. This development tolerance is not a claim of native equivalence or a universal error bound.</p></div></section>
       </main>
       <footer>
         <div class="footer-brand">
@@ -250,7 +250,7 @@
         </div>
         <nav aria-label="Footer">
           <a href="https://app.itsvej.com/">Sign in</a>
-          <a href="mailto:hello@itsvej.com">Contact</a>
+          <a href="/contact/">Contact</a>
           <a href="/privacy/">Privacy</a>
         </nav>
       </footer>

@@ -86,8 +86,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=3b49c556d3ab" />
-    <script src="/app.js?v=c3beb7cb2fc6" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=b96b21e53cc5" />
+    <script src="/app.js?v=aac23ae6588a" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -171,7 +171,7 @@
           "name": "How should I use Pea’s probabilities?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Set thresholds using examples from your own workflow, and pair tool actions with independent policy checks. Pea’s published evaluation reports accuracy and calibration across 14,286 decisions; probabilities have no post-hoc calibration applied."
+            "text": "Set thresholds using examples from your own workflow, and pair tool actions with independent policy checks. The published evaluation reports exact accuracy across 14,286 decisions at temperature 1. The hosted API uses temperature 1.334. A stated probability is not a guaranteed frequency."
           }
         }
       ]
@@ -347,7 +347,7 @@
           </div>
           <div class="pair">
             <div>
-              <p class="micro">REQUEST · examples/decisions.json</p>
+              <p class="micro">REQUEST</p>
               <pre class="code"><code class="language-json"><span class="p">{</span>
 <span class="w">  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please cancel my subscription. I have not provided an account ID."</span><span class="p">,</span>
@@ -528,7 +528,7 @@
             <p>The hosted API is live at <a href="https://api.itsvej.com/">api.itsvej.com</a> in limited early access. Pea only, text only; image input is refused. Choice, Noul and Score are live on <code>/v1/predict</code>, alongside the Jev and Cloudflare-compatible formats. It runs Pea’s native reference runtime. Hosted Choice, Noul and Score probabilities use temperature 1.334. Capacity is limited, with no uptime guarantee yet.</p><p><a href="/access/#pea">Request access</a>, then <a href="https://app.itsvej.com/">sign in to the console</a> with an API key.</p><p><a href="/use-cases/">Beta modes</a> are also live; states require organization retention opt-in and store history encrypted by Vej. Batch routes exist, but jobs are not open: approved EU storage hosts are not configured yet. Self-hosting remains an option. <a href="/dpa/">Data processing agreement</a>.</p>
           </div>
         </section>
-<section class="section" id="questions"><div class="section-head"><div><h2>Questions</h2></div></div><dl class="faq"><div><dt>Which models can I use?</dt><dd>Pea is the current completed model, with limited hosted early access. Pea 1 weights require an approved Hugging Face request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available.</dd></div><div><dt>What does Pea return?</dt><dd>A probability for each outcome you define. Choice weighs named options, Noul assesses statements, and Score rates rubric levels. Your code decides what happens next.</dd></div><div><dt>Can I run Pea on my own hardware?</dt><dd>Yes. Download Pea 1 from https://huggingface.co/ItsVej/pea-1 after your access request is approved. The native loader also needs the private Vej source. Supported inference uses the native loader on your GPU; CPU execution is a slower fallback. The model card includes setup instructions and current limits.</dd></div><div><dt>Is there a hosted API?</dt><dd>Yes. The hosted API is live in limited early access, by request: Pea only, text only. Sign in to the console with an API key. Capacity is limited, with no uptime guarantee yet.</dd></div><div><dt>How should I use Pea’s probabilities?</dt><dd>Set thresholds using examples from your own workflow, and pair tool actions with independent policy checks. Pea’s published evaluation reports accuracy and calibration across 14,286 decisions; probabilities have no post-hoc calibration applied.</dd></div></dl><p><a href="/models/pea/">Pea model card</a> · <a href="/access/">Access and waitlists</a> · <a href="/licenses/">Licences</a></p></section>
+<section class="section" id="questions"><div class="section-head"><div><h2>Questions</h2></div></div><dl class="faq"><div><dt>Which models can I use?</dt><dd>Pea is the current completed model, with limited hosted early access. Pea 1 weights require an approved Hugging Face request. Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available.</dd></div><div><dt>What does Pea return?</dt><dd>A probability for each outcome you define. Choice weighs named options, Noul assesses statements, and Score rates rubric levels. Your code decides what happens next.</dd></div><div><dt>Can I run Pea on my own hardware?</dt><dd>Yes. Download Pea 1 from https://huggingface.co/ItsVej/pea-1 after your access request is approved. The native loader also needs the private Vej source. Supported inference uses the native loader on your GPU; CPU execution is a slower fallback. The model card includes setup instructions and current limits.</dd></div><div><dt>Is there a hosted API?</dt><dd>Yes. The hosted API is live in limited early access, by request: Pea only, text only. Sign in to the console with an API key. Capacity is limited, with no uptime guarantee yet.</dd></div><div><dt>How should I use Pea’s probabilities?</dt><dd>Set thresholds using examples from your own workflow, and pair tool actions with independent policy checks. The published evaluation reports exact accuracy across 14,286 decisions at temperature 1. The hosted API uses temperature 1.334. A stated probability is not a guaranteed frequency.</dd></div></dl><p><a href="/models/pea/">Pea model card</a> · <a href="/access/">Access and waitlists</a> · <a href="/licenses/">Licences</a></p></section>
 <section class="section newsletter" id="newsletter"><h2>Newsletter</h2><noscript><p>Enable JavaScript to subscribe, or contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p></noscript><p>Model releases, results and Vej news.</p><form data-signup-form data-kind="newsletter"><label for="newsletter-email">Email address <span>(required)</span></label><input id="newsletter-email" name="email" type="email" autocomplete="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Use an email address such as name@example.com." required maxlength="254" /><label class="consent" for="newsletter-consent"><input id="newsletter-consent" name="consent" type="checkbox" required />Send me Vej updates by email.</label><div class="form-trap" aria-hidden="true"><label for="newsletter-website">Leave this field empty</label><input id="newsletter-website" name="website" autocomplete="off" tabindex="-1" /></div><div data-turnstile></div><button class="button" type="submit" disabled>Subscribe</button><button class="button secondary" type="button" data-retry hidden>Retry browser check</button><p class="form-feedback" role="status" aria-live="polite"></p><p class="small">We use these details for this request or list. <a href="/privacy/">Privacy</a>.</p></form></section><section class="cta"><div><h2>Access and waitlists</h2><p>Request Pea access or join the Pepper and Pumpkin waitlists for release updates.</p></div><div class="actions"><a class="button" href="/access/">Access &amp; waitlists</a><a class="button secondary" href="https://app.itsvej.com/">Sign in to the console</a></div></section>
 </main>
       <footer>
@@ -547,7 +547,7 @@
         </div>
         <nav aria-label="Footer">
           <a href="https://app.itsvej.com/">Sign in</a>
-          <a href="mailto:hello@itsvej.com">Contact</a>
+          <a href="/contact/">Contact</a>
           <a href="/privacy/">Privacy</a>
         </nav>
       </footer>
