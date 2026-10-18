@@ -553,6 +553,12 @@ footer img {
   width: 76px;
   height: 40px;
 }
+.footer-brand {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
 footer nav {
   display: flex;
   gap: 24px;

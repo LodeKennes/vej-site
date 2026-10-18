@@ -83,7 +83,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=1033991f9fa5" />
+    <link rel="stylesheet" href="/styles.css?v=f842b2aaf7e6" />
     <script src="/app.js?v=d79349ad04bd" defer></script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Models", "description": "Pea, Pepper and Pumpkin: the Vej model family, sizes, availability and evaluation status.", "url": "https://itsvej.com/models/"}</script>
   </head>
@@ -134,28 +134,23 @@
       <section class="section" id="hosted-runtime"><h2>Hosted runtime</h2><p>The hosted API is live in limited early access, by request. It serves Pea’s native reference runtime for text only; image input is refused. Hosted Choice, Noul and Score probabilities use temperature 1.334, fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. That scale does not make a stated probability a guaranteed frequency on a new workflow. Capacity is limited, with no uptime guarantee yet. Published evaluations describe the native checkpoint at temperature 1, not a separate hosted evaluation.</p><p>If hosted Pea moves to vLLM, probabilities may differ from the native reference by up to about 0.05 (five percentage points) in development checks. Served-runtime temperature fitting and separate held-out verification would be needed. This development tolerance is not a claim of native equivalence or a universal error bound.</p></section>
       </main>
       <footer>
-        <a href="/" aria-label="Vej home"
-          ><picture
-            ><source
-              srcset="/assets/brand/logo-light.svg"
-              media="(prefers-color-scheme: dark)" /><img
-              src="/assets/brand/logo.svg"
-              alt="Vej"
-              width="76"
-              height="40" /></picture
-        ></a>
-        <span>Vej builds Pea, Pepper and Pumpkin. · 2026</span>
+        <div class="footer-brand">
+          <a href="/" aria-label="Vej home"
+            ><picture
+              ><source
+                srcset="/assets/brand/logo-light.svg"
+                media="(prefers-color-scheme: dark)" /><img
+                src="/assets/brand/logo.svg"
+                alt="Vej"
+                width="76"
+                height="40" /></picture
+          ></a>
+          <span>Vej builds Pea, Pepper and Pumpkin. · 2026</span>
+        </div>
         <nav aria-label="Footer">
           <a href="https://app.itsvej.com/">Sign in</a>
           <a href="mailto:hello@itsvej.com">Contact</a>
-          <a href="/access/#newsletter">Newsletter</a><a href="/privacy/">Privacy</a><a href="/dpa/">Draft DPA</a>
-          <a href="/brand/">Brand</a><a href="/licenses/">Licences</a
-          ><a href="/models/#compare">Availability</a
-          ><a href="mailto:hello@itsvej.com"
-            >Email for access <span aria-hidden="true">→</span></a
-          ><a href="https://github.com/LodeKennes/vej-site"
-            >Website source <span aria-hidden="true">→</span></a
-          >
+          <a href="/privacy/">Privacy</a>
         </nav>
       </footer>
     </div>
