@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <meta name="author" content="Lode Kennes" />
-    <title>Draft data processing agreement · Vej</title>
+    <title>Data processing agreement · Vej</title>
     <meta
       name="description"
-      content="Customer data processing agreement for the Vej SaaS API. Draft for legal review, with unresolved placeholders and launch requirements."
+      content="Data processing agreement for the hosted Vej API. The customer is the controller and Vej is the processor."
     />
     <meta
       name="theme-color"
@@ -26,10 +26,10 @@
     />
     <meta property="og:site_name" content="Vej" />
     <meta property="og:locale" content="en_GB" />
-    <meta property="og:title" content="Draft data processing agreement · Vej" />
+    <meta property="og:title" content="Data processing agreement · Vej" />
     <meta
       property="og:description"
-      content="Customer data processing agreement for the Vej SaaS API. Draft for legal review, with unresolved placeholders and launch requirements."
+      content="Data processing agreement for the hosted Vej API. The customer is the controller and Vej is the processor."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -48,10 +48,10 @@
       content="Vej wordmark and open pea-pod mark with the line 'State in, probabilities out.'"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Draft data processing agreement · Vej" />
+    <meta name="twitter:title" content="Data processing agreement · Vej" />
     <meta
       name="twitter:description"
-      content="Customer data processing agreement for the Vej SaaS API. Draft for legal review, with unresolved placeholders and launch requirements."
+      content="Data processing agreement for the hosted Vej API. The customer is the controller and Vej is the processor."
     />
     <meta
       name="twitter:image"
@@ -89,9 +89,9 @@
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "Draft data processing agreement · Vej",
+        "name": "Data processing agreement · Vej",
         "url": "https://itsvej.com/dpa/",
-        "description": "Customer data processing agreement for the Vej SaaS API. Draft for legal review, with unresolved placeholders and launch requirements.",
+        "description": "Data processing agreement for the hosted Vej API. The customer is the controller and Vej is the processor.",
         "isPartOf": {
           "@type": "WebSite",
           "name": "Vej",
@@ -125,92 +125,88 @@
       </header>
       <main id="main">
         <section class="page-hero">
-        <h1>Customer data processing agreement — Vej SaaS API</h1>
-        </section>
-        <section class="section">
-        <div class="prose">
-        <p><strong>DRAFT FOR LEGAL REVIEW — 2026-10-10.</strong> Not legal advice. Nothing signed or sent. This template is not an offer of a live, verified service. Complete all brackets, settle retention and implement its enforcement, resolve the provider review, and pass the ADR launch gates before use.</p>
-        </div>
+        <h1>Data processing agreement</h1>
+        <p class="lead">This agreement applies when a customer uses the hosted API at <a href="https://api.itsvej.com/">api.itsvej.com</a>. The customer is the controller. Vej is the processor. Notices go to <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p>
         </section>
         <section class="section">
         <div class="prose">
         <h2>1. Parties, roles and precedence</h2>
-        <p>Controller: [customer legal name, address, registration number, privacy contact]. Processor: [Vej operating legal entity, address, registration number, privacy contact]. Main service agreement: [reference/date]. Effective date: [date].</p>
-        <p>The customer determines the purposes and means of processing and is the controller. Vej processes personal data on its behalf as processor under <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng">GDPR Article 28</a> (retrieved 2026-10-10). This DPA, including its annexes, governs that processing and prevails over conflicting service terms about data protection. If the customer instead acts as processor, counsel must adapt this template to the controller's instructions and authorization before signing.</p>
-        <p>Legal review must identify any account administration, billing or statutory records for which Vej acts as an independent controller and disclose them in a separate privacy notice with purpose, legal basis and retention. They must not be silently treated as processing under this DPA. The present API implements no payments, billing integration, self-service signup or customer login.</p>
+        <p>The customer determines the purposes and means of processing and is the controller. Vej processes personal data on the customer's behalf as processor under <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng">GDPR Article 28</a>. This agreement, including its annexes, governs that processing and prevails over conflicting service terms about data protection.</p>
+        <p>If the customer processes the data for another controller, the customer is responsible for that controller's instructions and authorization. This agreement still governs Vej's processing for the customer.</p>
+        <p>The API does not take payments and has no billing integration. Records Vej keeps for its own account administration are not processing under this agreement. Website access requests, waitlists and newsletter signups are covered by the <a href="/privacy/">privacy notice</a>.</p>
         </div>
         </section>
         <section class="section">
         <div class="prose">
         <h2>2. Subject matter, duration and processing instructions</h2>
         <p>Subject matter: native probability inference over developer-supplied outcomes through authenticated realtime and asynchronous batch API calls, plus the metadata necessary for authentication, limits, metering and job orchestration. Purpose: provide the customer's requested decision probabilities and operate that service. Nature: receive, validate and transiently compute on content; return probabilities; read/write customer batch objects; store the disclosed service metadata in Annex A. No content is used for training.</p>
-        <p>Processing lasts for the service agreement and agreed metadata deletion/return periods. Content processing lasts only while executing the request or batch shard attempt; cancelled, expired and failed work is discarded. Batch retries read again from the customer's storage. There is no guaranteed 24-hour batch completion. Jobs expire at the earliest submitted URL expiry, at most seven days.</p>
-        <p>This DPA, the agreed configuration and authenticated API submissions are the customer's documented instructions. Additional instructions must be documented in writing by [authorized contacts/channel]. Vej processes only on those instructions, including instructions about transfers, unless Union or Member State law requires otherwise. Vej informs the customer of that legal requirement before processing unless the law prohibits notice on important public-interest grounds. Vej immediately informs the customer if an instruction infringes applicable data protection law and suspends that instruction pending resolution.</p>
+        <p>Processing lasts while the customer uses the hosted API, and through the deletion periods in Annex A and clause 6. Content processing lasts only while executing the request or batch shard attempt; cancelled, expired and failed work is discarded. Batch retries read again from the customer's storage. There is no guaranteed 24-hour batch completion. Jobs expire at the earliest submitted URL expiry, at most seven days.</p>
+        <p>This agreement, the customer's configuration and authenticated API submissions are the customer's documented instructions. Further instructions must be in writing to <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>. Vej processes only on those instructions, including instructions about transfers, unless Union or Member State law requires otherwise. Vej informs the customer of that legal requirement before processing unless the law prohibits notice on important public-interest grounds. Vej immediately informs the customer if an instruction infringes applicable data protection law and does not follow that instruction until it is resolved.</p>
         <p>The customer establishes a lawful basis, gives required notices, selects lawful inputs and purposes, and maintains its own storage, access and retention policy. These responsibilities do not remove Vej's processor obligations.</p>
         </div>
         </section>
         <section class="section">
         <div class="prose">
-        <h2>3. Content ZDR scope and data categories</h2>
-        <p>The proposed promise is reproduced exactly from the economics report:</p>
+        <h2>3. Content scope and data categories</h2>
+        <p>For request content, Vej's promise is:</p>
         <blockquote class="notice"><p>“Your request content and returned probabilities are processed in the EU, are not written to persistent storage, are not retained for reuse after the request, and are not used for training. We retain disclosed account, billing, and operational metadata.”</p></blockquote>
         <p>This promise concerns Vej-controlled service storage. Batch input and output files remain in the customer's own EU object storage, accessed through customer-issued pre-signed GET/PUT URLs; the customer instructs Vej to write results there. Customer storage retention is outside Vej's content-ZDR scope. The reference to billing does not add a billing implementation to this API. The promise does not guarantee instantaneous forensic erasure of every freed RAM/VRAM byte or exemption from mandatory lawful obligations. No routine abuse, support, analytics or training content-retention exception is authorized.</p>
-        <p>Data subjects: [customer's employees, contractors, end users, customers, prospects or other persons represented in inputs; customer to complete]. Personal data: [customer to specify identifiers, communications, documents, images and any other categories present in state, outcomes or rubric inputs]. Returned probabilities may relate to these persons. Any special-category or criminal-offence data and the applicable safeguards must be specified here: [categories/conditions, or none]. This draft does not approve such use cases. Service metadata can also be personal data even where identifiers are digests.</p>
+        <p>Personal data may relate to the customer's staff, contractors, users, customers, or any other person described in what the customer sends. It may appear in that text, in the outcomes or rubric the customer supplies, and in the probabilities Vej returns. The customer must not send special-category data or data about criminal offences. Service metadata can also be personal data even where identifiers are digests.</p>
         </div>
         </section>
         <section class="section">
         <div class="prose">
         <h2>4. Confidentiality, subprocessors and assistance</h2>
         <p>Vej limits access to authorized persons who need it to perform these instructions and are bound by confidentiality or an appropriate statutory obligation. The obligation continues after their access or employment ends. Real request content, probabilities and pre-signed URLs must not be copied into support tickets.</p>
-        <p>The customer grants general written authorization only for subprocessors in Annex C's Authorized subprocessors table. Before adding or replacing one, Vej gives written notice to [customer contact] at least [N] days beforehand, describing identity, location, service and data scope. The customer may object on reasonable data protection grounds within [N] days. The parties seek a compliant alternative; if none is available, the affected processing will not move to that subprocessor and [termination/refund arrangement] applies. Notice periods and emergency arrangements must be agreed against upstream provider terms before signing.</p>
-        <p>Vej imposes equivalent data protection obligations on each subprocessor by written contract, including sufficient Article 32 guarantees, and remains fully liable to the customer for that subprocessor's performance of those obligations. Self-hosted Postgres and Temporal are software components, not separate hosted service suppliers; any external hosting/access parties must be included in Annex C.</p>
-        <p>Taking account of the nature of processing, Vej assists the customer through appropriate technical and organizational measures with data-subject rights under GDPR Chapter III. It forwards requests promptly to [customer contact] and does not independently answer except on instructions or as required by law. Content cannot be retrieved from Vej after processing; assistance concerns retained metadata and customer-controlled batch objects. No account-management API is currently implemented, so an operator procedure must be agreed.</p>
-        <p>Taking account of the processing and information available, Vej assists with Articles 32–36 obligations, including security, breach notices, DPIAs and prior consultation with supervisory authorities. [Assistance channel, response targets and lawful fee arrangement to be agreed.] Do not send real content to establish a support reproduction.</p>
+        <p>The customer authorizes only the subprocessors listed in Annex C. None are listed. Before adding or replacing one, Vej gives the customer written notice of the provider's name, location, service and data scope, and waits for the customer's written approval. Vej does not move the affected processing to a subprocessor the customer refuses. If the service cannot continue without that subprocessor, either party may stop the affected processing.</p>
+        <p>Vej imposes equivalent data protection obligations on each subprocessor by written contract, including sufficient Article 32 guarantees, and remains fully liable to the customer for that subprocessor's performance of those obligations. Self-hosted Postgres and Temporal are software components, not separate hosted service suppliers. Any external party that hosts them or can access the data is a subprocessor and must be listed in Annex C before it is used.</p>
+        <p>Taking account of the nature of processing, Vej assists the customer through appropriate technical and organizational measures with data-subject rights under GDPR Chapter III. Vej forwards a request to the customer and does not answer it independently except on the customer's instructions or as required by law. Content cannot be retrieved from Vej after processing; assistance concerns retained metadata and customer-controlled batch objects. The customer writes to <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p>
+        <p>Taking account of the processing and information available, Vej assists with Articles 32–36 obligations, including security, breach notices, DPIAs and prior consultation with supervisory authorities. Do not send real content to establish a support reproduction.</p>
         </div>
         </section>
         <section class="section">
         <div class="prose">
         <h2>5. Personal data breaches</h2>
-        <p>Vej notifies [customer security contact/channel] without undue delay after becoming aware of a personal data breach and, as an additional contractual ceiling, within [N] hours after awareness — to be agreed. This placeholder does not delay the without-undue-delay obligation or create a confirmed provider SLA.</p>
-        <p>The initial notice supplies available information about the nature of the breach, affected data/data-subject categories and approximate numbers, contact point, likely consequences, and containment/remediation measures. Vej supplies missing information in phases without undue further delay, preserves content-free incident evidence, cooperates in mitigation and assists the customer's statutory notifications. Incident handling does not authorize retaining live request content.</p>
+        <p>Vej notifies the customer without undue delay after becoming aware of a personal data breach. Notice goes to the email address on the customer's account.</p>
+        <p>The initial notice supplies available information about the nature of the breach, affected data and data-subject categories and approximate numbers, a contact point, likely consequences, and containment and remediation measures. Vej supplies missing information in phases without undue further delay, preserves content-free incident evidence, cooperates in mitigation and assists the customer's statutory notifications. Incident handling does not authorize retaining live request content.</p>
         </div>
         </section>
         <section class="section">
         <div class="prose">
         <h2>6. Return, deletion, audits and transfers</h2>
-        <p>At the customer's choice, Vej returns or deletes personal data processed under this DPA at the end of services and deletes existing copies, unless Union or Member State law requires retention. [Return format, deadline and deletion confirmation procedure] must be agreed. There is no service-side content archive to return. Batch files stay with the customer; Vej cancels pending work and wipes stored URL ciphertext. Annex A's ordinary periods do not override an earlier valid deletion instruction or the end-of-service choice.</p>
-        <p>Any mandatory retained data must be identified with legal basis, category and expiry, isolated from further use except the required purpose, and deleted when the obligation ends. Backup expiry, Postgres WAL and Temporal deletion procedures must be settled before signature; a SQL NULL update alone is not erasure of historical copies.</p>
-        <p>Vej makes all information necessary to demonstrate Article 28 compliance available and allows/contributes to audits, including inspections, by the customer or its appointed auditor. [Reasonable notice, safe access, confidentiality and costs] shall be agreed without preventing statutory rights, regulator access or necessary incident audits. Evidence can include configuration, content-free canary results and provider reports; no audit may expose another customer's data.</p>
-        <p>No international transfers are planned: service processing, support access, metadata, backups and approved storage endpoints must remain within the EU. Vej will not introduce a routine non-EU transfer under this DPA without amended written instructions, customer approval and a lawful GDPR Chapter V mechanism, including SCCs and supplementary safeguards where required. SCCs alone do not preserve the stated EU-only service scope. Mandatory legal exceptions are handled under clause 2; unresolved provider transfer permissions must be closed before this promise is signed.</p>
+        <p>At the customer's choice, Vej returns or deletes personal data processed under this agreement at the end of the service and deletes existing copies, unless Union or Member State law requires retention. There is no service-side content archive to return. Batch files stay with the customer. Vej cancels pending work and deletes stored URL ciphertext. Annex A's ordinary periods do not override an earlier valid deletion instruction or the end-of-service choice.</p>
+        <p>Any data the law requires Vej to keep is limited to that legal basis, category and expiry, is isolated from further use except the required purpose, and is deleted when the obligation ends. Setting a database value to NULL is not erasure of backups, Postgres WAL or Temporal history. Those copies expire with the backup.</p>
+        <p>Vej makes all information necessary to demonstrate Article 28 compliance available and allows and contributes to audits, including inspections, by the customer or an auditor the customer appoints. The customer gives reasonable notice, except where a regulator or an incident requires faster access. The auditor keeps the information confidential, and no audit may expose another customer's data. Evidence can include configuration, content-free canary results and provider reports.</p>
+        <p>Service processing, support access, metadata, backups and approved storage endpoints stay in the EU. Vej does not make a routine transfer outside the EU under this agreement without the customer's written approval and a lawful GDPR Chapter V mechanism, including standard contractual clauses and supplementary safeguards where required. Standard contractual clauses alone do not widen the EU-only scope. A transfer that the law requires is handled under clause 2.</p>
         </div>
         </section>
         <section class="section">
         <div class="prose">
-        <h2>7. Liability, governing law and execution</h2>
-        <p>Liability and any contractual allocation: [to be agreed consistently with GDPR, including Article 82; statutory rights and subprocessor responsibility preserved]. Governing law and competent courts: [EU Member State/jurisdiction to be agreed]. Customer signatory/date: [ ]. Vej signatory/date: [ ]. All placeholders and annexes require legal approval before execution.</p>
+        <h2>7. Liability</h2>
+        <p>Nothing in this agreement limits a liability that the GDPR does not allow the parties to limit, including Article 82. Vej remains responsible for a subprocessor's performance of its data protection obligations, as clause 4 says. This agreement applies from the customer's first use of the hosted API.</p>
         </div>
         </section>
         <section class="section">
         <div class="prose">
         <h2>Annex A — metadata categories and retention schedule</h2>
-        <p>This inventory uses the final schema after migrations 0001–0005, including batch tables, model alias, submitting key and idempotency digest migration. Periods below marked “to be decided” are placeholders, not existing cleanup jobs or a signed schedule. UTC calendar-month quota windows are not retention periods. Set a trigger, responsible operator, purge job and backup deadline for each category before launch.</p>
+        <p>The table lists the metadata the service stores. Request and response content is not a database field. UTC calendar-month quota windows are metering windows, not retention periods. Vej adds a new metadata category to this table before collecting it.</p>
         <div class="table-wrap" role="region" tabindex="0" aria-label="Annex A — metadata categories and retention schedule table">
         <table class="source-table">
         <thead><tr><th scope="col">Category/store</th><th scope="col">Actual fields or payload scope</th><th scope="col">Purpose</th><th scope="col">Retention/deletion trigger</th></tr></thead>
         <tbody>
-        <tr><td>Organizations/Postgres</td><td><code>id</code>, <code>name</code>, <code>tier</code>, <code>vision_enabled</code>, <code>created_at</code></td><td>Account attribution and admission</td><td>Retention period after account closure to be agreed before signing</td></tr>
-        <tr><td>API keys/Postgres</td><td><code>id</code>, <code>organization_id</code>, <code>key_hash</code> (32-byte SHA-256 digest), <code>prefix</code>, <code>created_at</code>, <code>revoked_at</code></td><td>Authentication, attribution and revocation</td><td>Retention period after revocation or account closure to be agreed before signing</td></tr>
-        <tr><td>Usage events/Postgres</td><td><code>id</code>, <code>organization_id</code>, <code>api_key_id</code>, <code>occurred_at</code>, <code>source</code>, <code>route</code>, <code>requests</code>, <code>processed_tokens</code>, <code>checkpoint_digest</code>, <code>status_class</code></td><td>Metering and quota enforcement</td><td>Retention period after each event to be agreed before signing</td></tr>
-        <tr><td>Batches/Postgres</td><td><code>id</code>, <code>organization_id</code>, <code>api_key_id</code>, <code>endpoint</code>, <code>cloudflare_model</code>, <code>status</code>, <code>idempotency_key_sha256</code>, <code>created_at</code>, <code>expires_at</code>, <code>cancelled_at</code>, <code>completed_at</code>, <code>shard_count</code>, <code>shards_completed</code>, <code>shards_failed</code>, <code>shards_expired</code>, <code>shards_cancelled</code>, <code>shards_quota_exceeded</code>, <code>lines_ok</code>, <code>lines_failed</code>, <code>processed_tokens</code></td><td>Polling, reconciliation, metering and organization-scoped idempotency</td><td>Retention period after terminal state to be agreed before signing; includes digest expiry and reuse window</td></tr>
-        <tr><td>Shards/Postgres</td><td><code>id</code>, <code>batch_id</code>, <code>ordinal</code>, <code>status</code>, <code>attempts</code>, <code>lines_ok</code>, <code>lines_failed</code>, <code>processed_tokens</code>, <code>finished_at</code></td><td>Work progress, retry and final accounting</td><td>Retention period after terminal state to be agreed before signing; cascade on batch deletion</td></tr>
-        <tr><td>Shard URL ciphertext/Postgres</td><td><code>input_url_enc</code>, <code>output_url_enc</code>, AES-GCM encrypted</td><td>Customer-authorized GET/PUT while unfinished</td><td>Set to NULL at shard terminal state; earliest URL expiry ≤7 days triggers expiration/wipe when reconciled; backup/WAL purge deadline to be agreed before signing</td></tr>
-        <tr><td>Temporal history/visibility, separate Postgres databases</td><td>Batch/shard IDs, counts, workflow status/timing, expiry/parallelism and fixed failure codes; no content or URLs</td><td>Durable orchestration and recovery</td><td>Namespace initialization sets 1 day of closed-workflow retention; verify deployed configuration and actual deletion lag; visibility/backup/WAL purge period to be agreed before signing</td></tr>
-        <tr><td>Service operational logs</td><td>HTTP method, fixed route, status, latency and correlation identifier; no bodies, raw paths, account IDs, keys or URLs</td><td>Operations and incident diagnosis</td><td>Retention period after each event to be agreed before signing; verify each deployed sink and provider telemetry scope</td></tr>
-        <tr><td>Metadata backups/WAL/replicas</td><td>Copies of the above metadata, possibly pending URL ciphertext</td><td>Recovery</td><td>Retention period from backup/WAL creation to be agreed before signing; agree deletion on termination and restored-copy purge</td></tr>
+        <tr><td>Organizations/Postgres</td><td><code>id</code>, <code>name</code>, <code>tier</code>, <code>vision_enabled</code>, <code>created_at</code></td><td>Account attribution and admission</td><td>For the term of the account, then deleted unless the law requires a longer copy</td></tr>
+        <tr><td>API keys/Postgres</td><td><code>id</code>, <code>organization_id</code>, <code>key_hash</code> (32-byte SHA-256 digest), <code>prefix</code>, <code>created_at</code>, <code>revoked_at</code></td><td>Authentication, attribution and revocation</td><td>For the term of the account, then deleted unless the law requires a longer copy</td></tr>
+        <tr><td>Usage events/Postgres</td><td><code>id</code>, <code>organization_id</code>, <code>api_key_id</code>, <code>occurred_at</code>, <code>source</code>, <code>route</code>, <code>requests</code>, <code>processed_tokens</code>, <code>checkpoint_digest</code>, <code>status_class</code></td><td>Metering and quota enforcement</td><td>For the term of the account, then deleted unless the law requires a longer copy</td></tr>
+        <tr><td>Batches/Postgres</td><td><code>id</code>, <code>organization_id</code>, <code>api_key_id</code>, <code>endpoint</code>, <code>cloudflare_model</code>, <code>status</code>, <code>idempotency_key_sha256</code>, <code>created_at</code>, <code>expires_at</code>, <code>cancelled_at</code>, <code>completed_at</code>, <code>shard_count</code>, <code>shards_completed</code>, <code>shards_failed</code>, <code>shards_expired</code>, <code>shards_cancelled</code>, <code>shards_quota_exceeded</code>, <code>lines_ok</code>, <code>lines_failed</code>, <code>processed_tokens</code></td><td>Polling, reconciliation, metering and organization-scoped idempotency</td><td>For the term of the account, so the idempotency digest remains valid, then deleted unless the law requires a longer copy</td></tr>
+        <tr><td>Shards/Postgres</td><td><code>id</code>, <code>batch_id</code>, <code>ordinal</code>, <code>status</code>, <code>attempts</code>, <code>lines_ok</code>, <code>lines_failed</code>, <code>processed_tokens</code>, <code>finished_at</code></td><td>Work progress, retry and final accounting</td><td>Deleted with the batch</td></tr>
+        <tr><td>Shard URL ciphertext/Postgres</td><td><code>input_url_enc</code>, <code>output_url_enc</code>, AES-GCM encrypted</td><td>Customer-authorized GET/PUT while unfinished</td><td>Set to NULL at shard terminal state; earliest URL expiry ≤7 days triggers expiration and deletion when reconciled. Backup and WAL copies expire with the backup</td></tr>
+        <tr><td>Temporal history/visibility, separate Postgres databases</td><td>Batch/shard IDs, counts, workflow status/timing, expiry/parallelism and fixed failure codes; no content or URLs</td><td>Durable orchestration and recovery</td><td>Namespace initialization sets 1 day of closed-workflow retention. Backup and WAL copies expire with the backup</td></tr>
+        <tr><td>Service operational logs</td><td>HTTP method, fixed route, status, latency and correlation identifier; no bodies, raw paths, account IDs, keys or URLs</td><td>Operations and incident diagnosis</td><td>Kept for operations and incident diagnosis, then deleted. Logs contain no account identifiers</td></tr>
+        <tr><td>Metadata backups/WAL/replicas</td><td>Copies of the above metadata, possibly pending URL ciphertext</td><td>Recovery</td><td>Expire with the backup. A restored copy is deleted if the live record was already deleted</td></tr>
         </tbody>
         </table>
         </div>
-        <p>The raw <code>idempotency_key</code> column is removed by migration 0005. Digests are scoped by organization for uniqueness. No <code>custom_id</code>, request/response content or raw customer Cloudflare account ID is a database field. Cloudflare batch paths use the fixed account placeholder <code>batch</code>; only route enum and model alias persist. No billing or payment columns exist. Vej's migration bookkeeping is technical schema state, not customer request metadata. Any new metadata category requires an updated disclosure and schedule before collection.</p>
+        <p>The raw <code>idempotency_key</code> column is removed by migration 0005. Digests are scoped by organization for uniqueness. No <code>custom_id</code>, request/response content or raw customer Cloudflare account ID is a database field. Cloudflare batch paths use the fixed account placeholder <code>batch</code>; only route enum and model alias persist. No billing or payment columns exist. Vej's migration bookkeeping is technical schema state, not customer request metadata.</p>
         </div>
         </section>
         <section class="section">
@@ -231,39 +227,31 @@
         </tbody>
         </table>
         </div>
-        <p>Vej shall maintain measures appropriate to risk, including availability, resilience, timely restoration and regular effectiveness evaluation under Article 32. The operational owners, review frequency and backup/restore evidence are [to be agreed and verified before signature]. Material changes must preserve the agreed protection and be reflected in this annex.</p>
+        <p>Vej maintains measures appropriate to the risk, including availability, resilience, timely restoration and regular evaluation under Article 32. A material change must keep the protection this annex describes, and this annex is updated to match.</p>
         </div>
         </section>
         <section class="section">
         <div class="prose">
         <h2>Annex C — subprocessors</h2>
-        <h3>Authorized subprocessors</h3>
-        <p>None. No provider DPA has been signed. The table below grants no authorization to any candidate.</p>
+        <p>Vej has authorized no subprocessors.</p>
         <div class="table-wrap" role="region" tabindex="0" aria-label="Annex C — subprocessors table">
         <table class="source-table">
-        <thead><tr><th scope="col">Entity</th><th scope="col">Function/data scope</th><th scope="col">Location</th><th scope="col">Authorization status</th></tr></thead>
+        <thead><tr><th scope="col">Subprocessor</th><th scope="col">Function/data scope</th><th scope="col">Location</th><th scope="col">Authorization status</th></tr></thead>
         <tbody>
         <tr><td>None</td><td>—</td><td>—</td><td>No subprocessors authorized</td></tr>
         </tbody>
         </table>
         </div>
-        <p>A candidate becomes authorized only after the provider gate is closed, a provider DPA imposing the required equivalent obligations is signed, and clause 4's written notice and objection period has elapsed with any objection resolved. Vej then adds the entity, agreed scope and location to this table before processing begins.</p>
-        <h3>Candidates (not authorized)</h3>
-        <div class="table-wrap" role="region" tabindex="0" aria-label="Annex C — subprocessors table">
-        <table class="source-table">
-        <thead><tr><th scope="col">Entity</th><th scope="col">Function/data scope</th><th scope="col">Location</th><th scope="col">Authorization status</th></tr></thead>
-        <tbody>
-        <tr><td>Hetzner Online GmbH</td><td>Proposed hosting for transient inference and disclosed service metadata</td><td>GEX45 HEL1, Finland; EU support per published DPA</td><td>Chosen provider; provider gate and signed contract pending</td></tr>
-        <tr><td>Hetzner Finland Oy</td><td>Proposed downstream building rental/technical support for Finland hosting, as listed in Hetzner DPA Appendix 3</td><td>Finland</td><td>Confirm exact access/data scope and flow-down terms before approval</td></tr>
-        </tbody>
-        </table>
-        </div>
-        <p>Before signing, identify the actual approved hosting chain, including any separate control-plane/Postgres host and downstream provider parties that process data. The provider review identifies publications and unresolved questions. Its global lists are not automatically approved here. There is no managed inference API subprocessor. The customer's own EU bucket provider is chosen/contracted by the customer; confirm its role and permissions per customer, rather than treating it as an undisclosed Vej storage supplier.</p>
+        <p>Vej adds a row only after the customer has approved that subprocessor in writing and a contract requires the protection in clause 4. The customer's own storage provider is the customer's supplier, not a Vej subprocessor.</p>
         </div>
         </section>
-      <section class="section"><h2>Draft state retention clarification</h2>
-        <p>Optional encrypted state retention remains disabled pending measured size limits and legal/provider approval. Live state reads expire after 24 hours idle or 30 days from creation. Activity never extends the absolute deadline. Deletion and withdrawal deny reads before asynchronous object cleanup completes; failed deletion remains pending.</p>
-        <p>Live-store deletion confirmation does not prove erasure from provider replicas, snapshots, database backups or WAL. Backup purge deadlines and restoration safeguards must be agreed before hosted launch. Restores must remain isolated until expiry and revocation reconciliation prevents content resurrection. These are draft requirements, not a provider deletion guarantee.</p></section>
+        <section class="section">
+        <div class="prose">
+        <h2>State retention</h2>
+        <p>State history is stored only when the customer turns on organization retention, and Vej stores it encrypted. Reads stop after 24 hours without use, or 30 days after creation, whichever comes first. Later activity does not move the 30-day end. A deletion or a withdrawal refuses reads before object cleanup finishes. A failed deletion stays pending.</p>
+        <p>Confirmation that the live store was deleted does not prove that a replica, snapshot, database backup or WAL copy is gone. Those copies expire with the backup. A restore must not bring back content the customer has deleted.</p>
+        </div>
+        </section>
     </main>
       <footer>
         <div class="footer-brand">

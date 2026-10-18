@@ -37,7 +37,7 @@ Contact: [hello@itsvej.com](mailto:hello@itsvej.com). Hosted API access is by re
 
 ## Primary Pages
 - [Paper (PDF)](https://itsvej.com/paper/vej-native-candidate-probabilities.pdf): Pea's method, pre-registered comparison with prompted open models, calibration and serving benchmark.
-- [Draft data processing agreement](https://itsvej.com/dpa/): Customer DPA draft for legal review, covering retention terms and processing boundaries.
+- [Data processing agreement](https://itsvej.com/dpa/): Data processing agreement for the hosted API, covering roles, retention and processing boundaries.
 - [Overview](https://itsvej.com/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
 - [Models](https://itsvej.com/models/): The model family and public availability.
 - [Use cases](https://itsvej.com/use-cases/): Live hosted Beta APIs beyond Choice, Noul and Score, with industry use cases, sample requests and quality limits.
