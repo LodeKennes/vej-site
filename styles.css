@@ -1552,11 +1552,6 @@ footer a {
 .swatch.is-pea {
   background: var(--accent);
 }
-.is-written .rank-fill,
-.swatch.is-written {
-  background: transparent;
-  box-shadow: inset 0 0 0 1.5px var(--text-2);
-}
 .rank-value {
   font: 15px/1.2 "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
   text-align: right;
