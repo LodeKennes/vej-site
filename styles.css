@@ -308,6 +308,22 @@ p {
 .decision .eyebrow {
   margin-bottom: 20px;
 }
+/* Overlapping examples share intrinsic row sizes, including at narrow widths. */
+.decision-deck {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: repeat(4, auto);
+}
+.decision-example {
+  grid-area: 1 / 1 / 5 / 2;
+  display: grid;
+  grid-template-rows: subgrid;
+  min-width: 0;
+}
+.decision-example[aria-hidden="true"] {
+  visibility: hidden;
+  pointer-events: none;
+}
 .tabs {
   display: flex;
   gap: 4px;
@@ -339,7 +355,7 @@ p {
   margin-bottom: 10px;
   color: var(--text-2);
 }
-#state-text {
+.state-text {
   white-space: pre-line;
   display: block;
 }

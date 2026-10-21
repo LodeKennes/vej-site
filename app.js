@@ -1,6 +1,6 @@
 "use strict";
 const FLIGHT_STATE = "The customer wants to change a booked flight. Fare rules are missing.";
-const INVOICE_STATE = "Factuur 2026-0412\nDatum: 3 oktober 2026\nTotaal te betalen: € 1.240,50";
+const INVOICE_STATE = "Invoice 2026-0412\nDate: 3 October 2026\nTotal due: €1,240.50";
 
 const examples = {
   choice: {
@@ -35,8 +35,8 @@ const examples = {
     state: INVOICE_STATE,
     fields: [
       { name: "invoice_number", type: "text", value: '"2026-0412"', span: "span [8, 17)" },
-      { name: "invoice_date", type: "date", value: '"2026-10-03"', span: "span [25, 39)" },
-      { name: "total", type: "number", value: "1240.5", span: "span [61, 69)" },
+      { name: "invoice_date", type: "date", value: '"2026-10-03"', span: "span [24, 38)" },
+      { name: "total", type: "number", value: "1240.5", span: "span [51, 59)" },
       { name: "po_number", type: "text · missing", value: "null", isNull: true, span: "missing" },
     ],
   },
@@ -44,20 +44,20 @@ const examples = {
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 function selectTab(tab) {
   tabs.forEach((item) => {
-    item.setAttribute("aria-selected", String(item === tab));
-    item.tabIndex = item === tab ? 0 : -1;
+    const selected = item === tab;
+    item.setAttribute("aria-selected", String(selected));
+    item.tabIndex = selected ? 0 : -1;
+    const panel = document.getElementById(item.getAttribute("aria-controls"));
+    panel.setAttribute("aria-hidden", String(!selected));
+    panel.inert = !selected;
+    panel.tabIndex = selected ? 0 : -1;
   });
-  const example = examples[tab.dataset.kind];
-  const panel = document.getElementById("decision-panel");
-  panel.setAttribute("aria-labelledby", tab.id);
+}
 
-  const stateText = document.getElementById("state-text");
-  if (stateText && example.state) {
-    stateText.textContent = example.state;
-  }
-
-  document.getElementById("question").textContent = example.question;
-  const results = document.getElementById("results");
+function renderExample(example, panel) {
+  panel.querySelector(".state-text").textContent = example.state;
+  panel.querySelector(".question").textContent = example.question;
+  const results = panel.querySelector(".example-results");
   results.replaceChildren();
 
   if (example.fields) {
@@ -114,7 +114,7 @@ function selectTab(tab) {
     }
   }
 
-  const expectation = document.getElementById("expectation");
+  const expectation = panel.querySelector(".expectation");
   if (example.showExpectation && example.rows) {
     const expectedPosition = example.rows.reduce(
       (sum, row, index) => sum + index * row[1],
@@ -143,7 +143,22 @@ tabs.forEach((tab, index) => {
     }
   });
 });
-if (tabs.length) selectTab(tabs[0]);
+if (tabs.length) {
+  const initialPanel = document.getElementById("decision-panel");
+  const template = initialPanel.cloneNode(true);
+  tabs.forEach((tab, index) => {
+    const panel = index === 0 ? initialPanel : template.cloneNode(true);
+    if (index > 0) {
+      panel.querySelectorAll("[id]").forEach((element) => element.removeAttribute("id"));
+    }
+    panel.id = `decision-panel-${tab.dataset.kind}`;
+    panel.setAttribute("aria-labelledby", tab.id);
+    tab.setAttribute("aria-controls", panel.id);
+    renderExample(examples[tab.dataset.kind], panel);
+    initialPanel.parentElement.append(panel);
+  });
+  selectTab(tabs[0]);
+}
 document.querySelectorAll("[data-copy]").forEach((button) => {
   button.hidden = false;
   button.addEventListener("click", async () => {

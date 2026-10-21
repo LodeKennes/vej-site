@@ -86,8 +86,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=cb723b4dadde" />
-    <script src="/app.js?v=cba8ce01f18a" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=bd4df7a4ca69" />
+    <script src="/app.js?v=8179e25905ed" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -248,46 +248,48 @@
                 Extraction
               </button>
             </div>
-            <div class="state">
-              <span class="micro">STATE</span><span id="state-text">The customer wants to change a booked flight. Fare rules are missing.</span>
-            </div>
-            <div
-              id="decision-panel" aria-live="polite"
-              role="tabpanel"
-              aria-labelledby="tab-choice"
-              tabindex="0"
-            >
-              <p id="question" class="question">What should happen next?</p>
-              <div id="results">
-                <div class="result">
-                  <div class="result-line">
-                    <span>Ask for fare rules</span
-                    ><span class="value">0.62</span>
+            <div class="decision-deck">
+              <div
+                id="decision-panel" class="decision-example"
+                role="tabpanel"
+                aria-labelledby="tab-choice"
+                tabindex="0"
+              >
+                <div class="state">
+                  <span class="micro">STATE</span><span id="state-text" class="state-text">The customer wants to change a booked flight. Fare rules are missing.</span>
+                </div>
+                <p id="question" class="question">What should happen next?</p>
+                <div id="results" class="example-results">
+                  <div class="result">
+                    <div class="result-line">
+                      <span>Ask for fare rules</span
+                      ><span class="value">0.62</span>
+                    </div>
+                    <div class="track" aria-hidden="true">
+                      <span style="--width: 62%"></span>
+                    </div>
                   </div>
-                  <div class="track" aria-hidden="true">
-                    <span style="--width: 62%"></span>
+                  <div class="result">
+                    <div class="result-line">
+                      <span>Quote a change fee</span
+                      ><span class="value">0.21</span>
+                    </div>
+                    <div class="track" aria-hidden="true">
+                      <span style="--width: 21%"></span>
+                    </div>
+                  </div>
+                  <div class="result">
+                    <div class="result-line">
+                      <span>Rebook the flight</span
+                      ><span class="value">0.17</span>
+                    </div>
+                    <div class="track" aria-hidden="true">
+                      <span style="--width: 17%"></span>
+                    </div>
                   </div>
                 </div>
-                <div class="result">
-                  <div class="result-line">
-                    <span>Quote a change fee</span
-                    ><span class="value">0.21</span>
-                  </div>
-                  <div class="track" aria-hidden="true">
-                    <span style="--width: 21%"></span>
-                  </div>
-                </div>
-                <div class="result">
-                  <div class="result-line">
-                    <span>Rebook the flight</span
-                    ><span class="value">0.17</span>
-                  </div>
-                  <div class="track" aria-hidden="true">
-                    <span style="--width: 17%"></span>
-                  </div>
-                </div>
+                <p id="expectation" class="expectation" hidden></p>
               </div>
-              <p id="expectation" class="expectation" hidden></p>
             </div>
             <p class="example-note">
               Illustrative values. No model runs in your browser.
@@ -440,9 +442,9 @@
             <div class="extraction-card doc-source">
               <div class="card-label micro">INPUT DOCUMENT (STATE)</div>
               <div class="doc-text">
-                <div class="doc-line">Factuur <mark class="hl-1" data-field="invoice_number" title="span [8, 17)">2026-0412</mark></div>
-                <div class="doc-line">Datum: <mark class="hl-2" data-field="invoice_date" title="span [25, 39)">3 oktober 2026</mark></div>
-                <div class="doc-line">Totaal te betalen: € <mark class="hl-3" data-field="total" title="span [61, 69)">1.240,50</mark></div>
+                <div class="doc-line">Invoice <mark class="hl-1" data-field="invoice_number" title="span [8, 17)">2026-0412</mark></div>
+                <div class="doc-line">Date: <mark class="hl-2" data-field="invoice_date" title="span [24, 38)">3 October 2026</mark></div>
+                <div class="doc-line">Total due: €<mark class="hl-3" data-field="total" title="span [51, 59)">1,240.50</mark></div>
               </div>
               <div class="doc-meta micro">Offsets: Unicode code points · end-exclusive</div>
             </div>
@@ -465,7 +467,7 @@
                 </div>
                 <div class="field-body">
                   <span class="field-val">&quot;2026-10-03&quot;</span>
-                  <span class="field-span micro">span [25, 39) · parsed</span>
+                  <span class="field-span micro">span [24, 38) · parsed</span>
                 </div>
               </div>
               <div class="field-item field-hl-3" data-field="total" tabindex="0">
@@ -475,7 +477,7 @@
                 </div>
                 <div class="field-body">
                   <span class="field-val">1240.50</span>
-                  <span class="field-span micro">span [61, 69) · 2 decimals</span>
+                  <span class="field-span micro">span [51, 59) · 2 decimals</span>
                 </div>
               </div>
               <div class="field-item field-missing" data-field="po_number" tabindex="0">
