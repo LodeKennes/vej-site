@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-label="Pea extraction points each field at an exact span of the invoice text">
+  <style>
+    .bg { fill: #F5F2EB; } .card { fill: #FCFAF5; stroke: #DCD7CB; } .mark { fill: #EAECE2; stroke: #245C3A; stroke-opacity: .35; }
+    .doc, .field, .micro, .label { font-family: ui-monospace, Menlo, Consolas, "DejaVu Sans Mono", monospace; fill: #15181B; }
+    .doc { font-size: 22px; } .field { font-size: 16px; } .micro { font-size: 13px; fill: #565A52; }
+    .label { font-size: 13px; letter-spacing: .12em; fill: #565A52; }
+    .value, .null { font-family: Georgia, "Times New Roman", serif; font-size: 24px; fill: #245C3A; } .null { fill: #8A5E0F; font-style: italic; }
+    .link { fill: none; stroke: #245C3A; stroke-width: 1.5; stroke-opacity: .55; } .dot { fill: #245C3A; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #121416; } .card { fill: #1A1D20; stroke: #33383C; } .mark { fill: #1C2A22; stroke: #7CBE8E; }
+      .doc, .field { fill: #E9E5DB; } .micro, .label { fill: #A6AA9F; }
+      .value, .dot { fill: #7CBE8E; } .null { fill: #D0A054; } .link { stroke: #7CBE8E; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="440"/>
+  <text class="label" x="48" y="62">DOCUMENT</text>
+  <text class="label" x="680" y="62">FIELDS · ONE PASS EACH</text>
+  <rect class="card" x="48" y="96" width="520" height="290" rx="4"/>
+  <rect class="mark" x="182.6" y="152" width="124.8" height="34" rx="3"/>
+  <rect class="mark" x="156.2" y="202" width="190.8" height="34" rx="3"/>
+  <rect class="mark" x="235.4" y="252" width="111.6" height="34" rx="3"/>
+  <text class="doc" x="80" y="176" textLength="224.4" lengthAdjust="spacingAndGlyphs">Invoice 2026-0412</text>
+  <text class="doc" x="80" y="226" textLength="264.0" lengthAdjust="spacingAndGlyphs">Date: 3 October 2026</text>
+  <text class="doc" x="80" y="276" textLength="264.0" lengthAdjust="spacingAndGlyphs">Total due: €1,240.50</text>
+  <rect class="card" x="680" y="96" width="472" height="62" rx="4"/>
+  <text class="field" x="704" y="123">invoice_number</text>
+  <text class="micro" x="704" y="144">text</text>
+  <text class="value" x="1128" y="125" text-anchor="end">2026-0412</text>
+  <text class="micro" x="1128" y="144" text-anchor="end">span [8, 17)</text>
+  <path class="link" d="M307.4 169 C487.4 169 520 127 680 127"/>
+  <circle class="dot" cx="680" cy="127" r="4"/>
+  <rect class="card" x="680" y="172" width="472" height="62" rx="4"/>
+  <text class="field" x="704" y="199">invoice_date</text>
+  <text class="micro" x="704" y="220">date</text>
+  <text class="value" x="1128" y="201" text-anchor="end">2026-10-03</text>
+  <text class="micro" x="1128" y="220" text-anchor="end">span [24, 38)</text>
+  <path class="link" d="M347.0 219 C527.0 219 520 203 680 203"/>
+  <circle class="dot" cx="680" cy="203" r="4"/>
+  <rect class="card" x="680" y="248" width="472" height="62" rx="4"/>
+  <text class="field" x="704" y="275">total</text>
+  <text class="micro" x="704" y="296">number</text>
+  <text class="value" x="1128" y="277" text-anchor="end">1240.5</text>
+  <text class="micro" x="1128" y="296" text-anchor="end">span [51, 59)</text>
+  <path class="link" d="M347.0 269 C527.0 269 520 279 680 279"/>
+  <circle class="dot" cx="680" cy="279" r="4"/>
+  <rect class="card" x="680" y="324" width="472" height="62" rx="4"/>
+  <text class="field" x="704" y="351">po_number</text>
+  <text class="micro" x="704" y="372">text</text>
+  <text class="null" x="1128" y="353" text-anchor="end">null</text>
+  <text class="micro" x="1128" y="372" text-anchor="end">p_null 0.97 · not in the text</text>
+</svg>

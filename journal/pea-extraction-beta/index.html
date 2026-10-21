@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="author" content="Lode Kennes" />
+    <title>Pea extraction is now in hosted Beta · Vej</title>
+    <meta name="description" content="Pea now extracts typed fields from text by pointing directly to evidence spans, live on /v1beta/extract." />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#F5F2EB"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#121416"
+    />
+    <link rel="canonical" href="https://itsvej.com/journal/pea-extraction-beta/" />
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="Vej Journal"
+      href="/journal/feed.xml"
+    />
+    <meta property="og:site_name" content="Vej" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content="Pea extraction is now in hosted Beta · Vej" />
+    <meta property="og:description" content="Pea now extracts typed fields from text by pointing directly to evidence spans, live on /v1beta/extract." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://itsvej.com/journal/pea-extraction-beta/" />
+    <meta property="og:image" content="https://itsvej.com/journal/pea-extraction-beta/cover.png" />
+    <meta property="og:image:alt" content="An invoice with its number, date and total highlighted, each linked to a typed field." />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="672" />
+    <meta property="article:published_time" content="2026-10-21" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pea extraction is now in hosted Beta · Vej" />
+    <meta name="twitter:description" content="Pea now extracts typed fields from text by pointing directly to evidence spans, live on /v1beta/extract." />
+    <meta name="twitter:image" content="https://itsvej.com/journal/pea-extraction-beta/cover.png" />
+    <meta name="twitter:image:alt" content="An invoice with its number, date and total highlighted, each linked to a typed field." />
+    <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="/assets/brand/fonts/Fraunces.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/brand/fonts/VejSans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/brand/fonts/VejMono.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/styles.css?v=12bcf5444224" />
+    <script src="/app.js?v=8179e25905ed" defer></script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Pea extraction is now in hosted Beta", "description": "Pea now extracts typed fields from text by pointing directly to evidence spans, live on /v1beta/extract.", "datePublished": "2026-10-21", "dateModified": "2026-10-21", "author": {"@type": "Person", "name": "Lode Kennes", "url": "https://github.com/LodeKennes"}, "image": "https://itsvej.com/journal/pea-extraction-beta/cover.png", "url": "https://itsvej.com/journal/pea-extraction-beta/", "publisher": {"@type": "Organization", "name": "Vej", "url": "https://itsvej.com"}}</script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="wrap">
+      <header class="header">
+        <a href="/" aria-label="Vej home"
+          ><picture
+            ><source
+              srcset="/assets/brand/logo-light.svg"
+              media="(prefers-color-scheme: dark)" /><img
+              class="logo"
+              src="/assets/brand/logo.svg"
+              alt="Vej"
+              width="125"
+              height="66" /></picture
+        ></a>
+        <nav class="nav" aria-label="Main">
+          <a href="/models/">Models</a>
+          <a href="/evaluation/">Evaluation</a>
+          <a href="/use-cases/">Use cases</a>
+          <a href="/journal/" aria-current="page">Journal</a>
+          <a href="https://app.itsvej.com/">Sign in</a>
+        </nav>
+      </header>
+      <main id="main">
+<article class="post"><header class="page-hero post-hero"><p class="post-back"><a href="/journal/"><span aria-hidden="true">←</span> Journal</a></p><p class="eyebrow">Release</p><h1>Pea extraction is now in hosted Beta</h1><p class="lead">Pea now extracts typed fields from text by pointing directly to evidence spans, live on /v1beta/extract.</p><div class="byline"><img class="avatar" src="/journal/authors/lode.jpg" alt="" width="48" height="48" /><div><span class="byline-name">Lode Kennes</span><span class="byline-meta"><time datetime="2026-10-21">21 October 2026</time> · 2 min read</span></div></div></header><figure class="post-cover"><img src="/journal/pea-extraction-beta/cover.png" alt="An invoice with its number, date and total highlighted, each linked to a typed field." width="1280" height="672" /></figure><div class="post-layout"><aside class="post-aside"><nav class="post-toc" aria-label="On this page"><p class="eyebrow">On this page</p><a href="#spans-not-generated-text">Spans, not generated text</a><a href="#try-it">Try it</a><a href="#development-results">Development results</a><a href="#getting-access">Getting access</a></nav></aside><div class="prose post-body"><p>Pea has a second capability. Alongside decisions, it now extracts structured data from text documents. You send a document and a schema of up to 64 typed fields. For each field, Pea points to a span of the original text as evidence, then code parses that span into a typed value. The span can still be the wrong one, so check it where it matters.</p>
+<figure class="post-figure"><img src="spans.svg" alt="Pea extraction points each field at an exact span of the invoice text" width="1200" height="440" loading="lazy" decoding="async" /><figcaption>Each field is evaluated in its own pass. Values come from the cited span; a field with no evidence returns null.</figcaption></figure>
+<h2 id="spans-not-generated-text">Spans, not generated text</h2>
+<p>Extraction runs strictly in prefill mode. Pea does not write out an answer. A presence head estimates whether the field appears in the document at all, and start and end heads point at the evidence. Offsets are half-open Unicode code point ranges, so <code>[8, 17)</code> in the example above is exactly <code>2026-0412</code>.</p>
+<p>Typed parsing happens in ordinary code. Numbers, dates, times, durations and lists are read from the cited span, so a returned date always corresponds to text in the document. When a field is probably absent, or the evidence does not parse into the requested type, <code>value</code> is <code>null</code>.</p>
+<h2 id="try-it">Try it</h2>
+<p>Extraction is live in Beta on the hosted API with the model identifier <code>pea-pod-1</code>. You need an API key with inference scope.</p>
+<pre class="code"><code class="language-bash">curl<span class="w"> </span>-sS<span class="w"> </span>https://api.itsvej.com/v1beta/extract<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$VEJ_API_KEY</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
+<span class="s1">    "model": "pea-pod-1",</span>
+<span class="s1">    "state": "Invoice 2026-0412\nDate: 3 October 2026\nTotal due: €1,240.50",</span>
+<span class="s1">    "fields": {</span>
+<span class="s1">      "invoice_number": {"type": "text", "instructions": "The invoice number."},</span>
+<span class="s1">      "total": {"type": "number", "decimals": 2, "instructions": "The total amount due."}</span>
+<span class="s1">    }</span>
+<span class="s1">  }'</span>
+</code></pre>
+<p>The <a href="/models/pea/extraction/">extraction documentation</a> covers all seven field types, the full response and the limits.</p>
+<h2 id="development-results">Development results</h2>
+<p>We measured extraction on 3,000 locked test documents during development.</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Presence accuracy</td>
+<td>95.8%</td>
+</tr>
+<tr>
+<td>Text exact match (rows with a gold span)</td>
+<td>80.4%</td>
+</tr>
+<tr>
+<td>Typed exact match (rows with a gold span)</td>
+<td>99.8%</td>
+</tr>
+<tr>
+<td>List F1</td>
+<td>0.399</td>
+</tr>
+</tbody>
+</table>
+<p>These are development results, not a published evaluation. Lists and receipts remain weak, and real-world quality has not been measured. Extraction is text only; images are refused. Each document-plus-field row is limited to 2,048 tokens. The weights are private.</p>
+<h2 id="getting-access">Getting access</h2>
+<p>Hosted access starts with a <a href="https://app.itsvej.com/sign-up">console account</a>. Every new account needs manual approval, and capacity is limited.</p>
+<section class="post-author" aria-label="About the author"><img class="avatar" src="/journal/authors/lode.jpg" alt="" width="72" height="72" /><div><p class="eyebrow">Written by</p><p class="post-author-name"><a href="https://github.com/LodeKennes">Lode Kennes</a></p><p class="micro">Founder, Vej</p><p>Lode builds Vej&#x27;s models, the hosted API and this website.</p></div></section></div></div></article><section class="section" aria-labelledby="more"><h2 id="more" class="journal-section-title">More from the journal</h2><div class="journal-list"><article class="journal-row"><a class="journal-thumb" href="/journal/introducing-the-journal/" tabindex="-1" aria-hidden="true"><span class="journal-cover-fallback"><picture><source srcset="/assets/brand/mark-light.svg" media="(prefers-color-scheme: dark)" /><img src="/assets/brand/mark.svg" alt="" width="120" height="120" /></picture></span></a><div><p class="eyebrow">Older · News</p><h3><a href="/journal/introducing-the-journal/">Introducing the Vej Journal</a></h3><p>A place for release notes, research updates and the reasoning behind what we build.</p><div class="byline"><img class="avatar" src="/journal/authors/lode.jpg" alt="" width="32" height="32" /><div><span class="byline-name">Lode Kennes</span><span class="byline-meta"><time datetime="2026-10-21">21 October 2026</time> · 1 min read</span></div></div></div></article></div></section>
+      </main>
+      <footer>
+        <div class="footer-brand">
+          <a href="/" aria-label="Vej home"
+            ><picture
+              ><source
+                srcset="/assets/brand/logo-light.svg"
+                media="(prefers-color-scheme: dark)" /><img
+                src="/assets/brand/logo.svg"
+                alt="Vej"
+                width="76"
+                height="40" /></picture
+          ></a>
+          <span>Vej builds Pea, Pepper and Pumpkin. · 2026</span>
+        </div>
+        <nav aria-label="Footer">
+          <a href="https://app.itsvej.com/">Sign in</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

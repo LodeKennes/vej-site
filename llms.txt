@@ -76,6 +76,7 @@ Contact: [send a message](https://itsvej.com/contact/). Hosted API access starts
 - [Contact](https://itsvej.com/contact/): Send a message. Vej stores it to reply.
 - [Website privacy](https://itsvej.com/privacy/): Signup and contact data, purpose and removal requests.
 - [Newsletter](https://itsvej.com/access/#newsletter): Vej updates by email.
+- [Journal](https://itsvej.com/journal/): New features, research notes and development updates ([Atom feed](https://itsvej.com/journal/feed.xml)).
 
 Hosted Pea currently runs the native reference runtime. Hosted Choice, Noul and Score probabilities use temperature 1.334, fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. That scale does not make a stated probability a guaranteed frequency on a new workflow. Published native evaluations remain temperature-1 checkpoint results, not a separate hosted evaluation. Estimate responses still report calibration_status "uncalibrated".
 
