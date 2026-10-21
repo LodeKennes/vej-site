@@ -315,7 +315,7 @@ p {
   margin-bottom: 24px;
 }
 .tabs button {
-  padding: 12px 17px;
+  padding: 12px 14px;
   border: 0;
   border-bottom: 2px solid transparent;
   border-radius: 4px 4px 0 0;
@@ -338,6 +338,10 @@ p {
   display: block;
   margin-bottom: 10px;
   color: var(--text-2);
+}
+#state-text {
+  white-space: pre-line;
+  display: block;
 }
 .question {
   font-size: 17px;
@@ -902,6 +906,13 @@ footer a {
   }
   .hero .lead {
     max-width: 560px;
+  }
+  .tabs {
+    gap: 2px;
+  }
+  .tabs button {
+    padding: 10px 8px;
+    font-size: 13px;
   }
   .section {
     padding: 48px 0;
@@ -2602,14 +2613,15 @@ main:has(.view-bar) #overview {
   border-bottom: none;
 }
 .field-item:hover,
-.field-item:focus-visible,
 .field-item.is-active {
   background: rgba(0, 0, 0, 0.03);
-  outline: none;
+}
+.field-item:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }
 @media (prefers-color-scheme: dark) {
   .field-item:hover,
-  .field-item:focus-visible,
   .field-item.is-active {
     background: rgba(255, 255, 255, 0.04);
   }

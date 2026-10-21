@@ -86,8 +86,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=83691b73730c" />
-    <script src="/app.js?v=81a51daca499" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=cb723b4dadde" />
+    <script src="/app.js?v=cba8ce01f18a" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -210,7 +210,7 @@
             <div class="family-strip" role="group" aria-label="Model availability"><a href="/models/#pea"><strong>Pea · 2B</strong><span>Decisions · Extraction Beta</span></a><a href="/models/#pepper"><strong>Pepper · 8B</strong><span>In development</span></a><a href="/models/#pumpkin"><strong>Pumpkin · 27B</strong><span>In development</span></a></div>
           </div>
           <div class="decision">
-            <div class="tabs" role="tablist" aria-label="Decision primitive">
+            <div class="tabs" role="tablist" aria-label="Pea examples">
               <button
                 id="tab-choice"
                 role="tab"
@@ -236,12 +236,20 @@
                 tabindex="-1"
                 data-kind="score"
               >
-                Score
+                Score</button
+              ><button
+                id="tab-extraction"
+                role="tab"
+                aria-selected="false"
+                aria-controls="decision-panel"
+                tabindex="-1"
+                data-kind="extraction"
+              >
+                Extraction
               </button>
             </div>
             <div class="state">
-              <span class="micro">STATE</span>The customer wants to change a
-              booked flight. Fare rules are missing.
+              <span class="micro">STATE</span><span id="state-text">The customer wants to change a booked flight. Fare rules are missing.</span>
             </div>
             <div
               id="decision-panel" aria-live="polite"
@@ -286,7 +294,7 @@
             </p>
             <noscript
               ><p class="small">
-                Enable JavaScript to explore Noul and Score examples.
+                Enable JavaScript to explore Noul, Score and Extraction examples.
               </p></noscript
             >
           </div>

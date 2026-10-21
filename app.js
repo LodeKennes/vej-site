@@ -1,7 +1,11 @@
 "use strict";
+const FLIGHT_STATE = "The customer wants to change a booked flight. Fare rules are missing.";
+const INVOICE_STATE = "Factuur 2026-0412\nDatum: 3 oktober 2026\nTotaal te betalen: € 1.240,50";
+
 const examples = {
   choice: {
     question: "What should happen next?",
+    state: FLIGHT_STATE,
     rows: [
       ["Ask for fare rules", 0.62],
       ["Quote a change fee", 0.21],
@@ -10,6 +14,7 @@ const examples = {
   },
   noul: {
     question: "Are the fare rules available?",
+    state: FLIGHT_STATE,
     rows: [
       ["True", 0.08],
       ["False", 0.92],
@@ -17,12 +22,23 @@ const examples = {
   },
   score: {
     question: "How complete is the information for rebooking?",
+    state: FLIGHT_STATE,
     rows: [
       ["0 · Incomplete", 0.7],
       ["1 · Partially complete", 0.25],
       ["2 · Complete", 0.05],
     ],
     showExpectation: true,
+  },
+  extraction: {
+    question: "Extract fields from this document.",
+    state: INVOICE_STATE,
+    fields: [
+      { name: "invoice_number", type: "text", value: '"2026-0412"', span: "span [8, 17)" },
+      { name: "invoice_date", type: "date", value: '"2026-10-03"', span: "span [25, 39)" },
+      { name: "total", type: "number", value: "1240.5", span: "span [61, 69)" },
+      { name: "po_number", type: "text · missing", value: "null", isNull: true, span: "missing" },
+    ],
   },
 };
 const tabs = [...document.querySelectorAll('[role="tab"]')];
@@ -34,38 +50,82 @@ function selectTab(tab) {
   const example = examples[tab.dataset.kind];
   const panel = document.getElementById("decision-panel");
   panel.setAttribute("aria-labelledby", tab.id);
+
+  const stateText = document.getElementById("state-text");
+  if (stateText && example.state) {
+    stateText.textContent = example.state;
+  }
+
   document.getElementById("question").textContent = example.question;
   const results = document.getElementById("results");
   results.replaceChildren();
-  for (const [name, value] of example.rows) {
-    const row = document.createElement("div");
-    row.className = "result";
-    const line = document.createElement("div");
-    line.className = "result-line";
-    const label = document.createElement("span");
-    label.textContent = name;
-    const probability = document.createElement("span");
-    probability.className = "value";
-    probability.textContent = value.toFixed(2);
-    line.append(label, probability);
-    const track = document.createElement("div");
-    track.className = "track";
-    track.setAttribute("aria-hidden", "true");
-    const bar = document.createElement("span");
-    bar.style.setProperty("--width", `${value * 100}%`);
-    track.append(bar);
-    row.append(line, track);
-    results.append(row);
+
+  if (example.fields) {
+    for (const field of example.fields) {
+      const row = document.createElement("div");
+      row.className = `field-item${field.isNull ? " field-missing" : ""}`;
+
+      const head = document.createElement("div");
+      head.className = "field-head";
+      const key = document.createElement("span");
+      key.className = "field-key";
+      const name = document.createElement("span");
+      name.className = "field-name";
+      name.textContent = field.name;
+      key.append(name);
+      const type = document.createElement("span");
+      type.className = "field-type micro";
+      type.textContent = field.type;
+      head.append(key, type);
+
+      const body = document.createElement("div");
+      body.className = "field-body";
+      const val = document.createElement("span");
+      val.className = `field-val${field.isNull ? " null" : ""}`;
+      val.textContent = field.value;
+      const span = document.createElement("span");
+      span.className = "field-span micro";
+      span.textContent = field.span;
+      body.append(val, span);
+
+      row.append(head, body);
+      results.append(row);
+    }
+  } else if (example.rows) {
+    for (const [name, value] of example.rows) {
+      const row = document.createElement("div");
+      row.className = "result";
+      const line = document.createElement("div");
+      line.className = "result-line";
+      const label = document.createElement("span");
+      label.textContent = name;
+      const probability = document.createElement("span");
+      probability.className = "value";
+      probability.textContent = value.toFixed(2);
+      line.append(label, probability);
+      const track = document.createElement("div");
+      track.className = "track";
+      track.setAttribute("aria-hidden", "true");
+      const bar = document.createElement("span");
+      bar.style.setProperty("--width", `${value * 100}%`);
+      track.append(bar);
+      row.append(line, track);
+      results.append(row);
+    }
   }
+
   const expectation = document.getElementById("expectation");
-  const expectedPosition = example.rows.reduce(
-    (sum, row, index) => sum + index * row[1],
-    0,
-  );
-  expectation.textContent = example.showExpectation
-    ? `Expected position: ${expectedPosition.toFixed(2)} on a 0–${example.rows.length - 1} scale. Computed in code.`
-    : "";
-  expectation.hidden = !example.showExpectation;
+  if (example.showExpectation && example.rows) {
+    const expectedPosition = example.rows.reduce(
+      (sum, row, index) => sum + index * row[1],
+      0,
+    );
+    expectation.textContent = `Expected position: ${expectedPosition.toFixed(2)} on a 0–${example.rows.length - 1} scale. Computed in code.`;
+    expectation.hidden = false;
+  } else {
+    expectation.textContent = "";
+    expectation.hidden = true;
+  }
 }
 tabs.forEach((tab, index) => {
   tab.addEventListener("click", () => selectTab(tab));
