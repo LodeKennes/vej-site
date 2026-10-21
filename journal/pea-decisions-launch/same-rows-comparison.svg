@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" role="img" aria-label="Exact accuracy on the same 14,286 decisions: Pea 76.60%, hosted Jev 1.13 71.76%, open 9B 62.30%, open 2B 55.38%, open 4B 50.31%">
+  <style>
+    .bg { fill: #F5F2EB; } .grid { stroke: #DCD7CB; } .base { stroke: #565A52; }
+    .name, .sub, .tick, .value, .note { font-family: system-ui, "Helvetica Neue", Arial, sans-serif; }
+    .name { font-size: 22px; fill: #15181B; } .sub { font-size: 16px; fill: #565A52; }
+    .tick { font-size: 15px; fill: #565A52; } .note { font-size: 16px; fill: #565A52; }
+    .value { font-size: 22px; fill: #15181B; font-variant-numeric: tabular-nums; }
+    .focus { fill: #245C3A; } .context { fill: #7D8178; }
+    .control { stroke: #8A5E0F; stroke-width: 2; stroke-dasharray: 4 3; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #121416; } .grid { stroke: #33383C; } .base { stroke: #A6AA9F; }
+      .name, .value { fill: #E9E5DB; } .sub, .tick, .note { fill: #A6AA9F; }
+      .focus { fill: #7CBE8E; } .context { fill: #7A7F75; } .control { stroke: #D0A054; }
+    }
+  </style>
+  <rect class="bg" width="960" height="460"/>
+  <line class="base" x1="280.0" y1="24" x2="280.0" y2="404"/>
+  <text class="tick" x="280.0" y="430" text-anchor="middle">0%</text>
+  <line class="grid" x1="425.0" y1="24" x2="425.0" y2="404"/>
+  <text class="tick" x="425.0" y="430" text-anchor="middle">25%</text>
+  <line class="grid" x1="570.0" y1="24" x2="570.0" y2="404"/>
+  <text class="tick" x="570.0" y="430" text-anchor="middle">50%</text>
+  <line class="grid" x1="715.0" y1="24" x2="715.0" y2="404"/>
+  <text class="tick" x="715.0" y="430" text-anchor="middle">75%</text>
+  <line class="grid" x1="860.0" y1="24" x2="860.0" y2="404"/>
+  <text class="tick" x="860.0" y="430" text-anchor="middle">100%</text>
+  <text class="name" x="256" y="61.0" text-anchor="end">Pea</text>
+  <text class="sub" x="256" y="83.0" text-anchor="end">2B · scores each outcome</text>
+  <path class="focus" d="M280 48.0 H720.28 Q724.28 48.0 724.28 52.0 V72.0 Q724.28 76.0 720.28 76.0 H280 Z"/>
+  <text class="value" x="736.28" y="69.0">76.60%</text>
+  <text class="name" x="256" y="137.0" text-anchor="end">Hosted Jev 1.13</text>
+  <text class="sub" x="256" y="159.0" text-anchor="end">with rounding adjustment</text>
+  <path class="context" d="M280 124.0 H692.2080000000001 Q696.2080000000001 124.0 696.2080000000001 128.0 V148.0 Q696.2080000000001 152.0 692.2080000000001 152.0 H280 Z"/>
+  <text class="value" x="708.2080000000001" y="145.0">71.76%</text>
+  <text class="name" x="256" y="213.0" text-anchor="end">Open instruct model</text>
+  <text class="sub" x="256" y="235.0" text-anchor="end">9B · FP8 · descriptive</text>
+  <path class="context" d="M280 200.0 H637.3399999999999 Q641.3399999999999 200.0 641.3399999999999 204.0 V224.0 Q641.3399999999999 228.0 637.3399999999999 228.0 H280 Z"/>
+  <text class="value" x="653.3399999999999" y="221.0">62.30%</text>
+  <text class="name" x="256" y="289.0" text-anchor="end">Open instruct model</text>
+  <text class="sub" x="256" y="311.0" text-anchor="end">2B · prompted</text>
+  <path class="context" d="M280 276.0 H597.204 Q601.204 276.0 601.204 280.0 V300.0 Q601.204 304.0 597.204 304.0 H280 Z"/>
+  <text class="value" x="613.204" y="297.0">55.38%</text>
+  <text class="name" x="256" y="365.0" text-anchor="end">Open instruct model</text>
+  <text class="sub" x="256" y="387.0" text-anchor="end">4B · prompted</text>
+  <path class="context" d="M280 352.0 H567.798 Q571.798 352.0 571.798 356.0 V376.0 Q571.798 380.0 567.798 380.0 H280 Z"/>
+  <text class="value" x="583.798" y="373.0">50.31%</text>
+</svg>
