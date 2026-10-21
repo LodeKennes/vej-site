@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="author" content="Lode Kennes" />
+    <title>Pea extraction · Vej</title>
+    <meta
+      name="description"
+      content="Pea extraction: prefill-only document extraction pointing directly to Unicode evidence spans. Hosted Beta API, limits and field types."
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#F5F2EB"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#121416"
+    />
+    <link
+      rel="canonical"
+      href="https://itsvej.com/models/pea/extraction/"
+    />
+    <meta property="og:site_name" content="Vej" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content="Pea extraction · Vej" />
+    <meta
+      property="og:description"
+      content="Pea extraction: prefill-only document extraction pointing directly to Unicode evidence spans. Hosted Beta API, limits and field types."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://itsvej.com/models/pea/extraction/"
+    />
+    <meta
+      property="og:image"
+      content="https://itsvej.com/assets/brand/social-card.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta
+      property="og:image:alt"
+      content="Vej wordmark and open pea-pod mark with the line 'State in, probabilities out.'"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pea extraction · Vej" />
+    <meta
+      name="twitter:description"
+      content="Pea extraction: prefill-only document extraction pointing directly to Unicode evidence spans. Hosted Beta API, limits and field types."
+    />
+    <meta
+      name="twitter:image"
+      content="https://itsvej.com/assets/brand/social-card.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Vej wordmark and open pea-pod mark with the line 'State in, probabilities out.'"
+    />
+    <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="/assets/brand/fonts/Fraunces.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/brand/fonts/VejSans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/brand/fonts/VejMono.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/styles.css?v=83691b73730c" />
+    <script src="/app.js?v=81a51daca499" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Pea extraction · Extraction capability card.",
+        "description": "Pea extraction: prefill-only document extraction pointing directly to Unicode evidence spans. Hosted Beta API, limits and field types.",
+        "datePublished": "2026-10-21",
+        "dateModified": "2026-10-21",
+        "url": "https://itsvej.com/models/pea/extraction/",
+        "about": "Vej Pea extraction capability",
+        "author": {
+          "@type": "Person",
+          "name": "Lode Kennes",
+          "url": "https://github.com/LodeKennes"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Lode Kennes",
+          "url": "https://github.com/LodeKennes"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="wrap">
+      <header class="header">
+        <a href="/" aria-label="Vej home"
+          ><picture
+            ><source
+              srcset="/assets/brand/logo-light.svg"
+              media="(prefers-color-scheme: dark)" /><img
+              class="logo"
+              src="/assets/brand/logo.svg"
+              alt="Vej"
+              width="125"
+              height="66" /></picture
+        ></a>
+        <nav class="nav" aria-label="Main">
+          <a href="/models/" aria-current="page">Models</a>
+          <a href="/evaluation/">Evaluation</a>
+          <a href="/use-cases/">Use cases</a>
+          <a href="https://app.itsvej.com/">Sign in</a>
+        </nav>
+      </header>
+      <main id="main"><section class="page-hero model-hero">
+          <img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" />
+          <h1>Extraction with Pea</h1>
+          <p class="lead">Pea provides document extraction alongside decisions. It reads a text document and extracts developer-defined fields by pointing directly to evidence spans.</p><p class="status">Pea capability · Hosted Beta API · Weights private</p>
+          <div class="actions"><a class="button" href="https://app.itsvej.com/sign-up">Request access</a><a class="button secondary" href="/models/pea/">Pea decisions</a><a class="button secondary" href="#api">API &amp; curl example</a></div>
+        </section>
+        <nav class="section-index" aria-label="On this page"><a href="#overview">Overview</a><a href="#how-it-works">How it works</a><a href="#field-types">Field types</a><a href="#api">API &amp; curl</a><a href="#results">Development results</a><a href="#limits">Limits</a><a href="#access">Access</a></nav>
+        <section class="section reading-grid compact" id="overview">
+          <div class="prose">
+            <h2>What it does</h2>
+            <p>
+              Pea extracts structured data from text without generating sentences or scoring token sequences. You pass a text document, an optional reference date and a schema of up to 64 typed fields with brief instructions.
+            </p>
+            <p>
+              For each field, Pea locates the exact evidence substring in the original text, reporting half-open Unicode code point offsets <code>[start, end)</code>. Deterministic code then parses the evidence span into typed data. When a field is probably absent, <code>value</code> is <code>null</code>.
+            </p>
+            <div class="pipeline">
+              <span>Document + field spec</span><span class="arrow" aria-hidden="true"><span aria-hidden="true">→</span></span><span>Prefill encoder</span><span class="arrow" aria-hidden="true"><span aria-hidden="true">→</span></span><span>Span &amp; presence heads</span><span class="arrow" aria-hidden="true"><span aria-hidden="true">→</span></span><span>Typed code parser</span><span class="arrow" aria-hidden="true"><span aria-hidden="true">→</span></span><span>Offsets + typed value</span>
+            </div>
+          </div>
+        </section>
+        <section class="section reading-grid compact" id="how-it-works">
+          <div class="prose">
+            <h2>How it works</h2>
+            <p>
+              Pea extraction uses a 2B text backbone with upper-layer parameter-efficient adaptations and specialized task heads. It runs strictly in <strong>prefill mode</strong>:
+            </p>
+            <ul>
+              <li><strong>Independent field passes:</strong> Inference evaluates one field per pass as an independent <code>document + field</code> row. Batched execution handles multiple fields concurrently, with state encoding explicitly repeated for each field. There is no cross-field attention or shared-state shortcut.</li>
+              <li><strong>Dedicated task heads:</strong> A presence head predicts whether evidence exists in the document; bilinear start and end heads predict exact span bounds; and a B/I/O token head identifies items for list fields. There is no vocabulary projection head or token generator.</li>
+              <li><strong>Typed parsing in code:</strong> Numbers, dates, times, durations and lists are parsed from the cited evidence span by standard library code, so a returned number or date always corresponds to text in the document.</li>
+              <li><strong>Absence handling:</strong> When a field is probably absent (head null probability <code>p_null &ge; null_threshold</code>, default 0.5) or if evidence does not parse into the type, the returned <code>value</code> is <code>null</code>. The uncalibrated conditional guess and head scores remain visible for inspection.</li>
+            </ul>
+          </div>
+        </section>
+        <section class="section reading-grid compact" id="field-types">
+          <div class="prose">
+            <h2>Field types</h2>
+            <p>
+              Pea extraction supports seven field types. Every non-null value is parsed directly from the identified evidence span.
+            </p>
+            <div class="table-wrap" role="region" tabindex="0" aria-label="Field types">
+              <table>
+                <caption class="sr-only">Supported field types and options</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Output value</th>
+                    <th scope="col">Supported options</th>
+                    <th scope="col">Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><code>text</code></th>
+                    <td>String</td>
+                    <td><code>instructions</code>, <code>null_threshold</code></td>
+                    <td>Direct substring of the document at cited offsets.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><code>number</code></th>
+                    <td>JSON number</td>
+                    <td><code>integer</code> (bool), <code>decimals</code> (0–6), <code>unit</code> (string)</td>
+                    <td>Parses integers or decimal numbers from evidence. No arithmetic computation.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><code>date</code></th>
+                    <td>String (<code>YYYY-MM-DD</code>)</td>
+                    <td><code>instructions</code>, <code>null_threshold</code></td>
+                    <td>Dates are returned as <code>YYYY-MM-DD</code>. An optional top-level <code>reference_date</code> (<code>YYYY-MM-DD</code>) can be supplied.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><code>time</code></th>
+                    <td>String (<code>HH:MM</code>)</td>
+                    <td><code>instructions</code>, <code>null_threshold</code></td>
+                    <td>24-hour clock time.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><code>datetime</code></th>
+                    <td>String (<code>YYYY-MM-DDTHH:MM</code>)</td>
+                    <td><code>instructions</code>, <code>null_threshold</code></td>
+                    <td>Combined date and time timestamp.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><code>duration</code></th>
+                    <td>JSON number</td>
+                    <td><code>unit</code> (seconds, minutes, hours, days, weeks, months, years)</td>
+                    <td>Parsed duration normalized to the requested unit (seconds by default).</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><code>list</code></th>
+                    <td>Array of strings</td>
+                    <td><code>items: &quot;text&quot;</code> (required)</td>
+                    <td>Returns array of text items with individual span offsets. Number and date lists are not supported.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="small">
+              Note: <code>estimate</code> and <code>forecast</code> field types are rejected with HTTP 400; values come only from evidence in the text, so there is no arithmetic (no totals computed from line items). Images are rejected with HTTP 400.
+            </p>
+          </div>
+        </section>
+        <section class="section reading-grid compact" id="api">
+          <div class="prose">
+            <h2>Hosted API &amp; curl example</h2>
+            <p>
+              Pea extraction is live in Beta on the hosted API at <code>POST https://api.itsvej.com/v1beta/extract</code>. It also provides a Clairic-compatible endpoint at <code>POST /client/v4/accounts/{account_id}/ai/run/@cf/cloudflare/clairic</code>. Both require an API key with <code>inference</code> scope. The hosted extraction API currently uses the model identifier <code>pea-pod-1</code>.
+            </p>
+            <h3>Extracting fields from an invoice</h3>
+            <pre class="code"><code class="language-bash">curl<span class="w"> </span>-sS<span class="w"> </span>https://api.itsvej.com/v1beta/extract<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$VEJ_API_KEY</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
+<span class="s1">    "model": "pea-pod-1",</span>
+<span class="s1">    "state": "Factuur 2026-0412\nDatum: 3 oktober 2026\nTotaal te betalen: € 1.240,50",</span>
+<span class="s1">    "reference_date": "2026-10-21",</span>
+<span class="s1">    "fields": {</span>
+<span class="s1">      "invoice_number": {"type": "text", "instructions": "The invoice number."},</span>
+<span class="s1">      "invoice_date": {"type": "date", "instructions": "The date the invoice was issued."},</span>
+<span class="s1">      "total": {"type": "number", "decimals": 2, "instructions": "The total amount due."},</span>
+<span class="s1">      "po_number": {"type": "text", "instructions": "The purchase order number."}</span>
+<span class="s1">    }</span>
+<span class="s1">  }'</span>
+</code></pre>
+            <h3>Illustrative response</h3>
+            <p class="small">Probabilities and token counts below are illustrative; the values <code>invoice_number</code> 2026-0412, <code>invoice_date</code> 2026-10-03, <code>total</code> 1240.5, <code>po_number</code> null match a real live run:</p>
+            <pre class="code"><code class="language-json"><span class="p">{</span>
+<span class="w">  </span><span class="nt">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pea-pod-1"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-0412"</span><span class="p">,</span><span class="w"> </span><span class="nt">"guess"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-0412"</span><span class="p">,</span><span class="w"> </span><span class="nt">"p_null"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span><span class="p">,</span><span class="w"> </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="p">,</span><span class="w"> </span><span class="nt">"span"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">]},</span>
+<span class="w">    </span><span class="nt">"invoice_date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-03"</span><span class="p">,</span><span class="w"> </span><span class="nt">"guess"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-03"</span><span class="p">,</span><span class="w"> </span><span class="nt">"p_null"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.002</span><span class="p">,</span><span class="w"> </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.98</span><span class="p">,</span><span class="w"> </span><span class="nt">"span"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">39</span><span class="p">]},</span>
+<span class="w">    </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1240.5</span><span class="p">,</span><span class="w"> </span><span class="nt">"guess"</span><span class="p">:</span><span class="w"> </span><span class="mf">1240.5</span><span class="p">,</span><span class="w"> </span><span class="nt">"p_null"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span><span class="p">,</span><span class="w"> </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.98</span><span class="p">,</span><span class="w"> </span><span class="nt">"span"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">61</span><span class="p">,</span><span class="w"> </span><span class="mi">69</span><span class="p">]},</span>
+<span class="w">    </span><span class="nt">"po_number"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nt">"guess"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nt">"p_null"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.97</span><span class="p">,</span><span class="w"> </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"truncated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"state_tokens"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="nt">"image_tokens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"schema_tokens"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="nt">"input_tokens"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">"output_tokens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"passes"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"base_checkpoint_sha256"</span><span class="p">:</span><span class="w"> </span><span class="s2">"…"</span><span class="p">,</span><span class="w"> </span><span class="nt">"parts"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pea-pod-1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"sha256"</span><span class="p">:</span><span class="w"> </span><span class="s2">"…"</span><span class="p">}],</span><span class="w"> </span><span class="nt">"render_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extract_v1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"calibrated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"offsets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"code_points"</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+            <h3>Understanding the answer object</h3>
+            <ul>
+              <li><code>value</code>: Returned when <code>p_null &lt; null_threshold</code> (default 0.5) and cited evidence parses into the requested type. When <code>p_null &ge; null_threshold</code> (the field is deemed absent) or when parsing fails (the cited evidence cannot be normalized to the declared type), <code>value</code> is <code>null</code>. A non-null value does not guarantee that the cited evidence or extraction is factually correct.</li>
+              <li><code>guess</code>: The parsed prediction conditional on candidate evidence, regardless of the null threshold. If no candidate span is found or if candidate evidence fails type parsing, <code>guess</code> is <code>null</code>.</li>
+              <li><code>p_null</code>: Uncalibrated head score indicating evidence absence. Lower numbers indicate evidence is present.</li>
+              <li><code>confidence</code>: Uncalibrated head score for the candidate evidence span.</li>
+              <li><code>span</code> / <code>spans</code>: Half-open Unicode code point offsets <code>[start, end)</code> into <code>state</code>. The gateway returns singular <code>span</code> (a two-element array <code>[start, end]</code>) for scalar fields and plural <code>spans</code> (an array of offset pairs <code>[[s, e], ...]</code>) for <code>list</code> fields whenever a <code>guess</code> exists. When a field has <code>value: null</code> due to <code>p_null &ge; null_threshold</code>, it may still report a conditional <code>guess</code> and its <code>span</code> or <code>spans</code>. When no candidate evidence exists or type parsing fails (so <code>guess</code> is <code>null</code>), <code>span</code> and <code>spans</code> are omitted.</li>
+              <li><code>po_number</code>: Illustrates an absent field where <code>p_null</code> (0.97) exceeds <code>null_threshold</code>, yielding <code>value: null</code>. Here <code>guess: null</code> reflects that no valid candidate parsed; if candidate evidence had been detected above the threshold, its conditional <code>guess</code> and <code>span</code> would remain inspectable.</li>
+            </ul>
+            <h3>Token accounting and privacy</h3>
+            <p>
+              Usage reports actual executed work: <code>passes</code> equals the field count (4 passes above); <code>state_tokens</code> measures document length once (30 tokens above); <code>schema_tokens</code> sums rendered field instructions (40 tokens); and <code>input_tokens</code> sums actual row tokens across all passes (200 tokens). <code>output_tokens</code> is always 0 because no text is generated.
+            </p>
+            <p>
+              <strong>Zero retention:</strong> State, instructions, evidence and answers are not logged or retained.
+            </p>
+          </div>
+        </section>
+        <section class="section reading-grid compact" id="results">
+          <div class="prose">
+            <h2>Development results &amp; caveats</h2>
+            <p>
+              The following metrics are development results measured on 3,000 locked test documents from Vej’s synthetic and benchmark extraction dataset. They are reported run results, not a qualification of production accuracy on real documents or a guarantee of calibration.
+            </p>
+            <div class="table-wrap" role="region" tabindex="0" aria-label="Development metrics">
+              <table>
+                <caption class="sr-only">Pea extraction development evaluation results</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Metric</th>
+                    <th scope="col" class="numeric">Score</th>
+                    <th scope="col">Measurement basis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Presence accuracy</th>
+                    <td class="numeric"><strong>95.8%</strong></td>
+                    <td>Present vs. missing, across all sampled fields.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Text exact match</th>
+                    <td class="numeric"><strong>80.4%</strong></td>
+                    <td>Conditional on rows where field is gold-present with an evidence span.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Typed exact match</th>
+                    <td class="numeric"><strong>99.8%</strong></td>
+                    <td>Conditional on rows where field is gold-present with an evidence span.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">List F1</th>
+                    <td class="numeric"><strong>0.399</strong></td>
+                    <td>List F1 on list fields.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>Caveats and limitations</h3>
+            <ul>
+              <li><strong>Not end-to-end:</strong> Text and typed exact match are conditional on rows where the field is gold-present with an evidence span; they do not measure end-to-end presence-and-value accuracy.</li>
+              <li><strong>Uncalibrated scores:</strong> <code>p_null</code> and <code>confidence</code> are raw head scores (metadata reports <code>calibrated: false</code>). Neither indicates a measured frequency of correctness or permission to execute unverified actions.</li>
+              <li><strong>Lists and receipts remain weak:</strong> List extraction is experimental (F1 0.399). Dense receipts and tabular documents with complex formatting remain challenging for Pea extraction.</li>
+              <li><strong>Real-world quality:</strong> Performance on specific private business documents has not been measured; evaluate on your own document distribution before automating workflows.</li>
+            </ul>
+          </div>
+        </section>
+        <section class="section reading-grid compact" id="limits">
+          <div class="prose">
+            <h2>Usage limits &amp; constraints</h2>
+            <dl class="detail-list">
+              <dt>Input token limit</dt>
+              <dd>2,048 tokens per document-plus-field row. Requests exceeding this limit fail closed with HTTP 400 <code>input_too_long</code>; the server never silently truncates.</dd>
+              <dt>Field capacity</dt>
+              <dd>1 to 64 fields per request in request order. Field names must match <code>^[A-Za-z_][A-Za-z0-9_.\-]{0,63}$</code>.</dd>
+              <dt>Document modality</dt>
+              <dd>Text only (1 to 65,536 Unicode code points). Non-empty images are rejected with HTTP 400.</dd>
+              <dt>Offsets unit</dt>
+              <dd>Offsets are half-open Python Unicode code point indices <code>[start, end)</code>. In JavaScript or runtimes indexing UTF-16 code units, convert offsets when text contains non-BMP characters like emoji.</dd>
+              <dt>Weights status</dt>
+              <dd>Private weights. Extraction weights are not published to Hugging Face, and public self-hosting is not offered. Served exclusively via the hosted API. Pea 1 decision weights on Hugging Face support decisions only.</dd>
+              <dt>Beta service terms</dt>
+              <dd>Formats may change during Beta. Serving capacity is limited with no uptime guarantee yet.</dd>
+              <dt>MCP extraction tool</dt>
+              <dd>Extraction has no MCP tool. API access is via HTTP requests.</dd>
+            </dl>
+          </div>
+        </section>
+        <section class="section reading-grid compact" id="access">
+          <div class="prose">
+            <h2>How to get access</h2>
+            <p>
+              Pea extraction is served live on the hosted API in Beta under the same console account system as Pea decisions:
+            </p>
+            <ol>
+              <li><strong>Register an account:</strong> Sign up at <a href="https://app.itsvej.com/sign-up">app.itsvej.com/sign-up</a>.</li>
+              <li><strong>Manual approval:</strong> Every account is manually reviewed and approved by the Vej team. While waiting, you can enroll a passkey or authenticator app.</li>
+              <li><strong>Create an API key:</strong> Once approved, generate an API key with <code>inference</code> scope in the console.</li>
+              <li><strong>Send requests:</strong> Call <code>POST https://api.itsvej.com/v1beta/extract</code> with your API key.</li>
+            </ol>
+            <div class="link-list">
+              <a href="https://app.itsvej.com/sign-up">Request access</a>
+              <a href="/models/pea/">Pea decisions</a>
+              <a href="/models/">All models</a>
+              <a href="/contact/">Contact us</a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="footer-brand">
+          <a href="/" aria-label="Vej home"
+            ><picture
+              ><source
+                srcset="/assets/brand/logo-light.svg"
+                media="(prefers-color-scheme: dark)" /><img
+                src="/assets/brand/logo.svg"
+                alt="Vej"
+                width="76"
+                height="40" /></picture
+          ></a>
+          <span>Vej builds Pea, Pepper and Pumpkin. · 2026</span>
+        </div>
+        <nav aria-label="Footer">
+          <a href="https://app.itsvej.com/">Sign in</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

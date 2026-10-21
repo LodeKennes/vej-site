@@ -2495,3 +2495,212 @@ main:has(.view-bar) #overview {
   color: var(--text-2);
   line-height: 1.65;
 }
+
+/* Extraction showcase */
+.extraction-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 36px 0 24px;
+  align-items: start;
+}
+.extraction-card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.extraction-card .card-label {
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-family: "Vej Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+.doc-source .doc-text {
+  font-family: "Vej Mono", monospace;
+  font-size: 14px;
+  line-height: 2;
+  background: #FAF8F4;
+  color: #1A1D20;
+  padding: 18px 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+@media (prefers-color-scheme: dark) {
+  .doc-source .doc-text {
+    background: #171A1C;
+    color: #E2E8F0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+  }
+}
+.doc-line {
+  padding: 2px 0;
+}
+.doc-text mark {
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: outline 0.15s ease, background-color 0.15s ease;
+}
+.doc-text .hl-1 {
+  background: rgba(36, 92, 58, 0.14);
+  color: #164026;
+  border-bottom: 2px solid #245C3A;
+}
+.doc-text .hl-2 {
+  background: rgba(196, 106, 36, 0.16);
+  color: #783808;
+  border-bottom: 2px solid #C46A24;
+}
+.doc-text .hl-3 {
+  background: rgba(30, 100, 160, 0.15);
+  color: #113D66;
+  border-bottom: 2px solid #1E64A0;
+}
+@media (prefers-color-scheme: dark) {
+  .doc-text .hl-1 {
+    background: rgba(124, 190, 142, 0.22);
+    color: #C5E9CE;
+    border-bottom: 2px solid #7CBE8E;
+  }
+  .doc-text .hl-2 {
+    background: rgba(224, 138, 70, 0.22);
+    color: #F8CCA4;
+    border-bottom: 2px solid #E08A46;
+  }
+  .doc-text .hl-3 {
+    background: rgba(100, 170, 240, 0.22);
+    color: #BADEFC;
+    border-bottom: 2px solid #64AAF0;
+  }
+}
+.doc-text mark.is-active {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+}
+.doc-meta {
+  margin-top: 14px;
+  color: var(--text-2);
+  font-size: 11px;
+}
+.field-item {
+  padding: 12px 14px;
+  border-radius: 4px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  cursor: default;
+}
+.field-item:last-child {
+  border-bottom: none;
+}
+.field-item:hover,
+.field-item:focus-visible,
+.field-item.is-active {
+  background: rgba(0, 0, 0, 0.03);
+  outline: none;
+}
+@media (prefers-color-scheme: dark) {
+  .field-item:hover,
+  .field-item:focus-visible,
+  .field-item.is-active {
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+.field-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.field-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.swatch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.hl-1-swatch {
+  background: #245C3A;
+}
+.hl-2-swatch {
+  background: #C46A24;
+}
+.hl-3-swatch {
+  background: #1E64A0;
+}
+.missing-swatch {
+  border: 1.5px dashed var(--text-2);
+  background: transparent;
+}
+@media (prefers-color-scheme: dark) {
+  .hl-1-swatch { background: #7CBE8E; }
+  .hl-2-swatch { background: #E08A46; }
+  .hl-3-swatch { background: #64AAF0; }
+}
+.field-name {
+  font-family: "Vej Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+}
+.field-type {
+  color: var(--text-2);
+  font-size: 10px;
+}
+.field-body {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.field-val {
+  font-family: "Vej Mono", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 600;
+}
+.field-item.field-missing {
+  border-style: dashed;
+  opacity: 0.85;
+}
+.field-item.field-missing .field-name {
+  color: var(--text-2);
+}
+.field-val.null {
+  color: var(--text-2);
+  font-style: italic;
+  font-weight: 500;
+}
+.field-span {
+  color: var(--text-2);
+  font-size: 11px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .doc-text mark,
+  .field-item {
+    transition: none;
+  }
+}
+@media (max-width: 760px) {
+  .extraction-showcase {
+    grid-template-columns: 1fr;
+  }
+  .field-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .field-body {
+    text-align: left;
+  }
+}

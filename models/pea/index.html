@@ -8,7 +8,7 @@
     <title>Pea · Model card · Vej</title>
     <meta
       name="description"
-      content="Run Pea on your own GPU: the 2B architecture, access by request, local inference commands and runtime guidance."
+      content="Pea 2B model: native decisions with probabilities and hosted Beta extraction pointing directly to evidence spans."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Pea · Model card · Vej" />
     <meta
       property="og:description"
-      content="Run Pea on your own GPU: the 2B architecture, access by request, local inference commands and runtime guidance."
+      content="Pea 2B model: native decisions with probabilities and hosted Beta extraction pointing directly to evidence spans."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -51,7 +51,7 @@
     <meta name="twitter:title" content="Pea · Model card · Vej" />
     <meta
       name="twitter:description"
-      content="Run Pea on your own GPU: the 2B architecture, access by request, local inference commands and runtime guidance."
+      content="Pea 2B model: native decisions with probabilities and hosted Beta extraction pointing directly to evidence spans."
     />
     <meta
       name="twitter:image"
@@ -83,8 +83,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=30f87691d4c9" />
-    <script src="/app.js?v=aac23ae6588a" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=83691b73730c" />
+    <script src="/app.js?v=81a51daca499" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -133,18 +133,19 @@
       <main id="main"><section class="page-hero model-hero">
           <img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" />
           <h1>Pea</h1>
-          <p class="lead">Pea is Vej’s current 2B text decision model. Define a situation and its possible outcomes. Pea returns a probability for each outcome. Your code decides what happens next.</p><p class="status">Completed model · Limited hosted early access by request</p>
-          <div class="actions"><a class="button" href="https://app.itsvej.com/sign-up">Request Pea access</a><a class="button secondary" href="/evaluation/">Pea’s evaluation</a></div>
+          <p class="lead">Pea is Vej’s 2B text model. Pea supports native decisions (returning probabilities over developer-defined outcomes) and document extraction (pointing directly to evidence spans). Your code decides what happens next.</p><p class="status">2B · Limited hosted early access · Extraction Beta</p>
+          <div class="actions"><a class="button" href="https://app.itsvej.com/sign-up">Request Pea access</a><a class="button secondary" href="/models/pea/extraction/">Pea extraction &rarr;</a><a class="button secondary" href="/evaluation/">Decision evaluation</a></div>
         </section>
-        <nav class="section-index" aria-label="On this page"><a href="#availability">Access</a><a href="#runtime">Run Pea</a><a href="#architecture">Architecture</a><a href="#limits">Usage guidance</a></nav><section class="section reading-grid compact" id="availability">
+        <nav class="section-index" aria-label="On this page"><a href="#availability">Access</a><a href="#runtime">Run Pea</a><a href="#extraction">Extraction</a><a href="#architecture">Architecture</a><a href="#limits">Usage guidance</a></nav><section class="section reading-grid compact" id="availability">
           <div class="prose">
             <h2>Access</h2>
-            <p>The hosted Pea API is live in limited early access, by request. <a href="https://app.itsvej.com/sign-up">Create your account</a> for manual approval. Already registered? <a href="https://app.itsvej.com/">Sign in to the console</a>. Text only; capacity is limited, with no uptime guarantee yet. Hosted Choice, Noul and Score probabilities use temperature 1.334. For questions, use the <a href="/contact/">contact form</a>.</p>
+            <p>The hosted Pea API is live in limited early access and Beta, by request. <a href="https://app.itsvej.com/sign-up">Create your account</a> for manual approval. Already registered? <a href="https://app.itsvej.com/">Sign in to the console</a>. Text only; capacity is limited, with no uptime guarantee yet. Hosted Choice, Noul and Score decision probabilities use temperature 1.334. Document extraction is served in Beta on <code>/v1beta/extract</code>. For questions, use the <a href="/contact/">contact form</a>.</p>
             <p>
-              Pea 1 weights are listed at
+              Pea 1 decision weights are listed at
               <a href="https://huggingface.co/ItsVej/pea-1">ItsVej/pea-1</a>.
               Download requires an approved Hugging Face access request.
               The repository root is the serving export. The native checkpoint is in <code>checkpoint/</code>.
+              These released weights support decision inference only; hosted extraction capability weights are private.
             </p>
             <p>
               The core development repository at
@@ -165,9 +166,9 @@
           </div>
         </section><section class="section reading-grid compact" id="runtime">
           <div class="prose">
-            <h2>Run Pea locally</h2>
+            <h2>Run Pea locally for decisions</h2>
             <p>
-              Download <a href="https://huggingface.co/ItsVej/pea-1">ItsVej/pea-1</a> after your Hugging Face access request is approved. The native checkpoint is the <code>checkpoint</code> directory in that download. Python 3.12 to 3.14 is supported. <code>vej predict</code> still needs the private Vej source and its locked dependencies.
+              Download <a href="https://huggingface.co/ItsVej/pea-1">ItsVej/pea-1</a> after your Hugging Face access request is approved. The native checkpoint is the <code>checkpoint</code> directory in that download. Python 3.12 to 3.14 is supported. <code>vej predict</code> still needs the private Vej source and its locked dependencies. (Local execution runs Pea decisions; extraction capability is served via the hosted API.)
             </p>
             <pre class="code"><code class="language-bash"><span class="nv">HF_HUB_OFFLINE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>vej<span class="w"> </span>predict<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>examples/decisions.json<span class="w"> </span>--checkpoint<span class="w"> </span>/path/to/download/checkpoint<span class="w"> </span>--device<span class="w"> </span>cpu
@@ -187,6 +188,22 @@
             <p>The serving commands, SDK adapters, exporter and context override require the current private Vej source with its locked model runtime dependencies. The prediction commands above use that source with the downloaded <code>checkpoint</code> directory.</p>
             <h3>Serving export</h3>
             <p>The root of <a href="https://huggingface.co/ItsVej/pea-1">ItsVej/pea-1</a> is a classification export for vLLM ≥ 0.27. <code>vllm serve ItsVej/pea-1</code> needs no extra flags. The native checkpoint under <code>checkpoint/</code> remains the reference loader.</p>
+          </div>
+        </section><section class="section reading-grid compact" id="extraction">
+          <div class="prose">
+            <h2>Document extraction capability</h2>
+            <p>
+              Alongside decision probabilities, Pea provides structured document extraction in hosted Beta.
+              Instead of generating freeform text or JSON strings, Pea points directly to Unicode evidence
+              spans in your document to extract developer-defined fields.
+            </p>
+            <p>
+              Extraction is hosted exclusively via the Beta API (<code>POST https://api.itsvej.com/v1beta/extract</code>). Extraction weights are private and are <strong>not</strong>
+              included in the downloadable <a href="https://huggingface.co/ItsVej/pea-1">Pea 1</a> decision checkpoint.
+            </p>
+            <div class="link-list">
+              <a href="/models/pea/extraction/">Explore Pea extraction documentation &rarr;</a>
+            </div>
           </div>
         </section><section class="section reading-grid compact" id="architecture">
           <div class="prose">
@@ -223,9 +240,9 @@
           </div>
         </section><section class="section reading-grid compact" id="limits">
           <div class="prose">
-            <h2>Usage guidance</h2>
+            <h2>Usage guidance for decisions</h2>
             <p>
-              The final test recorded 76.60% exact accuracy across 14,286 decisions: 89.22% on Choice, 91.71% on Noul and 51.62% on Score. Those figures use temperature 1. The hosted runtime applies temperature 1.334. Validate thresholds on your own workflow and keep independent policy checks around consequential actions. See the <a href="/evaluation/">evaluation</a> for the same-test comparison with hosted Jev.
+              The final test recorded 76.60% exact accuracy across 14,286 decisions: 89.22% on Choice, 91.71% on Noul and 51.62% on Score. Those figures use temperature 1. The hosted runtime applies temperature 1.334. Validate thresholds on your own workflow and keep independent policy checks around consequential actions. See the <a href="/evaluation/">evaluation</a> for the same-test comparison with hosted Jev. (For extraction development metrics and limitations, see <a href="/models/pea/extraction/">Pea extraction</a>.)
             </p>
             <p>
               Vej code and model adaptations use Apache-2.0, while upstream base assets and training datasets retain their respective terms. See <a href="/licenses/">licences and attribution</a>.

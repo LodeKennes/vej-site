@@ -377,3 +377,26 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   window.addEventListener("pageshow", resetLoading);
   window.addEventListener("pagehide", resetLoading);
 })();
+
+// Extraction showcase: link hover and keyboard focus between fields and evidence spans.
+(() => {
+  if (typeof document.querySelectorAll !== "function") return;
+  document.querySelectorAll(".extraction-showcase").forEach((showcase) => {
+    const fields = showcase.querySelectorAll ? showcase.querySelectorAll(".field-item[data-field]") : [];
+    const marks = showcase.querySelectorAll ? showcase.querySelectorAll(".doc-text mark[data-field]") : [];
+    function setActive(name) {
+      fields.forEach((f) => f.classList && f.classList.toggle("is-active", Boolean(name && f.dataset?.field === name)));
+      marks.forEach((m) => m.classList && m.classList.toggle("is-active", Boolean(name && m.dataset?.field === name)));
+    }
+    fields.forEach((field) => {
+      field.addEventListener?.("mouseenter", () => setActive(field.dataset?.field));
+      field.addEventListener?.("mouseleave", () => setActive(null));
+      field.addEventListener?.("focus", () => setActive(field.dataset?.field));
+      field.addEventListener?.("blur", () => setActive(null));
+    });
+    marks.forEach((mark) => {
+      mark.addEventListener?.("mouseenter", () => setActive(mark.dataset?.field));
+      mark.addEventListener?.("mouseleave", () => setActive(null));
+    });
+  });
+})();

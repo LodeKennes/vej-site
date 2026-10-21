@@ -8,7 +8,7 @@
     <title>Models · Vej</title>
     <meta
       name="description"
-      content="Pea, Pepper and Pumpkin: the Vej model family, sizes, availability and evaluation status."
+      content="Pea, Pepper and Pumpkin: the Vej models, sizes, availability and evaluation status."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Models · Vej" />
     <meta
       property="og:description"
-      content="Pea, Pepper and Pumpkin: the Vej model family, sizes, availability and evaluation status."
+      content="Pea, Pepper and Pumpkin: the Vej models, sizes, availability and evaluation status."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -51,7 +51,7 @@
     <meta name="twitter:title" content="Models · Vej" />
     <meta
       name="twitter:description"
-      content="Pea, Pepper and Pumpkin: the Vej model family, sizes, availability and evaluation status."
+      content="Pea, Pepper and Pumpkin: the Vej models, sizes, availability and evaluation status."
     />
     <meta
       name="twitter:image"
@@ -83,9 +83,9 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=30f87691d4c9" />
-    <script src="/app.js?v=aac23ae6588a" defer></script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Models", "description": "Pea, Pepper and Pumpkin: the Vej model family, sizes, availability and evaluation status.", "url": "https://itsvej.com/models/"}</script>
+    <link rel="stylesheet" href="/styles.css?v=83691b73730c" />
+    <script src="/app.js?v=81a51daca499" defer></script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Models", "description": "Pea, Pepper and Pumpkin: the Vej models, sizes, availability and evaluation status.", "url": "https://itsvej.com/models/"}</script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -110,13 +110,13 @@
         </nav>
       </header>
       <main id="main">
-<section class="page-hero"><h1>Models</h1><p class="lead">Meet Pea, our 2B text decision model, and the larger models in development. Request Pea access or join the Pepper and Pumpkin waitlists.</p></section><section class="section model-family" id="family" aria-labelledby="models-heading">
+<section class="page-hero"><h1>Models</h1><p class="lead">Meet Pea (2B decision and extraction model), alongside the larger models in development. Request access or join the Pepper and Pumpkin waitlists.</p></section><section class="section model-family" id="family" aria-labelledby="models-heading">
           <h2 id="models-heading" class="sr-only">The model family</h2>
           <div class="model-grid"><article class="model-card model-pea" id="pea" aria-labelledby="pea-heading">
-              <div class="model-card-top"><p class="micro">Current · Completed model</p><img src="/assets/brand/models/pea.svg" alt="" width="112" height="112" /></div>
+              <div class="model-card-top"><p class="micro">Decisions &amp; Extraction · 2B</p><img src="/assets/brand/models/pea.svg" alt="" width="112" height="112" /></div>
               <h3 id="pea-heading">Pea <span class="model-size">2B</span></h3>
-              <p>Define a situation and its possible outcomes. Pea returns a probability for each. Limited hosted early access is by request. Pea 1 weights require an approved Hugging Face request.</p>
-              <div class="model-links"><a href="/models/pea/">Explore Pea <span aria-hidden="true">→</span></a><a href="https://app.itsvej.com/sign-up">Request access <span aria-hidden="true">→</span></a></div>
+              <p>Pea returns probabilities over outcomes for text decisions, and extracts structured fields by pointing to exact evidence spans. Limited hosted early access for decisions; hosted Beta for extraction. Pea 1 decision weights require an approved Hugging Face request; extraction weights are private.</p>
+              <div class="model-links"><a href="/models/pea/">Pea decisions <span aria-hidden="true">→</span></a><a href="/models/pea/extraction/">Pea extraction <span aria-hidden="true">→</span></a><a href="https://app.itsvej.com/sign-up">Request access <span aria-hidden="true">→</span></a></div>
             </article><article class="model-card model-pepper" id="pepper" aria-labelledby="pepper-heading">
               <div class="model-card-top"><p class="micro">In development · Waitlist open</p><img src="/assets/brand/models/pepper.svg" alt="" width="112" height="112" /></div>
               <h3 id="pepper-heading">Pepper <span class="model-size">8B</span></h3>
@@ -129,8 +129,8 @@
               <div class="model-links"><a href="/evaluation/pumpkin/">Development status <span aria-hidden="true">→</span></a><a href="/access/#pumpkin">Join the waitlist <span aria-hidden="true">→</span></a></div>
             </article></div>
           <p class="model-roadmap-note">2B, 8B and 27B indicate parameter counts. See the evaluation for measured performance.</p>
-        </section><section class="section" id="compare"><h2>Availability</h2><div class="table-wrap" role="region" tabindex="0" aria-label="Model availability"><table><caption class="sr-only">Model access and public evaluation</caption><thead><tr><th scope="col">Model</th><th scope="col">Size</th><th scope="col">Public access</th><th scope="col">Public evaluation</th></tr></thead><tbody><tr><th scope="row">Pea</th><td>2B</td><td>Limited hosted early access · <a href="https://huggingface.co/ItsVej/pea-1">Pea 1 weights</a> by approved request</td><td><a href="/evaluation/">Published · 14,286 decisions</a></td></tr><tr><th scope="row">Pepper</th><td>8B</td><td>In development · waitlist open</td><td>None published</td></tr><tr><th scope="row">Pumpkin</th><td>27B</td><td>In development · waitlist open</td><td>None published</td></tr></tbody></table></div><p class="small">For questions, use the <a href="/contact/">contact form</a>.</p></section>
-      <section class="section reading-grid compact" id="hosted-runtime"><div class="prose"><h2>Hosted runtime</h2><p>The hosted API is live in limited early access, by request. It serves Pea’s native reference runtime for text only; image input is refused. Hosted Choice, Noul and Score probabilities use temperature 1.334, fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. That scale does not make a stated probability a guaranteed frequency on a new workflow. Capacity is limited, with no uptime guarantee yet. Published evaluations describe the native checkpoint at temperature 1, not a separate hosted evaluation.</p><p>If hosted Pea moves to vLLM, probabilities may differ from the native reference by up to about 0.05 (five percentage points) in development checks. Served-runtime temperature fitting and separate held-out verification would be needed. This development tolerance is not a claim of native equivalence or a universal error bound.</p></div></section>
+        </section><section class="section" id="compare"><h2>Availability</h2><div class="table-wrap" role="region" tabindex="0" aria-label="Model availability"><table><caption class="sr-only">Model access and public evaluation</caption><thead><tr><th scope="col">Model</th><th scope="col">Size</th><th scope="col">Task</th><th scope="col">Public access</th><th scope="col">Public evaluation</th></tr></thead><tbody><tr><th scope="row">Pea</th><td>2B</td><td>Decisions &amp; Extraction</td><td>Limited hosted early access · extraction Beta · <a href="https://huggingface.co/ItsVej/pea-1">Pea 1 decision weights</a> by approved request</td><td><a href="/evaluation/">Published · 14,286 decisions</a> (decisions) · <a href="/models/pea/extraction/#results">Development results only</a> (extraction)</td></tr><tr><th scope="row">Pepper</th><td>8B</td><td>Decisions</td><td>In development · waitlist open</td><td>None published</td></tr><tr><th scope="row">Pumpkin</th><td>27B</td><td>Decisions</td><td>In development · waitlist open</td><td>None published</td></tr></tbody></table></div><p class="small">For questions, use the <a href="/contact/">contact form</a>.</p></section>
+      <section class="section reading-grid compact" id="hosted-runtime"><div class="prose"><h2>Hosted runtime</h2><p>The hosted API is live at api.itsvej.com in limited early access and Beta. It serves Pea’s native reference runtime for text only; image input is refused. Hosted Choice, Noul and Score probabilities use temperature 1.334, fitted on 2,026 held-out calibration decisions and checked on 1,016 further decisions. That scale does not make a stated probability a guaranteed frequency on a new workflow. Capacity is limited, with no uptime guarantee yet. Published evaluations describe the native checkpoint at temperature 1, not a separate hosted evaluation.</p><p>Extraction runs as a hosted Pea capability on <code>/v1beta/extract</code> using prefill-only passes (text only; image input is refused). Extraction reports development results on locked test documents.</p><p>If hosted Pea moves to vLLM, probabilities may differ from the native reference by up to about 0.05 (five percentage points) in development checks. Served-runtime temperature fitting and separate held-out verification would be needed. This development tolerance is not a claim of native equivalence or a universal error bound.</p></div></section>
       </main>
       <footer>
         <div class="footer-brand">
