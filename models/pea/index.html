@@ -135,6 +135,7 @@
           <img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" />
           <h1>Pea</h1>
           <p class="lead">Pea is Vej’s 2B text model. Pea supports native decisions (returning probabilities over developer-defined outcomes) and document extraction (pointing directly to evidence spans). Your code decides what happens next.</p><p class="status">2B · Limited hosted early access · Extraction Beta</p>
+          <p class="small"><strong>Realtime context: 96K</strong> · <strong>Batch context: 2K</strong> tokens per row for Pea and Pea Pod. <a href="/models/pea/#architecture">Context limits</a>.</p>
           <div class="actions"><a class="button" href="https://app.itsvej.com/sign-up">Request Pea access</a><a class="button secondary" href="/models/pea/extraction/">Pea extraction &rarr;</a><a class="button secondary" href="/evaluation/">Decision evaluation</a></div>
         </section>
         <nav class="section-index" aria-label="On this page"><a href="#availability">Access</a><a href="#runtime">Run Pea</a><a href="#extraction">Extraction</a><a href="#architecture">Architecture</a><a href="#limits">Usage guidance</a></nav><section class="section reading-grid compact" id="availability">
@@ -232,7 +233,7 @@
               <dt>Checkpoint size</dt>
               <dd>Full native state dict, approximately 3.6 GiB</dd>
               <dt>Input token limit</dt>
-              <dd>2,048 tokens per rendered candidate by default (overlong inputs fail closed). The native Pea loader accepts <code>--max-length 49152</code>; long-context quality is not validated.</dd>
+              <dd>Hosted realtime Pea decisions and Pea Pod extraction: 96K (98,304) tokens per fully rendered row. Batch: 2K (2,048) tokens per row. The row includes state or document, framing, instructions and candidate or field. Offline checkpoint defaults remain 2,048; overlong inputs fail closed. Longer-context quality is user-attested; no new accuracy or calibration measurement accompanies this runtime limit.</dd>
               <dt>Selected checkpoint</dt>
               <dd>Recovery step 6,144 (lowest pooled validation NLL: 0.458497)</dd>
               <dt>Execution mode</dt>

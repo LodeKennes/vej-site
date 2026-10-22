@@ -135,6 +135,7 @@
           <img class="model-hero-icon" src="/assets/brand/models/pea.svg" alt="" width="128" height="128" />
           <h1>Extraction with Pea</h1>
           <p class="lead">Pea provides document extraction alongside decisions. It reads a text document and extracts developer-defined fields by pointing directly to evidence spans.</p><p class="status">Pea capability · Hosted Beta API · Weights private</p>
+          <p class="small"><strong>Realtime context: 96K</strong> · <strong>Batch context: 2K</strong> tokens per row for Pea and Pea Pod. <a href="/models/pea/#architecture">Context limits</a>.</p>
           <div class="actions"><a class="button" href="https://app.itsvej.com/sign-up">Request access</a><a class="button secondary" href="/models/pea/">Pea decisions</a><a class="button secondary" href="#api">API &amp; curl example</a></div>
         </section>
         <nav class="section-index" aria-label="On this page"><a href="#overview">Overview</a><a href="#how-it-works">How it works</a><a href="#field-types">Field types</a><a href="#api">API &amp; curl</a><a href="#results">Development results</a><a href="#limits">Limits</a><a href="#access">Access</a></nav>
@@ -343,11 +344,13 @@
             <h2>Usage limits &amp; constraints</h2>
             <dl class="detail-list">
               <dt>Input token limit</dt>
-              <dd>2,048 tokens per document-plus-field row. Requests exceeding this limit fail closed with HTTP 400 <code>input_too_long</code>; the server never silently truncates.</dd>
+              <dd>Hosted realtime Pea Pod: 96K (98,304) tokens per fully rendered document-plus-field row. Batch: 2K (2,048) tokens per row. Framing and field instructions count toward the limit. Offline checkpoint defaults remain 2,048. Longer-context quality is user-attested, without a new accuracy or calibration measurement here. Requests exceeding this limit fail closed with HTTP 400 <code>input_too_long</code>; the server never silently truncates.</dd>
+              <dt>Presence calibration</dt>
+              <dd>The current presence fit covers rows up to 2K (2,048) tokens. Longer requests report <code>metadata.calibrated=false</code>; span confidence remains uncalibrated.</dd>
               <dt>Field capacity</dt>
               <dd>1 to 64 fields per request in request order. Field names must match <code>^[A-Za-z_][A-Za-z0-9_.\-]{0,63}$</code>.</dd>
               <dt>Document modality</dt>
-              <dd>Text only (1 to 65,536 Unicode code points). Non-empty images are rejected with HTTP 400.</dd>
+              <dd>Text only (1 to 1,048,576 Unicode code points; JSON body up to 16 MiB). Non-empty images are rejected with HTTP 400.</dd>
               <dt>Offsets unit</dt>
               <dd>Offsets are half-open Python Unicode code point indices <code>[start, end)</code>. In JavaScript or runtimes indexing UTF-16 code units, convert offsets when text contains non-BMP characters like emoji.</dd>
               <dt>Weights status</dt>
