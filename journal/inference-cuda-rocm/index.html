@@ -62,7 +62,7 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=12bcf5444224" />
+    <link rel="stylesheet" href="/styles.css?v=e6468136afb3" />
     <script src="/app.js?v=8179e25905ed" defer></script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Read once, ask independently: faster inference in Vej", "description": "Faster document extraction deployed on CUDA and ROCm, with public-API measurements, independent field assessments, and the quality checks behind the gains.", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "author": {"@type": "Person", "name": "Lode Kennes", "url": "https://github.com/LodeKennes"}, "image": "https://itsvej.com/journal/inference-cuda-rocm/cover.png", "url": "https://itsvej.com/journal/inference-cuda-rocm/", "publisher": {"@type": "Organization", "name": "Vej", "url": "https://itsvej.com"}}</script>
   </head>
@@ -118,7 +118,7 @@ Fields to extract
 
 .technical-appendix{margin:24px 0;padding:24px;border:1px solid var(--rule);background:var(--surface);border-radius:4px}.technical-appendix>summary{font-weight:500;cursor:pointer;line-height:1.5}.technical-appendix>summary:focus-visible{outline:2px solid var(--accent);outline-offset:6px}.technical-appendix h3{font-size:26px}.technical-appendix p,.technical-appendix li{font-size:16px;line-height:1.7}.technical-appendix table{font-size:13px;overflow-wrap:anywhere}.technical-appendix .post-figure{margin:28px 0}.technical-appendix .post-figure img{width:100%;height:auto}.technical-appendix [id]{scroll-margin-top:24px}@media(max-width:480px){.technical-appendix{padding:16px}}
 </style>
-<details class="reuse-motion">
+<details class="reuse-motion" open>
 <summary>Animate the document-to-field path <span class="reuse-still">(motion disabled)</span></summary>
 <svg viewBox="0 0 600 310" role="img" aria-labelledby="reuse-title reuse-desc">
 <title id="reuse-title">One document prefix, independent field assessments</title>
@@ -154,7 +154,7 @@ Fields to extract
 <p><strong>Check numerical precision explicitly.</strong> Pea’s adapters are small sets of learned adjustments attached to the shared base model. The extraction adapters used 32-bit arithmetic, even though the backbone used BF16, a 16-bit number format called bfloat16. Testing BF16 adapters reduced computation time, but changed numerical outputs. It required a labelled quality check; matching the model weights alone would not establish matching results.</p>
 <p><strong>Remove setup work from each request.</strong> Repeating model-mode setup and tokenizing the same decision rows twice cost a few milliseconds. Removing that repetition reduced a short CUDA decision example from <strong>36.8 to 32.7 ms</strong>. That is useful on a small request, but it cannot explain a tenfold improvement on a long extraction.</p>
 <p>We also tested <strong>graph replay</strong>. The CPU normally submits many operations to the GPU; a captured graph lets it submit a prepared sequence again with less repeated launch work. Graph replay helps only when a request matches the captured execution shape. The CUDA release leaves it off until shape coverage is understood. The diagram below explains the mechanism; its animation is not a timing measurement.</p>
-<details class="reuse-motion">
+<details class="reuse-motion" open>
 <summary>Animate eager launches and graph replay <span class="reuse-still">(motion disabled)</span></summary>
 <svg viewBox="0 0 600 320" role="img" aria-labelledby="launch-title launch-desc">
 <title id="launch-title">Graph replay reduces repeated CPU launch work</title>
@@ -446,7 +446,7 @@ paired speedup   = median(reference_round / candidate_round)
   reveal(location.hash);
 })();
 </script>
-<section class="post-author" aria-label="About the author"><img class="avatar" src="/journal/authors/lode.jpg" alt="" width="72" height="72" /><div><p class="eyebrow">Written by</p><p class="post-author-name"><a href="https://github.com/LodeKennes">Lode Kennes</a></p><p class="micro">Founder, Vej</p><p>Lode builds Vej&#x27;s models, the hosted API and this website.</p></div></section></div></div></article><section class="section" aria-labelledby="more"><h2 id="more" class="journal-section-title">More from the journal</h2><div class="journal-list"><article class="journal-row"><a class="journal-thumb" href="/journal/pea-extraction-beta/" tabindex="-1" aria-hidden="true"><img src="/journal/pea-extraction-beta/cover.png" alt="" width="1280" height="672" loading="lazy" decoding="async" /></a><div><p class="eyebrow">Older · Release</p><h3><a href="/journal/pea-extraction-beta/">Pea extraction is now in hosted Beta</a></h3><p>Pea now extracts typed fields from text by pointing directly to evidence spans, live on /v1beta/extract.</p><div class="byline"><img class="avatar" src="/journal/authors/lode.jpg" alt="" width="32" height="32" /><div><span class="byline-name">Lode Kennes</span><span class="byline-meta"><time datetime="2026-10-21">21 October 2026</time> · 2 min read</span></div></div></div></article></div></section>
+<section class="post-author" aria-label="About the author"><img class="avatar" src="/journal/authors/lode.jpg" alt="" width="56" height="56" loading="lazy" /><div><p class="eyebrow">Written by</p><div class="post-author-identity"><p class="post-author-name"><a href="https://github.com/LodeKennes">Lode Kennes</a></p><p class="post-author-role">Founder, Vej</p></div><p class="post-author-bio">Lode builds Vej&#x27;s models, the hosted API and this website.</p></div></section></div></div></article><section class="section" aria-labelledby="more"><h2 id="more" class="journal-section-title">More from the journal</h2><div class="journal-list"><article class="journal-row"><a class="journal-thumb" href="/journal/pea-extraction-beta/" tabindex="-1" aria-hidden="true"><img src="/journal/pea-extraction-beta/cover.png" alt="" width="1280" height="672" loading="lazy" decoding="async" /></a><div><p class="eyebrow">Older · Release</p><h3><a href="/journal/pea-extraction-beta/">Pea extraction is now in hosted Beta</a></h3><p>Pea now extracts typed fields from text by pointing directly to evidence spans, live on /v1beta/extract.</p><div class="byline"><img class="avatar" src="/journal/authors/lode.jpg" alt="" width="32" height="32" /><div><span class="byline-name">Lode Kennes</span><span class="byline-meta"><time datetime="2026-10-21">21 October 2026</time> · 2 min read</span></div></div></div></article></div></section>
       </main>
       <footer>
         <div class="footer-brand">

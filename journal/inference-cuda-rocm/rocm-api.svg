@@ -930,7 +930,7 @@ L 159.165754 128.071034
 L 159.165754 149.298621 
 L 144 149.298621 
 z
-" clip-path="url(#p201fee5810)" style="fill: #245c3a"/>
+" clip-path="url(#p201fee5810)" style="fill: #ed1c24"/>
    </g>
    <g id="patch_7">
     <path d="M 144 206.691724 
@@ -938,7 +938,7 @@ L 168.280201 206.691724
 L 168.280201 227.91931 
 L 144 227.91931 
 z
-" clip-path="url(#p201fee5810)" style="fill: #245c3a"/>
+" clip-path="url(#p201fee5810)" style="fill: #ed1c24"/>
    </g>
    <g id="patch_8">
     <path d="M 144 285.312414 
@@ -946,7 +946,7 @@ L 177.951583 285.312414
 L 177.951583 306.54 
 L 144 306.54 
 z
-" clip-path="url(#p201fee5810)" style="fill: #245c3a"/>
+" clip-path="url(#p201fee5810)" style="fill: #ed1c24"/>
    </g>
    <g id="text_9">
     <!-- 294.9 -->
@@ -1309,7 +1309,7 @@ L 309.888 76.428
 L 309.888 70.884 
 L 299.52 70.884 
 z
-" style="fill: #245c3a; stroke: #245c3a; stroke-linejoin: miter"/>
+" style="fill: #ed1c24; stroke: #ed1c24; stroke-linejoin: miter"/>
   </g>
   <g id="text_15">
    <!-- ROCm local-API release comparison -->

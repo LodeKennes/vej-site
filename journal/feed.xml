@@ -27,7 +27,7 @@ Fields to extract
 
 .technical-appendix{margin:24px 0;padding:24px;border:1px solid var(--rule);background:var(--surface);border-radius:4px}.technical-appendix&gt;summary{font-weight:500;cursor:pointer;line-height:1.5}.technical-appendix&gt;summary:focus-visible{outline:2px solid var(--accent);outline-offset:6px}.technical-appendix h3{font-size:26px}.technical-appendix p,.technical-appendix li{font-size:16px;line-height:1.7}.technical-appendix table{font-size:13px;overflow-wrap:anywhere}.technical-appendix .post-figure{margin:28px 0}.technical-appendix .post-figure img{width:100%;height:auto}.technical-appendix [id]{scroll-margin-top:24px}@media(max-width:480px){.technical-appendix{padding:16px}}
 &lt;/style&gt;
-&lt;details class="reuse-motion"&gt;
+&lt;details class="reuse-motion" open&gt;
 &lt;summary&gt;Animate the document-to-field path &lt;span class="reuse-still"&gt;(motion disabled)&lt;/span&gt;&lt;/summary&gt;
 &lt;svg viewBox="0 0 600 310" role="img" aria-labelledby="reuse-title reuse-desc"&gt;
 &lt;title id="reuse-title"&gt;One document prefix, independent field assessments&lt;/title&gt;
@@ -63,7 +63,7 @@ Fields to extract
 &lt;p&gt;&lt;strong&gt;Check numerical precision explicitly.&lt;/strong&gt; Pea’s adapters are small sets of learned adjustments attached to the shared base model. The extraction adapters used 32-bit arithmetic, even though the backbone used BF16, a 16-bit number format called bfloat16. Testing BF16 adapters reduced computation time, but changed numerical outputs. It required a labelled quality check; matching the model weights alone would not establish matching results.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Remove setup work from each request.&lt;/strong&gt; Repeating model-mode setup and tokenizing the same decision rows twice cost a few milliseconds. Removing that repetition reduced a short CUDA decision example from &lt;strong&gt;36.8 to 32.7 ms&lt;/strong&gt;. That is useful on a small request, but it cannot explain a tenfold improvement on a long extraction.&lt;/p&gt;
 &lt;p&gt;We also tested &lt;strong&gt;graph replay&lt;/strong&gt;. The CPU normally submits many operations to the GPU; a captured graph lets it submit a prepared sequence again with less repeated launch work. Graph replay helps only when a request matches the captured execution shape. The CUDA release leaves it off until shape coverage is understood. The diagram below explains the mechanism; its animation is not a timing measurement.&lt;/p&gt;
-&lt;details class="reuse-motion"&gt;
+&lt;details class="reuse-motion" open&gt;
 &lt;summary&gt;Animate eager launches and graph replay &lt;span class="reuse-still"&gt;(motion disabled)&lt;/span&gt;&lt;/summary&gt;
 &lt;svg viewBox="0 0 600 320" role="img" aria-labelledby="launch-title launch-desc"&gt;
 &lt;title id="launch-title"&gt;Graph replay reduces repeated CPU launch work&lt;/title&gt;

@@ -2994,33 +2994,49 @@ main:has(.view-bar) #overview {
   color: var(--text-2);
 }
 .post-author {
-  display: flex;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 18px;
   align-items: flex-start;
   margin-top: 64px;
-  padding: 32px;
-  border: 1px solid var(--rule);
-  background: var(--surface);
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.post-author .avatar {
+  width: 56px;
+  height: 56px;
+  margin-top: 4px;
+}
+.post-author-identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
 }
 .post-author p.eyebrow {
-  margin-bottom: 8px;
-  font-size: 12px;
+  margin: 0 0 6px;
+  font-size: 10px;
 }
 .post-author p {
-  font-size: 16px;
-  margin: 0 0 8px;
+  margin: 0;
 }
 .post-author p.post-author-name {
-  margin: 0 0 4px;
   font-family: "Fraunces", Georgia, "Times New Roman", serif;
-  font-size: 30px;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-size: 25px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
 }
-.post-author p.micro {
+.post-author p.post-author-role {
   color: var(--text-2);
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
   font-size: 12px;
-  margin-bottom: 14px;
+}
+.post-author p.post-author-bio {
+  max-width: 52ch;
+  margin-top: 12px;
+  color: var(--text-2);
+  font-size: 15px;
+  line-height: 1.6;
 }
 @media (prefers-reduced-motion: no-preference) {
   .journal-cover > img,
@@ -3073,8 +3089,12 @@ main:has(.view-bar) #overview {
     font-size: 17px;
   }
   .post-author {
-    flex-direction: column;
-    padding: 24px;
+    margin-top: 48px;
+    gap: 16px;
+    padding-top: 24px;
+  }
+  .post-author p.post-author-name {
+    font-size: 23px;
   }
 }
 /* Five main navigation links fit on one row on small phones. */
