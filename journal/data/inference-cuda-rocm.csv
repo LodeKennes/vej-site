@@ -1,0 +1,18 @@
+study,workload,metric,reference,candidate,unit,samples_per_arm,design,reported_paired_speedup,reported_delta,ci95_lower,ci95_upper,notes
+rocm-reuse,320 words; 7 fields,median call wall time,300.7,101.0,ms,5,Warmed median · 5 calls per arm · no graph replay,,,,,Same runtime; no HTTP or graph replay.
+rocm-reuse,800 words; 13 fields,median call wall time,1307.4,177.4,ms,5,Warmed median · 5 calls per arm · no graph replay,,,,,Same runtime; no HTTP or graph replay.
+rocm-reuse,"1,200 words; 20 fields",median call wall time,3041.9,292.7,ms,5,Warmed median · 5 calls per arm · no graph replay,,,,,Same runtime; no HTTP or graph replay.
+rocm-api,320 words; 7 fields,median call wall time,294.9,141.6,ms,5,Warmed median · 5 calls per version · consecutive samples,,,,,Combined runtime update and reuse; consecutive local-API windows.
+rocm-api,800 words; 13 fields,median call wall time,1279.4,226.7,ms,5,Warmed median · 5 calls per version · consecutive samples,,,,,Combined runtime update and reuse; consecutive local-API windows.
+rocm-api,"1,200 words; 20 fields",median call wall time,2941.1,317.0,ms,5,Warmed median · 5 calls per version · consecutive samples,,,,,Combined runtime update and reuse; consecutive local-API windows.
+cuda-reuse,128 words · mixed; 6 fields,median call wall time,201,71,ms,20,20 interleaved rounds per shape · rounded medians · no HTTP,2.8079,,,,Rounded arm medians; paired ratios use original observations.
+cuda-reuse,512 words · mixed; 8 fields,median call wall time,1107,152,ms,20,20 interleaved rounds per shape · rounded medians · no HTTP,7.2424,,,,Rounded arm medians; paired ratios use original observations.
+cuda-reuse,512 words; 16 fields,median call wall time,1881,183,ms,20,20 interleaved rounds per shape · rounded medians · no HTTP,10.2288,,,,Rounded arm medians; paired ratios use original observations.
+cuda-reuse,"1,000 words · mixed; 12 fields",median call wall time,3287,309,ms,20,20 interleaved rounds per shape · rounded medians · no HTTP,10.6344,,,,Rounded arm medians; paired ratios use original observations. Recorded output signature changed.
+rocm-setup,seven-field invoice,median wall time,149.902,142.804,ms,24,same-process alternating arms,,,,,Setup cleanup only.
+rocm-graph,seven-field invoice,median wall time,142.804,136.306,ms,24,same-process alternating arms,,,,,Graph-only step after setup cleanup.
+cuda-combined-quality,1016 decisions; 333 source groups,Pea mean NLL,0.44132,0.44071,natural-log loss,,1000 paired source-group bootstrap replicates,,-0.00062,-0.00147,0.00015,Reported delta uses unrounded losses; reused calibration check data.
+cuda-combined-quality,9682 fields; 1275 source groups,Pod presence mean NLL,0.11834,0.11826,natural-log loss,,1000 paired source-group bootstrap replicates,,-0.00008,-0.0003,0.00014,Reused calibration check data; intervals apply to NLL only.
+cuda-reuse-check,1497 accepted documents; 9682 fields,whole-set processing duration,326.9,133.6,s,1,fixed-order quality runs,,,,,Includes harness output; 3 of 1500 requests skipped in every arm.
+cuda-combined-quality,6183 gold-present fields,Pod value exact match,0.69222,0.69141,proportion,,fixed check role,,,,,No EM interval reported.
+cuda-combined-quality,9682 fields,Pod presence accuracy at 0.5,0.95765,0.95765,proportion,,fixed check role,,,,,4 threshold flips; 140 changed returned values; 194 changed spans.

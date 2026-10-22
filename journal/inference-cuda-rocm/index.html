@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="author" content="Lode Kennes" />
+    <title>Read once, ask independently: faster inference in Vej · Vej</title>
+    <meta name="description" content="How document reuse made Vej inference faster, with measured ROCm deployment results, CUDA experiments, and the quality checks behind both." />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#F5F2EB"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#121416"
+    />
+    <link rel="canonical" href="https://itsvej.com/journal/inference-cuda-rocm/" />
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="Vej Journal"
+      href="/journal/feed.xml"
+    />
+    <meta property="og:site_name" content="Vej" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content="Read once, ask independently: faster inference in Vej · Vej" />
+    <meta property="og:description" content="How document reuse made Vej inference faster, with measured ROCm deployment results, CUDA experiments, and the quality checks behind both." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://itsvej.com/journal/inference-cuda-rocm/" />
+    <meta property="og:image" content="https://itsvej.com/journal/inference-cuda-rocm/cover.png" />
+    <meta property="og:image:alt" content="Read once, ask independently. One document prefix branches into four separate field assessments." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="article:published_time" content="2026-10-22" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Read once, ask independently: faster inference in Vej · Vej" />
+    <meta name="twitter:description" content="How document reuse made Vej inference faster, with measured ROCm deployment results, CUDA experiments, and the quality checks behind both." />
+    <meta name="twitter:image" content="https://itsvej.com/journal/inference-cuda-rocm/cover.png" />
+    <meta name="twitter:image:alt" content="Read once, ask independently. One document prefix branches into four separate field assessments." />
+    <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="/assets/brand/fonts/Fraunces.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/brand/fonts/VejSans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/brand/fonts/VejMono.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/styles.css?v=12bcf5444224" />
+    <script src="/app.js?v=8179e25905ed" defer></script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Read once, ask independently: faster inference in Vej", "description": "How document reuse made Vej inference faster, with measured ROCm deployment results, CUDA experiments, and the quality checks behind both.", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "author": {"@type": "Person", "name": "Lode Kennes", "url": "https://github.com/LodeKennes"}, "image": "https://itsvej.com/journal/inference-cuda-rocm/cover.png", "url": "https://itsvej.com/journal/inference-cuda-rocm/", "publisher": {"@type": "Organization", "name": "Vej", "url": "https://itsvej.com"}}</script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="wrap">
+      <header class="header">
+        <a href="/" aria-label="Vej home"
+          ><picture
+            ><source
+              srcset="/assets/brand/logo-light.svg"
+              media="(prefers-color-scheme: dark)" /><img
+              class="logo"
+              src="/assets/brand/logo.svg"
+              alt="Vej"
+              width="125"
+              height="66" /></picture
+        ></a>
+        <nav class="nav" aria-label="Main">
+          <a href="/models/">Models</a>
+          <a href="/evaluation/">Evaluation</a>
+          <a href="/use-cases/">Use cases</a>
+          <a href="/journal/" aria-current="page">Journal</a>
+          <a href="https://app.itsvej.com/">Sign in</a>
+        </nav>
+      </header>
+      <main id="main">
+<article class="post"><header class="page-hero post-hero"><p class="post-back"><a href="/journal/"><span aria-hidden="true">←</span> Journal</a></p><p class="eyebrow">Engineering</p><h1>Read once, ask independently: faster inference in Vej</h1><p class="lead">How document reuse made Vej inference faster, with measured ROCm deployment results, CUDA experiments, and the quality checks behind both.</p><div class="byline"><img class="avatar" src="/journal/authors/lode.jpg" alt="" width="48" height="48" /><div><span class="byline-name">Lode Kennes</span><span class="byline-meta"><time datetime="2026-10-22">22 October 2026</time> · 20 min read</span></div></div></header><figure class="post-cover"><img src="/journal/inference-cuda-rocm/cover.png" alt="Read once, ask independently. One document prefix branches into four separate field assessments." width="1200" height="630" /></figure><div class="post-layout"><aside class="post-aside"><nav class="post-toc" aria-label="On this page"><p class="eyebrow">On this page</p><a href="#first-what-vej-does">First, what Vej does</a><a href="#process-the-document-once-keep-the-questions-separate">Process the document once, keep the questions separate</a><a href="#what-changed-in-the-measurements">What changed in the measurements</a><a href="#smaller-changes-needed-their-own-experiments">Smaller changes needed their own experiments</a><a href="#faster-results-still-need-to-be-useful">Faster results still need to be useful</a><a href="#the-first-request-is-a-different-problem">The first request is a different problem</a><a href="#what-this-means-for-applications">What this means for applications</a><a href="#measurements-and-technical-notes">Measurements and technical notes</a></nav></aside><div class="prose post-body"><p>An invoice contains a supplier name, an invoice number, a date and a total. Extracting those four fields sounds like one task. Inside a model, it can become four separate passes over the same document.</p>
+<p>Add line items, payment terms and delivery details, and the repeated work grows. The model processes much of the same text again for each question.</p>
+<p>That was the largest opportunity we found while improving inference in Vej. In one controlled experiment, reusing the shared document computation reduced a sixteen-field extraction from <strong>about 1.88 seconds to 183 milliseconds</strong>. Across a broader set of 1,497 documents, the improvement was smaller: total processing time fell from <strong>327 to 134 seconds</strong>.</p>
+<p>The difference between those two results matters. A long document with many fields offers more repeated work to remove than a short one. Understanding that work helped us choose which optimizations to keep—and which to leave out.</p>
+<h2 id="first-what-vej-does">First, what Vej does</h2>
+<p>Vej uses two related models for structured questions about text. Pea handles decisions: your application supplies the possible outcomes and receives a probability for each. Pod handles extraction, using named fields such as an invoice number or a total. They share a base model.</p>
+<p>Pod, served as <code>pea-pod-1</code>, identifies evidence in the original document. It estimates whether a field is present and points to the relevant text; ordinary code then parses that text into the requested type. It can select the wrong evidence or miss a field. Its output still needs evaluation against the task.</p>
+<p>For example, a request might look like this:</p>
+<pre class="code"><code class="language-text">Document
+  Invoice INV-2291
+  Date: 22 October 2026
+  Currency: EUR
+  Total due: €1,080.00
+
+Fields to extract
+  invoice_number · date · currency · total
+</code></pre>
+<p>This is an illustrative input, not a measured model result. The important feature is the shared document: each field asks a different question about the same text.</p>
+<p>Pea uses direct prediction heads—small components that produce its scores and evidence positions—rather than writing an answer one token at a time. Our optimization work therefore focused on processing the input, running the model and reading its results.</p>
+<h2 id="process-the-document-once-keep-the-questions-separate">Process the document once, keep the questions separate</h2>
+<p>The original extraction path paired the complete document with each field’s instructions. That made field isolation straightforward, but repeatedly processed the document.</p>
+<p>The new path processes the shared document portion, or prefix, once. It keeps the resulting internal state for the duration of that request. Each field then starts from its own copy and evaluates its own instructions.</p>
+<p>That separate copy is essential. Evaluating the invoice date must not alter the starting state used to evaluate the total. We reuse the document computation while preserving the boundary between field questions. Nothing from the document is cached for a later request.</p>
+<style>
+.reuse-motion{margin:40px 0;padding:24px;border:1px solid var(--rule);background:var(--surface);border-radius:4px}.reuse-motion summary{cursor:pointer;font-weight:500;color:var(--text)}.reuse-motion summary:focus-visible{outline:2px solid var(--accent);outline-offset:6px}.reuse-motion svg{display:block;width:100%;height:auto;margin:24px 0 16px}.reuse-motion .diagram-label{font:16px "Vej Sans",sans-serif;fill:var(--text)}.reuse-motion .diagram-note{font:13px "Vej Mono",monospace;fill:var(--text-2)}.reuse-motion .diagram-line{fill:none;stroke:var(--rule);stroke-width:2}.reuse-motion .diagram-box{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}.reuse-motion .diagram-dot{fill:var(--accent);opacity:0}.reuse-motion[open] .diagram-dot{animation:reuse-travel 4.8s linear infinite}.reuse-motion[open] .diagram-dot:nth-of-type(2){animation-delay:1.2s}.reuse-motion[open] .diagram-dot:nth-of-type(3){animation-delay:2.4s}.reuse-motion[open] .diagram-dot:nth-of-type(4){animation-delay:3.6s}.reuse-motion p{font-size:14px!important;line-height:1.6!important;margin:0}.reuse-still{display:none}@keyframes reuse-travel{0%{offset-distance:0%;opacity:0}8%{opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}@media(prefers-reduced-motion:reduce){.reuse-motion[open] .diagram-dot{animation:none}.reuse-still{display:inline}}
+
+.technical-appendix{margin:24px 0;padding:24px;border:1px solid var(--rule);background:var(--surface);border-radius:4px}.technical-appendix>summary{font-weight:500;cursor:pointer;line-height:1.5}.technical-appendix>summary:focus-visible{outline:2px solid var(--accent);outline-offset:6px}.technical-appendix h3{font-size:26px}.technical-appendix p,.technical-appendix li{font-size:16px;line-height:1.7}.technical-appendix table{font-size:13px;overflow-wrap:anywhere}.technical-appendix .post-figure{margin:28px 0}.technical-appendix .post-figure img{width:100%;height:auto}.technical-appendix [id]{scroll-margin-top:24px}@media(max-width:480px){.technical-appendix{padding:16px}}
+</style>
+<details class="reuse-motion">
+<summary>Animate the document-to-field path <span class="reuse-still">(motion disabled)</span></summary>
+<svg viewBox="0 0 600 310" role="img" aria-labelledby="reuse-title reuse-desc">
+<title id="reuse-title">One document prefix, independent field assessments</title>
+<desc id="reuse-desc">The document is encoded once. Four branches each receive a separate copy of its attention and recurrent state before evaluating a field. All retained state ends with the request.</desc>
+<path class="diagram-line" d="M135 150H235M235 150V43H365M235 150V115H365M235 150V187H365M235 150V259H365"/>
+<rect class="diagram-box" x="4" y="110" width="150" height="80" rx="4"/>
+<text class="diagram-label" x="79" y="142" text-anchor="middle">Document</text><text class="diagram-note" x="79" y="168" text-anchor="middle">encode once</text>
+<rect class="diagram-box" x="365" y="17" width="230" height="52" rx="4"/><text class="diagram-label" x="480" y="49" text-anchor="middle">Field 1 · own state</text>
+<rect class="diagram-box" x="365" y="89" width="230" height="52" rx="4"/><text class="diagram-label" x="480" y="121" text-anchor="middle">Field 2 · own state</text>
+<rect class="diagram-box" x="365" y="161" width="230" height="52" rx="4"/><text class="diagram-label" x="480" y="193" text-anchor="middle">Field 3 · own state</text>
+<rect class="diagram-box" x="365" y="233" width="230" height="52" rx="4"/><text class="diagram-label" x="480" y="265" text-anchor="middle">Field 4 · own state</text>
+<circle class="diagram-dot" r="5" style="offset-path:path('M154 150H235V43H365')"/>
+<circle class="diagram-dot" r="5" style="offset-path:path('M154 150H235V115H365')"/>
+<circle class="diagram-dot" r="5" style="offset-path:path('M154 150H235V187H365')"/>
+<circle class="diagram-dot" r="5" style="offset-path:path('M154 150H235V259H365')"/>
+</svg>
+<p>Conceptual data flow, not a timing trace. Branches show isolation, not simultaneous execution. Close this panel to stop the animation.</p>
+</details>
+<p>Reuse also has a cost: building and copying the saved state takes time. For a short document, that overhead can exceed the work saved. We use a threshold based on document length and field count to decide when to take the reuse path.</p>
+<p>The negative results helped set that policy. Forcing reuse on a short, four-field ROCm example made it slower: <strong>65 to 98 ms</strong>. The automatic policy skipped reuse there. It is still a heuristic: one short CUDA example with sixteen fields would benefit from reuse but falls below the current threshold.</p>
+<h2 id="what-changed-in-the-measurements">What changed in the measurements</h2>
+<p>We tested two GPU software stacks: <strong>CUDA</strong>, used with NVIDIA GPUs, and <strong>ROCm</strong>, used with AMD GPUs. We compared each implementation with its own reference on the same stack. These figures are not a performance ranking between CUDA and ROCm.</p>
+<p>In the CUDA experiment, the sixteen-field example went from <strong>1,881 to 183 ms</strong>, with a reported paired speedup of <strong>10.23×</strong>. Each request shape ran twenty times per setting after warm-up, with the order of settings shuffled between repetitions. These timings cover the prediction path inside the benchmark process, including result readout, and exclude the API and network. <a href="#ref-cuda">[1]</a></p>
+<figure class="post-figure"><img src="cuda-reuse.svg" alt="CUDA document-reuse experiment: six fields on 128 words fell from 201 to 71 ms; eight mixed fields on 512 words from 1107 to 152 ms; sixteen fields on 512 words from 1881 to 183 ms; twelve mixed fields on 1000 words from 3287 to 309 ms." width="576" height="396" loading="lazy" decoding="async" /><figcaption>CUDA prediction-path medians on synthetic inputs. Twenty interleaved repetitions per setting and shape. Lower is better. These are selected examples; the broader 1,497-document run improved by about 2.45× overall.</figcaption></figure>
+<p>The 1,000-word CUDA example also changed its recorded output, so its speedup does not establish identical results. Output quality is checked separately below.</p>
+<p>On the broader CUDA check set, processing time fell from <strong>326.9 to 133.6 seconds</strong>, about <strong>2.45×</strong>. That is a more useful expectation check than treating the largest example as a universal multiplier. The inputs were validation documents already used during development, so this run was not a new, independent quality test.</p>
+<p>The ROCm deployment measurements answered a different question: did the improvement remain visible through the local API? A twenty-field, 1,200-word example fell from <strong>2.94 seconds to 317 milliseconds</strong>, about <strong>9.3×</strong>. This release combined document reuse with a ROCm/PyTorch runtime update, so that gain belongs to the combined release. Each value is the median of five warmed calls. <a href="#ref-reuse">[2]</a></p>
+<figure class="post-figure"><img src="rocm-api.svg" alt="Recorded ROCm local-API comparison: seven fields on 320 words fell from 294.9 to 141.6 ms; thirteen fields on 800 words from 1279.4 to 226.7 ms; twenty fields on 1200 words from 2941.1 to 317.0 ms." width="576" height="396" loading="lazy" decoding="async" /><figcaption>Recorded ROCm deployment comparison, including local API overhead. Five warmed calls per version and shape. The update combined runtime changes and document reuse; these small samples do not estimate public-network or tail latency.</figcaption></figure>
+<p>The seven-, thirteen- and twenty-field deployment examples retained their extracted answers. Probabilities changed, and the larger validation checks found changed values too. Speed and output quality needed separate checks.</p>
+<h2 id="smaller-changes-needed-their-own-experiments">Smaller changes needed their own experiments</h2>
+<p>Removing repeated document work had the largest effect on long extraction requests. Short requests exposed other costs.</p>
+<p><strong>Choose the right GPU operations.</strong> A kernel is a small program the GPU executes. We tested specialized kernels for operations previously handled by more general implementations. A fused convolution kernel—a combined implementation of a local sequence operation—reduced the long CUDA examples by roughly 7–10%, while short examples saw essentially no gain. We verified that the specialized kernel actually ran.</p>
+<p><strong>Match batching to input length.</strong> A batch processes several rows together. Increasing Pea’s candidate batch from four to eight helped a short eight-option decision: <strong>89 became 74 ms</strong>. On a longer input, the same change hurt: <strong>778 became 879 ms</strong>. The candidate therefore uses the larger batch only for short rows.</p>
+<p><strong>Check numerical precision explicitly.</strong> Pea’s adapters are small sets of learned adjustments attached to the shared base model. The extraction adapters used 32-bit arithmetic, even though the backbone used BF16, a 16-bit number format called bfloat16. Testing BF16 adapters reduced computation time, but changed numerical outputs. It required a labelled quality check; matching the model weights alone would not establish matching results.</p>
+<p><strong>Remove setup work from each request.</strong> Repeating model-mode setup and tokenizing the same decision rows twice cost a few milliseconds. Removing that repetition reduced a short CUDA decision example from <strong>36.8 to 32.7 ms</strong>. That is useful on a small request, but it cannot explain a tenfold improvement on a long extraction.</p>
+<p>We also tested <strong>graph replay</strong>. The CPU normally submits many operations to the GPU; a captured graph lets it submit a prepared sequence again with less repeated launch work. Graph replay helps only when a request matches the captured execution shape. The CUDA candidate leaves it off until shape coverage is understood. The diagram below explains the mechanism; its animation is not a timing measurement.</p>
+<details class="reuse-motion">
+<summary>Animate eager launches and graph replay <span class="reuse-still">(motion disabled)</span></summary>
+<svg viewBox="0 0 600 320" role="img" aria-labelledby="launch-title launch-desc">
+<title id="launch-title">Graph replay reduces repeated CPU launch work</title>
+<desc id="launch-desc">The eager example launches three GPU operations individually. The graph example submits a previously captured sequence with one replay. The same GPU operations remain.</desc>
+<text class="diagram-label" x="4" y="23">Eager execution · separate CPU launches</text>
+<text class="diagram-note" x="91" y="63" text-anchor="middle">launch</text><text class="diagram-note" x="299" y="63" text-anchor="middle">launch</text><text class="diagram-note" x="507" y="63" text-anchor="middle">launch</text>
+<path class="diagram-line" d="M91 75V112M299 75V112M507 75V112M178 142H212M386 142H420"/>
+<rect class="diagram-box" x="4" y="112" width="174" height="60" rx="4"/><text class="diagram-label" x="91" y="148" text-anchor="middle">GPU operation A</text>
+<rect class="diagram-box" x="212" y="112" width="174" height="60" rx="4"/><text class="diagram-label" x="299" y="148" text-anchor="middle">GPU operation B</text>
+<rect class="diagram-box" x="420" y="112" width="174" height="60" rx="4"/><text class="diagram-label" x="507" y="148" text-anchor="middle">GPU operation C</text>
+<text class="diagram-label" x="4" y="215">Graph execution · one replay submission</text>
+<rect class="diagram-box" x="4" y="246" width="152" height="60" rx="4"/><text class="diagram-label" x="80" y="282" text-anchor="middle">CPU · replay</text>
+<path class="diagram-line" d="M156 276H244"/>
+<rect class="diagram-box" x="244" y="246" width="350" height="60" rx="4"/><text class="diagram-label" x="419" y="282" text-anchor="middle">GPU · operation A → B → C</text>
+<circle class="diagram-dot" r="5" style="offset-path:path('M91 75V112')"/>
+<circle class="diagram-dot" r="5" style="offset-path:path('M299 75V112')"/>
+<circle class="diagram-dot" r="5" style="offset-path:path('M507 75V112')"/>
+<circle class="diagram-dot" r="5" style="offset-path:path('M156 276H244')"/>
+</svg>
+<p>Conceptual submission pattern; animation speed does not represent latency. GPU computation remains. Close this panel to stop the animation.</p>
+</details>
+<p>These changes target different costs. Their individual speedups cannot simply be multiplied to predict the final result.</p>
+<h2 id="faster-results-still-need-to-be-useful">Faster results still need to be useful</h2>
+<p>Changing computation order, kernels or precision can move a probability or shift the edge of an evidence span. A stable overall accuracy score can hide changes to individual answers.</p>
+<p>We checked the combined CUDA candidate on <strong>1,016 decisions</strong> and <strong>9,682 extraction fields</strong>, using the existing calibration check data. For extraction, the score for identifying whether a field was present remained about <strong>95.77%</strong>. Exact value match among fields known to be present moved from <strong>69.22% to 69.14%</strong>. Across all 9,682 fields, <strong>140 returned values changed</strong>—about <strong>1.45%</strong>—and four presence-probability decisions crossed the default threshold. These quantities have different denominators; a changed value is not automatically an additional error. <a href="#ref-combined">[3]</a></p>
+<p>We also checked probability quality. Calibration asks whether probabilities agree with observed frequencies on evaluated data. A separate loss metric measures how much probability the model assigns to the labelled outcomes. Its measured changes were small, and the uncertainty intervals included zero. That does not prove that the implementations are equivalent or that accuracy improved. The existing calibration was retained for the tested data mixture; confidence in an evidence span remains a separate, uncalibrated score.</p>
+<p>The detailed metrics, definitions and uncertainty calculation are in the optional notes below. Those notes also explain how repeated use of validation data limits the conclusions.</p>
+<h2 id="the-first-request-is-a-different-problem">The first request is a different problem</h2>
+<p>Some GPU programs are compiled and tuned when an execution shape is first encountered. That makes a fresh process behave differently from one that has already handled similar requests.</p>
+<p>In the ROCm study, a first short Pea request took <strong>43.7 seconds</strong>; its repeat took about <strong>70 ms</strong>. Running synthetic requests before the service reported ready moved much of that cost into startup. After a <strong>72-second warm-up</strong>, the first short request took about <strong>637 ms</strong>, followed by about <strong>70 ms</strong> on its repeat. Startup became longer, and some first-request overhead remained. <a href="#ref-warmup">[9]</a></p>
+<p>The CUDA experiments showed the same need to distinguish cold and warm execution. An empty compilation cache produced an <strong>8.7–8.8-second</strong> first long extraction. An extended warm-up reduced it to about <strong>2.4 seconds</strong>, at the cost of longer startup. A fresh process inheriting a warm cache avoided the same penalty on the measured shapes.</p>
+<p>Network setup also changes the number a user sees. In a corrected client probe, short extraction measured about <strong>210 ms</strong> with a fresh HTTPS connection and <strong>119 ms</strong> with connection reuse. That difference came from the request path, not a new model optimization. We keep those observations separate from the CUDA prediction-path measurements. <a href="#ref-transport">[10]</a></p>
+<h2 id="what-this-means-for-applications">What this means for applications</h2>
+<p>Long documents with many requested fields offer the clearest opportunity for prefix reuse. Short inputs benefit from careful setup, batching and kernel choices. First-use requests need deliberate warm-up. Each improvement depends on the work the request actually asks the system to do.</p>
+<p>There is a queueing implication too. Pea’s decision and extraction paths share model admission. In one CUDA baseline experiment, a short decision took about <strong>36 ms</strong> alone and a median <strong>1,655 ms</strong> while long extraction requests looped in another thread. Shortening the blocking request should help, but we have not measured the optimized mixed-load result. It would be premature to call that another tenfold gain.</p>
+<p>The results reported here come from <strong>21–22 October 2026</strong>. They include recorded ROCm deployments and controlled CUDA experiments. At the time these measurements were compiled, the combined CUDA optimization release was still awaiting final checks and release coordination; the available records contain no completed post-deployment comparison for that candidate.</p>
+<p>The next test is how these changes behave across representative request shapes and sustained mixed traffic. For now, the evidence supports a specific engineering result: shared document computation can remove a large amount of repeated work while keeping field assessments separate. The remaining job is to measure the benefit—and the output changes—on the workloads that matter to the application.</p>
+<h2 id="measurements-and-technical-notes">Measurements and technical notes</h2>
+<p>The main results and chart data are available below without access to Vej’s code or weights. The CSV contains published aggregates, not individual timings or private validation rows. It supports checking the figures and arithmetic; reproducing the underlying experiments requires the original implementation and evaluation inputs.</p>
+<p><a id="aggregate-data" download="vej-inference-aggregates.csv" href="/journal/data/inference-cuda-rocm.csv">Download the aggregate measurements (CSV)</a></p>
+<details class="technical-appendix" id="methods-appendix">
+<summary>How the experiments were run</summary>
+<h3 id="how-the-reuse-policy-counts-work">How the reuse policy counts work</h3>
+<p>For F fields, a document prefix of P tokens and field suffixes of lengths Sᵢ, the reference evaluates approximately F·P + ΣSᵢ token positions. Reuse reduces that to P + ΣSᵢ, ignoring padding. This counts avoided work; hybrid attention, copying and batching prevent converting the count directly into a latency prediction. Automatic reuse selects when (F − 1) × prefix tokens ≥ 1,024. Request framing is part of the prefix, and selected reuse bypasses graph replay.</p>
+<p>The studies were conducted on 21–22 October 2026. Each comparison holds its execution environment fixed unless explicitly identified as a combined release comparison. CUDA and ROCm use different workloads, token budgets and runtime versions; their absolute latencies are not a controlled comparison between backends.</p>
+<p>CUDA synthetic fixtures repeat authored word patterns or invoice fragments. Word counts are whitespace-delimited words, not tokenizer tokens; “mixed” denotes heterogeneous field types. These are controlled shape probes rather than sampled customer documents.</p>
+<p>CUDA experiments used PyTorch 2.14.0+cu130, Transformers 5.17, PEFT 0.21 and flash-linear-attention 0.5.2. The reference used a BF16 backbone, FP32 Pod adapters and FP32 native heads. Pod defaults permitted up to 32 rows and 12,288 padded tokens per forward. ROCm’s isolated reuse experiment used PyTorch 2.14.0+rocm10.1.0, BF16 backbone execution, FP32 adapters/heads and an 8,192-token batch budget, with graphs disabled. The earlier ROCm graph experiment used the previous runtime and reference linear-attention kernels. <a href="#ref-cuda">[1]</a><a href="#ref-reuse">[2]</a><a href="#ref-graphs">[4]</a></p>
+<table>
+<thead>
+<tr>
+<th>Study</th>
+<th>Design and sampling</th>
+<th>Quantity measured</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CUDA reuse ablation</td>
+<td>Two warm-ups per shape/arm; twenty rounds, arm order shuffled within each round</td>
+<td>Native <code>predict</code> wall time, including response readout; excludes HTTP/TLS/gateway</td>
+</tr>
+<tr>
+<td>Other CUDA ablations</td>
+<td>Convolution: 25 rounds; candidate batch size: 30; CPU cleanup and graphs: 40; adapter precision/reuse: 20</td>
+<td>Same native timing boundary, with interleaved arms</td>
+</tr>
+<tr>
+<td>ROCm isolated reuse</td>
+<td>Five warmed calls per arm and synthetic shape; same runtime</td>
+<td>Extraction wall time without HTTP or graph replay</td>
+</tr>
+<tr>
+<td>ROCm deployed release</td>
+<td>Five warmed local-API calls per version/shape; consecutive before/after windows</td>
+<td>Combined ROCm-stack upgrade and reuse, including API overhead</td>
+</tr>
+<tr>
+<td>ROCm setup/graph ablation</td>
+<td>Twenty-four trials per arm; alternating order; device completion synchronized</td>
+<td>Paired backend comparison, separate from deployment windows</td>
+</tr>
+</tbody>
+</table>
+<p>The CUDA benchmark ran in a separate process loaded like serving. Each ablation’s rounds came from one process, not independent restarts. Synthetic shape order stayed fixed; arm order within a shape/round was shuffled with seed 20261022. Serving counters recorded no production inference requests during those experiments. The timed call includes fixture construction, validation, native prediction and host readout; arm selection, model loading and readiness work are outside it. Ordinary calls were not bracketed by explicit device synchronization: returned predictions read their required outputs to the host. Profiler-instrumented calls were kept separate from the ablation timing results. CUDA work is asynchronous, so the interval outside recorded kernels cannot automatically be assigned to Python overhead. <a href="#ref-cuda">[1]</a></p>
+<p>We report arm medians and, where available, the median of within-round speedup ratios. These are different estimators:</p>
+<pre class="code"><code class="language-text">arm-median ratio = median(reference) / median(candidate)
+paired speedup   = median(reference_round / candidate_round)
+</code></pre>
+<p>For the CUDA 512-word, sixteen-field case, the reported paired estimator is 10.23×; the ratio of the unrounded arm medians is approximately 10.30×. Dividing the displayed, whole-millisecond medians gives approximately 10.28× because of rounding. The retained latency aggregates do not contain the original timing pairs, so no new latency confidence intervals or significance tests are constructed here. Five-call ROCm medians are descriptive engineering measurements.</p>
+<h3 id="same-runtime-rocm-check">Same-runtime ROCm check</h3>
+<p>On the isolated ROCm reuse comparison, the 1,200-word, twenty-field request fell from 3,041.9 to 292.7 ms. Across 300 validation documents, total processing time fell from 67.5 to 37.8 seconds. This comparison holds the runtime fixed and excludes graphs; the main article’s local-API release comparison combines reuse with a runtime update.</p>
+<figure class="post-figure"><img src="rocm-reuse.svg" alt="ROCm isolated reuse ablation: 300.7 to 101.0 ms for seven fields, 1307.4 to 177.4 for thirteen fields, and 3041.9 to 292.7 for twenty fields." width="576" height="396" loading="lazy" decoding="async" /><figcaption>Same-runtime ROCm ablation, warmed medians of five calls per arm. Graph replay was disabled. These samples support descriptive comparisons; they do not provide a latency-distribution or capacity estimate.</figcaption></figure></details>
+<details class="technical-appendix" id="quality-appendix">
+<summary>Quality metrics, uncertainty and additional results</summary>
+<p>We distinguish three questions: whether an optimization changes numerical outputs, whether task metrics change on labelled data, and whether the resulting probabilities retain acceptable calibration diagnostics. An exact-response check addresses the first question only for its tested cases. An unchanged aggregate score does not establish identical field outputs or stable customer thresholds.</p>
+<p>The ROCm reuse check used 300 validation documents and 1,729 fields. Value exact match was 79.76% with reuse off and with automatic reuse, but three presence statuses, twenty-four values and thirty spans differed. List F1 moved from 0.4504 to 0.4499. This was validation reuse, not an untouched final test. <a href="#ref-reuse">[2]</a></p>
+<p>CUDA checks reused the frozen calibration roles: 1,016 Pea decisions across 333 source groups, held out from temperature fitting, and Pod’s separate check role containing 9,682 measured fields across 1,275 groups. Of those Pod fields, 6,183 were gold-present and form the value-exact-match denominator. The group counts and gold-present denominator were independently recounted from the frozen evaluation input. <a href="#ref-cuda">[1]</a></p>
+<p>Pea retained temperature approximately 1.3335. Pod retained its previously fitted presence calibrator; span confidence remained uncalibrated. The Pod calibration protocol separated fitting and checking by document group. Repeated optimization against these checks makes them development evidence, even though their original fit/check separation is retained. <a href="#ref-calibration">[8]</a></p>
+<p>For the combined CUDA candidate, the first-party qualification report records:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align:right">Reference</th>
+<th style="text-align:right">Combined candidate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pea NLL</td>
+<td style="text-align:right">0.44132</td>
+<td style="text-align:right">0.44071</td>
+</tr>
+<tr>
+<td>Pea top-1 accuracy</td>
+<td style="text-align:right">81.693%</td>
+<td style="text-align:right">81.890%</td>
+</tr>
+<tr>
+<td>Pea ECE, 15 bins</td>
+<td style="text-align:right">0.03952</td>
+<td style="text-align:right">0.03658</td>
+</tr>
+<tr>
+<td>Pod presence NLL</td>
+<td style="text-align:right">0.11834</td>
+<td style="text-align:right">0.11826</td>
+</tr>
+<tr>
+<td>Pod presence Brier score</td>
+<td style="text-align:right">0.03222</td>
+<td style="text-align:right">0.03217</td>
+</tr>
+<tr>
+<td>Pod presence ECE, 15 bins</td>
+<td style="text-align:right">0.00806</td>
+<td style="text-align:right">0.00853</td>
+</tr>
+<tr>
+<td>Pod presence accuracy at 0.5</td>
+<td style="text-align:right">95.765%</td>
+<td style="text-align:right">95.765%</td>
+</tr>
+<tr>
+<td>Pod value exact match, gold-present fields</td>
+<td style="text-align:right">69.222%</td>
+<td style="text-align:right">69.141%</td>
+</tr>
+</tbody>
+</table>
+<p>NLL is the mean negative natural logarithm of the probability assigned to the labelled outcome; lower is better. Pod presence uses binary NLL. The Brier score is mean squared probability error. ECE uses fifteen equal-width bins: Pea compares top confidence with correctness, while Pod compares presence probability with the binary presence label. Neither diagnostic calibrates evidence-span correctness. Value exact match uses gold-present fields as its denominator; presence accuracy includes both present and absent fields. These metrics answer different questions and should not be substituted for one another.</p>
+<figure class="post-figure"><img src="quality-intervals.svg" alt="Paired NLL differences for the combined CUDA candidate: Pea −0.00062 with 95% group-bootstrap interval −0.00147 to +0.00015; Pod presence −0.00008 with interval −0.00030 to +0.00014." width="576" height="331" loading="lazy" decoding="async" /><figcaption>Candidate-minus-reference mean NLL differences and reported 95% group-bootstrap intervals. Negative values favour the candidate within each task. Both intervals include zero.</figcaption></figure>
+<p>The quality analysis computes paired per-observation NLL differences, resamples source groups with replacement 1,000 times using seed 20261022 and takes the 2.5th and 97.5th percentiles. Observations within a sampled group are retained together; the statistic remains an observation-weighted mean. This avoids treating related fields as independent bootstrap units. The intervals apply to NLL; uncertainty intervals for ECE and value exact match were not reported. <a href="#ref-cuda">[1]</a><a href="#ref-combined">[3]</a></p>
+<p>The point estimates favour the candidate for NLL, but both intervals cross zero. This is insufficient evidence to claim improved NLL, equivalence, or formal non-inferiority. The engineering checks supported retaining the existing calibration artifacts on the tested mixture. Pea’s earlier 0.01 NLL/ECE tolerance was a verification criterion, not a universal Pod acceptance margin. ECE increased slightly for Pod, and value exact match decreased by 0.081 percentage points. <a href="#ref-combined">[3]</a></p>
+<p>Two Pea top answers changed. Across all 9,682 Pod fields, 140 values and 194 spans changed, with four presence-threshold flips. The changed-value fraction is approximately 1.45% of all fields; this differs from the gold-present denominator used for exact-match accuracy. The original Pod presence fit itself also traded improved aggregate probability scores for lower present recall and did not improve every field-type or source slice. Custom null thresholds therefore need their own recheck. Across ROCm process restarts, numerical drift was observed even on the reference path; retaining the autotune cache did not remove it. Same-process graph exactness does not establish cross-restart or cross-backend bit identity. <a href="#ref-combined">[3]</a><a href="#ref-calibration">[8]</a><a href="#ref-fla">[6]</a></p>
+<p>The combined CUDA report also records check-set processing totals of 237 → 209 seconds for Pea and 327 → 121 seconds for Pod. These give approximately 1.13× and 2.70× by ratios of totals. They are report-attributed combined-candidate results. <a href="#ref-combined">[3]</a></p>
+<h3 id="additional-dispatch-and-decoder-measurements">Additional dispatch and decoder measurements</h3>
+<p>The earlier ROCm paired experiment separated setup cleanup from graph replay: 149.902 ms with original eager setup, 142.804 ms with startup-only setup, and 136.306 ms with startup-only setup plus graphs. The graph-only reduction was about 4.55%; the combined reduction was 9.07%. Twenty-four trials per arm alternated order, synchronized device completion and required exact full responses. These measurements preceded the later kernel and runtime updates. <a href="#ref-graphs">[4]</a></p>
+<figure class="post-figure"><img src="dispatch.svg" alt="ROCm setup and graph-replay medians: 149.902, 142.804 and 136.306 ms." width="576" height="346" loading="lazy" decoding="async" /><figcaption>Twenty-four trials per arm; same-process comparison. Graph replay alone compares the final two bars. Other request shapes retained eager execution.</figcaption></figure>
+<p>A banded span decoder reduced scalar-span decoding from 1.834 to 0.669 ms on six rows of 2,048 tokens, with ten warmed samples per arm. Additional peak allocated memory fell from 40.03 to 3.77 MiB. Complete API measurements did not establish a corresponding latency improvement: sequential p50 was nearly unchanged and mixed-request p50 increased. This is a component result. <a href="#ref-decoder">[7]</a></p>
+</details>
+<details class="technical-appendix" id="sources-appendix">
+<summary>Source records and evidence limits</summary>
+<p>The aggregate results come from Vej’s internal engineering records. Revision identifiers below are archival provenance for maintainers; they are not public links and are not needed to understand the article. Private validation rows and operational identifiers are not included in the article. Source revisions identify the records, not a claim that every experiment ran at the article branch’s revision.</p>
+<p id="ref-cuda"><strong>[1] CUDA experiment record and harness.</strong> 22 October 2026; archived at source revision <code>615b0da</code>. Separate reuse, convolution, batching, setup, graph, precision, startup and queueing attempts; the harness defines timing summaries and the group bootstrap. Source-group counts and the gold-present denominator were independently recounted from the corresponding frozen evaluation input during this article's methods audit.</p>
+<p id="ref-reuse"><strong>[2] Pod document-reuse qualification.</strong> 21 October 2026; evidence revision <code>5a358af</code>, deployed implementation <code>ba6f662</code>. Isolated ROCm ablation, validation drift and combined-release local-API measurements.</p>
+<p id="ref-combined"><strong>[3] Combined CUDA candidate qualification.</strong> 22 October 2026; source revision <code>5d4ebda</code>. Frozen calibration checks and combined processing totals; separate from release completion.</p>
+<p id="ref-graphs"><strong>[4] Setup and graph-replay qualification.</strong> 21 October 2026; evidence revision <code>e8e754e</code>, deployed implementation <code>438b1fe</code>. Same-process paired experiment and separate serving samples.</p>
+<p id="ref-runtime"><strong>[5] ROCm runtime-stack qualification.</strong> 21 October 2026; evidence revision <code>5a358af</code>. Runtime update, fault regression and warmed workload comparisons.</p>
+<p id="ref-fla"><strong>[6] Linear-attention kernel qualification.</strong> 21 October 2026; evidence revision <code>7390efc</code>. Labelled quality checks, deployment samples and restart drift.</p>
+<p id="ref-decoder"><strong>[7] Native inference-efficiency qualification.</strong> 21 October 2026; evidence revision <code>d70052c</code>, deployed implementation <code>7fd3075</code>. Banded decoder, exactness checks and complete-API non-result.</p>
+<p id="ref-calibration"><strong>[8] Production calibration protocol and results.</strong> 22 October 2026; protocol revision <code>1f86dc6</code>, results recorded with <code>4ae4bbf</code>. Separate fitting/check roles, probability metrics and source/type limitations.</p>
+<p id="ref-warmup"><strong>[9] Pea startup warm-up qualification.</strong> 21 October 2026; evidence revision <code>48da363</code>, deployed implementation <code>84fa4b5</code>.</p>
+<p id="ref-transport"><strong>[10] Production speed analysis and execution chronology.</strong> 22 October 2026; analysis archived at <code>615b0da</code> and the production setup thread. Corrected socket measurements, discarded failed-restart probe, release coordination and evidence cutoff.</p>
+<h3 id="limits-of-this-study">Limits of this study</h3>
+<p>The experiments are exploratory. Synthetic fixtures do not establish a customer workload distribution; the calibration check sets have been reused during development. The latency aggregates retain summaries rather than per-round timing pairs. No new latency confidence intervals, population-wide quality claims, p95/p99 service estimate or production-capacity claim follow from them. The combined candidate report is attributed evidence; its raw outputs were not independently reconstructed for this article.</p>
+</details>
+<script>
+(function () {
+  function reveal(hash) {
+    var target = document.getElementById(hash.slice(1));
+    if (!target) return;
+    var panel = target.closest("details");
+    while (panel) {
+      panel.open = true;
+      panel = panel.parentElement && panel.parentElement.closest("details");
+    }
+  }
+  document.addEventListener("click", function (event) {
+    if (!(event.target instanceof Element)) return;
+    var link = event.target.closest('a[href^="#"]');
+    if (link) reveal(link.hash);
+  });
+  window.addEventListener("hashchange", function () { reveal(location.hash); });
+  reveal(location.hash);
+})();
+</script>
+<section class="post-author" aria-label="About the author"><img class="avatar" src="/journal/authors/lode.jpg" alt="" width="72" height="72" /><div><p class="eyebrow">Written by</p><p class="post-author-name"><a href="https://github.com/LodeKennes">Lode Kennes</a></p><p class="micro">Founder, Vej</p><p>Lode builds Vej&#x27;s models, the hosted API and this website.</p></div></section></div></div></article><section class="section" aria-labelledby="more"><h2 id="more" class="journal-section-title">More from the journal</h2><div class="journal-list"><article class="journal-row"><a class="journal-thumb" href="/journal/pea-extraction-beta/" tabindex="-1" aria-hidden="true"><img src="/journal/pea-extraction-beta/cover.png" alt="" width="1280" height="672" loading="lazy" decoding="async" /></a><div><p class="eyebrow">Older · Release</p><h3><a href="/journal/pea-extraction-beta/">Pea extraction is now in hosted Beta</a></h3><p>Pea now extracts typed fields from text by pointing directly to evidence spans, live on /v1beta/extract.</p><div class="byline"><img class="avatar" src="/journal/authors/lode.jpg" alt="" width="32" height="32" /><div><span class="byline-name">Lode Kennes</span><span class="byline-meta"><time datetime="2026-10-21">21 October 2026</time> · 2 min read</span></div></div></div></article></div></section>
+      </main>
+      <footer>
+        <div class="footer-brand">
+          <a href="/" aria-label="Vej home"
+            ><picture
+              ><source
+                srcset="/assets/brand/logo-light.svg"
+                media="(prefers-color-scheme: dark)" /><img
+                src="/assets/brand/logo.svg"
+                alt="Vej"
+                width="76"
+                height="40" /></picture
+          ></a>
+          <span>Vej builds Pea, Pepper and Pumpkin. · 2026</span>
+        </div>
+        <nav aria-label="Footer">
+          <a href="https://app.itsvej.com/">Sign in</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

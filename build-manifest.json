@@ -1,5 +1,5 @@
 {
-  "source_revision": "4ae4bbf24ae823a08fc78505cc7c46b55418645e",
+  "source_revision": "6c25a71342fc92e9ea8abe9b989fef1b5826307e",
   "source_dirty": false,
   "files_sha256": {
     ".gitattributes": "9b50fc6d731e19e5737a1a98edf2a0fbb4f35d36809da011a05bb827f6175124",
@@ -53,19 +53,27 @@
     "evidence/tool-evaluation.json": "5b46020a744d063130467186d0948753d477e9e18de37101c6c596aea5b549c5",
     "index.html": "9c2fc0d0d03c7489d8c08b6b97daa30564a021b220eaec8919d44849286cae9a",
     "journal/authors/lode.jpg": "e24f009d8c7267fc40437b3455cfd977ce51807add38ec382db784139c70df51",
-    "journal/feed.xml": "1b3fffda74f7714bce49a54c7523aa3cb2d9054a3f47afb54725271443c61692",
-    "journal/index.html": "b80ca9d0ee69254790705241379a4b8cfc7c66079a29b1b875c3cebc6c8cc245",
+    "journal/data/inference-cuda-rocm.csv": "188b34cb96f0534cef41404b4929ca53d43067b58d5d44c7ceb23e1ff17c8964",
+    "journal/feed.xml": "cccfeee2a533096a32484520c0dbc29bb95fa807568eb3a8122157e9568a88dd",
+    "journal/index.html": "9456d125ac5c59ba2ac49ea15285e5ce0873274325b6defdc5f4c93854fe42f1",
+    "journal/inference-cuda-rocm/cover.png": "32e92ea65a1069ed63b39f9ba0185ab13a1fca700b08cdb85347c06c434fe74c",
+    "journal/inference-cuda-rocm/cuda-reuse.svg": "870892ed77ca71f753d75b224638ad5f7911e38900159008aa51ac24ca76e55f",
+    "journal/inference-cuda-rocm/dispatch.svg": "56cdfd18323f7d5e7e857cf9929b3e295bf13424ed050dc45ce6336b39399699",
+    "journal/inference-cuda-rocm/index.html": "6a0f613dde2b02cad61bf5f4681ed9d4911367a97f650d574a099f93702b9a46",
+    "journal/inference-cuda-rocm/quality-intervals.svg": "4e5b24526554f136928921984e6c8c7213613002698ee24c0b3bb7e212de18b8",
+    "journal/inference-cuda-rocm/rocm-api.svg": "656d60392186f9600434167508bbcbe6391c2a38cbd86b3d36e252da5aeb84da",
+    "journal/inference-cuda-rocm/rocm-reuse.svg": "afcc6ffe5d24384a0bef843c1ac1ea253c47d1f71a8b59b49be946a0a7b34dd5",
     "journal/introducing-the-journal/index.html": "d841a13be8e83aa442dfb940495ecef5c98101225f241db5b42936ce4ea0aea7",
     "journal/pea-decisions-launch/accuracy-by-type.svg": "73dbc2d54da52eba4c65cd32fa20c5164b340cddcf915e06d3b7724c1d82720a",
     "journal/pea-decisions-launch/cover.png": "939c11a1cf096af7d5454a5e0cf9ea278249714ea651a4a3b16b9283884b27c7",
     "journal/pea-decisions-launch/index.html": "cd821abda18b87161b77c042651dbcb2feaa63ef99b5a32e9bf47bc13c8bd065",
     "journal/pea-decisions-launch/same-rows-comparison.svg": "3268117b9f6a47fbb339f748ac1bfdef41df8607ad38326e82ef8c20f20774a0",
     "journal/pea-extraction-beta/cover.png": "3f4a89c0792bfe80029b4ae8658b393cb0802c9c56bc52fde4f8e157438efa0b",
-    "journal/pea-extraction-beta/index.html": "0d7570e136c749bacf6a6790e1a71cf80cd5f514a9f193267529c3c3237cd529",
+    "journal/pea-extraction-beta/index.html": "129bb690fcac2202d6383603b384e3713829684bf862924f7f380ef1b953b69d",
     "journal/pea-extraction-beta/spans.svg": "98d5d91abd679334b6ea35aa7e5a5a78c4725b2ad49d36796fcb9eebff5c65af",
     "licenses/index.html": "c3899c92fcccdf72592619f462e9e361a0341dbc7b767f18419aefef02d3777d",
     "licenses.html": "1259a70d12b7d51b1e626d9fb8bbf04f1a9a344fbc0f6029f77c171ed329bc68",
-    "llms.txt": "08600dd06ba30dc9fb7adc5ee6bc3b67bbbb3dc5f256e090760aa4206ffa1c05",
+    "llms.txt": "dcbb7a58b4db22aabd9f5cfd946bb0a1c262fb2dac4f49d54f0675ed279cecd8",
     "model/index.html": "137eb9ff4e95329894f0d5bd38911d44665fa26316257fa5556744704b5b67e6",
     "model.html": "137eb9ff4e95329894f0d5bd38911d44665fa26316257fa5556744704b5b67e6",
     "models/index.html": "b9a61994cabdcab03a3b6a74fc4217bc561469eb7f565044e8fcdbf66fbd5cbe",
@@ -78,12 +86,17 @@
     "privacy/index.html": "dc569c324d9d13f20e38aa925eacf73b898b35c813da9bd557cbc6b3dfec6d67",
     "privacy.html": "6f3ce72f778f3c0fdeefdce9cf33c2235120508d58c9cabc0718fbcb3728d5e1",
     "robots.txt": "ef057907a5315fc23d9faf0f4d6610f2ac236bcd3422ef814e667a1de434248c",
-    "sitemap.xml": "d806af758daff1b9ff3fce597628d0634d9a5a70bc7f4420f353a3a59309e7be",
+    "sitemap.xml": "64a4c63a91051cc4200b06f5994ed968682bb92e6147cca94c9cd360c8591df5",
     "styles.css": "12bcf544422412cb88861836a96028a9ba64cb72d18844fe3e3dc6538e82cda3",
     "use-cases/index.html": "736925a8a1603e332650f516accf19c3eab7ce70ae6055020a225cd0775509f5",
     "use-cases.html": "56fb903622f0e82382eda05d731b57af61314611a8fcf94b74649e7ff3ff1f17"
   },
   "dataset_payloads_included": false,
   "model_weights_included": false,
-  "paper_supplement": "Test-row hashes, identifiers, targets and per-decision predictions; no dialogue, prompt or response text from the source datasets"
+  "paper_supplement": "Test-row hashes, identifiers, targets and per-decision predictions; no dialogue, prompt or response text from the source datasets",
+  "preserved_file_source_revisions": {
+    "models/pea/extraction/index.html": "4ae4bbf24ae823a08fc78505cc7c46b55418645e",
+    "use-cases/index.html": "4ae4bbf24ae823a08fc78505cc7c46b55418645e"
+  },
+  "publication_note": "Article publication retains previously deployed extraction documentation; per-file source revisions identify those pages."
 }
