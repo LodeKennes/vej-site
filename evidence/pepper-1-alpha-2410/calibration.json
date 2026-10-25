@@ -1,0 +1,55 @@
+{
+  "artifact": {
+    "base": "google/gemma-4-12B-it@707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+    "candidate_manifest_sha256": "2e94141e9c6dc9d1fe51540e6e5e37fe3ca78669182659a4cc6cbd5ba71ab35d",
+    "repository": "ItsVej/pepper-1-alpha-2410",
+    "revision": "b51ace6d2f1aa8bb3eca4b6b801edf4c05436552"
+  },
+  "check_count": 859,
+  "fit_count": 1740,
+  "gates": {
+    "check_ece15_no_worse_than_0_01": true,
+    "check_nll_improved": true,
+    "interior_temperature": true
+  },
+  "kind": "pepper_alpha_temperature",
+  "method": "temperature_grid_nll",
+  "metrics": {
+    "check": {
+      "after": {
+        "accuracy": 0.34342258440046564,
+        "brier_sum": 0.6734022676836525,
+        "count": 859,
+        "ece_15_bins": 0.05448109798653948,
+        "nll": 1.2048394274030738
+      },
+      "before": {
+        "accuracy": 0.34342258440046564,
+        "brier_sum": 0.6826184321015311,
+        "count": 859,
+        "ece_15_bins": 0.083888640329039,
+        "nll": 1.2156988196008243
+      }
+    },
+    "fit": {
+      "after": {
+        "accuracy": 0.3879310344827586,
+        "brier_sum": 0.6704367147131228,
+        "count": 1740,
+        "ece_15_bins": 0.056907086337775616,
+        "nll": 1.1869334968819052
+      },
+      "before": {
+        "accuracy": 0.3879310344827586,
+        "brier_sum": 0.6776190955498937,
+        "count": 1740,
+        "ece_15_bins": 0.06451375058048812,
+        "nll": 1.1947897478269847
+      }
+    }
+  },
+  "note": "Aggregate calibration record. Fit alone selects temperature; check only gates acceptance. Whole groups matching Pepper checkpoint-selection validation were excluded. Reused Pea validation sources and prior exposure remain; exact ID/group filtering does not prove conceptual independence.",
+  "source_record_sha256": "ce6c70fa24c7e482ad384b8f96f89661d5bd3d21b5691170df24bd2d5936d560",
+  "status": "temperature_scaled",
+  "temperature": 1.9952623149688802
+}

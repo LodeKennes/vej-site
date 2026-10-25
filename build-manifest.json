@@ -1,5 +1,5 @@
 {
-  "source_revision": "f84b5b3387f95c27c3751f2929400bb5f9d70eef",
+  "source_revision": "73661cedb3c29e0cef926194d3df05b072494088",
   "source_dirty": false,
   "files_sha256": {
     ".gitattributes": "9b50fc6d731e19e5737a1a98edf2a0fbb4f35d36809da011a05bb827f6175124",
@@ -36,8 +36,8 @@
     "contact.html": "6733f5014ddca1ad858b05580efc615f571a07b4ed0e2cf06e991a68cecc9a08",
     "dpa/index.html": "8a59b99a1ed27ec2dd7ca7fc4859fd3267198fab967d31430591dfc7c2952f00",
     "dpa.html": "65b40f0078a8ba8ef23b9f35919b170f57c6cd38c754fdac93007bf2f14a64b5",
-    "evaluation/index.html": "636cd36b79a70e5082212228fb78335fcffa1d71c37f67b5e73f11a21e513621",
-    "evaluation/pepper/index.html": "69b73e1326e8ff81815ee74eb93ea94957fba2b68aba248f0357a67f1f71c6cf",
+    "evaluation/index.html": "8e816888fd3ee6c02bb67f9bfc70285ce2ea2d0d754c7bbc30eabac0199bb4ec",
+    "evaluation/pepper/index.html": "a978b6e9d3bf1f4cfed93ab3d8f3de632aba4eb1d78afc5312e4f3259b578ab0",
     "evaluation/pumpkin/index.html": "a4ab02776516514b6f5af628d627828bc5839de34502d2e78d840b44c275b134",
     "evaluation-pepper.html": "e8b20f320fae56c3ce3f62fa623d78bb131b35edfad5df530082754f321710d8",
     "evaluation-pumpkin.html": "34cee0e890989cfaac932a56ef9b557184f4379726ea2903a7abc2d522228063",
@@ -50,6 +50,8 @@
     "evidence/descriptive-controls.json": "e21029c60bf126d82f62c17221ae69d0e4f9c65ffebc5fbd8e9b5cc5c5ab2397",
     "evidence/evaluation.json": "7da5e7b86cd5326d6b14dd2a36e2b2a7f651dcca913125e42e53081c28e70b3c",
     "evidence/jev-comparison.json": "5ab7e16804273f398cdeb5eb96edf3f21bf1ceb88e7879448af7f8ea55f4c0e1",
+    "evidence/pepper-1-alpha-2410/calibration.json": "0ac48cb53ed9c8ff5d3480b16b96f8f414b17983aa937e466a19fcc84e3b2089",
+    "evidence/pepper-1-alpha-2410/evaluation.json": "a92055eae489b24314d19ba212bb4250b027c627cf8aaa8cd1ff349cd28d58c9",
     "evidence/tool-evaluation.json": "5b46020a744d063130467186d0948753d477e9e18de37101c6c596aea5b549c5",
     "index.html": "92a75b63583d3f32ed00a0cd42dc203c3b7438af64fa48aadc6ed824d8863b50",
     "journal/authors/lode.jpg": "e24f009d8c7267fc40437b3455cfd977ce51807add38ec382db784139c70df51",
@@ -87,7 +89,7 @@
     "privacy/index.html": "f046f69eb8fcaee333c68e6249322ab53a8929105dab5e2f580eeab842521ccc",
     "privacy.html": "6f3ce72f778f3c0fdeefdce9cf33c2235120508d58c9cabc0718fbcb3728d5e1",
     "robots.txt": "ef057907a5315fc23d9faf0f4d6610f2ac236bcd3422ef814e667a1de434248c",
-    "sitemap.xml": "edb6acabcdbc7f9462a63513133953f47992ac1171e5a2609bc316b1302604c5",
+    "sitemap.xml": "a1f2b44b328845834b446bd99ed853402d65cffb5ae8297515f7613205cfe7cb",
     "styles.css": "e6468136afb32d19436506ae41ff91c760d5cd9c27859cc0fbdea0fa42028862",
     "use-cases/index.html": "fad2acd7cf4c9cbcf3431f0aac60d4a9ff29820d5f8c7ba9b12e33dbd328fbe2",
     "use-cases.html": "56fb903622f0e82382eda05d731b57af61314611a8fcf94b74649e7ff3ff1f17"

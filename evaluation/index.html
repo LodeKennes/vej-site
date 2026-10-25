@@ -467,6 +467,19 @@
           </div>
           <p><a href="/paper/vej-native-candidate-probabilities.pdf">Read the paper (PDF) <span aria-hidden="true">→</span></a></p>
         </section>
+        <!-- pepper-eval:begin -->
+<section class="section" id="pepper-alpha">
+<h2>Pepper Alpha</h2>
+<p><a href="https://huggingface.co/ItsVej/pepper-1-alpha-2410">ItsVej/pepper-1-alpha-2410</a> is an alpha checkpoint with a Gemma 4 12B base and a native decision head. Pepper Alpha is free for granted organizations.</p><p>The same frozen r5 test used for Pea contains 14,286 text decisions: 5,000 HelpSteer1 ratings and 9,286 SGD decisions from held-out domains. Pepper was served in production on the Hetzner GPU through the calibrated bridge. This report evaluates 14,070 / 14,286 decisions; 0 are missing and 216 are excluded.</p><div class="table-wrap" role="region" tabindex="0" aria-label="Pepper exclusions (outside the reported metrics)">
+<table class="metrics"><caption>Pepper exclusions (outside the reported metrics)</caption>
+<thead><tr><th scope="col">Reason</th><th scope="col">Decisions</th></tr></thead>
+<tbody><tr><th scope="row">Request rejected by bridge; precise reason unverified</th><td class="numeric">216</td></tr></tbody></table></div><p>Metrics describe the evaluable restricted subset. Excluded decisions have no Pepper score; Pepper’s performance on them is unknown and may differ from this subset. A bridge rejection with an unverified reason does not establish a 2,048-token overflow.</p><div class="table-wrap" role="region" tabindex="0" aria-label="Pepper Alpha and Pea: descriptive test metrics">
+<table class="metrics"><caption>Pepper Alpha and Pea: descriptive test metrics</caption>
+<thead><tr><th scope="col">Model / temperature</th><th scope="col">Decisions</th><th scope="col">Accuracy</th><th scope="col">NLL</th><th scope="col">Brier sum</th><th scope="col">ECE (10 bins)</th></tr></thead>
+<tbody><tr><th scope="row">Pepper Alpha · T=1.995</th><td class="numeric">14,070</td><td class="numeric">35.54%</td><td class="numeric">1.361254</td><td class="numeric">0.716423</td><td class="numeric">0.060425</td></tr><tr><th scope="row">Pea · T=1</th><td class="numeric">14,286</td><td class="numeric">76.60%</td><td class="numeric">0.589448</td><td class="numeric">0.313870</td><td class="numeric">0.053473</td></tr></tbody></table></div><p>Pea’s published figures use T=1; its hosted API uses T=1.334. Pepper’s figures use production probabilities at T=1.995 (1.9952623149688802 in the record), without a second scaling. Positive scalar temperature scaling preserves the highest-probability outcome. Pea’s calibrated NLL, Brier and ECE cannot be recovered from aggregate figures. Pepper’s restricted subset and Pea’s full test have different coverage; these are not same-row comparisons. These results do not establish general superiority or statistical significance.</p>
+<p class="small">Accuracy is exact label accuracy, including exact rubric level for Score. NLL and Brier sum are lower-is-better losses; Brier sums squared errors over outcomes. ECE uses 10 equal-width top-1 confidence bins and is descriptive, not a population guarantee.</p><p><a href="/evidence/pepper-1-alpha-2410/evaluation.json">Pepper aggregate evaluation (JSON)</a> · <a href="/evidence/pepper-1-alpha-2410/calibration.json">Calibration summary and record digest (JSON)</a> · <a href="/evidence/evaluation.json">Pea aggregate evaluation (JSON)</a></p><p>This alpha checkpoint comes from an incomplete training run. This text-only evaluation has no image or audio benchmark. The test was exposed during Pea development. There is no population guarantee.</p><p><a href="/evaluation/pepper/">Pepper Alpha slices, calibration and limitations →</a></p>
+</section>
+<!-- pepper-eval:end -->
       </main>
       <footer>
         <div class="footer-brand">
