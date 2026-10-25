@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <meta name="author" content="Lode Kennes" />
-    <title>Pepper Alpha evaluation · Vej</title>
+    <title>Pepper evaluation · Vej</title>
     <meta
       name="description"
-      content="Pepper Alpha: text decision evaluation on the reused r5 test, with calibrated production probabilities and published limitations."
+      content="Pepper Alpha evaluation status. Results are not currently published."
     />
     <meta
       name="theme-color"
@@ -26,10 +26,10 @@
     />
     <meta property="og:site_name" content="Vej" />
     <meta property="og:locale" content="en_GB" />
-    <meta property="og:title" content="Pepper Alpha evaluation · Vej" />
+    <meta property="og:title" content="Pepper evaluation · Vej" />
     <meta
       property="og:description"
-      content="Pepper Alpha: text decision evaluation on the reused r5 test, with calibrated production probabilities and published limitations."
+      content="Pepper Alpha evaluation status. Results are not currently published."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -48,10 +48,10 @@
       content="Vej wordmark and open pea-pod mark with the line 'State in, probabilities out.'"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Pepper Alpha evaluation · Vej" />
+    <meta name="twitter:title" content="Pepper evaluation · Vej" />
     <meta
       name="twitter:description"
-      content="Pepper Alpha: text decision evaluation on the reused r5 test, with calibrated production probabilities and published limitations."
+      content="Pepper Alpha evaluation status. Results are not currently published."
     />
     <meta
       name="twitter:image"
@@ -85,7 +85,7 @@
     />
     <link rel="stylesheet" href="/styles.css?v=e6468136afb3" />
     <script src="/app.js?v=8179e25905ed" defer></script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Pepper Alpha evaluation", "description": "Pepper Alpha: text decision evaluation on the reused r5 test, with calibrated production probabilities and published limitations.", "url": "https://itsvej.com/evaluation/pepper/"}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Pepper evaluation", "description": "Pepper Alpha evaluation status. Results are not currently published.", "url": "https://itsvej.com/evaluation/pepper/"}</script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -112,48 +112,8 @@
       </header>
       <main id="main">
 <nav class="evaluation-switcher" aria-label="Evaluation by model"><details><summary>Model: Pepper <span>Alpha</span></summary><div class="model-options"><a href="/evaluation/"><img src="/assets/brand/models/pea.svg" alt="" width="36" height="36" />Pea</a><a href="/evaluation/pepper/" aria-current="page"><img src="/assets/brand/models/pepper.svg" alt="" width="36" height="36" />Pepper</a><a href="/evaluation/pumpkin/"><img src="/assets/brand/models/pumpkin.svg" alt="" width="36" height="36" />Pumpkin</a></div></details></nav><!-- pepper-eval:begin -->
-<section class="page-hero model-hero"><img class="model-hero-icon" src="/assets/brand/models/pepper.svg" alt="" width="128" height="128" /><h1>Pepper Alpha evaluation</h1><p><a href="https://huggingface.co/ItsVej/pepper-1-alpha-2410">ItsVej/pepper-1-alpha-2410</a> is an alpha checkpoint with a Gemma 4 12B base and a native decision head. Pepper Alpha is free for granted organizations.</p></section>
-<section class="section" id="pepper-results"><h2>Test results</h2>
-<p>The same frozen r5 test used for Pea contains 14,286 text decisions: 5,000 HelpSteer1 ratings and 9,286 SGD decisions from held-out domains. Pepper was served in production on the Hetzner GPU through the calibrated bridge. This report evaluates 14,070 / 14,286 decisions; 0 are missing and 216 are excluded.</p><div class="table-wrap" role="region" tabindex="0" aria-label="Pepper exclusions (outside the reported metrics)">
-<table class="metrics"><caption>Pepper exclusions (outside the reported metrics)</caption>
-<thead><tr><th scope="col">Reason</th><th scope="col">Decisions</th></tr></thead>
-<tbody><tr><th scope="row">Request rejected by bridge; precise reason unverified</th><td class="numeric">216</td></tr></tbody></table></div><p>Metrics describe the evaluable restricted subset. Excluded decisions have no Pepper score; Pepper’s performance on them is unknown and may differ from this subset. A bridge rejection with an unverified reason does not establish a 2,048-token overflow.</p><div class="table-wrap" role="region" tabindex="0" aria-label="Pepper Alpha and Pea: descriptive test metrics">
-<table class="metrics"><caption>Pepper Alpha and Pea: descriptive test metrics</caption>
-<thead><tr><th scope="col">Model / temperature</th><th scope="col">Decisions</th><th scope="col">Accuracy</th><th scope="col">NLL</th><th scope="col">Brier sum</th><th scope="col">ECE (10 bins)</th></tr></thead>
-<tbody><tr><th scope="row">Pepper Alpha · T=1.995</th><td class="numeric">14,070</td><td class="numeric">35.54%</td><td class="numeric">1.361254</td><td class="numeric">0.716423</td><td class="numeric">0.060425</td></tr><tr><th scope="row">Pea · T=1</th><td class="numeric">14,286</td><td class="numeric">76.60%</td><td class="numeric">0.589448</td><td class="numeric">0.313870</td><td class="numeric">0.053473</td></tr></tbody></table></div><p>Pea’s published figures use T=1; its hosted API uses T=1.334. Pepper’s figures use production probabilities at T=1.995 (1.9952623149688802 in the record), without a second scaling. Positive scalar temperature scaling preserves the highest-probability outcome. Pea’s calibrated NLL, Brier and ECE cannot be recovered from aggregate figures. Pepper’s restricted subset and Pea’s full test have different coverage; these are not same-row comparisons. These results do not establish general superiority or statistical significance.</p>
-<p class="small">Accuracy is exact label accuracy, including exact rubric level for Score. NLL and Brier sum are lower-is-better losses; Brier sums squared errors over outcomes. ECE uses 10 equal-width top-1 confidence bins and is descriptive, not a population guarantee.</p><p><a href="/evidence/pepper-1-alpha-2410/evaluation.json">Pepper aggregate evaluation (JSON)</a> · <a href="/evidence/pepper-1-alpha-2410/calibration.json">Calibration summary and record digest (JSON)</a> · <a href="/evidence/evaluation.json">Pea aggregate evaluation (JSON)</a></p></section>
-<section class="section">
-<h2>Question type</h2>
-<div class="table-wrap" role="region" tabindex="0" aria-label="Pepper Alpha by question type">
-<table class="metrics"><caption>Pepper Alpha by question type</caption>
-<thead><tr><th scope="col">Question type</th><th scope="col">Decisions</th><th scope="col">Accuracy</th><th scope="col">NLL</th><th scope="col">Brier sum</th><th scope="col">ECE (10 bins)</th></tr></thead>
-<tbody><tr><th scope="row">choice</th><td class="numeric">6,075</td><td class="numeric">29.58%</td><td class="numeric">1.517858</td><td class="numeric">0.766636</td><td class="numeric">0.040719</td></tr><tr><th scope="row">noul</th><td class="numeric">2,995</td><td class="numeric">50.18%</td><td class="numeric">0.696073</td><td class="numeric">0.502886</td><td class="numeric">0.027617</td></tr><tr><th scope="row">score</th><td class="numeric">5,000</td><td class="numeric">34.02%</td><td class="numeric">1.569425</td><td class="numeric">0.783321</td><td class="numeric">0.104239</td></tr></tbody></table></div>
-</section>
-<section class="section">
-<h2>Candidate count</h2>
-<div class="table-wrap" role="region" tabindex="0" aria-label="Pepper Alpha by candidate count">
-<table class="metrics"><caption>Pepper Alpha by candidate count</caption>
-<thead><tr><th scope="col">Candidate count</th><th scope="col">Decisions</th><th scope="col">Accuracy</th><th scope="col">NLL</th><th scope="col">Brier sum</th><th scope="col">ECE (10 bins)</th></tr></thead>
-<tbody><tr><th scope="row">2</th><td class="numeric">2,995</td><td class="numeric">50.18%</td><td class="numeric">0.696073</td><td class="numeric">0.502886</td><td class="numeric">0.027617</td></tr><tr><th scope="row">3</th><td class="numeric">1,328</td><td class="numeric">30.12%</td><td class="numeric">1.106627</td><td class="numeric">0.672852</td><td class="numeric">0.073005</td></tr><tr><th scope="row">4</th><td class="numeric">1,258</td><td class="numeric">36.33%</td><td class="numeric">1.369430</td><td class="numeric">0.739867</td><td class="numeric">0.070353</td></tr><tr><th scope="row">5</th><td class="numeric">7,029</td><td class="numeric">31.75%</td><td class="numeric">1.575600</td><td class="numeric">0.785716</td><td class="numeric">0.080768</td></tr><tr><th scope="row">6</th><td class="numeric">767</td><td class="numeric">29.99%</td><td class="numeric">1.745654</td><td class="numeric">0.814820</td><td class="numeric">0.094413</td></tr><tr><th scope="row">7</th><td class="numeric">303</td><td class="numeric">32.34%</td><td class="numeric">1.865540</td><td class="numeric">0.829848</td><td class="numeric">0.122629</td></tr><tr><th scope="row">10</th><td class="numeric">390</td><td class="numeric">20.77%</td><td class="numeric">2.299231</td><td class="numeric">0.898490</td><td class="numeric">0.089765</td></tr></tbody></table></div>
-</section>
-<section class="section">
-<h2>Schema family</h2>
-<div class="table-wrap" role="region" tabindex="0" aria-label="Pepper Alpha by schema family">
-<table class="metrics"><caption>Pepper Alpha by schema family</caption>
-<thead><tr><th scope="col">Schema family</th><th scope="col">Decisions</th><th scope="col">Accuracy</th><th scope="col">NLL</th><th scope="col">Brier sum</th><th scope="col">ECE (10 bins)</th></tr></thead>
-<tbody><tr><th scope="row">helpsteer1/helpfulness-v1</th><td class="numeric">5,000</td><td class="numeric">34.02%</td><td class="numeric">1.569425</td><td class="numeric">0.783321</td><td class="numeric">0.104239</td></tr><tr><th scope="row">sgd/Flights_1/categorical-v1</th><td class="numeric">1,699</td><td class="numeric">31.96%</td><td class="numeric">1.691062</td><td class="numeric">0.796357</td><td class="numeric">0.093179</td></tr><tr><th scope="row">sgd/Flights_1/intent-v1</th><td class="numeric">1,715</td><td class="numeric">23.27%</td><td class="numeric">1.605009</td><td class="numeric">0.798029</td><td class="numeric">0.002447</td></tr><tr><th scope="row">sgd/Flights_1/required_inputs-v1</th><td class="numeric">1,652</td><td class="numeric">47.22%</td><td class="numeric">0.700977</td><td class="numeric">0.507774</td><td class="numeric">0.056366</td></tr><tr><th scope="row">sgd/Flights_2/categorical-v1</th><td class="numeric">259</td><td class="numeric">32.82%</td><td class="numeric">1.709769</td><td class="numeric">0.798785</td><td class="numeric">0.107591</td></tr><tr><th scope="row">sgd/Flights_2/intent-v1</th><td class="numeric">261</td><td class="numeric">36.02%</td><td class="numeric">1.071585</td><td class="numeric">0.650633</td><td class="numeric">0.025334</td></tr><tr><th scope="row">sgd/Flights_2/required_inputs-v1</th><td class="numeric">258</td><td class="numeric">58.91%</td><td class="numeric">0.684516</td><td class="numeric">0.491392</td><td class="numeric">0.055127</td></tr><tr><th scope="row">sgd/Hotels_1/categorical-v1</th><td class="numeric">340</td><td class="numeric">40.00%</td><td class="numeric">1.557389</td><td class="numeric">0.771672</td><td class="numeric">0.148734</td></tr><tr><th scope="row">sgd/Hotels_1/intent-v1</th><td class="numeric">342</td><td class="numeric">27.19%</td><td class="numeric">1.113147</td><td class="numeric">0.677404</td><td class="numeric">0.096122</td></tr><tr><th scope="row">sgd/Hotels_1/required_inputs-v1</th><td class="numeric">343</td><td class="numeric">58.02%</td><td class="numeric">0.681607</td><td class="numeric">0.488496</td><td class="numeric">0.053518</td></tr><tr><th scope="row">sgd/Hotels_2/categorical-v1</th><td class="numeric">375</td><td class="numeric">29.33%</td><td class="numeric">1.674655</td><td class="numeric">0.802786</td><td class="numeric">0.049164</td></tr><tr><th scope="row">sgd/Hotels_2/intent-v1</th><td class="numeric">369</td><td class="numeric">26.02%</td><td class="numeric">1.135726</td><td class="numeric">0.690703</td><td class="numeric">0.114812</td></tr><tr><th scope="row">sgd/Hotels_2/required_inputs-v1</th><td class="numeric">384</td><td class="numeric">47.66%</td><td class="numeric">0.701107</td><td class="numeric">0.507838</td><td class="numeric">0.052784</td></tr><tr><th scope="row">sgd/Hotels_3/categorical-v1</th><td class="numeric">359</td><td class="numeric">34.54%</td><td class="numeric">1.463346</td><td class="numeric">0.757209</td><td class="numeric">0.070033</td></tr><tr><th scope="row">sgd/Hotels_3/intent-v1</th><td class="numeric">356</td><td class="numeric">32.87%</td><td class="numeric">1.095893</td><td class="numeric">0.666266</td><td class="numeric">0.042413</td></tr><tr><th scope="row">sgd/Hotels_3/required_inputs-v1</th><td class="numeric">358</td><td class="numeric">52.79%</td><td class="numeric">0.690237</td><td class="numeric">0.497093</td><td class="numeric">0.005522</td></tr></tbody></table></div>
-</section>
-<section class="section" id="pepper-calibration"><h2>Calibration</h2>
-<p>Fit alone selected one positive scalar temperature using an 81-point logarithmic grid over [0.1, 10], minimizing NLL. Check did not select T. Whole groups matching Pepper checkpoint-selection validation were excluded from the reused Pea calibration sources. All three acceptance gates passed: interior T, lower check NLL and check ECE15 no worse by more than 0.01. These before/after metrics use saved T=1 outputs, separately from the production test collection above.</p>
-<div class="table-wrap" role="region" tabindex="0" aria-label="Calibration fit and check">
-<table class="metrics"><caption>Calibration fit and check</caption>
-<thead><tr><th scope="col">Role / stage</th><th scope="col">Decisions</th><th scope="col">Accuracy</th><th scope="col">NLL</th><th scope="col">Brier sum</th><th scope="col">ECE (15 bins)</th></tr></thead>
-<tbody><tr><th scope="row">Fit · before · T=1</th><td class="numeric">1,740</td><td class="numeric">38.79%</td><td class="numeric">1.194790</td><td class="numeric">0.677619</td><td class="numeric">0.064514</td></tr><tr><th scope="row">Fit · after · T=1.995</th><td class="numeric">1,740</td><td class="numeric">38.79%</td><td class="numeric">1.186933</td><td class="numeric">0.670437</td><td class="numeric">0.056907</td></tr><tr><th scope="row">Check · before · T=1</th><td class="numeric">859</td><td class="numeric">34.34%</td><td class="numeric">1.215699</td><td class="numeric">0.682618</td><td class="numeric">0.083889</td></tr><tr><th scope="row">Check · after · T=1.995</th><td class="numeric">859</td><td class="numeric">34.34%</td><td class="numeric">1.204839</td><td class="numeric">0.673402</td><td class="numeric">0.054481</td></tr></tbody></table></div>
-<p><a href="/evidence/pepper-1-alpha-2410/calibration.json">Read the aggregate calibration record</a>. Reused validation exposure remains; group filtering does not establish conceptual independence.</p>
-</section>
-<section class="section" id="pepper-limits"><h2>Limitations</h2>
-<p>This alpha checkpoint comes from an incomplete training run (selected step 128, before a full pass). Calibration does not improve label accuracy. This is a text-only evaluation, with no image or audio benchmark. The test set was exposed during Pea development; upstream pretraining exposure is unknown. Source/domain-transfer decisions are not end-to-end tool calls or Jev’s proprietary benchmark. These sample metrics provide no population guarantee, factual-accuracy guarantee or instruction-following guarantee.</p>
-</section>
+<section class="page-hero model-hero"><img class="model-hero-icon" src="/assets/brand/models/pepper.svg" alt="" width="128" height="128" /><h1>Pepper evaluation</h1><p class="lead">Pepper Alpha supports text, images and audio. Evaluation results are not currently published.</p></section>
+<section class="section"><h2>Public evaluation</h2><p>No Pepper evaluation results are currently published on this website.</p><p><a href="/evaluation/">Pea’s published evaluation →</a></p></section>
 <!-- pepper-eval:end -->
       </main>
       <footer>
