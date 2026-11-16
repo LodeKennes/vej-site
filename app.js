@@ -469,6 +469,18 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   if (cast) {
     const status = document.querySelector("[data-cast-status]");
     document.querySelector(".cast-hint")?.removeAttribute("hidden");
+    // Phones show four sprouts first; the rest are one tap away.
+    const more = document.querySelector(".cast-more");
+    if (more) {
+      cast.classList.add("cast-collapsed");
+      more.hidden = false;
+      more.addEventListener("click", () => {
+        cast.classList.remove("cast-collapsed");
+        more.setAttribute("aria-expanded", "true");
+        more.hidden = true;
+        cast.querySelector("li:nth-child(5) .cast-card")?.focus();
+      });
+    }
     cast.querySelectorAll(".cast-card").forEach((card) => {
       const icon = card.dataset.icon;
       if (!TINTS[icon]) return;
