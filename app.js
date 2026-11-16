@@ -1008,7 +1008,7 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   function intro(event) {
     // The native page transition already animates arrivals from another page.
     if (event?.viewTransition || performance.getEntriesByType("navigation")[0]?.type === "back_forward") return;
-    document.querySelectorAll(".hero > :first-child, .hero > .decision, .page-hero").forEach((element, index) => enter(element, index * 70));
+    document.querySelectorAll(".hero > :first-child, .hero > .decision, .page-hero, .home-hero > *").forEach((element, index) => enter(element, index * 70));
   }
   if ("PageRevealEvent" in window) {
     window.addEventListener("pagereveal", intro, { once: true });
@@ -1020,10 +1020,23 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         observer.unobserve(entry.target);
-        if (entry.target.getBoundingClientRect().top >= 0) enter(entry.target);
+        if (entry.target.getBoundingClientRect().top < 0) return;
+        // Cards in one row arrive in sequence rather than all at once.
+        const siblings = entry.target.parentElement ? [...entry.target.parentElement.children] : [];
+        enter(entry.target, Math.min(siblings.indexOf(entry.target), 4) * 60);
       });
     }, { threshold: 0.12 });
-    document.querySelectorAll(".model-card, .section-head").forEach((element) => {
+    const revealed = [
+      ".model-card",
+      ".section-head",
+      ".home-feature",
+      ".home-steps > li",
+      ".home-iphone",
+      ".home-model",
+      ".home-developers-card",
+      ".route-grid > li",
+    ].join(", ");
+    document.querySelectorAll(revealed).forEach((element) => {
       // Leave the first viewport and direct fragment destinations visible immediately.
       if (element.getBoundingClientRect().top >= window.innerHeight) observer.observe(element);
     });

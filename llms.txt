@@ -1,13 +1,13 @@
 # Vej
 
-> Vej is the company building Pea (2B), Pepper (8B) and Pumpkin (27B). Pea is the current 2B text model, supporting decisions and structured text extraction. Decisions return native probabilities over developer-supplied outcomes without text generation, JSON parsing, or answer-token scoring (Pea 1 weights at https://huggingface.co/ItsVej/pea-1 after an approved Hugging Face access request, or limited hosted early access). Extraction is a hosted Beta capability (model identifier pea-pod-1) live at https://api.itsvej.com/v1beta/extract, extracting developer-defined fields by pointing directly to Unicode evidence spans (weights private). Apache-2.0 code and adaptations, text only.
+> Vej builds Sprouts, a team of always-on AI helpers on computers you own (Mac beta for Apple silicon, with an iPhone app), and a family of models for developers: Pea (2B, available), Pepper (8B, in development) and Pumpkin (27B, coming soon). Pea is the current 2B text model, supporting decisions and structured text extraction. Decisions return native probabilities over developer-supplied outcomes without text generation, JSON parsing, or answer-token scoring (Pea 1 weights at https://huggingface.co/ItsVej/pea-1 after an approved Hugging Face access request, or limited hosted early access). Extraction is a hosted Beta capability (model identifier pea-pod-1) live at https://api.itsvej.com/v1beta/extract, extracting developer-defined fields by pointing directly to Unicode evidence spans (weights private). Apache-2.0 code and adaptations, text only.
 
 Last updated: 2026-11-16.
 
 ## Model family
 - Pea (green): Current 2B text model. Pea supports decisions and structured text extraction. Decisions have limited hosted early access on /v1/predict and Pea 1 weights at https://huggingface.co/ItsVej/pea-1 by approved Hugging Face access request; all published decision evaluation results describe Pea decisions. Extraction is a hosted Beta capability on /v1beta/extract (model identifier pea-pod-1; weights are private and not part of Pea 1). Prefill only: evaluates document plus one field per pass with native presence and span heads, deterministic typed parsing in code, no text generation. Text only, up to 64 fields, up to 98,304 tokens (96K) per fully rendered row on the hosted realtime API (batch: 2K / 2,048 tokens per row).
 - Pepper (red): 8B model in development, being built and tested privately with companies. No public release or published benchmarks.
-- Pumpkin (orange): 27B model under research and development, being tested privately with companies. No public release or published benchmarks.
+- Pumpkin (orange): 27B model, coming soon. Being researched and tested privately with companies; waitlist open. No public release or published benchmarks.
 
 Contact: [send a message](https://itsvej.com/contact/). Hosted API access starts with a [console account](https://app.itsvej.com/sign-up) and manual approval. Sign in with your account; API keys authenticate API clients. Pea 1 weights require a separate approved Hugging Face access request.
 
@@ -46,7 +46,8 @@ Contact: [send a message](https://itsvej.com/contact/). Hosted API access starts
 ## Primary Pages
 - [Paper (PDF)](https://itsvej.com/paper/vej-native-candidate-probabilities.pdf): Pea's method, pre-registered comparison with prompted open models, calibration and serving benchmark.
 - [Data processing agreement](https://itsvej.com/dpa/): Data processing agreement for the hosted API, covering roles, retention and processing boundaries.
-- [Overview](https://itsvej.com/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
+- [Overview](https://itsvej.com/): Sprouts first (Mac film, what a sprout does, getting started, iPhone), then the Vej models and the latest journal posts.
+- [Developers](https://itsvej.com/developers/): The Pea API hub: decisions and extraction examples, how it works, uses, evaluation summary, availability and FAQ.
 - [Models](https://itsvej.com/models/): The model family and public availability.
 - [Use cases](https://itsvej.com/use-cases/): Live hosted Beta APIs beyond Choice, Noul and Score, with industry use cases, sample requests and quality limits.
 - [Sprouts](https://itsvej.com/sprouts/): Always-on AI bots on computers you own; what a sprout has, safety, models, Mac beta and iPhone app status.

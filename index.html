@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <meta name="author" content="Lode Kennes" />
-    <title>Vej · Decision and extraction models</title>
+    <title>Vej · Sprouts, AI helpers on computers you own</title>
     <meta
       name="description"
-      content="Vej builds decision and extraction models: Pea (2B), Pepper (8B) and Pumpkin (27B). Explore Pea in early access and extraction Beta, and follow models in development."
+      content="Vej builds Sprouts, a team of always-on AI helpers on computers you own, for Mac and iPhone, and the models behind its work: Pea is available, Pepper is in development and Pumpkin is coming soon."
     />
     <meta
       name="theme-color"
@@ -25,11 +25,11 @@
     <meta property="og:locale" content="en_GB" />
     <meta
       property="og:title"
-      content="Vej · Decision and extraction models"
+      content="Vej · Sprouts, AI helpers on computers you own"
     />
     <meta
       property="og:description"
-      content="Vej builds decision and extraction models: Pea (2B), Pepper (8B) and Pumpkin (27B). Explore Pea in early access and extraction Beta, and follow models in development."
+      content="Vej builds Sprouts, a team of always-on AI helpers on computers you own, for Mac and iPhone, and the models behind its work: Pea is available, Pepper is in development and Pumpkin is coming soon."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -38,31 +38,31 @@
     />
     <meta
       property="og:image"
-      content="https://itsvej.com/assets/brand/social-card.png"
+      content="https://itsvej.com/assets/brand/sprouts/social-card.png"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta
       property="og:image:alt"
-      content="Vej wordmark and open pea-pod mark with the line 'State in, probabilities out.'"
+      content="Sprouts characters in a garden with the line 'Your own team of always-on bots. A Vej project. Mac beta.'"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Vej · Decision and extraction models"
+      content="Vej · Sprouts, AI helpers on computers you own"
     />
     <meta
       name="twitter:description"
-      content="Vej builds decision and extraction models: Pea (2B), Pepper (8B) and Pumpkin (27B). Explore Pea in early access and extraction Beta, and follow models in development."
+      content="Vej builds Sprouts, a team of always-on AI helpers on computers you own, for Mac and iPhone, and the models behind its work: Pea is available, Pepper is in development and Pumpkin is coming soon."
     />
     <meta
       name="twitter:image"
-      content="https://itsvej.com/assets/brand/social-card.png"
+      content="https://itsvej.com/assets/brand/sprouts/social-card.png"
     />
     <meta
       name="twitter:image:alt"
-      content="Vej wordmark and open pea-pod mark with the line 'State in, probabilities out.'"
+      content="Sprouts characters in a garden with the line 'Your own team of always-on bots. A Vej project. Mac beta.'"
     />
     <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
     <link
@@ -86,17 +86,17 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=e7c9803cd547" />
-    <script src="/app.js?v=3a0d748d277d" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=381769cf135a" />
+    <script src="/app.js?v=c272154a6828" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
-      "dateModified": "2026-10-18",
+      "dateModified": "2026-11-16",
       "name": "Vej",
       "url": "https://itsvej.com/",
-      "description": "Vej builds decision models: Pea (2B), Pepper (8B) and Pumpkin (27B). Explore Pea’s evaluation and follow the models in private development.",
+      "description": "Vej builds Sprouts, always-on AI helpers on computers you own, and the Pea, Pepper and Pumpkin models.",
       "publisher": {
         "@id": "https://itsvej.com/#vej"
       }
@@ -119,6 +119,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "name": "Sprouts",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "macOS 13 or newer (Apple silicon), iOS",
+      "description": "A team of always-on AI helpers on computers you own. Each sprout has its own personality, memory, routines and private computer.",
+      "url": "https://itsvej.com/sprouts/",
+      "downloadUrl": "https://downloads.itsvej.com/sprouts/desktop/beta/Sprouts-0.1.118-arm64.zip",
+      "author": {
+        "@id": "https://itsvej.com/#vej"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
       "name": "Pea",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Linux",
@@ -130,51 +142,6 @@
       },
       "url": "https://itsvej.com/models/pea/",
       "softwareRequirements": "Python 3.12–3.14"
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Which models can I use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Pea (2B) is available for decisions in limited hosted early access, with Pea 1 weights by approved Hugging Face request. Pea extraction is live in hosted Beta at /v1beta/extract (extraction weights are private). Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does Pea return?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A probability for each outcome you define. Choice weighs named options, Noul assesses statements, and Score rates rubric levels. Your code decides what happens next."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I run Pea on my own hardware?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Download Pea 1 from https://huggingface.co/ItsVej/pea-1 after your access request is approved. The native loader also needs the private Vej source. Supported inference uses the native loader on your GPU; CPU execution is a slower fallback. The model card includes setup instructions and current limits."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is there a hosted API?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. The hosted API is live in limited early access and Beta: Pea for decisions on /v1/predict, and Pea extraction on /v1beta/extract. Text only; image input is refused. Create a console account and wait for manual approval before using the API. Capacity is limited, with no uptime guarantee yet."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How should I use Pea’s probabilities?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Set thresholds using examples from your own workflow, and pair tool actions with independent policy checks. The published evaluation reports exact accuracy across 14,286 decisions at temperature 1. The hosted API uses temperature 1.334. A stated probability is not a guaranteed frequency."
-          }
-        }
-      ]
     }
   ]
 }</script>
@@ -195,425 +162,80 @@
               height="66" /></picture
         ></a>
         <nav class="nav" aria-label="Main">
-          <a href="/models/">Models</a>
-          <a href="/evaluation/">Evaluation</a>
-          <a href="/use-cases/">Use cases</a>
           <a href="/sprouts/">Sprouts</a>
+          <a href="/models/">Models</a>
+          <a href="/developers/">Developers</a>
           <a href="/journal/">Journal</a>
           <a class="nav-cta" href="https://app.itsvej.com/">Sign in</a>
         </nav>
       </header>
       <main id="main">
-<section class="hero">
-          <div>
-            <h1>Vej builds <br /><span class="green">decision and extraction models.</span></h1>
-            <p class="lead">Define a situation and its possible outcomes, or extract structured fields with direct evidence. Pea is live in hosted early access for decisions and extraction Beta. Pepper and Pumpkin are in private development.</p>
-            <div class="actions"><a class="button" href="https://app.itsvej.com/sign-up">Request access</a><a class="button secondary" href="https://app.itsvej.com/">Sign in to the console</a></div>
-            <div class="family-strip" role="group" aria-label="Model availability"><a href="/models/#pea"><strong>Pea · 2B</strong><span>Decisions · Extraction Beta</span></a><a href="/models/#pepper"><strong>Pepper · 8B</strong><span>In development</span></a><a href="/models/#pumpkin"><strong>Pumpkin · 27B</strong><span>In development</span></a></div>
-          </div>
-          <div class="decision">
-            <div class="tabs" role="tablist" aria-label="Pea examples">
-              <button
-                id="tab-choice"
-                role="tab"
-                aria-selected="true"
-                aria-controls="decision-panel"
-                data-kind="choice"
-              >
-                Choice</button
-              ><button
-                id="tab-noul"
-                role="tab"
-                aria-selected="false"
-                aria-controls="decision-panel"
-                tabindex="-1"
-                data-kind="noul"
-              >
-                Noul</button
-              ><button
-                id="tab-score"
-                role="tab"
-                aria-selected="false"
-                aria-controls="decision-panel"
-                tabindex="-1"
-                data-kind="score"
-              >
-                Score</button
-              ><button
-                id="tab-extraction"
-                role="tab"
-                aria-selected="false"
-                aria-controls="decision-panel"
-                tabindex="-1"
-                data-kind="extraction"
-              >
-                Extraction
-              </button>
-            </div>
-            <div class="decision-deck">
-              <div
-                id="decision-panel" class="decision-example"
-                role="tabpanel"
-                aria-labelledby="tab-choice"
-                tabindex="0"
-              >
-                <div class="state">
-                  <span class="micro">STATE</span><span id="state-text" class="state-text">The customer wants to change a booked flight. Fare rules are missing.</span>
-                </div>
-                <p id="question" class="question">What should happen next?</p>
-                <div id="results" class="example-results">
-                  <div class="result">
-                    <div class="result-line">
-                      <span>Ask for fare rules</span
-                      ><span class="value">0.62</span>
-                    </div>
-                    <div class="track" aria-hidden="true">
-                      <span style="--width: 62%"></span>
-                    </div>
-                  </div>
-                  <div class="result">
-                    <div class="result-line">
-                      <span>Quote a change fee</span
-                      ><span class="value">0.21</span>
-                    </div>
-                    <div class="track" aria-hidden="true">
-                      <span style="--width: 21%"></span>
-                    </div>
-                  </div>
-                  <div class="result">
-                    <div class="result-line">
-                      <span>Rebook the flight</span
-                      ><span class="value">0.17</span>
-                    </div>
-                    <div class="track" aria-hidden="true">
-                      <span style="--width: 17%"></span>
-                    </div>
-                  </div>
-                </div>
-                <p id="expectation" class="expectation" hidden></p>
-              </div>
-            </div>
-            <p class="example-note">
-              Illustrative values. No model runs in your browser.
-            </p>
-            <noscript
-              ><p class="small">
-                Enable JavaScript to explore Noul, Score and Extraction examples.
-              </p></noscript
-            >
-          </div>
-        </section>
+<section class="home-hero" aria-labelledby="home-heading">
+  <div class="home-hero-copy">
+    <p class="eyebrow">Sprouts by Vej · Mac beta and iPhone</p>
+    <h1 id="home-heading">A team of AI helpers, <span class="green">on computers you own.</span></h1>
+    <div class="home-hero-side">
+      <p class="lead">Each sprout has its own personality, memory, routines and private computer. Give them recurring work, approve what matters, and follow along from your iPhone.</p>
+      <div class="actions"><a class="button" href="https://downloads.itsvej.com/sprouts/desktop/beta/Sprouts-0.1.118-arm64.zip" data-download>Download for Mac</a><a class="button secondary" href="/contact/#sprouts-iphone" data-ios-link>Get the iPhone app</a></div>
+      <p class="download-meta">Mac beta · For Macs with an M1 chip or newer, on macOS 13 or later · <a href="/sprouts/">Meet Sprouts</a></p>
+    </div>
+  </div>
+  <figure class="sprouts-film film-mac home-film" data-film>
+    <video muted loop playsinline controls preload="metadata" poster="/assets/brand/sprouts/sprouts-mac-poster.webp" width="1920" height="1200" aria-describedby="home-film-text"><source src="/assets/brand/sprouts/sprouts-mac.mp4" type="video/mp4" /></video>
+    <button class="film-toggle" type="button" aria-pressed="false" hidden><svg data-icon="pause" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h3.5v14H7zm6.5 0H17v14h-3.5z" /></svg><svg data-icon="play" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z" /></svg><span>Pause the film</span></button>
+    <figcaption>Recorded in the Sprouts Mac app, with sample data.</figcaption>
+    <p id="home-film-text" class="sr-only">A recording of the Sprouts Mac app with sample data. In the garden, Carrot strolls while Broccoli runs a command and Radish waits for input. You open Carrot and ask for a short digest of your GitHub repository every weekday at 8. Carrot thinks, lists the open pull requests and reads the new issues, then writes the first digest. It asks to add the rhythm “Morning digest”. You allow it, and Carrot confirms the next digest arrives tomorrow at 8:00.</p>
+  </figure>
+</section>
 
-<section class="section model-family" id="models" aria-labelledby="models-heading">
-          <div class="section-head"><div><h2 id="models-heading">Models</h2></div><p>Pea is live on our hosted API in early access for decisions and Beta for extraction. Pepper and Pumpkin are in private development; join their waitlists for release updates.</p></div>
-          <div class="model-grid"><article class="model-card model-pea" id="pea" aria-labelledby="pea-heading">
-              <div class="model-card-top"><p class="micro">Decisions &amp; Extraction · 2B</p><img src="/assets/brand/models/pea.svg" alt="" width="112" height="112" /></div>
-              <h3 id="pea-heading">Pea <span class="model-size">2B</span></h3>
-              <p>Pea predicts probabilities for decisions and extracts structured fields by pointing to exact evidence spans. Limited hosted early access for decisions; hosted Beta for extraction. Pea 1 decision weights require an approved Hugging Face request; extraction weights are private.</p>
-              <div class="model-links"><a href="/models/pea/">Pea decisions <span aria-hidden="true">→</span></a><a href="/models/pea/extraction/">Pea extraction <span aria-hidden="true">→</span></a><a href="https://app.itsvej.com/sign-up">Request access <span aria-hidden="true">→</span></a></div>
-            </article><article class="model-card model-pepper" id="pepper" aria-labelledby="pepper-heading">
-              <div class="model-card-top"><p class="micro">In development · Waitlist open</p><img src="/assets/brand/models/pepper.svg" alt="" width="112" height="112" /></div>
-              <h3 id="pepper-heading">Pepper <span class="model-size">8B</span></h3>
-              <p>Pepper is the middle sibling. We are building and testing it privately with companies. Join the waitlist for release and evaluation updates.</p>
-              <div class="model-links"><a href="/evaluation/pepper/">Development status <span aria-hidden="true">→</span></a><a href="/access/#pepper">Join the waitlist <span aria-hidden="true">→</span></a></div>
-            </article><article class="model-card model-pumpkin" id="pumpkin" aria-labelledby="pumpkin-heading">
-              <div class="model-card-top"><p class="micro">In development · Waitlist open</p><img src="/assets/brand/models/pumpkin.svg" alt="" width="112" height="112" /></div>
-              <h3 id="pumpkin-heading">Pumpkin <span class="model-size">27B</span></h3>
-              <p>Pumpkin is the largest model in the family. We are researching and testing it privately with companies. Join the waitlist for release and evaluation updates.</p>
-              <div class="model-links"><a href="/evaluation/pumpkin/">Development status <span aria-hidden="true">→</span></a><a href="/access/#pumpkin">Join the waitlist <span aria-hidden="true">→</span></a></div>
-            </article></div>
-          <p class="model-roadmap-note">2B, 8B and 27B indicate parameter counts. See the evaluation for measured performance.</p>
-        </section>
-<section class="section sprouts-teaser" id="sprouts" aria-labelledby="sprouts-heading"><div><p class="eyebrow">New from Vej · Mac and iPhone</p><h2 id="sprouts-heading">Meet Sprouts</h2><p>A team of always-on bots on computers you own. Each sprout has its own personality, memory, routines and private computer.</p><p class="teaser-links"><a href="/sprouts/">Meet the sprouts <span aria-hidden="true">→</span></a><a href="/sprouts/#download">Get the Mac beta <span aria-hidden="true">→</span></a></p></div><a class="teaser-stage" href="/sprouts/" aria-label="Meet the sprouts"><span class="garden-character" data-facing="right"><svg class="garden-rig" data-motion="idle" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><ellipse class="rig-shadow" cx="60" cy="124.5" rx="31" ry="4.5"></ellipse><g class="rig-root"><g class="rig-far" transform="translate(66 90)"><g class="rig-thigh"><line y2="15" stroke="#a85518" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#a85518" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#a85518" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-near" transform="translate(55 90)"><g class="rig-thigh"><line y2="15" stroke="#c86a23" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#c86a23" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#a85518" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-torso"><g class="rig-far" transform="translate(82 64)"><g class="rig-shoulder"><line y2="11" stroke="#a85518" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#a85518" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#a85518"></circle><g transform="translate(0 11)"><g class="rig-can"><path d="M-5 3Q0-6 5 3" fill="none" stroke="#50807c" stroke-width="2.4"></path><path d="M4 9L20 4.5l2.5 2.5L4 16z" fill="#648f8b"></path><path d="M-8 3H8L6.5 17h-13z" fill="#79aaa6"></path><path d="M18.5 2.5l6.5 6.5" stroke="#50807c" stroke-width="3" stroke-linecap="round"></path><g fill="#83d5ec"><circle class="rig-drop" cx="24" cy="9" r="1.7"></circle><circle class="rig-drop" cx="26" cy="7" r="1.5"></circle><circle class="rig-drop" cx="27" cy="11" r="1.4"></circle></g></g></g></g></g></g></g><clipPath id="sprout-clip-27"><path d="M35 47C35 33 85 33 85 47C85 68 73 97 63 107C61 109 59 109 57 107C47 97 35 68 35 47Z"></path></clipPath><g fill="#bd621e"><path d="M35 47C35 33 85 33 85 47C85 68 73 97 63 107C61 109 59 109 57 107C47 97 35 68 35 47Z"></path></g><g clip-path="url(#sprout-clip-27)"><g fill="#d9772b" transform="translate(5 -4)"><path d="M35 47C35 33 85 33 85 47C85 68 73 97 63 107C61 109 59 109 57 107C47 97 35 68 35 47Z"></path></g><ellipse cx="66" cy="42" rx="11" ry="4.5" fill="#ee9a55" opacity=".85"></ellipse></g><path d="M46 76q6 3 12 2M72 76q-4 3-9 3M52 90q4 2 9 1" fill="none" stroke-linecap="round" stroke="#b85e1c" stroke-width="2.2"></path><g class="rig-top" style="transform-origin:60px 40px"><path d="M60 40C52 30 43 22 32 19C36 30 47 39 60 40Z" fill="#3e7d52"></path><path d="M60 40C68 30 77 22 88 19C84 30 73 39 60 40Z" fill="#245c3a"></path><path d="M60 41C54 28 55 13 62 4C68 15 68 29 60 41Z" fill="#9dbe8e"></path></g><ellipse cx="52" cy="65" rx="4.6" ry="2.8" fill="#b85e1c" opacity=".55"></ellipse><ellipse cx="80" cy="65" rx="4.6" ry="2.8" fill="#b85e1c" opacity=".55"></ellipse><g class="rig-eyes" style="transform-origin:66px 57px"><g><circle class="rig-white" cx="58" cy="57" r="5.6" fill="none"></circle><ellipse cx="58" cy="57" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="59.1" cy="55.4" r="1.2" fill="#fff"></circle></g><g><circle class="rig-white" cx="74" cy="57" r="5.6" fill="none"></circle><ellipse cx="74" cy="57" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="75.1" cy="55.4" r="1.2" fill="#fff"></circle></g></g><path class="rig-shut" d="M54 57q4 3.6 8 0M70 57q4 3.6 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><path class="rig-mouth" d="M62 65q4 4 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><g class="rig-near" transform="translate(44 66)"><g class="rig-shoulder"><line y2="11" stroke="#c86a23" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#c86a23" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#c86a23"></circle></g></g></g></g></g></g><g class="rig-sleep"><text x="92" y="30">z</text><text x="103" y="20">z</text></g></svg></span><span class="garden-character" data-facing="right"><svg class="garden-rig" data-motion="idle" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><ellipse class="rig-shadow" cx="60" cy="124.5" rx="31" ry="4.5"></ellipse><g class="rig-root"><g class="rig-far" transform="translate(68 90)"><g class="rig-thigh"><line y2="15" stroke="#962650" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#962650" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#962650" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-near" transform="translate(53 90)"><g class="rig-thigh"><line y2="15" stroke="#b53462" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#b53462" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#962650" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-torso"><g class="rig-far" transform="translate(90 70)"><g class="rig-shoulder"><line y2="11" stroke="#962650" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#962650" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#962650"></circle><g transform="translate(0 11)"><g class="rig-can"><path d="M-5 3Q0-6 5 3" fill="none" stroke="#50807c" stroke-width="2.4"></path><path d="M4 9L20 4.5l2.5 2.5L4 16z" fill="#648f8b"></path><path d="M-8 3H8L6.5 17h-13z" fill="#79aaa6"></path><path d="M18.5 2.5l6.5 6.5" stroke="#50807c" stroke-width="3" stroke-linecap="round"></path><g fill="#83d5ec"><circle class="rig-drop" cx="24" cy="9" r="1.7"></circle><circle class="rig-drop" cx="26" cy="7" r="1.5"></circle><circle class="rig-drop" cx="27" cy="11" r="1.4"></circle></g></g></g></g></g></g></g><clipPath id="sprout-clip-28"><path d="M60 38C80 38 94 52 94 70C94 86 80 98 67 104C64 108 62 112 60 117C58 112 56 108 53 104C40 98 26 86 26 70C26 52 40 38 60 38Z"></path></clipPath><g fill="#a52a55"><path d="M60 38C80 38 94 52 94 70C94 86 80 98 67 104C64 108 62 112 60 117C58 112 56 108 53 104C40 98 26 86 26 70C26 52 40 38 60 38Z"></path></g><g clip-path="url(#sprout-clip-28)"><g fill="#c83b6c" transform="translate(5 -4)"><path d="M60 38C80 38 94 52 94 70C94 86 80 98 67 104C64 108 62 112 60 117C58 112 56 108 53 104C40 98 26 86 26 70C26 52 40 38 60 38Z"></path></g><ellipse cx="72" cy="48" rx="10" ry="4.5" fill="#e27a9f" opacity=".85" transform="rotate(18 72 48)"></ellipse></g><path d="M53 104C57 108 58 112 60 117C62 112 63 108 67 104C62 101 58 101 53 104Z" fill="#f3ecdc"></path><g class="rig-top" style="transform-origin:60px 42px"><path d="M60 40C52 30 43 22 32 19C36 30 47 39 60 40Z" fill="#3e7d52"></path><path d="M60 40C68 30 77 22 88 19C84 30 73 39 60 40Z" fill="#245c3a"></path><path d="M60 41C54 28 55 13 62 4C68 15 68 29 60 41Z" fill="#9dbe8e"></path></g><ellipse cx="51" cy="72" rx="4.6" ry="2.8" fill="#a52a55" opacity=".55"></ellipse><ellipse cx="79" cy="72" rx="4.6" ry="2.8" fill="#a52a55" opacity=".55"></ellipse><g class="rig-eyes" style="transform-origin:65px 64px"><g><circle class="rig-white" cx="57" cy="64" r="5.6" fill="none"></circle><ellipse cx="57" cy="64" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="58.1" cy="62.4" r="1.2" fill="#fff"></circle></g><g><circle class="rig-white" cx="73" cy="64" r="5.6" fill="none"></circle><ellipse cx="73" cy="64" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="74.1" cy="62.4" r="1.2" fill="#fff"></circle></g></g><path class="rig-shut" d="M53 64q4 3.6 8 0M69 64q4 3.6 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><path class="rig-mouth" d="M61 72q4 4 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><g class="rig-near" transform="translate(31 72)"><g class="rig-shoulder"><line y2="11" stroke="#b53462" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#b53462" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#b53462"></circle></g></g></g></g></g></g><g class="rig-sleep"><text x="92" y="30">z</text><text x="103" y="20">z</text></g></svg></span><span class="garden-character" data-facing="right"><svg class="garden-rig" data-motion="idle" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><ellipse class="rig-shadow" cx="60" cy="124.5" rx="31" ry="4.5"></ellipse><g class="rig-root"><g class="rig-far" transform="translate(68 90)"><g class="rig-thigh"><line y2="15" stroke="#5b8a5c" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#5b8a5c" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#5b8a5c" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-near" transform="translate(53 90)"><g class="rig-thigh"><line y2="15" stroke="#7ca477" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#7ca477" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#3e7d52" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-torso"><g class="rig-far" transform="translate(77 74)"><g class="rig-shoulder"><line y2="11" stroke="#5b8a5c" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#5b8a5c" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#5b8a5c"></circle><g transform="translate(0 11)"><g class="rig-can"><path d="M-5 3Q0-6 5 3" fill="none" stroke="#50807c" stroke-width="2.4"></path><path d="M4 9L20 4.5l2.5 2.5L4 16z" fill="#648f8b"></path><path d="M-8 3H8L6.5 17h-13z" fill="#79aaa6"></path><path d="M18.5 2.5l6.5 6.5" stroke="#50807c" stroke-width="3" stroke-linecap="round"></path><g fill="#83d5ec"><circle class="rig-drop" cx="24" cy="9" r="1.7"></circle><circle class="rig-drop" cx="26" cy="7" r="1.5"></circle><circle class="rig-drop" cx="27" cy="11" r="1.4"></circle></g></g></g></g></g></g></g><clipPath id="sprout-clip-29"><path d="M44 58H76L81 98C81 106 75 108 60 108C45 108 39 106 39 98Z"></path></clipPath><g fill="#82a97a"><path d="M44 58H76L81 98C81 106 75 108 60 108C45 108 39 106 39 98Z"></path></g><g clip-path="url(#sprout-clip-29)"><g fill="#9dbe8e" transform="translate(5 -4)"><path d="M44 58H76L81 98C81 106 75 108 60 108C45 108 39 106 39 98Z"></path></g></g><g class="rig-top" style="transform-origin:60px 60px"><g fill="#3e7d52"><circle cx="60" cy="31" r="20"></circle><circle cx="37" cy="43" r="16"></circle><circle cx="83" cy="43" r="16"></circle><circle cx="48" cy="55" r="13"></circle><circle cx="72" cy="55" r="13"></circle></g><g fill="#245c3a"><circle cx="30" cy="50" r="9"></circle><circle cx="45" cy="60" r="7"></circle><circle cx="66" cy="46" r="5"></circle><circle cx="84" cy="38" r="3.5"></circle></g><g fill="#68a06f"><circle cx="54" cy="24" r="6"></circle><circle cx="74" cy="33" r="4"></circle><circle cx="36" cy="37" r="4"></circle></g></g><ellipse cx="50" cy="85" rx="4.6" ry="2.8" fill="#7ca477" opacity=".55"></ellipse><ellipse cx="78" cy="85" rx="4.6" ry="2.8" fill="#7ca477" opacity=".55"></ellipse><g class="rig-eyes" style="transform-origin:64px 77px"><g><circle class="rig-white" cx="56" cy="77" r="5.6" fill="none"></circle><ellipse cx="56" cy="77" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="57.1" cy="75.4" r="1.2" fill="#fff"></circle></g><g><circle class="rig-white" cx="72" cy="77" r="5.6" fill="none"></circle><ellipse cx="72" cy="77" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="73.1" cy="75.4" r="1.2" fill="#fff"></circle></g></g><path class="rig-shut" d="M52 77q4 3.6 8 0M68 77q4 3.6 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><path class="rig-mouth" d="M60 85q4 4 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><g class="rig-near" transform="translate(45 76)"><g class="rig-shoulder"><line y2="11" stroke="#7ca477" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#7ca477" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#7ca477"></circle></g></g></g></g></g></g><g class="rig-sleep"><text x="92" y="30">z</text><text x="103" y="20">z</text></g></svg></span><span class="garden-character" data-facing="left"><svg class="garden-rig" data-motion="idle" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><ellipse class="rig-shadow" cx="60" cy="124.5" rx="31" ry="4.5"></ellipse><g class="rig-root"><g class="rig-far" transform="translate(68 90)"><g class="rig-thigh"><line y2="15" stroke="#245c3a" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#245c3a" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#245c3a" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-near" transform="translate(53 90)"><g class="rig-thigh"><line y2="15" stroke="#3e7d52" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#3e7d52" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#245c3a" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-torso"><g class="rig-far" transform="translate(90 78)"><g class="rig-shoulder"><line y2="11" stroke="#245c3a" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#245c3a" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#245c3a"></circle><g transform="translate(0 11)"><g class="rig-can"><path d="M-5 3Q0-6 5 3" fill="none" stroke="#50807c" stroke-width="2.4"></path><path d="M4 9L20 4.5l2.5 2.5L4 16z" fill="#648f8b"></path><path d="M-8 3H8L6.5 17h-13z" fill="#79aaa6"></path><path d="M18.5 2.5l6.5 6.5" stroke="#50807c" stroke-width="3" stroke-linecap="round"></path><g fill="#83d5ec"><circle class="rig-drop" cx="24" cy="9" r="1.7"></circle><circle class="rig-drop" cx="26" cy="7" r="1.5"></circle><circle class="rig-drop" cx="27" cy="11" r="1.4"></circle></g></g></g></g></g></g></g><clipPath id="sprout-clip-30"><path d="M60 36C50 36 46 44 42 54C34 66 26 74 28 90C30 104 46 110 60 110C76 110 90 104 92 90C94 74 84 66 78 54C74 44 70 36 60 36Z"></path></clipPath><g fill="#4a2e5b"><path d="M60 36C50 36 46 44 42 54C34 66 26 74 28 90C30 104 46 110 60 110C76 110 90 104 92 90C94 74 84 66 78 54C74 44 70 36 60 36Z"></path></g><g clip-path="url(#sprout-clip-30)"><g fill="#5b3a6e" transform="translate(5 -4)"><path d="M60 36C50 36 46 44 42 54C34 66 26 74 28 90C30 104 46 110 60 110C76 110 90 104 92 90C94 74 84 66 78 54C74 44 70 36 60 36Z"></path></g></g><path d="M37 76C35 84 37 92 42 98" fill="none" stroke-linecap="round" stroke="#7e5a93" stroke-width="4"></path><g class="rig-top" style="transform-origin:60px 42px"><path d="M42 48C46 34 74 34 78 48C72 43 67 50 60 45C53 50 48 43 42 48Z" fill="#3e7d52"></path><path d="M56 38C54 28 58 19 67 14C69 21 67 31 64 38Z" fill="#245c3a"></path></g><ellipse cx="51" cy="82" rx="4.6" ry="2.8" fill="#7e5a93" opacity=".55"></ellipse><ellipse cx="79" cy="82" rx="4.6" ry="2.8" fill="#7e5a93" opacity=".55"></ellipse><g class="rig-eyes" style="transform-origin:65px 74px"><g><circle class="rig-white" cx="57" cy="74" r="5.6" fill="#f3ecdc"></circle><ellipse cx="57" cy="74" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="58.1" cy="72.4" r="1.2" fill="#fff"></circle></g><g><circle class="rig-white" cx="73" cy="74" r="5.6" fill="#f3ecdc"></circle><ellipse cx="73" cy="74" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="74.1" cy="72.4" r="1.2" fill="#fff"></circle></g></g><path class="rig-shut" d="M53 74q4 3.6 8 0M69 74q4 3.6 8 0" fill="none" stroke-linecap="round" stroke="#f3ecdc" stroke-width="2.3"></path><path class="rig-mouth" d="M61 82q4 4 8 0" fill="none" stroke-linecap="round" stroke="#f3ecdc" stroke-width="2.3"></path><g class="rig-near" transform="translate(33 80)"><g class="rig-shoulder"><line y2="11" stroke="#3e7d52" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#3e7d52" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#3e7d52"></circle></g></g></g></g></g></g><g class="rig-sleep"><text x="92" y="30">z</text><text x="103" y="20">z</text></g></svg></span><span class="garden-character" data-facing="left"><svg class="garden-rig" data-motion="idle" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><ellipse class="rig-shadow" cx="60" cy="124.5" rx="31" ry="4.5"></ellipse><g class="rig-root"><g class="rig-far" transform="translate(68 90)"><g class="rig-thigh"><line y2="15" stroke="#5f7a3c" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#5f7a3c" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#5f7a3c" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-near" transform="translate(53 90)"><g class="rig-thigh"><line y2="15" stroke="#7f9a4d" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#7f9a4d" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#245c3a" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-torso"><g class="rig-far" transform="translate(84 72)"><g class="rig-shoulder"><line y2="11" stroke="#5f7a3c" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#5f7a3c" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#5f7a3c"></circle><g transform="translate(0 11)"><g class="rig-can"><path d="M-5 3Q0-6 5 3" fill="none" stroke="#50807c" stroke-width="2.4"></path><path d="M4 9L20 4.5l2.5 2.5L4 16z" fill="#648f8b"></path><path d="M-8 3H8L6.5 17h-13z" fill="#79aaa6"></path><path d="M18.5 2.5l6.5 6.5" stroke="#50807c" stroke-width="3" stroke-linecap="round"></path><g fill="#83d5ec"><circle class="rig-drop" cx="24" cy="9" r="1.7"></circle><circle class="rig-drop" cx="26" cy="7" r="1.5"></circle><circle class="rig-drop" cx="27" cy="11" r="1.4"></circle></g></g></g></g></g></g></g><clipPath id="sprout-clip-31"><path d="M60 28C76 28 85 48 85 70C85 92 76 108 60 108C44 108 35 92 35 70C35 48 44 28 60 28Z"></path></clipPath><g fill="#c3922a"><path d="M60 28C76 28 85 48 85 70C85 92 76 108 60 108C44 108 35 92 35 70C35 48 44 28 60 28Z"></path></g><g clip-path="url(#sprout-clip-31)"><g fill="#e4b64a" transform="translate(5 -4)"><path d="M60 28C76 28 85 48 85 70C85 92 76 108 60 108C44 108 35 92 35 70C35 48 44 28 60 28Z"></path></g></g><g fill="#c3922a" opacity=".8"><circle cx="50" cy="38" r="2"></circle><circle cx="60" cy="36" r="2"></circle><circle cx="70" cy="38" r="2"></circle><circle cx="44" cy="48" r="2"></circle><circle cx="76" cy="48" r="2"></circle><circle cx="42" cy="60" r="2"></circle><circle cx="42" cy="72" r="2"></circle><circle cx="80" cy="74" r="2"></circle><circle cx="56" cy="78" r="2"></circle><circle cx="68" cy="78" r="2"></circle></g><path d="M37 70C25 84 23 100 28 116C42 110 53 98 56 84C48 84 41 78 37 70Z" fill="#3e7d52"></path><path d="M83 70C95 84 97 100 92 116C78 110 67 98 64 84C72 84 79 78 83 70Z" fill="#245c3a"></path><g class="rig-top" style="transform-origin:60px 30px"><path d="M60 30C56 22 56 14 61 7M60 30C64 24 68 20 74 17M60 30C55 25 50 22 45 20" fill="none" stroke-linecap="round" stroke="#c9a15a" stroke-width="2.6"></path></g><ellipse cx="51" cy="68" rx="4.6" ry="2.8" fill="#c3922a" opacity=".55"></ellipse><ellipse cx="79" cy="68" rx="4.6" ry="2.8" fill="#c3922a" opacity=".55"></ellipse><g class="rig-eyes" style="transform-origin:65px 60px"><g><circle class="rig-white" cx="57" cy="60" r="5.6" fill="none"></circle><ellipse cx="57" cy="60" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="58.1" cy="58.4" r="1.2" fill="#fff"></circle></g><g><circle class="rig-white" cx="73" cy="60" r="5.6" fill="none"></circle><ellipse cx="73" cy="60" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="74.1" cy="58.4" r="1.2" fill="#fff"></circle></g></g><path class="rig-shut" d="M53 60q4 3.6 8 0M69 60q4 3.6 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><path class="rig-mouth" d="M61 68q4 4 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><g class="rig-near" transform="translate(39 74)"><g class="rig-shoulder"><line y2="11" stroke="#7f9a4d" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#7f9a4d" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#7f9a4d"></circle></g></g></g></g></g></g><g class="rig-sleep"><text x="92" y="30">z</text><text x="103" y="20">z</text></g></svg></span></a></section>
-<section class="section" id="how-it-works">
-          <span id="contract"></span>
-          <span id="problem"></span><span id="why"></span>
-          <div class="section-head">
-            <h2>How it works</h2>
-            <p>
-              One request carries up to 128 independent questions, each scored on its own.
-            </p>
-          </div>
-          <div class="columns">
-            <div>
-              <p class="number">01 / DESCRIBE</p>
-              <h3>Send the state.</h3>
-              <p>
-                Pass the situation as text or JSON: a message, record, or document.
-              </p>
-            </div>
-            <div>
-              <p class="number">02 / ASK</p>
-              <h3>Ask independent questions.</h3>
-              <p>
-                Choice picks among named options. Noul tests whether a statement holds. Score evaluates rubric levels. Questions do not see each other.
-              </p>
-            </div>
-            <div>
-              <p class="number">03 / ACT</p>
-              <h3>Apply your policy.</h3>
-              <p>
-                Each answer sums to one. Your code sets thresholds and gates actions. Vej never executes anything.
-              </p>
-            </div>
-          </div>
-          <div class="pair">
-            <div>
-              <p class="micro">REQUEST</p>
-              <pre class="code"><code class="language-json"><span class="p">{</span>
-<span class="w">  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please cancel my subscription. I have not provided an account ID."</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"account_verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Which action best matches the request?"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"cancel_subscription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancel an existing subscription"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"lookup_invoice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Retrieve a billing invoice"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"none"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Neither offered action applies"</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">"can_execute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"noul"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"statement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The account is verified and its ID is available."</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">"completeness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"score"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How complete is the information needed to execute cancellation?"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"levels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">"The account ID and account verification are both missing"</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">"Exactly one of account ID or account verification is missing"</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">"The account ID is available and the account is verified"</span>
-<span class="w">      </span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-            </div>
-            <div>
-              <p class="micro">ILLUSTRATIVE RESPONSE · abridged</p>
-              <pre class="code"><code class="language-json"><span class="p">{</span>
-<span class="w">  </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"route"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"choice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel_subscription"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"probabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"cancel_subscription"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.91</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"lookup_invoice"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"none"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.04</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">"can_execute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"noul"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"noul"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"probabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"true"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span><span class="w"> </span><span class="nt">"false"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.98</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">"completeness"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"score"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.14</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"probabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.88</span><span class="p">,</span><span class="w"> </span><span class="mf">0.10</span><span class="p">,</span><span class="w"> </span><span class="mf">0.02</span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-            </div>
-          </div>
-          <div class="pipeline">
-            <span>State + question + outcome</span
-            ><span class="arrow" aria-hidden="true"
-              ><span aria-hidden="true">→</span></span
-            ><span>Native scorer</span
-            ><span class="arrow" aria-hidden="true"
-              ><span aria-hidden="true">→</span></span
-            ><span>Probabilities</span>
-          </div>
-        </section>
-<section class="section" id="extraction" aria-labelledby="extraction-heading">
-          <div class="section-head">
-            <div>
-              <p class="number">NEW · HOSTED BETA</p>
-              <h2 id="extraction-heading">Extract with Pea</h2>
-            </div>
-            <p>
-              Each answer cites its evidence: character offsets into your text. Typed values are parsed from that evidence by code. When a field is probably absent, its value is null.
-            </p>
-          </div>
-          <div class="extraction-showcase">
-            <div class="extraction-card doc-source">
-              <div class="card-label micro">INPUT DOCUMENT (STATE)</div>
-              <div class="doc-text">
-                <div class="doc-line">Invoice <mark class="hl-1" data-field="invoice_number" title="span [8, 17)">2026-0412</mark></div>
-                <div class="doc-line">Date: <mark class="hl-2" data-field="invoice_date" title="span [24, 38)">3 October 2026</mark></div>
-                <div class="doc-line">Total due: €<mark class="hl-3" data-field="total" title="span [51, 59)">1,240.50</mark></div>
-              </div>
-              <div class="doc-meta micro">Offsets: Unicode code points · end-exclusive</div>
-            </div>
-            <div class="extraction-card fields-result">
-              <div class="card-label micro">EXTRACTED FIELDS · Pea · extraction</div>
-              <div class="field-item field-hl-1" data-field="invoice_number" tabindex="0">
-                <div class="field-head">
-                  <span class="field-key"><span class="swatch hl-1-swatch" aria-hidden="true"></span><span class="field-name">invoice_number</span></span>
-                  <span class="field-type micro">text</span>
-                </div>
-                <div class="field-body">
-                  <span class="field-val">&quot;2026-0412&quot;</span>
-                  <span class="field-span micro">span [8, 17)</span>
-                </div>
-              </div>
-              <div class="field-item field-hl-2" data-field="invoice_date" tabindex="0">
-                <div class="field-head">
-                  <span class="field-key"><span class="swatch hl-2-swatch" aria-hidden="true"></span><span class="field-name">invoice_date</span></span>
-                  <span class="field-type micro">date</span>
-                </div>
-                <div class="field-body">
-                  <span class="field-val">&quot;2026-10-03&quot;</span>
-                  <span class="field-span micro">span [24, 38) · parsed</span>
-                </div>
-              </div>
-              <div class="field-item field-hl-3" data-field="total" tabindex="0">
-                <div class="field-head">
-                  <span class="field-key"><span class="swatch hl-3-swatch" aria-hidden="true"></span><span class="field-name">total</span></span>
-                  <span class="field-type micro">number</span>
-                </div>
-                <div class="field-body">
-                  <span class="field-val">1240.50</span>
-                  <span class="field-span micro">span [51, 59) · 2 decimals</span>
-                </div>
-              </div>
-              <div class="field-item field-missing" data-field="po_number" tabindex="0">
-                <div class="field-head">
-                  <span class="field-key"><span class="swatch missing-swatch" aria-hidden="true"></span><span class="field-name">po_number</span></span>
-                  <span class="field-type micro">text · missing</span>
-                </div>
-                <div class="field-body">
-                  <span class="field-val null">null</span>
-                  <span class="field-span micro">p_null 0.97 · null</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p>
-            <a class="text-link" href="/models/pea/extraction/">Explore Pea extraction documentation &amp; API example <span aria-hidden="true">&rarr;</span></a>
-          </p>
-        </section>
-<section class="section" id="use-cases">
-          <div class="section-head">
-            <h2>Uses</h2>
-          </div>
-          <div class="limits">
-            <div>
-              <h3>Route a request.</h3>
-              <p>
-                Pea returns probabilities for billing, security and cancellation. Your code can route clear requests and send uncertain requests to a person.
-              </p>
-            </div>
-            <div>
-              <h3>Gate a tool call.</h3>
-              <p>
-                A refund requires a verified account ID. Use Noul to assess this condition. Your code must check the account before it issues a refund.
-              </p>
-            </div>
-            <div>
-              <h3>Score a reply against a rubric.</h3>
-              <p>
-                Grade answers against your rubric. Score returns a distribution over levels, and your code computes the expected position.
-              </p>
-            </div>
-            <div>
-              <h3>Decide when to escalate.</h3>
-              <p>
-                Use Choice to compare a retry, an alternative action and a review by a person. Your code applies the decision threshold.
-              </p>
-            </div>
-          </div>
-          <p>
-            <a class="text-link" href="/use-cases/"
-              >See Beta APIs and their use cases <span aria-hidden="true">→</span></a
-            >
-          </p>
-        </section>
-<section class="section" id="evidence">
-          <div class="section-head">
-            <h2>Pea evaluation</h2>
-            <p>
-              HelpSteer1 ratings and Schema-Guided Dialogue decisions, frozen before the final run.
-            </p>
-          </div>
-          <p class="small mobile-table-hint">Scroll horizontally to see the full comparison.</p>
-          <div class="table-wrap" role="region" tabindex="0" aria-label="Accuracy comparison">
-            <table class="metrics">
-              <caption class="sr-only">
-                Exact accuracy of Vej Pea and hosted Jev 1.13 on the same 14,286 test decisions
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Task</th>
-                  <th scope="col" class="numeric">Decisions</th>
-                  <th scope="col" class="numeric">Vej Pea</th>
-                  <th scope="col" class="numeric">Hosted Jev 1.13¹</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Choice · pick an outcome</th>
-                  <td class="numeric">6,197</td>
-                  <td class="numeric"><strong>89.22%</strong></td>
-                  <td class="numeric">83.07%</td>
-                </tr>
-                <tr>
-                  <th scope="row">Noul · assess a statement</th>
-                  <td class="numeric">3,089</td>
-                  <td class="numeric">91.71%</td>
-                  <td class="numeric"><strong>93.65%</strong></td>
-                </tr>
-                <tr>
-                  <th scope="row">Score · exact rubric level</th>
-                  <td class="numeric">5,000</td>
-                  <td class="numeric"><strong>51.62%</strong></td>
-                  <td class="numeric">44.20%</td>
-                </tr>
-                <tr class="total">
-                  <th scope="row">Overall</th>
-                  <td class="numeric">14,286</td>
-                  <td class="numeric"><strong>76.60%</strong></td>
-                  <td class="numeric">71.76%</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="footnotes">
-            ¹ Jev is <a href="https://typesafe.ai">TypeSafe</a>'s hosted decision model, shown with its documented rounding adjustment.
-          </p>
-          <p>
-            <a class="text-link" href="/evaluation/#jev"
-              >See the Jev comparison <span aria-hidden="true">→</span></a
-            >
-          </p>
-          <p>
-            <a class="text-link" href="/evaluation/"
-              >Read the full evaluation <span aria-hidden="true">→</span></a
-            >
-          </p>
-        </section>
-<section class="section reading-grid compact" id="status">
-          <div class="prose">
-            <h2>Availability</h2>
-            <p>Run Pea decisions through the native CLI, a local HTTP server or the Jev and Cloudflare Clef SDK formats. Extract document fields using Pea extraction on the hosted Beta API. See the <a href="/models/pea/#runtime">Pea runtime options</a> and the <a href="/models/pea/extraction/">Pea extraction documentation</a>.</p>
-            <h3>Pea release</h3>
-            <p>Pea is complete, in limited early access for decisions. Pea 1 decision weights require an approved Hugging Face request. Its published results describe the native checkpoint.</p>
-            <h3>Pea extraction Beta</h3>
-            <p>Pea extraction is live in hosted Beta at <code>/v1beta/extract</code> for document extraction. Extraction weights are private.</p>
-            <h3>Hosted API</h3>
-            <p>The hosted API is live at <a href="https://api.itsvej.com/">api.itsvej.com</a> in limited early access and Beta. Decision routes (Choice, Noul, Score) are live on <code>/v1/predict</code> with temperature 1.334, alongside the Jev and Cloudflare-compatible formats. Extraction is live in Beta on <code>/v1beta/extract</code>. Both are text only; image input is refused. Capacity is limited, with no uptime guarantee yet.</p><p><a href="https://app.itsvej.com/sign-up">Create your account</a> for manual approval. Already registered? <a href="https://app.itsvej.com/">Sign in to the console</a>.</p><p><a href="/use-cases/">Beta modes</a> are also live; states require organization retention opt-in and store history encrypted by Vej. Batch jobs use approved EU storage hosts and support 2K (2,048) tokens per complete row. Self-hosting remains an option for Pea. <a href="/dpa/">Data processing agreement</a>.</p>
-          </div>
-        </section>
-<section class="section" id="questions"><div class="section-head"><div><h2>Questions</h2></div></div><dl class="faq"><div><dt>Which models can I use?</dt><dd>Pea (2B) is available for decisions in limited hosted early access, with Pea 1 weights by approved Hugging Face request. Pea extraction is live in hosted Beta at <code>/v1beta/extract</code> (extraction weights are private). Pepper and Pumpkin are in development and tested privately with companies; neither is publicly available.</dd></div><div><dt>What is Pea extraction?</dt><dd>Pea extraction is a hosted capability of Pea. It reads a document and extracts developer-defined fields by predicting exact Unicode evidence spans. It uses prefill only—no text generation and no autoregressive decoding. Each answer cites character offsets in your text, and typed values are parsed from that evidence. When a field is probably absent, its value is null.</dd></div><div><dt>What context size can I use?</dt><dd>Pea decisions and Pea Pod extraction support <strong>96K (98,304) tokens per row in realtime</strong> and <strong>2K (2,048) tokens per row in batch</strong>. Each complete row includes the state or document, instructions, and candidate or field. Over-limit rows are rejected, never truncated. See the <a href="/models/pea/">model limits</a>.</dd></div><div><dt>What does Pea return?</dt><dd>A probability for each outcome you define. Choice weighs named options, Noul assesses statements, and Score rates rubric levels. Your code decides what happens next.</dd></div><div><dt>Can I run Pea on my own hardware?</dt><dd>Yes. Download Pea 1 from https://huggingface.co/ItsVej/pea-1 after your access request is approved. The native loader also needs the private Vej source. Supported inference uses the native loader on your GPU; CPU execution is a slower fallback. The model card includes setup instructions and current limits.</dd></div><div><dt>Is there a hosted API?</dt><dd>Yes. The hosted API is live at api.itsvej.com: Pea for decisions on <code>/v1/predict</code>, and Pea extraction on <code>/v1beta/extract</code> (Beta). Text only; image input is refused. Create a console account and wait for manual approval before using the API. Capacity is limited, with no uptime guarantee yet.</dd></div><div><dt>How should I use Pea’s probabilities?</dt><dd>Set thresholds using examples from your own workflow, and pair tool actions with independent policy checks. The published evaluation reports exact accuracy across 14,286 decisions at temperature 1. The hosted API uses temperature 1.334. A stated probability is not a guaranteed frequency.</dd></div></dl><p><a href="/models/pea/">Pea model card</a> · <a href="/models/pea/extraction/">Pea extraction</a> · <a href="/access/">Access and waitlists</a> · <a href="/licenses/">Licences</a></p></section>
-<section class="section newsletter" id="newsletter"><h2>Newsletter</h2><noscript><p>Enable JavaScript to subscribe, or contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p></noscript><p>Model releases, results and Vej news.</p><form data-signup-form data-kind="newsletter"><label for="newsletter-email">Email address <span>(required)</span></label><input id="newsletter-email" name="email" type="email" autocomplete="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Use an email address such as name@example.com." required maxlength="254" /><label class="consent" for="newsletter-consent"><input id="newsletter-consent" name="consent" type="checkbox" required />Send me Vej updates by email.</label><div class="form-trap" aria-hidden="true"><label for="newsletter-website">Leave this field empty</label><input id="newsletter-website" name="website" autocomplete="off" tabindex="-1" /></div><div data-turnstile></div><button class="button" type="submit" disabled>Subscribe</button><button class="button secondary" type="button" data-retry hidden>Retry browser check</button><p class="form-feedback" role="status" aria-live="polite"></p><p class="small">We use these details for this request or list. <a href="/privacy/">Privacy</a>.</p></form></section><section class="cta"><div><h2>Access and waitlists</h2><p>Request Pea access or join the Pepper and Pumpkin waitlists for release updates.</p></div><div class="actions"><a class="button" href="/access/">Access &amp; waitlists</a><a class="button secondary" href="https://app.itsvej.com/">Sign in to the console</a></div></section>
+<section class="section home-sprouts" id="sprouts" aria-labelledby="home-sprouts-heading">
+  <div class="section-head"><div><p class="eyebrow">What a sprout does</p><h2 id="home-sprouts-heading">Helpers that keep going while you get on with your day</h2></div><p>Sprouts runs as an app on your Mac. Each sprout keeps its own memory, rhythms and private computer between conversations, and works with the AI you already pay for, like ChatGPT or Claude.</p></div>
+  <ul class="home-features">
+    <li class="home-feature"><span class="garden-character" data-facing="right" aria-hidden="true"><svg class="garden-rig" data-motion="idle" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><ellipse class="rig-shadow" cx="60" cy="124.5" rx="31" ry="4.5"></ellipse><g class="rig-root"><g class="rig-far" transform="translate(66 90)"><g class="rig-thigh"><line y2="15" stroke="#a85518" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#a85518" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#a85518" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-near" transform="translate(55 90)"><g class="rig-thigh"><line y2="15" stroke="#c86a23" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#c86a23" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#a85518" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-torso"><g class="rig-far" transform="translate(82 64)"><g class="rig-shoulder"><line y2="11" stroke="#a85518" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#a85518" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#a85518"></circle><g transform="translate(0 11)"><g class="rig-can"><path d="M-5 3Q0-6 5 3" fill="none" stroke="#50807c" stroke-width="2.4"></path><path d="M4 9L20 4.5l2.5 2.5L4 16z" fill="#648f8b"></path><path d="M-8 3H8L6.5 17h-13z" fill="#79aaa6"></path><path d="M18.5 2.5l6.5 6.5" stroke="#50807c" stroke-width="3" stroke-linecap="round"></path><g fill="#83d5ec"><circle class="rig-drop" cx="24" cy="9" r="1.7"></circle><circle class="rig-drop" cx="26" cy="7" r="1.5"></circle><circle class="rig-drop" cx="27" cy="11" r="1.4"></circle></g></g></g></g></g></g></g><clipPath id="sprout-clip-27"><path d="M35 47C35 33 85 33 85 47C85 68 73 97 63 107C61 109 59 109 57 107C47 97 35 68 35 47Z"></path></clipPath><g fill="#bd621e"><path d="M35 47C35 33 85 33 85 47C85 68 73 97 63 107C61 109 59 109 57 107C47 97 35 68 35 47Z"></path></g><g clip-path="url(#sprout-clip-27)"><g fill="#d9772b" transform="translate(5 -4)"><path d="M35 47C35 33 85 33 85 47C85 68 73 97 63 107C61 109 59 109 57 107C47 97 35 68 35 47Z"></path></g><ellipse cx="66" cy="42" rx="11" ry="4.5" fill="#ee9a55" opacity=".85"></ellipse></g><path d="M46 76q6 3 12 2M72 76q-4 3-9 3M52 90q4 2 9 1" fill="none" stroke-linecap="round" stroke="#b85e1c" stroke-width="2.2"></path><g class="rig-top" style="transform-origin:60px 40px"><path d="M60 40C52 30 43 22 32 19C36 30 47 39 60 40Z" fill="#3e7d52"></path><path d="M60 40C68 30 77 22 88 19C84 30 73 39 60 40Z" fill="#245c3a"></path><path d="M60 41C54 28 55 13 62 4C68 15 68 29 60 41Z" fill="#9dbe8e"></path></g><ellipse cx="52" cy="65" rx="4.6" ry="2.8" fill="#b85e1c" opacity=".55"></ellipse><ellipse cx="80" cy="65" rx="4.6" ry="2.8" fill="#b85e1c" opacity=".55"></ellipse><g class="rig-eyes" style="transform-origin:66px 57px"><g><circle class="rig-white" cx="58" cy="57" r="5.6" fill="none"></circle><ellipse cx="58" cy="57" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="59.1" cy="55.4" r="1.2" fill="#fff"></circle></g><g><circle class="rig-white" cx="74" cy="57" r="5.6" fill="none"></circle><ellipse cx="74" cy="57" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="75.1" cy="55.4" r="1.2" fill="#fff"></circle></g></g><path class="rig-shut" d="M54 57q4 3.6 8 0M70 57q4 3.6 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><path class="rig-mouth" d="M62 65q4 4 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><g class="rig-near" transform="translate(44 66)"><g class="rig-shoulder"><line y2="11" stroke="#c86a23" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#c86a23" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#c86a23"></circle></g></g></g></g></g></g><g class="rig-sleep"><text x="92" y="30">z</text><text x="103" y="20">z</text></g></svg></span><h3>Recurring work, done</h3><p>Ask once, in plain words. Rhythms run on schedule: a morning digest, a weekly check, a reminder you would otherwise forget.</p><a href="/sprouts/#app">See a sprout at work <span aria-hidden="true">→</span></a></li>
+    <li class="home-feature"><span class="garden-character" data-facing="left" aria-hidden="true"><svg class="garden-rig" data-motion="idle" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><ellipse class="rig-shadow" cx="60" cy="124.5" rx="31" ry="4.5"></ellipse><g class="rig-root"><g class="rig-far" transform="translate(68 90)"><g class="rig-thigh"><line y2="15" stroke="#5f7a3c" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#5f7a3c" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#5f7a3c" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-near" transform="translate(53 90)"><g class="rig-thigh"><line y2="15" stroke="#7f9a4d" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#7f9a4d" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#245c3a" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-torso"><g class="rig-far" transform="translate(84 72)"><g class="rig-shoulder"><line y2="11" stroke="#5f7a3c" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#5f7a3c" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#5f7a3c"></circle><g transform="translate(0 11)"><g class="rig-can"><path d="M-5 3Q0-6 5 3" fill="none" stroke="#50807c" stroke-width="2.4"></path><path d="M4 9L20 4.5l2.5 2.5L4 16z" fill="#648f8b"></path><path d="M-8 3H8L6.5 17h-13z" fill="#79aaa6"></path><path d="M18.5 2.5l6.5 6.5" stroke="#50807c" stroke-width="3" stroke-linecap="round"></path><g fill="#83d5ec"><circle class="rig-drop" cx="24" cy="9" r="1.7"></circle><circle class="rig-drop" cx="26" cy="7" r="1.5"></circle><circle class="rig-drop" cx="27" cy="11" r="1.4"></circle></g></g></g></g></g></g></g><clipPath id="sprout-clip-31"><path d="M60 28C76 28 85 48 85 70C85 92 76 108 60 108C44 108 35 92 35 70C35 48 44 28 60 28Z"></path></clipPath><g fill="#c3922a"><path d="M60 28C76 28 85 48 85 70C85 92 76 108 60 108C44 108 35 92 35 70C35 48 44 28 60 28Z"></path></g><g clip-path="url(#sprout-clip-31)"><g fill="#e4b64a" transform="translate(5 -4)"><path d="M60 28C76 28 85 48 85 70C85 92 76 108 60 108C44 108 35 92 35 70C35 48 44 28 60 28Z"></path></g></g><g fill="#c3922a" opacity=".8"><circle cx="50" cy="38" r="2"></circle><circle cx="60" cy="36" r="2"></circle><circle cx="70" cy="38" r="2"></circle><circle cx="44" cy="48" r="2"></circle><circle cx="76" cy="48" r="2"></circle><circle cx="42" cy="60" r="2"></circle><circle cx="42" cy="72" r="2"></circle><circle cx="80" cy="74" r="2"></circle><circle cx="56" cy="78" r="2"></circle><circle cx="68" cy="78" r="2"></circle></g><path d="M37 70C25 84 23 100 28 116C42 110 53 98 56 84C48 84 41 78 37 70Z" fill="#3e7d52"></path><path d="M83 70C95 84 97 100 92 116C78 110 67 98 64 84C72 84 79 78 83 70Z" fill="#245c3a"></path><g class="rig-top" style="transform-origin:60px 30px"><path d="M60 30C56 22 56 14 61 7M60 30C64 24 68 20 74 17M60 30C55 25 50 22 45 20" fill="none" stroke-linecap="round" stroke="#c9a15a" stroke-width="2.6"></path></g><ellipse cx="51" cy="68" rx="4.6" ry="2.8" fill="#c3922a" opacity=".55"></ellipse><ellipse cx="79" cy="68" rx="4.6" ry="2.8" fill="#c3922a" opacity=".55"></ellipse><g class="rig-eyes" style="transform-origin:65px 60px"><g><circle class="rig-white" cx="57" cy="60" r="5.6" fill="none"></circle><ellipse cx="57" cy="60" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="58.1" cy="58.4" r="1.2" fill="#fff"></circle></g><g><circle class="rig-white" cx="73" cy="60" r="5.6" fill="none"></circle><ellipse cx="73" cy="60" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="74.1" cy="58.4" r="1.2" fill="#fff"></circle></g></g><path class="rig-shut" d="M53 60q4 3.6 8 0M69 60q4 3.6 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><path class="rig-mouth" d="M61 68q4 4 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><g class="rig-near" transform="translate(39 74)"><g class="rig-shoulder"><line y2="11" stroke="#7f9a4d" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#7f9a4d" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#7f9a4d"></circle></g></g></g></g></g></g><g class="rig-sleep"><text x="92" y="30">z</text><text x="103" y="20">z</text></g></svg></span><h3>Its own computer</h3><p>Every sprout gets a private computer of its own, with a web browser and its own files. Sprouts sets it up for you.</p><a href="/sprouts/#features">Look inside <span aria-hidden="true">→</span></a></li>
+    <li class="home-feature"><span class="garden-character" data-facing="right" aria-hidden="true"><svg class="garden-rig" data-motion="idle" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><ellipse class="rig-shadow" cx="60" cy="124.5" rx="31" ry="4.5"></ellipse><g class="rig-root"><g class="rig-far" transform="translate(68 90)"><g class="rig-thigh"><line y2="15" stroke="#5b8a5c" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#5b8a5c" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#5b8a5c" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-near" transform="translate(53 90)"><g class="rig-thigh"><line y2="15" stroke="#7ca477" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#7ca477" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#3e7d52" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-torso"><g class="rig-far" transform="translate(77 74)"><g class="rig-shoulder"><line y2="11" stroke="#5b8a5c" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#5b8a5c" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#5b8a5c"></circle><g transform="translate(0 11)"><g class="rig-can"><path d="M-5 3Q0-6 5 3" fill="none" stroke="#50807c" stroke-width="2.4"></path><path d="M4 9L20 4.5l2.5 2.5L4 16z" fill="#648f8b"></path><path d="M-8 3H8L6.5 17h-13z" fill="#79aaa6"></path><path d="M18.5 2.5l6.5 6.5" stroke="#50807c" stroke-width="3" stroke-linecap="round"></path><g fill="#83d5ec"><circle class="rig-drop" cx="24" cy="9" r="1.7"></circle><circle class="rig-drop" cx="26" cy="7" r="1.5"></circle><circle class="rig-drop" cx="27" cy="11" r="1.4"></circle></g></g></g></g></g></g></g><clipPath id="sprout-clip-29"><path d="M44 58H76L81 98C81 106 75 108 60 108C45 108 39 106 39 98Z"></path></clipPath><g fill="#82a97a"><path d="M44 58H76L81 98C81 106 75 108 60 108C45 108 39 106 39 98Z"></path></g><g clip-path="url(#sprout-clip-29)"><g fill="#9dbe8e" transform="translate(5 -4)"><path d="M44 58H76L81 98C81 106 75 108 60 108C45 108 39 106 39 98Z"></path></g></g><g class="rig-top" style="transform-origin:60px 60px"><g fill="#3e7d52"><circle cx="60" cy="31" r="20"></circle><circle cx="37" cy="43" r="16"></circle><circle cx="83" cy="43" r="16"></circle><circle cx="48" cy="55" r="13"></circle><circle cx="72" cy="55" r="13"></circle></g><g fill="#245c3a"><circle cx="30" cy="50" r="9"></circle><circle cx="45" cy="60" r="7"></circle><circle cx="66" cy="46" r="5"></circle><circle cx="84" cy="38" r="3.5"></circle></g><g fill="#68a06f"><circle cx="54" cy="24" r="6"></circle><circle cx="74" cy="33" r="4"></circle><circle cx="36" cy="37" r="4"></circle></g></g><ellipse cx="50" cy="85" rx="4.6" ry="2.8" fill="#7ca477" opacity=".55"></ellipse><ellipse cx="78" cy="85" rx="4.6" ry="2.8" fill="#7ca477" opacity=".55"></ellipse><g class="rig-eyes" style="transform-origin:64px 77px"><g><circle class="rig-white" cx="56" cy="77" r="5.6" fill="none"></circle><ellipse cx="56" cy="77" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="57.1" cy="75.4" r="1.2" fill="#fff"></circle></g><g><circle class="rig-white" cx="72" cy="77" r="5.6" fill="none"></circle><ellipse cx="72" cy="77" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="73.1" cy="75.4" r="1.2" fill="#fff"></circle></g></g><path class="rig-shut" d="M52 77q4 3.6 8 0M68 77q4 3.6 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><path class="rig-mouth" d="M60 85q4 4 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><g class="rig-near" transform="translate(45 76)"><g class="rig-shoulder"><line y2="11" stroke="#7ca477" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#7ca477" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#7ca477"></circle></g></g></g></g></g></g><g class="rig-sleep"><text x="92" y="30">z</text><text x="103" y="20">z</text></g></svg></span><h3>You stay in charge</h3><p>A sprout asks before it acts in your apps. Passwords stay locked on your Mac and never appear in the chat.</p><a href="/sprouts/#in-charge">How it stays safe <span aria-hidden="true">→</span></a></li>
+    <li class="home-feature"><span class="garden-character" data-facing="right" aria-hidden="true"><svg class="garden-rig" data-motion="idle" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><ellipse class="rig-shadow" cx="60" cy="124.5" rx="31" ry="4.5"></ellipse><g class="rig-root"><g class="rig-far" transform="translate(68 90)"><g class="rig-thigh"><line y2="15" stroke="#962650" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#962650" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#962650" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-near" transform="translate(53 90)"><g class="rig-thigh"><line y2="15" stroke="#b53462" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#b53462" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#962650" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-torso"><g class="rig-far" transform="translate(90 70)"><g class="rig-shoulder"><line y2="11" stroke="#962650" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#962650" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#962650"></circle><g transform="translate(0 11)"><g class="rig-can"><path d="M-5 3Q0-6 5 3" fill="none" stroke="#50807c" stroke-width="2.4"></path><path d="M4 9L20 4.5l2.5 2.5L4 16z" fill="#648f8b"></path><path d="M-8 3H8L6.5 17h-13z" fill="#79aaa6"></path><path d="M18.5 2.5l6.5 6.5" stroke="#50807c" stroke-width="3" stroke-linecap="round"></path><g fill="#83d5ec"><circle class="rig-drop" cx="24" cy="9" r="1.7"></circle><circle class="rig-drop" cx="26" cy="7" r="1.5"></circle><circle class="rig-drop" cx="27" cy="11" r="1.4"></circle></g></g></g></g></g></g></g><clipPath id="sprout-clip-28"><path d="M60 38C80 38 94 52 94 70C94 86 80 98 67 104C64 108 62 112 60 117C58 112 56 108 53 104C40 98 26 86 26 70C26 52 40 38 60 38Z"></path></clipPath><g fill="#a52a55"><path d="M60 38C80 38 94 52 94 70C94 86 80 98 67 104C64 108 62 112 60 117C58 112 56 108 53 104C40 98 26 86 26 70C26 52 40 38 60 38Z"></path></g><g clip-path="url(#sprout-clip-28)"><g fill="#c83b6c" transform="translate(5 -4)"><path d="M60 38C80 38 94 52 94 70C94 86 80 98 67 104C64 108 62 112 60 117C58 112 56 108 53 104C40 98 26 86 26 70C26 52 40 38 60 38Z"></path></g><ellipse cx="72" cy="48" rx="10" ry="4.5" fill="#e27a9f" opacity=".85" transform="rotate(18 72 48)"></ellipse></g><path d="M53 104C57 108 58 112 60 117C62 112 63 108 67 104C62 101 58 101 53 104Z" fill="#f3ecdc"></path><g class="rig-top" style="transform-origin:60px 42px"><path d="M60 40C52 30 43 22 32 19C36 30 47 39 60 40Z" fill="#3e7d52"></path><path d="M60 40C68 30 77 22 88 19C84 30 73 39 60 40Z" fill="#245c3a"></path><path d="M60 41C54 28 55 13 62 4C68 15 68 29 60 41Z" fill="#9dbe8e"></path></g><ellipse cx="51" cy="72" rx="4.6" ry="2.8" fill="#a52a55" opacity=".55"></ellipse><ellipse cx="79" cy="72" rx="4.6" ry="2.8" fill="#a52a55" opacity=".55"></ellipse><g class="rig-eyes" style="transform-origin:65px 64px"><g><circle class="rig-white" cx="57" cy="64" r="5.6" fill="none"></circle><ellipse cx="57" cy="64" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="58.1" cy="62.4" r="1.2" fill="#fff"></circle></g><g><circle class="rig-white" cx="73" cy="64" r="5.6" fill="none"></circle><ellipse cx="73" cy="64" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="74.1" cy="62.4" r="1.2" fill="#fff"></circle></g></g><path class="rig-shut" d="M53 64q4 3.6 8 0M69 64q4 3.6 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><path class="rig-mouth" d="M61 72q4 4 8 0" fill="none" stroke-linecap="round" stroke="#2b2a22" stroke-width="2.3"></path><g class="rig-near" transform="translate(31 72)"><g class="rig-shoulder"><line y2="11" stroke="#b53462" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#b53462" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#b53462"></circle></g></g></g></g></g></g><g class="rig-sleep"><text x="92" y="30">z</text><text x="103" y="20">z</text></g></svg></span><h3>On your iPhone</h3><p>Notifications when a sprout has news or needs you, and every conversation in your pocket.</p><a href="/sprouts/#iphone">The iPhone app <span aria-hidden="true">→</span></a></li>
+  </ul>
+  <p class="home-more"><a class="button secondary" href="/sprouts/">Everything Sprouts does</a></p>
+</section>
+
+<section class="section home-start" id="start" aria-labelledby="home-start-heading">
+  <div class="section-head"><div><p class="eyebrow">Get started</p><h2 id="home-start-heading">Plant your first sprout in three steps</h2></div></div>
+  <div class="home-start-grid">
+    <ol class="home-steps">
+      <li><span class="micro">01</span><h3>Download the Mac beta</h3><p>Any Mac with an M1 chip or newer, on macOS 13 or later. Sprouts sets up everything it needs.</p></li>
+      <li><span class="micro">02</span><h3>Sign in and connect your AI</h3><p>Create your Vej account, then connect the AI you already pay for, like ChatGPT or Claude.</p></li>
+      <li><span class="micro">03</span><h3>Plant a sprout</h3><p>Pick a vegetable and a name, then give it its first piece of recurring work.</p></li>
+    </ol>
+    <aside class="home-iphone">
+      <p class="eyebrow">Take it with you</p>
+      <h3>Sprouts on your iPhone</h3>
+      <p>See every conversation and allow or decline requests while your sprouts keep working on your Mac. Sign in with the same Vej account.</p>
+      <a class="button secondary" href="/contact/#sprouts-iphone" data-ios-link>Get the iPhone app</a>
+    </aside>
+  </div>
+</section>
+
+<section class="section home-models" id="models" aria-labelledby="models-heading">
+  <div class="section-head"><div><p class="eyebrow">Also from Vej</p><h2 id="models-heading">Meet the Vej models</h2></div><p>Separate from Sprouts, Vej builds its own decision and extraction models for developers. Sprouts works with the models you already use.</p></div>
+  <ul class="home-model-list">
+    <li class="home-model"><img src="/assets/brand/models/pea.svg" alt="" width="56" height="56" /><div><h3>Pea <span class="model-size">2B</span></h3><p class="home-model-status">Hosted early access · Extraction Beta</p><p>Probabilities for your decisions, and structured fields that point to exact evidence.</p><a href="/developers/">Build with Pea <span aria-hidden="true">→</span></a></div></li>
+    <li class="home-model"><img src="/assets/brand/models/pepper.svg" alt="" width="56" height="56" /><div><h3>Pepper <span class="model-size">8B</span></h3><p class="home-model-status">In development</p><p>The middle sibling, being built and tested privately with companies.</p><a href="/access/#pepper">Join the waitlist <span aria-hidden="true">→</span></a></div></li>
+    <li class="home-model"><img src="/assets/brand/models/pumpkin.svg" alt="" width="56" height="56" /><div><h3>Pumpkin <span class="model-size">27B</span></h3><p class="home-model-status">Coming soon</p><p>The largest model in the family. Join the waitlist to hear first.</p><a href="/access/#pumpkin">Join the waitlist <span aria-hidden="true">→</span></a></div></li>
+  </ul>
+  <div class="home-developers-card" id="developers">
+    <div><p class="eyebrow">For developers</p><h2 id="home-developers-heading">Build decisions and extraction into your product</h2><p>Pea returns a probability for every outcome you define, and extracts structured fields that point to exact evidence. Hosted early access, approved by hand.</p></div>
+    <div class="home-developers-actions"><a class="button" href="/developers/">Explore the Pea API</a><a href="/models/pea/extraction/">Extraction docs <span aria-hidden="true">→</span></a><a href="/models/">All models <span aria-hidden="true">→</span></a></div>
+  </div>
+</section>
+
+<section class="cta sprouts-cta home-cta" id="download">
+  <div><h2>Your first sprout is a download away</h2><p>Apple has checked it for malicious software, and it keeps itself up to date.</p><div class="actions"><a class="button" href="https://downloads.itsvej.com/sprouts/desktop/beta/Sprouts-0.1.118-arm64.zip" data-download>Download for Mac</a><a class="button secondary" href="/sprouts/">Explore Sprouts</a></div><p class="download-meta">Mac beta · For Macs with an M1 chip or newer, on macOS 13 or later</p></div>
+</section>
+
+<section class="section newsletter" id="newsletter"><h2>Follow Sprouts and Vej</h2><noscript><p>Enable JavaScript to subscribe, or contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p></noscript><p>Sprouts releases, model news and Vej updates, by email.</p><form data-signup-form data-kind="newsletter"><label for="newsletter-email">Email address <span>(required)</span></label><input id="newsletter-email" name="email" type="email" autocomplete="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Use an email address such as name@example.com." required maxlength="254" /><label class="consent" for="newsletter-consent"><input id="newsletter-consent" name="consent" type="checkbox" required />Send me Vej updates by email.</label><div class="form-trap" aria-hidden="true"><label for="newsletter-website">Leave this field empty</label><input id="newsletter-website" name="website" autocomplete="off" tabindex="-1" /></div><div data-turnstile></div><button class="button" type="submit" disabled>Subscribe</button><button class="button secondary" type="button" data-retry hidden>Retry browser check</button><p class="form-feedback" role="status" aria-live="polite"></p><p class="small">We use these details for this request or list. <a href="/privacy/">Privacy</a>.</p></form></section>
 </main>
-      <footer>
+      <footer class="site-footer">
         <div class="footer-brand">
           <a href="/" aria-label="Vej home"
             ><picture
@@ -625,12 +247,13 @@
                 width="76"
                 height="40" /></picture
           ></a>
-          <span>Vej builds Pea, Pepper, Pumpkin and Sprouts. · 2026</span>
+          <span>Vej builds Sprouts, and the Pea, Pepper and Pumpkin models. · 2026</span>
         </div>
-        <nav aria-label="Footer">
-          <a href="https://app.itsvej.com/">Sign in</a>
-          <a href="/contact/">Contact</a>
-          <a href="/privacy/">Privacy</a>
+        <nav class="footer-columns" aria-label="Footer">
+          <div><p class="footer-title">Sprouts</p><a href="/sprouts/">Overview</a><a href="/sprouts/#download">Download for Mac</a><a href="/sprouts/#iphone">iPhone app</a></div>
+          <div><p class="footer-title">Models</p><a href="/models/">All models</a><a href="/models/pea/">Pea</a><a href="/evaluation/pepper/">Pepper</a><a href="/evaluation/pumpkin/">Pumpkin</a></div>
+          <div><p class="footer-title">Developers</p><a href="/developers/">Pea API</a><a href="/use-cases/">Use cases</a><a href="/evaluation/">Evaluation</a><a href="/access/">Access and waitlists</a><a href="https://app.itsvej.com/">Sign in</a></div>
+          <div><p class="footer-title">Vej</p><a href="/journal/">Journal</a><a href="/brand/">Brand</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/dpa/">Data processing</a><a href="/licenses/">Licences</a></div>
         </nav>
       </footer>
     </div>

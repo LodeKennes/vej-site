@@ -83,8 +83,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=e7c9803cd547" />
-    <script src="/app.js?v=3a0d748d277d" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=381769cf135a" />
+    <script src="/app.js?v=c272154a6828" defer></script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ContactPage", "name": "Contact", "description": "Send Vej a message. The form stores your email, name and message so Vej can reply.", "url": "https://itsvej.com/contact/"}</script>
   </head>
   <body>
@@ -103,10 +103,9 @@
               height="66" /></picture
         ></a>
         <nav class="nav" aria-label="Main">
-          <a href="/models/">Models</a>
-          <a href="/evaluation/">Evaluation</a>
-          <a href="/use-cases/">Use cases</a>
           <a href="/sprouts/">Sprouts</a>
+          <a href="/models/">Models</a>
+          <a href="/developers/">Developers</a>
           <a href="/journal/">Journal</a>
           <a class="nav-cta" href="https://app.itsvej.com/">Sign in</a>
         </nav>
@@ -114,7 +113,7 @@
       <main id="main">
 <section class="page-hero"><h1>Contact</h1><p class="lead">Send a message about Vej, the models or the hosted API. Vej stores it to reply.</p><p id="sprouts-iphone">Want Sprouts on your iPhone? Ask here and we’ll send you access to the iPhone app.</p></section><section class="section contact-form"><noscript><p>Enable JavaScript to send this form, or email <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p></noscript><form data-signup-form data-kind="contact"><label for="contact-name">Name <span>(optional)</span></label><input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" /><label for="contact-email">Email address <span>(required)</span></label><input id="contact-email" name="email" type="email" autocomplete="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Use an email address such as name@example.com." required maxlength="254" /><label for="contact-message">Message <span>(required)</span></label><textarea id="contact-message" name="message" required maxlength="2000" rows="6"></textarea><label class="consent" for="contact-consent"><input id="contact-consent" name="consent" type="checkbox" required />Vej may store this message to reply.</label><div class="form-trap" aria-hidden="true"><label for="contact-website">Leave this field empty</label><input id="contact-website" name="website" autocomplete="off" tabindex="-1" /></div><div data-turnstile></div><button class="button" type="submit" disabled>Send message</button><button class="button secondary" type="button" data-retry hidden>Retry browser check</button><p class="form-feedback" role="status" aria-live="polite"></p><p class="small">We store this message to reply. <a href="/privacy/">Privacy</a>.</p></form></section>
       </main>
-      <footer>
+      <footer class="site-footer">
         <div class="footer-brand">
           <a href="/" aria-label="Vej home"
             ><picture
@@ -126,12 +125,13 @@
                 width="76"
                 height="40" /></picture
           ></a>
-          <span>Vej builds Pea, Pepper, Pumpkin and Sprouts. · 2026</span>
+          <span>Vej builds Sprouts, and the Pea, Pepper and Pumpkin models. · 2026</span>
         </div>
-        <nav aria-label="Footer">
-          <a href="https://app.itsvej.com/">Sign in</a>
-          <a href="/contact/">Contact</a>
-          <a href="/privacy/">Privacy</a>
+        <nav class="footer-columns" aria-label="Footer">
+          <div><p class="footer-title">Sprouts</p><a href="/sprouts/">Overview</a><a href="/sprouts/#download">Download for Mac</a><a href="/sprouts/#iphone">iPhone app</a></div>
+          <div><p class="footer-title">Models</p><a href="/models/">All models</a><a href="/models/pea/">Pea</a><a href="/evaluation/pepper/">Pepper</a><a href="/evaluation/pumpkin/">Pumpkin</a></div>
+          <div><p class="footer-title">Developers</p><a href="/developers/">Pea API</a><a href="/use-cases/">Use cases</a><a href="/evaluation/">Evaluation</a><a href="/access/">Access and waitlists</a><a href="https://app.itsvej.com/">Sign in</a></div>
+          <div><p class="footer-title">Vej</p><a href="/journal/">Journal</a><a href="/brand/">Brand</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/dpa/">Data processing</a><a href="/licenses/">Licences</a></div>
         </nav>
       </footer>
     </div>

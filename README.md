@@ -2,11 +2,12 @@
 
 Public website: https://itsvej.com
 
-Vej builds Pea, Pepper and Pumpkin. Pea is a 2B model offering text decisions and
+Vej builds Sprouts, a team of always-on AI helpers on computers you own
+(https://itsvej.com/sprouts/), and the Pea, Pepper and Pumpkin models. Pea is a 2B model offering text decisions and
 hosted Beta extraction at `/v1beta/extract`. Pea is available through console signup
 and manual approval. Pea 1 decision weights have a separate Hugging Face access
-request; extraction weights are private. Pepper (8B) and Pumpkin (27B) are in private
-development and unavailable for public use. Only Pea decisions have published evaluation
+request; extraction weights are private. Pepper (8B) is in private development and Pumpkin (27B) is coming
+soon; neither is available for public use. Only Pea decisions have published evaluation
 results; extraction reports development results on locked test documents.
 
 This repository contains the generated website, not model weights or datasets.

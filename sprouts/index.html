@@ -83,8 +83,8 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=e7c9803cd547" />
-    <script src="/app.js?v=3a0d748d277d" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=381769cf135a" />
+    <script src="/app.js?v=c272154a6828" defer></script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Sprouts", "description": "Sprouts is a team of always-on AI bots on computers you own. Each sprout has its own personality, memory, routines and private computer. Mac beta, with an iPhone app.", "url": "https://itsvej.com/sprouts/"}</script>
   </head>
   <body>
@@ -103,10 +103,9 @@
               height="66" /></picture
         ></a>
         <nav class="nav" aria-label="Main">
-          <a href="/models/">Models</a>
-          <a href="/evaluation/">Evaluation</a>
-          <a href="/use-cases/">Use cases</a>
           <a href="/sprouts/" aria-current="page">Sprouts</a>
+          <a href="/models/">Models</a>
+          <a href="/developers/">Developers</a>
           <a href="/journal/">Journal</a>
           <a class="nav-cta" href="https://app.itsvej.com/">Sign in</a>
         </nav>
@@ -121,8 +120,8 @@
   <div>
     <p class="lead">Run a team of AI helpers on your Mac, each with its own personality, memory, routines and private computer. Give them recurring work: a morning digest, a weekly check or reminders you would otherwise forget. Follow along and answer them from your iPhone.</p>
     <div class="actions"><a class="button" href="https://downloads.itsvej.com/sprouts/desktop/beta/Sprouts-0.1.118-arm64.zip" data-download>Download for Mac</a><a class="button secondary" href="/contact/#sprouts-iphone" data-ios-link>Get the iPhone app</a></div>
-    <p class="download-meta">Mac beta 0.1.118 · Apple silicon · macOS 13 or newer · 304 MB</p>
-    <div class="hero-foot"><ul class="sprouts-facts" aria-label="Release status"><li>Developer ID signed</li><li>Notarized by Apple</li><li>Updates itself</li></ul><a class="hero-more" href="#app">See how Sprouts works <span aria-hidden="true">↓</span></a></div>
+    <p class="download-meta">Mac beta · For Macs with an M1 chip or newer, on macOS 13 or later</p>
+    <div class="hero-foot"><ul class="sprouts-facts" aria-label="Release status"><li>Checked by Apple</li><li>Keeps itself up to date</li></ul><a class="hero-more" href="#app">See how Sprouts works <span aria-hidden="true">↓</span></a></div>
   </div>
 </section>
 <figure class="garden" data-garden>
@@ -249,7 +248,7 @@
       <figure class="tour-shot"><img src="/assets/brand/sprouts/features/new-sprout.webp" alt="The Plant a new sprout form with a corn avatar, a name and a model." style="--w: 688px" width="688" height="432" loading="lazy" decoding="async" /></figure>
     </article>
     <article class="tour-panel" id="tour-secret-card" role="tabpanel" aria-labelledby="tour-tab-secret-card">
-      <div class="tour-copy"><h3>Secrets in a private card</h3><p>When a sprout needs a token, it asks in a card like this. The value goes to the vault on your Mac: the sprout can use it but never sees it. Keep it for that sprout, and revoke it later.</p></div>
+      <div class="tour-copy"><h3>Passwords in a private card</h3><p>When a sprout needs a password or code, it asks in a card like this. What you type goes into a locked vault on your Mac: the sprout can use it but never sees it. Keep it for that sprout, or take it back later.</p></div>
       <figure class="tour-shot"><img src="/assets/brand/sprouts/features/secret-card.webp" alt="A card titled Carrot needs a secret, asking for a GitHub token, with Decline and Send to vault." style="--w: 608px" width="608" height="382" loading="lazy" decoding="async" /></figure>
     </article>
     <article class="tour-panel" id="tour-secrets" role="tabpanel" aria-labelledby="tour-tab-secrets">
@@ -261,11 +260,11 @@
       <figure class="tour-shot"><img src="/assets/brand/sprouts/features/privacy.webp" alt="The Privacy settings with Send crash and error reports on and Share agent activity off." style="--w: 676px" width="676" height="607" loading="lazy" decoding="async" /></figure>
     </article>
     <article class="tour-panel" id="tour-agents" role="tabpanel" aria-labelledby="tour-tab-agents">
-      <div class="tour-copy"><h3>Bring your subscriptions</h3><p>Connect Codex with your ChatGPT account, Claude, or Antigravity with a Google account, then pick one for each new sprout. Cursor, Grok, Muse and Pi are coming.</p></div>
+      <div class="tour-copy"><h3>Bring your subscriptions</h3><p>Sign in with your ChatGPT, Claude or Google account, then pick one for each new sprout. More are on the way.</p></div>
       <figure class="tour-shot"><img src="/assets/brand/sprouts/features/agents.webp" alt="The Agents settings with Codex and Claude connected, Antigravity, and a coming soon list." style="--w: 978px" width="978" height="525" loading="lazy" decoding="async" /></figure>
     </article>
     <article class="tour-panel" id="tour-models" role="tabpanel" aria-labelledby="tour-tab-models">
-      <div class="tour-copy"><h3>API keys, local models or your own server</h3><p>Use a key from OpenAI, Anthropic, Google, xAI, Moonshot, Meta and others, a local model, or a server you run. Keys stay in the vault on your Mac.</p></div>
+      <div class="tour-copy"><h3>Other ways to connect</h3><p>Prefer something else? Paste a key from OpenAI, Anthropic, Google and others, or run a model on this Mac. Keys stay in the vault on your Mac.</p></div>
       <figure class="tour-shot"><img src="/assets/brand/sprouts/features/models.webp" alt="The API and local models settings: API key, Local model and Your server, and a list of providers from OpenAI to Meta, each with Connect." style="--w: 824px" width="824" height="923" loading="lazy" decoding="async" /></figure>
     </article>
     <article class="tour-panel" id="tour-usage" role="tabpanel" aria-labelledby="tour-tab-usage">
@@ -273,7 +272,7 @@
       <figure class="tour-shot"><img src="/assets/brand/sprouts/features/usage.webp" alt="The Usage settings: Codex at 0% left with its limit reached, Claude at 56% left and Fable at 100% left." style="--w: 978px" width="978" height="747" loading="lazy" decoding="async" /></figure>
     </article>
     <article class="tour-panel" id="tour-catalog" role="tabpanel" aria-labelledby="tour-tab-catalog">
-      <div class="tour-copy"><h3>Skills and connections</h3><p>Add skills and connect apps such as GitHub, Atlassian, PostHog and Hugging Face, for all your sprouts or just one. Entries from the signed catalog are reviewed; anything you add yourself is marked Unreviewed.</p></div>
+      <div class="tour-copy"><h3>Skills and connections</h3><p>Teach your sprouts new skills and connect apps such as Excalidraw for sketches or Exa for web research, for every sprout or just one. Mail and calendar are coming. Everything in the catalog is reviewed; anything you add yourself is marked Unreviewed.</p></div>
       <figure class="tour-shot"><img src="/assets/brand/sprouts/features/catalog.webp" alt="The Skills and connections catalog: a search field, your connections, an unreviewed Meeting notes skill, and GitHub and Weather under Other apps." style="--w: 979px" width="979" height="809" loading="lazy" decoding="async" /></figure>
     </article>
     </div>
@@ -303,7 +302,7 @@
       <ul class="team-list">
         <li><strong>They talk.</strong> A sprout can message another or ask it for help. The exchange appears in both chats, and you can join in.</li>
         <li><strong>You can see who talks.</strong> Each sprout’s settings show which other sprouts it may message.</li>
-        <li><strong>They know when to stop.</strong> Loop guards pause two sprouts that keep messaging each other and ask you what to do.</li>
+        <li><strong>They know when to stop.</strong> If two sprouts keep messaging each other in circles, Sprouts pauses them and asks you what to do.</li>
       </ul>
     </div>
     <div class="team-scene" aria-hidden="true">
@@ -352,46 +351,46 @@
 <section class="section" id="in-charge" aria-labelledby="in-charge-heading">
   <div class="section-head"><div><p class="eyebrow">You stay in charge</p><h2 id="in-charge-heading">Helpful, and fenced in</h2></div><p>The Sprouts app on your Mac is the boundary. It holds the keys, asks before actions in your connected apps by default and decides what each computer can reach.</p></div>
   <div class="sprout-safety">
-    <article class="safety-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg><div><h3>Secrets stay secret</h3><p>When a sprout needs a password or key, it asks in a private card. Your answer goes straight to the vault on your Mac. The value never appears in the chat or the model’s context.</p></div></article>
-    <article class="safety-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" /><path d="M9 12l2 2 4-4" /></svg><div><h3>You approve app actions</h3><p>Actions in a connected app ask first by default. Set the ones you trust, like reading pull requests, to Always allow. The check runs outside the bot, so no bot can approve for you.</p></div></article>
-    <article class="safety-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 21V8l1.5-3L8 8v13M11 21V8l1.5-3L14 8v13M17 21V8l1.5-3L20 8v13M3 11h18M3 17h18" /></svg><div><h3>A fence around each computer</h3><p>Each sprout’s computer reaches the internet only through Sprouts. Local-network access is set to Ask by default, so a sprout asks before reaching a device on your network. You can turn it Off or On.</p></div></article>
-    <article class="safety-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H19v14H5.5A1.5 1.5 0 0 0 4 19.5z" /><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H19v-3" /><path d="M9 10l2 2 4-4" /></svg><div><h3>A reviewed catalog</h3><p>Connectors and skills come from a signed, reviewed catalog. Anything you add yourself is marked unreviewed, and skill updates show what changed before they apply.</p></div></article>
+    <article class="safety-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg><div><h3>Secrets stay secret</h3><p>When a sprout needs a password or key, it asks in a private card. Your answer goes straight to the vault on your Mac. It never appears in the chat and never reaches the AI.</p></div></article>
+    <article class="safety-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" /><path d="M9 12l2 2 4-4" /></svg><div><h3>You approve app actions</h3><p>A sprout asks before it acts in a connected app. Set the actions you trust to Always allow. The check happens in the app, not in the sprout, so no sprout can approve for itself.</p></div></article>
+    <article class="safety-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 21V8l1.5-3L8 8v13M11 21V8l1.5-3L14 8v13M17 21V8l1.5-3L20 8v13M3 11h18M3 17h18" /></svg><div><h3>A fence around each computer</h3><p>Each sprout’s computer goes online only through Sprouts, and a sprout asks before reaching other devices on your home or office network, like a printer or a shared drive. You can change that to Off or On.</p></div></article>
+    <article class="safety-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H19v14H5.5A1.5 1.5 0 0 0 4 19.5z" /><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H19v-3" /><path d="M9 10l2 2 4-4" /></svg><div><h3>A reviewed catalog</h3><p>App connections and skills come from a reviewed catalog. Anything you add yourself is marked Unreviewed, and updates show what changed before they apply.</p></div></article>
   </div>
 </section>
 
 <section class="section" id="models-and-status" aria-labelledby="models-heading">
-  <div class="section-head"><div><p class="eyebrow">Models and requirements</p><h2 id="models-heading">Bring the models you already use</h2></div><p>Each sprout gets its own model and up to four fallbacks, so work carries on when one runs out.</p></div>
+  <div class="section-head"><div><p class="eyebrow">Models and requirements</p><h2 id="models-heading">Bring the AI you already use</h2></div><p>Each sprout uses the AI you pick, with up to four backups, so work carries on when one reaches its limit.</p></div>
   <div class="spec-grid">
     <div class="spec">
       <h3>Models</h3>
       <dl>
-        <div><dt>Your subscriptions</dt><dd>Codex (ChatGPT), Claude and Antigravity, through each one’s official tools. Cursor, Grok, Muse and Pi are coming.</dd></div>
+        <div><dt>Your subscriptions</dt><dd>Your ChatGPT, Claude or Google account, signed in through each company’s own tools. Cursor, Grok, Muse and Pi are coming.</dd></div>
         <div><dt>API keys</dt><dd>OpenAI, Anthropic, Google, xAI, Moonshot, Meta and others, or your own OpenAI-compatible server.</dd></div>
-        <div><dt>On this Mac</dt><dd>Ollama and LM Studio, or Apple’s on-device model on macOS 27 or newer, with no account at all.</dd></div>
+        <div><dt>On this Mac</dt><dd>Apple Intelligence on macOS 27 or newer, with no account at all, or apps such as Ollama and LM Studio.</dd></div>
       </dl>
     </div>
     <div class="spec">
       <h3>Requirements</h3>
       <ul>
-        <li>A Mac with Apple silicon and macOS 13 or newer</li>
-        <li>A 304 MB download. Sprouts sets up its own computers; there is no Docker to install</li>
-        <li>Signed with a Developer ID, notarized by Apple, and updates itself</li>
+        <li>A Mac with an M1 chip or newer, on macOS 13 or later</li>
+        <li>A 304 MB download. Sprouts sets up everything else itself</li>
+        <li>Checked by Apple, and keeps itself up to date</li>
         <li>The <a href="#iphone">iPhone app</a> signs in with the same Vej account</li>
         <li>Android and Linux are in development</li>
       </ul>
-      <p class="small">Sign in with your Vej account, the same one the Mac and iPhone apps use. Sprouts is separate from the hosted Pea API.</p>
+      <p class="small">Sign in with your Vej account, the same one the Mac and iPhone apps use. Sprouts is separate from the hosted Pea API. Building with Vej’s own decision and extraction models? <a href="/developers/">See Pea for developers</a>.</p>
     </div>
   </div>
 </section>
 <section class="cta sprouts-cta" id="download">
-  <div><h2>Plant your first sprout</h2><ol class="get-started"><li><strong>Download</strong> the beta and open the zip.</li><li><strong>Move Sprouts</strong> to your Applications folder and open it.</li><li><strong><a href="#models-and-status">Connect a model</a></strong> and plant your first sprout. Sprouts sets up its own computers; there is no Docker to install.</li></ol><div class="actions"><a class="button" href="https://downloads.itsvej.com/sprouts/desktop/beta/Sprouts-0.1.118-arm64.zip" data-download>Download for Mac</a><a class="button secondary" href="/contact/">Questions or feedback</a></div><p class="download-meta">Beta 0.1.118 · Apple silicon · macOS 13 or newer · 304 MB</p></div>
+  <div><h2>Plant your first sprout</h2><ol class="get-started"><li><strong>Download</strong> the beta and open the zip.</li><li><strong>Move Sprouts</strong> to your Applications folder and open it.</li><li><strong><a href="#models-and-status">Connect your AI</a></strong> and plant your first sprout. Sprouts sets up everything else.</li></ol><div class="actions"><a class="button" href="https://downloads.itsvej.com/sprouts/desktop/beta/Sprouts-0.1.118-arm64.zip" data-download>Download for Mac</a><a class="button secondary" href="/contact/">Questions or feedback</a></div><p class="download-meta">Mac beta · For Macs with an M1 chip or newer, on macOS 13 or later</p></div>
   <div class="cta-garden" aria-hidden="true"><svg class="garden-seat" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><rect x="20" y="82" width="80" height="7" rx="2.5" fill="#8b674e"></rect><rect x="18" y="103" width="84" height="7" rx="2.5" fill="#765344"></rect><path d="M26 110v14M94 110v14M26 86v18M94 86v18" stroke="#5f4333" stroke-width="5" stroke-linecap="round"></path></svg><svg class="garden-rig" data-motion="nap" viewBox="0 0 120 130" aria-hidden="true" focusable="false"><ellipse class="rig-shadow" cx="60" cy="124.5" rx="31" ry="4.5"></ellipse><g class="rig-root"><g class="rig-far" transform="translate(68 90)"><g class="rig-thigh"><line y2="15" stroke="#245c3a" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#245c3a" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#245c3a" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-near" transform="translate(53 90)"><g class="rig-thigh"><line y2="15" stroke="#3e7d52" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-shin"><line y2="15" stroke="#3e7d52" stroke-width="9" stroke-linecap="round"></line><g transform="translate(0 15)"><g class="rig-foot"><path fill="#245c3a" d="M-7-1q0-4 4-4h6q8 0 9 7q0 3-3 3h-14q-2 0-2-2z"></path></g></g></g></g></g></g><g class="rig-torso"><g class="rig-far" transform="translate(90 78)"><g class="rig-shoulder"><line y2="11" stroke="#245c3a" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#245c3a" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#245c3a"></circle><g transform="translate(0 11)"><g class="rig-can"><path d="M-5 3Q0-6 5 3" fill="none" stroke="#50807c" stroke-width="2.4"></path><path d="M4 9L20 4.5l2.5 2.5L4 16z" fill="#648f8b"></path><path d="M-8 3H8L6.5 17h-13z" fill="#79aaa6"></path><path d="M18.5 2.5l6.5 6.5" stroke="#50807c" stroke-width="3" stroke-linecap="round"></path><g fill="#83d5ec"><circle class="rig-drop" cx="24" cy="9" r="1.7"></circle><circle class="rig-drop" cx="26" cy="7" r="1.5"></circle><circle class="rig-drop" cx="27" cy="11" r="1.4"></circle></g></g></g></g></g></g></g><clipPath id="sprout-clip-26"><path d="M60 36C50 36 46 44 42 54C34 66 26 74 28 90C30 104 46 110 60 110C76 110 90 104 92 90C94 74 84 66 78 54C74 44 70 36 60 36Z"></path></clipPath><g fill="#4a2e5b"><path d="M60 36C50 36 46 44 42 54C34 66 26 74 28 90C30 104 46 110 60 110C76 110 90 104 92 90C94 74 84 66 78 54C74 44 70 36 60 36Z"></path></g><g clip-path="url(#sprout-clip-26)"><g fill="#5b3a6e" transform="translate(5 -4)"><path d="M60 36C50 36 46 44 42 54C34 66 26 74 28 90C30 104 46 110 60 110C76 110 90 104 92 90C94 74 84 66 78 54C74 44 70 36 60 36Z"></path></g></g><path d="M37 76C35 84 37 92 42 98" fill="none" stroke-linecap="round" stroke="#7e5a93" stroke-width="4"></path><g class="rig-top" style="transform-origin:60px 42px"><path d="M42 48C46 34 74 34 78 48C72 43 67 50 60 45C53 50 48 43 42 48Z" fill="#3e7d52"></path><path d="M56 38C54 28 58 19 67 14C69 21 67 31 64 38Z" fill="#245c3a"></path></g><ellipse cx="51" cy="82" rx="4.6" ry="2.8" fill="#7e5a93" opacity=".55"></ellipse><ellipse cx="79" cy="82" rx="4.6" ry="2.8" fill="#7e5a93" opacity=".55"></ellipse><g class="rig-eyes" style="transform-origin:65px 74px"><g><circle class="rig-white" cx="57" cy="74" r="5.6" fill="#f3ecdc"></circle><ellipse cx="57" cy="74" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="58.1" cy="72.4" r="1.2" fill="#fff"></circle></g><g><circle class="rig-white" cx="73" cy="74" r="5.6" fill="#f3ecdc"></circle><ellipse cx="73" cy="74" rx="3.4" ry="4.3" fill="#2b2a22"></ellipse><circle cx="74.1" cy="72.4" r="1.2" fill="#fff"></circle></g></g><path class="rig-shut" d="M53 74q4 3.6 8 0M69 74q4 3.6 8 0" fill="none" stroke-linecap="round" stroke="#f3ecdc" stroke-width="2.3"></path><path class="rig-mouth" d="M61 82q4 4 8 0" fill="none" stroke-linecap="round" stroke="#f3ecdc" stroke-width="2.3"></path><g class="rig-near" transform="translate(33 80)"><g class="rig-shoulder"><line y2="11" stroke="#3e7d52" stroke-width="7" stroke-linecap="round"></line><g transform="translate(0 11)"><g class="rig-elbow"><line y2="9" stroke="#3e7d52" stroke-width="7" stroke-linecap="round"></line><circle cy="11" r="5.2" fill="#3e7d52"></circle></g></g></g></g></g></g><g class="rig-sleep"><text x="92" y="30">z</text><text x="103" y="20">z</text></g></svg></div>
 </section>
 
 <section class="section newsletter" id="newsletter"><h2>Follow Sprouts and Vej</h2><noscript><p>Enable JavaScript to subscribe, or contact <a href="mailto:hello@itsvej.com">hello@itsvej.com</a>.</p></noscript><p>Vej updates by email, including Sprouts releases and news.</p><form data-signup-form data-kind="newsletter"><label for="newsletter-email">Email address <span>(required)</span></label><input id="newsletter-email" name="email" type="email" autocomplete="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Use an email address such as name@example.com." required maxlength="254" /><label class="consent" for="newsletter-consent"><input id="newsletter-consent" name="consent" type="checkbox" required />Send me Vej updates by email.</label><div class="form-trap" aria-hidden="true"><label for="newsletter-website">Leave this field empty</label><input id="newsletter-website" name="website" autocomplete="off" tabindex="-1" /></div><div data-turnstile></div><button class="button" type="submit" disabled>Subscribe</button><button class="button secondary" type="button" data-retry hidden>Retry browser check</button><p class="form-feedback" role="status" aria-live="polite"></p><p class="small">We use your email address to send Vej updates. <a href="/privacy/">Privacy</a>.</p></form></section>
 
       </main>
-      <footer>
+      <footer class="site-footer">
         <div class="footer-brand">
           <a href="/" aria-label="Vej home"
             ><picture
@@ -403,12 +402,13 @@
                 width="76"
                 height="40" /></picture
           ></a>
-          <span>Vej builds Pea, Pepper, Pumpkin and Sprouts. · 2026</span>
+          <span>Vej builds Sprouts, and the Pea, Pepper and Pumpkin models. · 2026</span>
         </div>
-        <nav aria-label="Footer">
-          <a href="https://app.itsvej.com/">Sign in</a>
-          <a href="/contact/">Contact</a>
-          <a href="/privacy/">Privacy</a>
+        <nav class="footer-columns" aria-label="Footer">
+          <div><p class="footer-title">Sprouts</p><a href="/sprouts/">Overview</a><a href="/sprouts/#download">Download for Mac</a><a href="/sprouts/#iphone">iPhone app</a></div>
+          <div><p class="footer-title">Models</p><a href="/models/">All models</a><a href="/models/pea/">Pea</a><a href="/evaluation/pepper/">Pepper</a><a href="/evaluation/pumpkin/">Pumpkin</a></div>
+          <div><p class="footer-title">Developers</p><a href="/developers/">Pea API</a><a href="/use-cases/">Use cases</a><a href="/evaluation/">Evaluation</a><a href="/access/">Access and waitlists</a><a href="https://app.itsvej.com/">Sign in</a></div>
+          <div><p class="footer-title">Vej</p><a href="/journal/">Journal</a><a href="/brand/">Brand</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/dpa/">Data processing</a><a href="/licenses/">Licences</a></div>
         </nav>
       </footer>
     </div>
