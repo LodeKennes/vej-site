@@ -1,5 +1,5 @@
 {
-  "source_revision": "21bdb465ff6da95523c0b2eee12d65c6a50559d4",
+  "source_revision": "6ef4a0aa6371c3ca560f58e96b872424210d5ad5",
   "source_dirty": false,
   "files_sha256": {
     ".gitattributes": "9b50fc6d731e19e5737a1a98edf2a0fbb4f35d36809da011a05bb827f6175124",
@@ -31,7 +31,6 @@
     "assets/brand/social-card.png": "495a47b24a3887f839a2e1aa267ecd334c614c1d7f58a23f106fb77d7a4203b0",
     "assets/brand/sprouts/features/agents.webp": "54b79aa0b2a6b791fe4aef0cdd7f7fe31edfee3caa1edf3a6ed82b2bee55dec8",
     "assets/brand/sprouts/features/catalog.webp": "b86886d193c397ff82bad772a91405151d6ae79f2db6c2fb85445194a7c8ab73",
-    "assets/brand/sprouts/features/computer.webp": "4c61740cd678d7836fef5bcb6601530a6930d1bcfb313b9a3034d191a237f8b8",
     "assets/brand/sprouts/features/journal.webp": "4b548d2b6a9bb25a851b29771b33859c77dfa22cd83a845ffec791c440e407bb",
     "assets/brand/sprouts/features/memory.webp": "daf069a11a975a977bca2367e3968f0a3d0311988767c3735e66a799580adbd6",
     "assets/brand/sprouts/features/models.webp": "17741e72b7961f78903a2cf3cbbaae5c0ac6288bd95f89b7c939c8be3e82abe0",
@@ -106,8 +105,8 @@
     "privacy/index.html": "23f0123dd1d22d0bed88d5178c289bf5326d51205ddaab06191128edf1d2c602",
     "privacy.html": "6f3ce72f778f3c0fdeefdce9cf33c2235120508d58c9cabc0718fbcb3728d5e1",
     "robots.txt": "ef057907a5315fc23d9faf0f4d6610f2ac236bcd3422ef814e667a1de434248c",
-    "sitemap.xml": "60d37d2865f8edaba57b3d6303e0d08bafed05176021d7b0dea6616cba9a67b3",
-    "sprouts/index.html": "8a0c35dbc21b92599924a0c7f6ba15b0c98bb470a9b413e35c847cc3d19da292",
+    "sitemap.xml": "24b0a7e0e15a4e61ea60df9033eaa908e0ed7e91f5a909bd419537119db839ab",
+    "sprouts/index.html": "8576797ec969caeaa4c58469a2199caa7ecfa5b19076e4a47bdfbc18faff9ad5",
     "sprouts.html": "0eb27353a2a69463f2e39ec8800b947c29343851b9dad838ce51b83b46a7e02f",
     "styles.css": "70edb5bf42921239b9def09e1e1af5c0c38bbe0d09588bce80ebad7cbcd6b890",
     "use-cases/index.html": "5fce9ea86c497b71f97625e1099a94a016a5b998ea135f1bc89a7d27dc2a89ee",
