@@ -4160,3 +4160,206 @@ main:has(.view-bar) #overview {
     clip: rect(0 0 0 0);
   }
 }
+
+/* Feature tour: real app screens behind accessible tabs. Without JavaScript every panel shows, stacked. */
+.tour {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+.tour:not(.tour-ready) {
+  grid-template-columns: 1fr;
+}
+.tour:not(.tour-ready) .tour-nav {
+  display: none;
+}
+.tour:not(.tour-ready) .tour-panels {
+  display: grid;
+  gap: 56px;
+}
+.tour-nav {
+  position: sticky;
+  top: 24px;
+  display: grid;
+  gap: 2px;
+}
+.tour-group {
+  margin: 18px 0 6px;
+  font-family: "Vej Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+.tour-group:first-child {
+  margin-top: 0;
+}
+.tour-tab {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: none;
+  color: var(--text-2);
+  font: inherit;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+.tour-tab:hover {
+  color: var(--text);
+  background: var(--row-highlight);
+}
+.tour-tab[aria-selected="true"] {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--rule);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.tour-tab:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.tour-panel {
+  display: grid;
+  gap: 22px;
+}
+.tour-ready .tour-panel.is-entering {
+  animation: tour-in 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes tour-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+.tour-copy h3 {
+  margin: 0 0 8px;
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.tour-copy p {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--text-2);
+}
+.tour-shot {
+  margin: 0;
+  padding: clamp(10px, 2vw, 22px);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  background:
+    radial-gradient(70% 60% at 12% 0%, rgb(169 195 136 / 0.32), transparent 70%),
+    linear-gradient(160deg, #eef2e6, #ece5d8);
+}
+.tour-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow:
+    0 0 0 1px rgb(21 24 27 / 0.08),
+    0 18px 40px -22px rgb(21 24 27 / 0.4);
+}
+.more-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.more-grid li {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  column-gap: 14px;
+  align-content: start;
+  padding: 22px 0;
+  border-top: 1px solid var(--rule);
+}
+.more-grid svg {
+  grid-row: span 2;
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  border-radius: 12px;
+  background: var(--row-highlight);
+  color: var(--accent);
+}
+.more-grid h3 {
+  margin: 2px 0 4px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0;
+}
+.more-grid p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-2);
+}
+@media (max-width: 1050px) {
+  .more-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 860px) {
+  .tour,
+  .tour.tour-ready {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .tour-nav {
+    position: static;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    margin: 0 -16px;
+    padding: 2px 16px 8px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .tour-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .tour-group {
+    display: none;
+  }
+  .tour-tab {
+    flex: none;
+    width: auto;
+    border-color: var(--rule);
+    border-radius: 999px;
+    white-space: nowrap;
+    scroll-snap-align: start;
+  }
+  .tour-tab[aria-selected="true"] {
+    box-shadow: none;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+  }
+}
+@media (max-width: 620px) {
+  .more-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-ready .tour-panel.is-entering {
+    animation: none;
+  }
+  .tour-tab {
+    transition: none;
+  }
+}

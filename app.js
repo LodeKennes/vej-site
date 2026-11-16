@@ -41,7 +41,7 @@ const examples = {
     ],
   },
 };
-const tabs = [...document.querySelectorAll('[role="tab"]')];
+const tabs = [...document.querySelectorAll('[role="tab"]')].filter((tab) => !tab.closest("[data-tour]"));
 function selectTab(tab) {
   tabs.forEach((item) => {
     const selected = item === tab;
@@ -664,6 +664,42 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
     reducedMotion.addEventListener("change", update);
     update();
   });
+})();
+
+// Sprouts feature tour: tabs over real app screens (arrow keys, Home and End); without it, every panel shows.
+(() => {
+  const tour = document.querySelector("[data-tour]");
+  if (!tour) return;
+  const tabs = [...tour.querySelectorAll('[role="tab"]')];
+  const panels = tabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
+  if (!tabs.length || panels.some((panel) => !panel)) return;
+  const select = (index, focus) => {
+    tabs.forEach((tab, i) => {
+      const on = i === index;
+      tab.setAttribute("aria-selected", String(on));
+      tab.tabIndex = on ? 0 : -1;
+      panels[i].hidden = !on;
+      panels[i].classList.toggle("is-entering", on);
+    });
+    if (focus) {
+      tabs[index].focus();
+      tabs[index].scrollIntoView({ block: "nearest", inline: "nearest" });
+    }
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => select(i, false));
+    tab.addEventListener("keydown", (event) => {
+      const last = tabs.length - 1;
+      const next = { ArrowDown: i + 1, ArrowRight: i + 1, ArrowUp: i - 1, ArrowLeft: i - 1, Home: 0, End: last }[event.key];
+      if (next === undefined) return;
+      event.preventDefault();
+      select((next + tabs.length) % tabs.length, true);
+    });
+  });
+  panels.forEach((panel) => panel.addEventListener("animationend", () => panel.classList.remove("is-entering")));
+  tour.classList.add("tour-ready");
+  select(0, false);
+  panels.forEach((panel) => panel.classList.remove("is-entering"));
 })();
 
 // Page motion: enhance native navigation without delaying it or hiding content.
