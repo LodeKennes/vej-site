@@ -29,7 +29,7 @@ Contact: [send a message](https://itsvej.com/contact/). Hosted API access starts
 - Sprouts is a Vej project: a team of always-on AI bots on computers you own. Each bot (a "sprout") has its own personality (SOUL.md), memory (MEMORY.md), routines ("rhythms") and a private Linux computer with a desktop and browser. Sprouts can message each other and share a folder ("the shed").
 - Safety: secrets are requested in private cards and stored in the local vault, never in the chat or model context; outside actions through connectors need owner approval; each computer reaches the internet only through Sprouts and asks before reaching local-network devices; connectors and skills come from a signed, reviewed catalog.
 - Models: API keys, local models (Ollama, LM Studio) and subscription sign-ins whose terms allow it.
-- Status: Mac beta for Apple silicon (Developer ID signed, notarized, self-updating). Phone apps and Linux support are in development. Separate from the hosted Pea API. Page: https://itsvej.com/sprouts/
+- Status: Mac beta for Apple silicon (Developer ID signed, notarized, self-updating). An iPhone app connects to the Mac through the Vej account: notifications, approvals and every conversation. Android and Linux support are in development. Separate from the hosted Pea API. Page: https://itsvej.com/sprouts/
 
 ## Changes since September
 - 2026-10-13 paper: published the Pea paper and its supplement; the evaluation page adds the open-model comparison.
@@ -48,7 +48,7 @@ Contact: [send a message](https://itsvej.com/contact/). Hosted API access starts
 - [Overview](https://itsvej.com/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
 - [Models](https://itsvej.com/models/): The model family and public availability.
 - [Use cases](https://itsvej.com/use-cases/): Live hosted Beta APIs beyond Choice, Noul and Score, with industry use cases, sample requests and quality limits.
-- [Sprouts](https://itsvej.com/sprouts/): Always-on AI bots on computers you own; what a sprout has, safety, models and Mac beta status.
+- [Sprouts](https://itsvej.com/sprouts/): Always-on AI bots on computers you own; what a sprout has, safety, models, Mac beta and iPhone app status.
 - [Access and waitlists](https://itsvej.com/access/): Console signup for Pea, separate model waitlists and newsletter signup.
 - [Evaluation](https://itsvej.com/evaluation/): Held-out accuracy, the same-test Jev comparison, and the pre-registered open-model comparison.
 - [Pea model card](https://itsvej.com/models/pea/): Limited hosted early access, Pea 1 decision weights by approved request, local inference, and limits.

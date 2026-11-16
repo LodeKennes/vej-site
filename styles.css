@@ -4054,3 +4054,109 @@ main:has(.view-bar) #overview {
     display: none;
   }
 }
+
+/* Sprouts films: rendered with Remotion from site/motion, played only while visible. */
+.sprouts-film {
+  position: relative;
+  margin: 0;
+}
+.sprouts-film video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  background: #f1eee5;
+  box-shadow: 0 24px 60px -32px rgb(21 24 27 / 0.35);
+}
+.sprouts-film figcaption {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+.film-toggle {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13px;
+}
+.film-toggle:hover {
+  border-color: var(--text-2);
+}
+.film-toggle [data-icon="play"],
+.film-paused .film-toggle [data-icon="pause"] {
+  display: none;
+}
+.film-paused .film-toggle [data-icon="play"] {
+  display: block;
+}
+.sprouts-iphone {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+.iphone-copy h2 {
+  margin: 0 0 18px;
+}
+.iphone-points {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0 28px;
+  padding: 0;
+  list-style: none;
+}
+.iphone-points li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.iphone-points li:before {
+  content: "";
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  translate: 0 -2px;
+}
+.iphone-copy .download-meta {
+  margin: 14px 0 0;
+}
+.film-iphone {
+  justify-self: end;
+  width: 100%;
+  max-width: 500px;
+}
+@media (max-width: 860px) {
+  .sprouts-iphone {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .film-iphone {
+    justify-self: center;
+  }
+}
+@media (max-width: 560px) {
+  .film-toggle {
+    right: 8px;
+    top: 8px;
+    padding: 0 12px;
+  }
+  .film-toggle span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+}

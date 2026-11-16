@@ -627,6 +627,45 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   update();
 })();
 
+// Sprouts films: loop only while on screen and the tab is visible; reduced motion keeps the poster and native controls.
+(() => {
+  const films = document.querySelectorAll("[data-film]");
+  if (!films.length) return;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  films.forEach((film) => {
+    const video = film.querySelector("video");
+    const toggle = film.querySelector(".film-toggle");
+    let chosen = false;
+    let visible = false;
+    const update = () => {
+      const motion = !reducedMotion.matches;
+      video.controls = !motion;
+      if (toggle) toggle.hidden = !motion;
+      film.classList.toggle("film-paused", chosen);
+      if (!motion) return;
+      if (!chosen && visible && !document.hidden) video.play().catch(() => {});
+      else video.pause();
+    };
+    toggle?.addEventListener("click", () => {
+      chosen = !chosen;
+      toggle.setAttribute("aria-pressed", String(chosen));
+      toggle.querySelector("span").textContent = chosen ? "Play the film" : "Pause the film";
+      update();
+    });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        visible = entries[entries.length - 1].isIntersecting;
+        update();
+      }, { threshold: 0.2 }).observe(film);
+    } else {
+      visible = true;
+    }
+    document.addEventListener("visibilitychange", update);
+    reducedMotion.addEventListener("change", update);
+    update();
+  });
+})();
+
 // Page motion: enhance native navigation without delaying it or hiding content.
 (() => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");

@@ -22,6 +22,6 @@ managed by the separate infrastructure repo; they do not create console accounts
 or grant API access. Contact messages are stored so Vej can reply.
 
 Vej also builds Sprouts, a team of always-on AI bots on computers you own. The Mac
-app is in beta for Apple silicon: https://itsvej.com/sprouts/
+app is in beta for Apple silicon, with a companion iPhone app: https://itsvej.com/sprouts/
 
 Contact: https://itsvej.com/contact/

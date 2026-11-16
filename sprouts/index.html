@@ -8,7 +8,7 @@
     <title>Sprouts · Vej</title>
     <meta
       name="description"
-      content="Sprouts is a team of always-on AI bots on computers you own. Each sprout has its own personality, memory, routines and private computer. Mac beta."
+      content="Sprouts is a team of always-on AI bots on computers you own. Each sprout has its own personality, memory, routines and private computer. Mac beta, with an iPhone app."
     />
     <meta
       name="theme-color"
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Sprouts · Vej" />
     <meta
       property="og:description"
-      content="Sprouts is a team of always-on AI bots on computers you own. Each sprout has its own personality, memory, routines and private computer. Mac beta."
+      content="Sprouts is a team of always-on AI bots on computers you own. Each sprout has its own personality, memory, routines and private computer. Mac beta, with an iPhone app."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -51,7 +51,7 @@
     <meta name="twitter:title" content="Sprouts · Vej" />
     <meta
       name="twitter:description"
-      content="Sprouts is a team of always-on AI bots on computers you own. Each sprout has its own personality, memory, routines and private computer. Mac beta."
+      content="Sprouts is a team of always-on AI bots on computers you own. Each sprout has its own personality, memory, routines and private computer. Mac beta, with an iPhone app."
     />
     <meta
       name="twitter:image"
@@ -83,9 +83,9 @@
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/styles.css?v=6e3427e8c0e4" />
-    <script src="/app.js?v=37b20630e271" defer></script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Sprouts", "description": "Sprouts is a team of always-on AI bots on computers you own. Each sprout has its own personality, memory, routines and private computer. Mac beta.", "url": "https://itsvej.com/sprouts/"}</script>
+    <link rel="stylesheet" href="/styles.css?v=048ffbf4cb22" />
+    <script src="/app.js?v=1e22dd576808" defer></script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Sprouts", "description": "Sprouts is a team of always-on AI bots on computers you own. Each sprout has its own personality, memory, routines and private computer. Mac beta, with an iPhone app.", "url": "https://itsvej.com/sprouts/"}</script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -115,13 +115,13 @@
 <!-- Characters are rendered from ItsVej/Sprouts at a93b349 (apps/web/src/garden-character.tsx); motion comes from its garden rig. -->
 <section class="sprouts-hero">
   <div>
-    <p class="eyebrow">Sprouts · A Vej project · Mac beta</p>
+    <p class="eyebrow">Sprouts · A Vej project · Mac beta and iPhone</p>
     <h1>A team of always-on bots, on computers you own.</h1>
   </div>
   <div>
-    <p class="lead">Run a team of AI helpers on your Mac, each with its own personality, memory, routines and private computer. Give them recurring work: a morning digest, a weekly check or reminders you would otherwise forget.</p>
-    <div class="actions"><a class="button" href="https://downloads.itsvej.com/sprouts/desktop/beta/Sprouts-0.1.114-arm64.zip" data-download>Download for Mac</a><a class="button secondary" href="#app">See how Sprouts works</a></div>
-    <p class="download-meta">Beta 0.1.114 · Apple silicon · macOS 13 or newer · 245 MB</p>
+    <p class="lead">Run a team of AI helpers on your Mac, each with its own personality, memory, routines and private computer. Give them recurring work: a morning digest, a weekly check or reminders you would otherwise forget. Follow along and answer them from your iPhone.</p>
+    <div class="actions"><a class="button" href="https://downloads.itsvej.com/sprouts/desktop/beta/Sprouts-0.1.114-arm64.zip" data-download>Download for Mac</a><a class="button secondary" href="/contact/" data-ios-link>Get the iPhone app</a></div>
+    <p class="download-meta">Mac beta 0.1.114 · Apple silicon · macOS 13 or newer · 245 MB · <a href="#app">See how Sprouts works</a></p>
     <ul class="sprouts-facts" aria-label="Release status"><li>Developer ID signed</li><li>Notarized by Apple</li><li>Updates itself</li></ul>
   </div>
 </section>
@@ -173,8 +173,34 @@
 </figure>
 
 <section class="section sprouts-app" id="app" aria-labelledby="app-heading">
-  <div class="section-head"><div><p class="eyebrow">The app</p><h2 id="app-heading">One app for the whole team</h2></div><p>Every sprout is one ongoing conversation. Talk to any of them, open its computer to watch it work, and take over when you need to.</p></div>
-  <figure class="app-shot"><a class="app-shot-link" href="/assets/brand/sprouts/app-conversation.webp"><img src="/assets/brand/sprouts/app-conversation.webp" alt="The Sprouts app on a Mac. A sidebar lists four sprouts: Carrot and Broccoli are working, Tomato and Radish are idle. The open chat with Carrot shows a weekly plan with a table and a reply confirming a Friday reminder." width="1440" height="900" decoding="async" /></a><figcaption>The Sprouts beta on a Mac, with sample content. <a href="/assets/brand/sprouts/app-conversation.webp">View full-size screenshot</a></figcaption></figure>
+  <div class="section-head"><div><p class="eyebrow">The app</p><h2 id="app-heading">One app for the whole team</h2></div><p>Every sprout is one ongoing conversation. Ask for recurring work in plain words, watch it get done and approve anything that needs your say.</p></div>
+  <figure class="sprouts-film film-mac" data-film>
+    <video muted loop playsinline controls preload="metadata" poster="/assets/brand/sprouts/sprouts-mac-poster.webp" width="1920" height="1200" aria-describedby="film-mac-text"><source src="/assets/brand/sprouts/sprouts-mac.mp4" type="video/mp4" /></video>
+    <button class="film-toggle" type="button" aria-pressed="false" hidden><svg data-icon="pause" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h3.5v14H7zm6.5 0H17v14h-3.5z" /></svg><svg data-icon="play" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z" /></svg><span>Pause the film</span></button>
+    <figcaption>The Sprouts Mac app, animated from its current design with sample content.</figcaption>
+    <p id="film-mac-text" class="sr-only">The Sprouts Mac app, animated with sample content. In the garden, Carrot strolls while Broccoli waters seedlings. You ask Carrot for a morning digest of your calendar and inbox every weekday at 8. Carrot reads them, writes the first digest and asks to add the rhythm. You allow it.</p>
+  </figure>
+</section>
+
+<section class="section sprouts-iphone" id="iphone" aria-labelledby="iphone-heading">
+  <div class="iphone-copy">
+    <p class="eyebrow">On your iPhone</p>
+    <h2 id="iphone-heading">Your garden, in your pocket</h2>
+    <p>Your sprouts keep working on your Mac. The iPhone app tells you when a digest is ready or a sprout needs a decision, and you answer from wherever you are.</p>
+    <ul class="iphone-points">
+      <li>Notifications when a sprout has news or needs you</li>
+      <li>Allow or decline requests in one tap</li>
+      <li>Every sprout and its conversation, always in reach</li>
+    </ul>
+    <div class="actions"><a class="button" href="/contact/" data-ios-link>Get the iPhone app</a></div>
+    <p class="download-meta">Sign in with the same Vej account as on your Mac.</p>
+  </div>
+  <figure class="sprouts-film film-iphone" data-film>
+    <video muted loop playsinline controls preload="metadata" poster="/assets/brand/sprouts/sprouts-iphone-poster.webp" width="1200" height="1500" aria-describedby="film-iphone-text"><source src="/assets/brand/sprouts/sprouts-iphone.mp4" type="video/mp4" /></video>
+    <button class="film-toggle" type="button" aria-pressed="false" hidden><svg data-icon="pause" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h3.5v14H7zm6.5 0H17v14h-3.5z" /></svg><svg data-icon="play" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z" /></svg><span>Pause the film</span></button>
+    <figcaption>The Sprouts iPhone app, with sample content.</figcaption>
+    <p id="film-iphone-text" class="sr-only">The Sprouts iPhone app, animated with sample content. At 8:00 the lock screen shows two notifications from Carrot: the morning digest is ready, and an approval is requested. In the app, Carrot asks to use Gmail to send a reply to Lena. You allow it, Carrot confirms it was sent, and the list of sprouts shows Broccoli working and Radish waiting for input.</p>
+  </figure>
 </section>
 
 
@@ -258,7 +284,7 @@
   <div class="prose">
     <h2>Bring the models you already use</h2>
     <p>Sprouts works with API keys, local models through Ollama or LM Studio, and subscription sign-ins whose terms allow it. Each sprout has its own model and a fallback.</p>
-    <p>The Mac app is in beta for Apple silicon. It is signed with a Developer ID, notarized by Apple, and updates itself in the background, asking before it restarts. Phone apps and Linux support are in development.</p>
+    <p>The Mac app is in beta for Apple silicon. It is signed with a Developer ID, notarized by Apple, and updates itself in the background, asking before it restarts. The <a href="#iphone">iPhone app</a> connects to your Mac through your Vej account. Android and Linux support are in development.</p>
     <p>Sprouts is separate from the hosted Pea API. The Pea console linked at the top of this page is for the Pea API, not for Sprouts.</p>
   </div>
 </section>
