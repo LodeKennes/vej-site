@@ -4029,13 +4029,20 @@ main:has(.view-bar) #overview {
   flex-wrap: wrap;
   gap: 8px 28px;
 }
-@media (max-width: 760px) {
-  .cast-collapsed li:nth-child(n + 5) {
+/* The cast opens on one row of sprouts; "Show all 15" reveals the rest. */
+.cast-collapsed li:nth-child(n + 6) {
+  display: none;
+}
+@media (max-width: 1050px) and (min-width: 761px) {
+  .cast-collapsed li:nth-child(6) {
+    display: block;
+  }
+  .cast-collapsed li:nth-child(n + 7) {
     display: none;
   }
 }
-@media (min-width: 761px) {
-  .cast-more {
+@media (max-width: 760px) {
+  .cast-collapsed li:nth-child(n + 5) {
     display: none;
   }
 }
@@ -4366,4 +4373,140 @@ main:has(.view-bar) #overview {
   .tour-tab {
     transition: none;
   }
+}
+
+.hero-more {
+  margin: 0 0 18px;
+  font-size: 15px;
+}
+.hero-more a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+/* Every tour screen gets the same stage, so switching tabs does not move the page. */
+@media (min-width: 861px) {
+  .tour-copy {
+    min-height: 132px;
+  }
+  .tour-shot {
+    display: grid;
+    place-items: center;
+    height: calc(min(720px, 78vh) + 2 * clamp(10px, 2vw, 22px) + 2px);
+    box-sizing: border-box;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tour-shot {
+    background: linear-gradient(160deg, #1d2a21, #1a1d1b);
+    border-color: var(--rule);
+  }
+  :root:not([data-theme="light"]) .tour-shot img,
+  :root:not([data-theme="light"]) .sprouts-film video {
+    filter: brightness(0.9);
+  }
+}
+@media (max-width: 560px) {
+  .film-toggle {
+    position: static;
+    margin-top: 10px;
+  }
+}
+.hero-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+.hero-foot .hero-more {
+  margin: 0;
+}
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 56px;
+}
+.spec {
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.spec h3 {
+  margin: 0 0 14px;
+  font-family: Fraunces, Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+.spec dl {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+.spec dt {
+  font-weight: 600;
+}
+.spec dd {
+  margin: 2px 0 0;
+  color: var(--text-2);
+}
+.spec ul {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+.spec li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--text-2);
+}
+.spec li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+@media (max-width: 760px) {
+  .spec-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+/* On phones the tour keeps one stage size too, and the hero leads with its buttons. */
+@media (max-width: 860px) {
+  .tour-copy {
+    min-height: 12.5em;
+  }
+  .tour-shot {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
+  }
+  .tour-shot img {
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+@media (max-width: 480px) {
+  .sprouts-hero > div:last-child {
+    display: flex;
+    flex-direction: column;
+  }
+  .sprouts-hero .actions {
+    order: -2;
+    margin: 0 0 12px;
+  }
+  .sprouts-hero > div:last-child .download-meta {
+    order: -1;
+    margin: 0 0 18px;
+  }
+}
+
+#sprouts-iphone {
+  scroll-margin-top: 260px;
 }

@@ -26,10 +26,10 @@ Contact: [send a message](https://itsvej.com/contact/). Hosted API access starts
 - Research: Noul improvement work paused on 2026-10-09 without promoting a new model; Pea and its published evaluation are unchanged.
 
 ## Sprouts
-- Sprouts is a Vej project: a team of always-on AI bots on computers you own. Each bot (a "sprout") has its own personality (SOUL.md), memory (MEMORY.md), routines ("rhythms") and a private Linux computer with a desktop and browser. Sprouts can message each other and share a folder ("the shed").
-- Safety: secrets are requested in private cards and stored in the local vault, never in the chat or model context; outside actions through connectors need owner approval; each computer reaches the internet only through Sprouts and asks before reaching local-network devices; connectors and skills come from a signed, reviewed catalog.
+- Sprouts is a Vej project: a team of always-on AI bots on computers you own. Each bot (a "sprout") has its own personality (SOUL.md), memory (MEMORY.md), routines ("rhythms") and a private Linux computer with a browser, which you can watch from the Mac (view only). Sprouts can message each other, with loop guards and per-sprout permissions.
+- Safety: secrets are requested in private cards and stored in the local vault, never in the chat or model context; every action through a connected app asks the owner first unless they choose Always allow; each computer reaches the internet only through Sprouts and asks before reaching local-network devices; connectors and skills come from a signed, reviewed catalog.
 - Features: a persona each sprout can propose changes to (you allow them; earlier versions can be restored); memory that holds outside facts for review; rhythms for scheduled work; a searchable journal; per-sprout settings and pause; private secret cards and password managers (1Password, Bitwarden, Proton Pass); usage limits per subscription; a catalog of skills and connections.
-- Models: API keys, local models (Ollama, LM Studio) and subscription sign-ins whose terms allow it.
+- Models: Codex (ChatGPT), Claude and Antigravity subscriptions through their official tools, API keys, local models (Ollama, LM Studio), your own server, and Apple's on-device model on macOS 27 or newer; each sprout has a model and up to four fallbacks.
 - Status: Mac beta for Apple silicon (Developer ID signed, notarized, self-updating). An iPhone app connects to the Mac through the Vej account: notifications, approvals and every conversation. Android and Linux support are in development. Separate from the hosted Pea API. Page: https://itsvej.com/sprouts/
 
 ## Changes since September

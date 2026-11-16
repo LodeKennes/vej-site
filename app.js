@@ -469,16 +469,17 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   if (cast) {
     const status = document.querySelector("[data-cast-status]");
     document.querySelector(".cast-hint")?.removeAttribute("hidden");
-    // Phones show four sprouts first; the rest are one tap away.
+    // The cast opens on one row; the rest are one tap away.
     const more = document.querySelector(".cast-more");
     if (more) {
       cast.classList.add("cast-collapsed");
       more.hidden = false;
       more.addEventListener("click", () => {
+        const first = [...cast.children].find((li) => li.offsetParent === null);
         cast.classList.remove("cast-collapsed");
         more.setAttribute("aria-expanded", "true");
         more.hidden = true;
-        cast.querySelector("li:nth-child(5) .cast-card")?.focus();
+        first?.querySelector(".cast-card")?.focus();
       });
     }
     cast.querySelectorAll(".cast-card").forEach((card) => {
@@ -700,6 +701,13 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   tour.classList.add("tour-ready");
   select(0, false);
   panels.forEach((panel) => panel.classList.remove("is-entering"));
+})();
+
+// Contact: a visit from the Sprouts iPhone button starts the message for you.
+(() => {
+  if (location.hash !== "#sprouts-iphone") return;
+  const message = document.getElementById("contact-message");
+  if (message && !message.value) message.value = "I'd like access to the Sprouts iPhone app.";
 })();
 
 // Page motion: enhance native navigation without delaying it or hiding content.
