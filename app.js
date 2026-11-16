@@ -1,4 +1,72 @@
 "use strict";
+// Motion kit: the site's shared transitions (site/MOTION.md). Every helper does nothing under reduced motion or
+// without the Web Animations API, so content always arrives; motion only shows how it got there.
+const motion = (() => {
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const on = () => !reduced.matches && typeof Element.prototype.animate === "function";
+  const settle = "cubic-bezier(0.16, 1, 0.3, 1)";
+  const leave = "cubic-bezier(0.4, 0, 1, 1)";
+  const rect = (el) => ({ left: el.offsetLeft, top: el.offsetTop, width: el.offsetWidth, height: el.offsetHeight });
+  const px = (r) => ({ left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
+  // A selection that slides between items: it stretches across both, then settles on the new one.
+  function selection(container, className) {
+    const el = document.createElement("span");
+    el.className = className;
+    el.setAttribute("aria-hidden", "true");
+    container.prepend(el);
+    let running = null;
+    const move = (target) => {
+      const to = rect(target);
+      const from = el.style.width ? rect(el) : null;
+      running?.cancel();
+      running = null;
+      Object.assign(el.style, px(to));
+      if (!on() || !from || (from.left === to.left && from.top === to.top && from.width === to.width)) return;
+      const left = Math.min(from.left, to.left);
+      const top = Math.min(from.top, to.top);
+      const span = {
+        left,
+        top,
+        width: Math.max(from.left + from.width, to.left + to.width) - left,
+        height: Math.max(from.top + from.height, to.top + to.height) - top,
+      };
+      running = el.animate(
+        [{ ...px(from), easing: "cubic-bezier(0.5, 0, 0.6, 1)" }, { ...px(span), offset: 0.38, easing: settle }, px(to)],
+        { duration: 560 },
+      );
+    };
+    if ("ResizeObserver" in window) new ResizeObserver(() => container.dataset.selected && move(container.querySelector(container.dataset.selected))).observe(container);
+    return { el, move };
+  }
+  // Items rise into place in turn, in the direction of travel (1 down the page, -1 up).
+  const rise = (items, { dir = 1, delay = 0, step = 60, distance = 16, duration = 480 } = {}) =>
+    on()
+      ? [...items].map((item, i) =>
+          item.animate([{ opacity: 0, transform: `translateY(${distance * dir}px)` }, { opacity: 1, transform: "none" }], {
+            duration,
+            delay: delay + i * step,
+            easing: settle,
+            fill: "both",
+          }),
+        )
+      : [];
+  // Items drift away before they are replaced.
+  const drift = (items, { dir = 1, duration = 150, distance = 10 } = {}) =>
+    on()
+      ? [...items].map((item) =>
+          item.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: `translateY(${-distance * dir}px)` }], {
+            duration,
+            easing: leave,
+            fill: "both",
+          }),
+        )
+      : [];
+  // A short confirmation pop for buttons and status text.
+  const pop = (el) =>
+    on() && el.animate([{ transform: "scale(0.92)", opacity: 0.6 }, { transform: "scale(1.04)", opacity: 1, offset: 0.6 }, { transform: "none" }], { duration: 360, easing: settle });
+  const done = (animations) => Promise.allSettled(animations.map((animation) => animation.finished));
+  return { on, settle, leave, rect, px, selection, rise, drift, pop, done };
+})();
 const FLIGHT_STATE = "The customer wants to change a booked flight. Fare rules are missing.";
 const INVOICE_STATE = "Invoice 2026-0412\nDate: 3 October 2026\nTotal due: €1,240.50";
 
@@ -42,7 +110,42 @@ const examples = {
   },
 };
 const tabs = [...document.querySelectorAll('[role="tab"]')].filter((tab) => !tab.closest("[data-tour]"));
+const tabSelection = tabs.length ? motion.selection(tabs[0].parentElement, "tabs-selection") : null;
+let shownPanel = null;
+// Bars grow from zero and their values count up, so each example reads as a fresh answer.
+function playResults(panel, delay = 0) {
+  if (!motion.on()) return;
+  panel.querySelectorAll(".track span").forEach((bar, i) =>
+    bar.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: 700, delay: delay + 120 + i * 90, easing: motion.settle, fill: "backwards" }),
+  );
+  panel.querySelectorAll(".result .value").forEach((value, i) => {
+    const target = Number(value.textContent);
+    if (!Number.isFinite(target)) return;
+    const start = performance.now() + delay + 120 + i * 90;
+    const tick = (now) => {
+      const t = Math.min(1, Math.max(0, (now - start) / 700));
+      value.textContent = (target * (1 - (1 - t) ** 3)).toFixed(2);
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}
+function handOver(from, to, dir) {
+  if (!motion.on() || !from || from === to) return;
+  from.classList.add("is-leaving");
+  // Only what changes moves: a state shared by both examples stays still.
+  const sameState = from.querySelector(".state-text")?.textContent === to.querySelector(".state-text")?.textContent;
+  const parts = (panel) =>
+    panel.querySelectorAll(`${sameState ? "" : ".state, "}.question, .example-results > *, .expectation:not([hidden])`);
+  motion.done(motion.drift(parts(from), { dir })).then(() => from.classList.remove("is-leaving"));
+  motion.rise(parts(to), { dir, delay: 120, step: 55 });
+  playResults(to, 160);
+}
 function selectTab(tab) {
+  const before = shownPanel;
+  const dir = before ? Math.sign(tabs.indexOf(tab) - tabs.findIndex((item) => item.getAttribute("aria-controls") === before.id)) || 1 : 1;
+  tabSelection?.move(tab);
+  tab.parentElement.dataset.selected = `#${tab.id}`;
   tabs.forEach((item) => {
     const selected = item === tab;
     item.setAttribute("aria-selected", String(selected));
@@ -51,7 +154,9 @@ function selectTab(tab) {
     panel.setAttribute("aria-hidden", String(!selected));
     panel.inert = !selected;
     panel.tabIndex = selected ? 0 : -1;
+    if (selected) shownPanel = panel;
   });
+  handOver(before, shownPanel, dir);
 }
 
 function renderExample(example, panel) {
@@ -158,6 +263,16 @@ if (tabs.length) {
     initialPanel.parentElement.append(panel);
   });
   selectTab(tabs[0]);
+  tabs[0].parentElement.classList.add("tabs-ready");
+  // The first example plays its answer once it comes into view.
+  if ("IntersectionObserver" in window) {
+    const seen = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      seen.disconnect();
+      playResults(shownPanel);
+    }, { threshold: 0.4 });
+    seen.observe(initialPanel.parentElement);
+  }
 }
 document.querySelectorAll("[data-copy]").forEach((button) => {
   button.hidden = false;
@@ -167,6 +282,7 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
       await navigator.clipboard.writeText(text);
       document.getElementById("copy-status").textContent = "Checksum copied.";
       button.textContent = "Copied";
+      motion.pop(button);
     } catch {
       document.getElementById("copy-status").textContent =
         "Clipboard unavailable. Select and copy the checksum text.";
@@ -203,6 +319,8 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
     const button = form.querySelector('button[type="submit"]');
     const retry = form.querySelector("[data-retry]");
     const feedback = form.querySelector(".form-feedback");
+    if (feedback && "MutationObserver" in window)
+      new MutationObserver(() => feedback.textContent.trim() && motion.rise([feedback], { distance: 8, duration: 360 })).observe(feedback, { childList: true, characterData: true, subtree: true });
     const container = form.querySelector("[data-turnstile]");
     const label = button.textContent;
     let token = "";
@@ -307,6 +425,65 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
   });
 })();
 
+// Disclosures: every <details> opens and closes with motion. Inline content grows in height and fades up; a dropdown
+// menu (positioned content) drops down from its trigger. Escape and outside clicks still close at once.
+document.querySelectorAll("details").forEach((details) => {
+  const summary = details.querySelector(":scope > summary");
+  if (!summary) return;
+  const content = () => [...details.children].filter((child) => child !== summary);
+  const isMenu = () => content().some((child) => getComputedStyle(child).position === "absolute");
+  let running = [];
+  const stop = () => {
+    running.forEach((animation) => animation.cancel());
+    running = [];
+    details.style.removeProperty("height");
+    details.style.removeProperty("overflow");
+  };
+  summary.addEventListener("click", (event) => {
+    if (!motion.on()) return;
+    event.preventDefault();
+    const opening = !details.open || details.dataset.closing === "true";
+    stop();
+    delete details.dataset.closing;
+    if (isMenu()) {
+      const menu = content();
+      if (opening) {
+        details.open = true;
+        running = menu.map((el) => el.animate([{ opacity: 0, transform: "translateY(-8px) scale(0.98)" }, { opacity: 1, transform: "none" }], { duration: 260, easing: motion.settle }));
+      } else {
+        details.dataset.closing = "true";
+        running = menu.map((el) => el.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-6px) scale(0.98)" }], { duration: 140, easing: motion.leave, fill: "forwards" }));
+        motion.done(running).then(() => {
+          if (details.dataset.closing !== "true") return;
+          delete details.dataset.closing;
+          details.open = false;
+          stop();
+        });
+      }
+      return;
+    }
+    const start = details.offsetHeight;
+    const cs = getComputedStyle(details);
+    const closed = summary.offsetHeight + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom) + parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth);
+    details.style.overflow = "hidden";
+    if (opening) {
+      details.open = true;
+      const end = details.offsetHeight;
+      running = [details.animate([{ height: `${start}px` }, { height: `${end}px` }], { duration: 420, easing: motion.settle }), ...motion.rise(content(), { delay: 60, distance: 10, duration: 420 })];
+      motion.done(running.slice(0, 1)).then(() => details.style.removeProperty("overflow"));
+    } else {
+      details.dataset.closing = "true";
+      running = [details.animate([{ height: `${start}px` }, { height: `${closed}px` }], { duration: 300, easing: motion.leave, fill: "forwards" }), ...motion.drift(content(), { duration: 160, distance: 6 })];
+      motion.done(running).then(() => {
+        if (details.dataset.closing !== "true") return;
+        delete details.dataset.closing;
+        details.open = false;
+        stop();
+      });
+    }
+  });
+});
+
 // Keep the model dropdown keyboard friendly without changing its link-based navigation.
 document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => {
   dropdown.addEventListener("keydown", (event) => {
@@ -326,10 +503,19 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   const bar = document.querySelector(".view-bar");
   if (!bar) return;
   const buttons = bar.querySelectorAll("button[data-view]");
+  const toggle = bar.querySelector(".view-toggle");
+  const pill = toggle ? motion.selection(toggle, "view-selection") : null;
   function setView(view) {
     if (view === "code") main.dataset.view = "code";
     else delete main.dataset.view;
-    buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.view === (view || "story"))));
+    buttons.forEach((button) => {
+      const pressed = button.dataset.view === (view || "story");
+      button.setAttribute("aria-pressed", String(pressed));
+      if (pressed && toggle) {
+        toggle.dataset.selected = `button[data-view="${button.dataset.view}"]`;
+        pill?.move(button);
+      }
+    });
   }
   buttons.forEach((button) => button.addEventListener("click", () => {
     // Keep the section that the reader is in at the same screen position.
@@ -337,13 +523,20 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
     const before = anchor?.getBoundingClientRect().top;
     setView(button.dataset.view);
     if (anchor) window.scrollBy({ top: anchor.getBoundingClientRect().top - before, behavior: "instant" });
+    // The view that just appeared rises in where the reader is looking.
+    const shown = [...document.querySelectorAll(button.dataset.view === "code" ? ".code-view" : ".story-view")].filter((view) => {
+      const r = view.getBoundingClientRect();
+      return r.bottom > 0 && r.top < window.innerHeight;
+    });
+    motion.rise(shown, { distance: 12, duration: 420 });
     const url = new URL(location.href);
     if (button.dataset.view === "code") url.searchParams.set("view", "code");
     else url.searchParams.delete("view");
     history.replaceState(history.state, "", url);
   }));
-  setView(new URLSearchParams(location.search).get("view"));
   bar.hidden = false;
+  setView(new URLSearchParams(location.search).get("view"));
+  toggle?.classList.add("view-toggle-ready");
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (!("IntersectionObserver" in window) || reducedMotion.matches) return;
@@ -475,8 +668,10 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
       cast.classList.add("cast-collapsed");
       more.hidden = false;
       more.addEventListener("click", () => {
-        const first = [...cast.children].find((li) => li.offsetParent === null);
+        const hidden = [...cast.children].filter((li) => li.offsetParent === null);
+        const first = hidden[0];
         cast.classList.remove("cast-collapsed");
+        motion.rise(hidden, { step: 45, distance: 18, duration: 520 });
         more.setAttribute("aria-expanded", "true");
         more.hidden = true;
         first?.querySelector(".cast-card")?.focus();
@@ -680,42 +875,13 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const still = () => reducedMotion.matches || typeof Element.prototype.animate !== "function";
   const settleEase = "cubic-bezier(0.16, 1, 0.3, 1)";
-  const indicator = document.createElement("span");
-  indicator.className = "tour-indicator";
-  indicator.setAttribute("aria-hidden", "true");
-  nav.prepend(indicator);
+  const selection = motion.selection(nav, "tour-indicator");
+  const slide = (tab) => {
+    nav.dataset.selected = `#${tab.id}`;
+    selection.move(tab);
+  };
   let current = -1;
   let running = [];
-  let sliding = null;
-  const rect = (el) => ({ left: el.offsetLeft, top: el.offsetTop, width: el.offsetWidth, height: el.offsetHeight });
-  const px = (r) => ({ left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
-  const place = (r) => Object.assign(indicator.style, px(r));
-
-  // The selection stretches across both tabs, then settles on the new one.
-  function slide(to) {
-    const from = indicator.style.width ? rect(indicator) : null;
-    sliding?.cancel();
-    sliding = null;
-    place(to);
-    if (still() || !from) return;
-    const left = Math.min(from.left, to.left);
-    const top = Math.min(from.top, to.top);
-    const span = {
-      left,
-      top,
-      width: Math.max(from.left + from.width, to.left + to.width) - left,
-      height: Math.max(from.top + from.height, to.top + to.height) - top,
-    };
-    sliding = indicator.animate(
-      [
-        { ...px(from), easing: "cubic-bezier(0.5, 0, 0.6, 1)" },
-        { ...px(span), offset: 0.38, easing: settleEase },
-        px(to),
-      ],
-      { duration: 560 },
-    );
-  }
-
   const decoded = (img) =>
     !img || (img.complete && img.naturalWidth)
       ? Promise.resolve()
@@ -748,7 +914,7 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
       tab.setAttribute("aria-selected", String(i === index));
       tab.tabIndex = i === index ? 0 : -1;
     });
-    slide(rect(tabs[index]));
+    slide(tabs[index]);
     settle();
     if (previous < 0 || still()) return;
     const incoming = panels[index];
@@ -817,7 +983,6 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   }
   tour.classList.add("tour-ready");
   select(0, false);
-  if ("ResizeObserver" in window) new ResizeObserver(() => current >= 0 && slide(rect(tabs[current]))).observe(nav);
 })();
 
 // Contact: a visit from the Sprouts iPhone button starts the message for you.

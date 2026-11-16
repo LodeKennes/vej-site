@@ -4561,3 +4561,38 @@ main:has(.view-bar) #overview {
       border-color 0.18s ease;
   }
 }
+
+/* Shared motion (site/MOTION.md): sliding selections and staged handovers. */
+.tabs {
+  position: relative;
+}
+.tabs-selection {
+  position: absolute;
+  box-sizing: border-box;
+  border-bottom: 2px solid var(--accent);
+  pointer-events: none;
+}
+.tabs-ready button[aria-selected="true"] {
+  border-color: transparent;
+}
+.decision-example.is-leaving[aria-hidden="true"] {
+  visibility: visible;
+}
+.track span {
+  transform-origin: left;
+}
+.view-toggle {
+  position: relative;
+}
+.view-selection {
+  position: absolute;
+  background: var(--accent);
+  pointer-events: none;
+}
+.view-toggle-ready button {
+  position: relative;
+  z-index: 1;
+}
+.view-toggle-ready button[aria-pressed="true"] {
+  background: transparent;
+}
