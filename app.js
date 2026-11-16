@@ -667,26 +667,135 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   });
 })();
 
-// Sprouts feature tour: tabs over real app screens (arrow keys, Home and End); without it, every panel shows.
+// Sprouts feature tour: tabs over real app screens (arrow keys, Home and End). A selection card slides to the chosen
+// tab and the panels hand over in a short staged motion; reduced motion swaps them at once. Without this script every
+// panel shows, stacked.
 (() => {
   const tour = document.querySelector("[data-tour]");
   if (!tour) return;
+  const nav = tour.querySelector(".tour-nav");
   const tabs = [...tour.querySelectorAll('[role="tab"]')];
   const panels = tabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
-  if (!tabs.length || panels.some((panel) => !panel)) return;
-  const select = (index, focus) => {
-    tabs.forEach((tab, i) => {
-      const on = i === index;
-      tab.setAttribute("aria-selected", String(on));
-      tab.tabIndex = on ? 0 : -1;
-      panels[i].hidden = !on;
-      panels[i].classList.toggle("is-entering", on);
+  if (!nav || !tabs.length || panels.some((panel) => !panel)) return;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const still = () => reducedMotion.matches || typeof Element.prototype.animate !== "function";
+  const settleEase = "cubic-bezier(0.16, 1, 0.3, 1)";
+  const indicator = document.createElement("span");
+  indicator.className = "tour-indicator";
+  indicator.setAttribute("aria-hidden", "true");
+  nav.prepend(indicator);
+  let current = -1;
+  let running = [];
+  let sliding = null;
+  const rect = (el) => ({ left: el.offsetLeft, top: el.offsetTop, width: el.offsetWidth, height: el.offsetHeight });
+  const px = (r) => ({ left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
+  const place = (r) => Object.assign(indicator.style, px(r));
+
+  // The selection stretches across both tabs, then settles on the new one.
+  function slide(to) {
+    const from = indicator.style.width ? rect(indicator) : null;
+    sliding?.cancel();
+    sliding = null;
+    place(to);
+    if (still() || !from) return;
+    const left = Math.min(from.left, to.left);
+    const top = Math.min(from.top, to.top);
+    const span = {
+      left,
+      top,
+      width: Math.max(from.left + from.width, to.left + to.width) - left,
+      height: Math.max(from.top + from.height, to.top + to.height) - top,
+    };
+    sliding = indicator.animate(
+      [
+        { ...px(from), easing: "cubic-bezier(0.5, 0, 0.6, 1)" },
+        { ...px(span), offset: 0.38, easing: settleEase },
+        px(to),
+      ],
+      { duration: 560 },
+    );
+  }
+
+  const decoded = (img) =>
+    !img || (img.complete && img.naturalWidth)
+      ? Promise.resolve()
+      : Promise.race([
+          (img.loading = "eager", img.decode().catch(() => {})),
+          new Promise((resolve) => setTimeout(resolve, 400)),
+        ]);
+  const base = (el) => {
+    const filter = getComputedStyle(el).filter;
+    return filter === "none" ? "" : `${filter} `;
+  };
+  function settle() {
+    running.forEach((animation) => animation.cancel());
+    running = [];
+    panels.forEach((panel, i) => {
+      panel.hidden = i !== current;
+      panel.classList.remove("is-entering", "is-leaving");
     });
+  }
+
+  async function select(index, focus) {
     if (focus) {
-      tabs[index].focus();
+      tabs[index].focus({ preventScroll: true });
       tabs[index].scrollIntoView({ block: "nearest", inline: "nearest" });
     }
-  };
+    if (index === current) return;
+    const previous = current;
+    current = index;
+    tabs.forEach((tab, i) => {
+      tab.setAttribute("aria-selected", String(i === index));
+      tab.tabIndex = i === index ? 0 : -1;
+    });
+    slide(rect(tabs[index]));
+    settle();
+    if (previous < 0 || still()) return;
+    const incoming = panels[index];
+    const outgoing = panels[previous];
+    outgoing.hidden = false;
+    const image = incoming.querySelector("img");
+    await decoded(image);
+    if (current !== index) return;
+    const dir = index > previous ? 1 : -1;
+    const run = (el, keyframes, options) => {
+      if (!el) return;
+      running.push(el.animate(keyframes, { fill: "both", ...options }));
+    };
+    outgoing.classList.add("is-leaving");
+    incoming.hidden = false;
+    incoming.classList.add("is-entering");
+    // Out: the old words and screen drift away in the direction of travel.
+    run(outgoing.querySelector(".tour-copy"), [
+      { opacity: 1, transform: "none" },
+      { opacity: 0, transform: `translateY(${-10 * dir}px)` },
+    ], { duration: 140, easing: "cubic-bezier(0.4, 0, 1, 1)" });
+    const old = outgoing.querySelector(".tour-shot img");
+    if (old) {
+      const f = base(old);
+      run(old, [
+        { opacity: 1, transform: "none", filter: `${f}blur(0px)` },
+        { opacity: 0, transform: `translateY(${-16 * dir}px) scale(0.985)`, filter: `${f}blur(4px)` },
+      ], { duration: 260, easing: "cubic-bezier(0.4, 0, 1, 1)" });
+    }
+    // In, once the old words are gone: the heading, then the text, then the screen rises into place.
+    [...incoming.querySelectorAll(".tour-copy > *")].forEach((el, i) =>
+      run(el, [
+        { opacity: 0, transform: `translateY(${16 * dir}px)` },
+        { opacity: 1, transform: "none" },
+      ], { duration: 480, delay: 170 + i * 60, easing: settleEase }),
+    );
+    if (image) {
+      const f = base(image);
+      run(image, [
+        { opacity: 0, transform: `translateY(${26 * dir}px) scale(0.965)`, filter: `${f}blur(8px)` },
+        { opacity: 1, transform: "none", filter: `${f}blur(0px)` },
+      ], { duration: 640, delay: 150, easing: settleEase });
+    }
+    await Promise.allSettled(running.map((animation) => animation.finished));
+    if (current === index) settle();
+  }
+
   tabs.forEach((tab, i) => {
     tab.addEventListener("click", () => select(i, false));
     tab.addEventListener("keydown", (event) => {
@@ -697,10 +806,18 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
       select((next + tabs.length) % tabs.length, true);
     });
   });
-  panels.forEach((panel) => panel.addEventListener("animationend", () => panel.classList.remove("is-entering")));
+  // Load every screen once the tour is near, so switching never waits on the network.
+  if ("IntersectionObserver" in window) {
+    const near = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      panels.forEach((panel) => panel.querySelector("img")?.setAttribute("loading", "eager"));
+      near.disconnect();
+    }, { rootMargin: "800px 0px" });
+    near.observe(tour);
+  }
   tour.classList.add("tour-ready");
   select(0, false);
-  panels.forEach((panel) => panel.classList.remove("is-entering"));
+  if ("ResizeObserver" in window) new ResizeObserver(() => current >= 0 && slide(rect(tabs[current]))).observe(nav);
 })();
 
 // Contact: a visit from the Sprouts iPhone button starts the message for you.

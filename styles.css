@@ -4238,15 +4238,6 @@ main:has(.view-bar) #overview {
   display: grid;
   gap: 22px;
 }
-.tour-ready .tour-panel.is-entering {
-  animation: tour-in 0.42s cubic-bezier(0.16, 1, 0.3, 1);
-}
-@keyframes tour-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-}
 .tour-copy h3 {
   margin: 0 0 8px;
   font-family: Fraunces, Georgia, serif;
@@ -4367,9 +4358,6 @@ main:has(.view-bar) #overview {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .tour-ready .tour-panel.is-entering {
-    animation: none;
-  }
   .tour-tab {
     transition: none;
   }
@@ -4509,4 +4497,67 @@ main:has(.view-bar) #overview {
 
 #sprouts-iphone {
   scroll-margin-top: 260px;
+}
+
+/* Tour motion: a selection card slides between tabs, and panels hand over in one shared stage. */
+.tour-indicator {
+  position: absolute;
+  z-index: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow:
+    inset 3px 0 0 var(--accent),
+    0 10px 22px -16px rgb(21 24 27 / 0.45);
+  pointer-events: none;
+}
+.tour-ready .tour-tab {
+  position: relative;
+  z-index: 1;
+}
+.tour-ready .tour-tab[aria-selected="true"],
+.tour-ready .tour-tab[aria-selected="true"]:hover {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--text);
+}
+.tour-ready .tour-panels {
+  display: grid;
+}
+.tour-ready .tour-panel {
+  grid-area: 1 / 1;
+}
+.tour-ready .tour-panel.is-entering {
+  z-index: 1;
+}
+/* While a screen arrives, the leaving panel's identical stage shows through, so the frame never blinks. */
+.tour-ready .tour-panel.is-entering .tour-shot {
+  background: transparent;
+  border-color: transparent;
+}
+.tour-ready .tour-panel.is-leaving {
+  pointer-events: none;
+}
+@media (max-width: 860px) {
+  .tour-nav {
+    position: relative;
+  }
+  .tour-indicator {
+    border-color: var(--accent);
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 8px 18px -12px rgb(21 24 27 / 0.5);
+  }
+  .tour-ready .tour-tab[aria-selected="true"],
+  .tour-ready .tour-tab[aria-selected="true"]:hover {
+    color: var(--on-accent);
+  }
+  .tour-ready .tour-tab {
+    transition:
+      background-color 0.18s ease,
+      color 0.32s ease,
+      border-color 0.18s ease;
+  }
 }
