@@ -4596,3 +4596,41 @@ main:has(.view-bar) #overview {
 .view-toggle-ready button[aria-pressed="true"] {
   background: transparent;
 }
+
+/* The header's Sign in is the menu's one call to action: a filled pill that lifts on hover. */
+.nav a.nav-cta {
+  padding: 0 16px;
+  min-height: 36px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s ease;
+}
+.nav a.nav-cta:hover,
+.nav a.nav-cta:focus-visible {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+  box-shadow: 0 10px 20px -12px rgb(21 24 27 / 0.55);
+  transform: translateY(-1px);
+}
+.nav a.nav-cta:active {
+  transform: translateY(0) scale(0.97);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav a.nav-cta,
+  .nav a.nav-cta:hover,
+  .nav a.nav-cta:focus-visible,
+  .nav a.nav-cta:active {
+    transform: none;
+    transition: none;
+  }
+}
