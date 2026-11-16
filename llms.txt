@@ -2,7 +2,7 @@
 
 > Vej is the company building Pea (2B), Pepper (8B) and Pumpkin (27B). Pea is the current 2B text model, supporting decisions and structured text extraction. Decisions return native probabilities over developer-supplied outcomes without text generation, JSON parsing, or answer-token scoring (Pea 1 weights at https://huggingface.co/ItsVej/pea-1 after an approved Hugging Face access request, or limited hosted early access). Extraction is a hosted Beta capability (model identifier pea-pod-1) live at https://api.itsvej.com/v1beta/extract, extracting developer-defined fields by pointing directly to Unicode evidence spans (weights private). Apache-2.0 code and adaptations, text only.
 
-Last updated: 2026-10-22.
+Last updated: 2026-11-16.
 
 ## Model family
 - Pea (green): Current 2B text model. Pea supports decisions and structured text extraction. Decisions have limited hosted early access on /v1/predict and Pea 1 weights at https://huggingface.co/ItsVej/pea-1 by approved Hugging Face access request; all published decision evaluation results describe Pea decisions. Extraction is a hosted Beta capability on /v1beta/extract (model identifier pea-pod-1; weights are private and not part of Pea 1). Prefill only: evaluates document plus one field per pass with native presence and span heads, deterministic typed parsing in code, no text generation. Text only, up to 64 fields, up to 98,304 tokens (96K) per fully rendered row on the hosted realtime API (batch: 2K / 2,048 tokens per row).
@@ -25,6 +25,12 @@ Contact: [send a message](https://itsvej.com/contact/). Hosted API access starts
 - Modality: The released Pea checkpoint is designed and evaluated for text decisions.
 - Research: Noul improvement work paused on 2026-10-09 without promoting a new model; Pea and its published evaluation are unchanged.
 
+## Sprouts
+- Sprouts is a Vej project: a team of always-on AI bots on computers you own. Each bot (a "sprout") has its own personality (SOUL.md), memory (MEMORY.md), routines ("rhythms") and a private Linux computer with a desktop and browser. Sprouts can message each other and share a folder ("the shed").
+- Safety: secrets are requested in private cards and stored in the local vault, never in the chat or model context; outside actions through connectors need owner approval; each computer reaches the internet only through Sprouts and asks before reaching local-network devices; connectors and skills come from a signed, reviewed catalog.
+- Models: API keys, local models (Ollama, LM Studio) and subscription sign-ins whose terms allow it.
+- Status: Mac beta for Apple silicon (Developer ID signed, notarized, self-updating). Phone apps and Linux support are in development. Separate from the hosted Pea API. Page: https://itsvej.com/sprouts/
+
 ## Changes since September
 - 2026-10-13 paper: published the Pea paper and its supplement; the evaluation page adds the open-model comparison.
 - 2026-10-10 site update: documents local HTTP, Jev/Clef SDK compatibility, the experimental private Pea classification export, and the context override.
@@ -42,6 +48,7 @@ Contact: [send a message](https://itsvej.com/contact/). Hosted API access starts
 - [Overview](https://itsvej.com/): Value proposition, three-step integration, benchmark summary, use cases, and FAQ.
 - [Models](https://itsvej.com/models/): The model family and public availability.
 - [Use cases](https://itsvej.com/use-cases/): Live hosted Beta APIs beyond Choice, Noul and Score, with industry use cases, sample requests and quality limits.
+- [Sprouts](https://itsvej.com/sprouts/): Always-on AI bots on computers you own; what a sprout has, safety, models and Mac beta status.
 - [Access and waitlists](https://itsvej.com/access/): Console signup for Pea, separate model waitlists and newsletter signup.
 - [Evaluation](https://itsvej.com/evaluation/): Held-out accuracy, the same-test Jev comparison, and the pre-registered open-model comparison.
 - [Pea model card](https://itsvej.com/models/pea/): Limited hosted early access, Pea 1 decision weights by approved request, local inference, and limits.

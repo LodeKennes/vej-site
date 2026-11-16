@@ -375,6 +375,246 @@ document.querySelectorAll(".evaluation-switcher details").forEach((dropdown) => 
   });
 })();
 
+// Sprouts: the garden routines and the cast's colours, ported from ItsVej/Sprouts
+// (apps/web/src/garden-routine.ts, garden-gait.ts and packages/ui/src/avatars/tint.ts).
+(() => {
+  if (typeof document.querySelector !== "function") return;
+  const garden = document.querySelector("[data-garden]");
+  const cast = document.querySelector("[data-cast]");
+  if (!garden && !cast) return;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // [own colour name, body anchor, body hues, colours to keep, five more tints as [name, h, s, l]]
+  const TINTS = {
+    carrot: ["Orange", "#d9772b", [27], [], [["Red", 358, 0.8, 0.48], ["Pink", 335, 0.7, 0.68], ["Lemon", 52, 0.95, 0.56], ["Blue", 212, 0.85, 0.55], ["Purple", 278, 0.55, 0.42]]],
+    tomato: ["Red", "#d4472f", [8], [], [["Yellow", 48, 0.92, 0.55], ["Orange", 27, 0.92, 0.55], ["Lime", 95, 0.55, 0.48], ["Pink", 335, 0.7, 0.68], ["Purple", 280, 0.5, 0.4]]],
+    potato: ["Brown", "#b99465", [33], [], [["Red", 350, 0.62, 0.46], ["Purple", 275, 0.45, 0.38], ["Gold", 46, 0.8, 0.58], ["Pale", 48, 0.35, 0.78], ["Blue", 215, 0.5, 0.5]]],
+    corn: ["Yellow", "#e4b64a", [43], [], [["Pink", 335, 0.65, 0.72], ["Purple", 275, 0.45, 0.36], ["Blue", 212, 0.6, 0.5], ["Red", 355, 0.7, 0.45], ["Orange", 24, 0.85, 0.52]]],
+    eggplant: ["Purple", "#5b3a6e", [280], [], [["Red", 355, 0.7, 0.42], ["Green", 135, 0.42, 0.36], ["Blue", 222, 0.6, 0.42], ["Pink", 325, 0.6, 0.64], ["Orange", 28, 0.85, 0.52]]],
+    cucumber: ["Green", "#3f7a4a", [133], [], [["Lemon", 52, 0.85, 0.56], ["Pink", 335, 0.55, 0.7], ["Blue", 210, 0.7, 0.5], ["Purple", 280, 0.5, 0.42], ["Orange", 27, 0.85, 0.52]]],
+    "bell-pepper": ["Red", "#b5332b", [3], [], [["Yellow", 50, 0.95, 0.55], ["Orange", 28, 0.95, 0.52], ["Green", 110, 0.55, 0.38], ["Purple", 282, 0.5, 0.4], ["Pink", 335, 0.7, 0.7]]],
+    onion: ["Brown", "#c9a46a", [37], [], [["Red", 342, 0.55, 0.42], ["Green", 110, 0.45, 0.5], ["Purple", 275, 0.45, 0.45], ["Gold", 46, 0.9, 0.56], ["Pink", 332, 0.6, 0.72]]],
+    garlic: ["Cream", "#e9e0cf", [40, 275], [], [["Purple", 280, 0.4, 0.55], ["Pink", 340, 0.6, 0.75], ["Black", 30, 0.12, 0.24], ["Gold", 46, 0.85, 0.62], ["Blue", 210, 0.5, 0.65]]],
+    "leafy-green": ["Green", "#3e7d52", [140, 105], [], [["Red", 352, 0.55, 0.42], ["Lime", 78, 0.65, 0.5], ["Teal", 190, 0.5, 0.4], ["Purple", 280, 0.45, 0.42], ["Yellow", 50, 0.85, 0.52]]],
+    broccoli: ["Green", "#3e7d52", [118, 140], [], [["Purple", 280, 0.45, 0.42], ["Yellow", 52, 0.75, 0.52], ["Orange", 27, 0.85, 0.52], ["Pink", 335, 0.55, 0.68], ["Blue", 210, 0.55, 0.45]]],
+    "sweet-potato": ["Rust", "#9e4f3f", [8], [], [["Purple", 278, 0.45, 0.4], ["Orange", 27, 0.9, 0.5], ["Blue", 210, 0.55, 0.5], ["Yellow", 46, 0.85, 0.55], ["Pink", 335, 0.55, 0.6]]],
+    ginger: ["Tan", "#d2b08a", [32, 45], [], [["Yellow", 48, 0.95, 0.55], ["Pink", 350, 0.6, 0.65], ["Blue", 210, 0.45, 0.6], ["Green", 110, 0.45, 0.55], ["Purple", 275, 0.35, 0.58]]],
+    mushroom: ["Brown", "#b88e6c", [28], ["#d9cdb5", "#d6c9af", "#b5a68a"], [["Red", 355, 0.75, 0.5], ["Blue", 210, 0.7, 0.55], ["Purple", 275, 0.5, 0.5], ["Pink", 335, 0.6, 0.7], ["Yellow", 50, 0.9, 0.58]]],
+    radish: ["Pink", "#c83b6c", [340], [], [["Orange", 27, 0.9, 0.55], ["Purple", 275, 0.5, 0.45], ["Yellow", 50, 0.9, 0.58], ["Blue", 215, 0.65, 0.5], ["Red", 2, 0.8, 0.5]]],
+  };
+  const INK = "#2b2a22";
+  const CREAM = "#f3ecdc";
+  const FIXED = new Set([CREAM, INK, "#ffffff"]);
+  const HEX = /^#[0-9a-f]{6}$/i;
+  function toHsl(hex) {
+    const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const l = (max + min) / 2;
+    const d = max - min;
+    if (d === 0) return [0, 0, l];
+    const s = d / (1 - Math.abs(2 * l - 1));
+    const h = max === r ? ((g - b) / d + 6) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+    return [h * 60, s, l];
+  }
+  function hsl(h, s, l) {
+    const hue = ((h % 360) + 360) % 360;
+    const sat = Math.min(1, Math.max(0, s));
+    const light = Math.min(0.97, Math.max(0.07, l));
+    const a = sat * Math.min(light, 1 - light);
+    const channel = (n) => {
+      const k = (n + hue / 30) % 12;
+      const v = light - a * Math.max(-1, Math.min(k - 3, 9 - k, 1));
+      return Math.round(v * 255).toString(16).padStart(2, "0");
+    };
+    return `#${channel(0)}${channel(8)}${channel(4)}`;
+  }
+  const wrap = (degrees) => ((degrees + 540) % 360) - 180;
+  function tintColour(icon, tint, colour) {
+    const [, anchor, family, keep, tints] = TINTS[icon];
+    const target = tint > 0 ? tints[tint - 1] : undefined;
+    const hex = colour.toLowerCase();
+    if (!target || FIXED.has(hex) || keep.includes(hex)) return colour;
+    const [h, s, l] = toHsl(hex);
+    if (s < 0.08 || !family.some((f) => Math.abs(wrap(h - f)) <= 30)) return colour;
+    const [hf, sf, lf] = toHsl(anchor);
+    const ratio = Math.min(1.5, Math.max(0.5, s / Math.max(sf, 0.05)));
+    return hsl(target[1] + wrap(h - hf) * 0.25, target[2] * ratio, target[3] + (l - lf) * 0.9);
+  }
+  const swatch = (icon, tint) => {
+    const [, anchor, , , tints] = TINTS[icon];
+    const t = tint > 0 ? tints[tint - 1] : undefined;
+    return t ? hsl(t[1], t[2], t[3]) : anchor;
+  };
+  const colourName = (icon, tint) => (tint > 0 ? TINTS[icon][4][tint - 1][0] : TINTS[icon][0]);
+
+  function wear(svg, icon, tint) {
+    svg.querySelectorAll("[fill], [stroke]").forEach((element) => {
+      for (const name of ["fill", "stroke"]) {
+        const key = `own${name}`;
+        if (element.dataset[key] === undefined) element.dataset[key] = element.getAttribute(name) || "";
+        const own = element.dataset[key];
+        if (HEX.test(own)) element.setAttribute(name, tintColour(icon, tint, own));
+      }
+    });
+    // Faces on a dark skin need cream eye whites and cream lines; light skins use ink.
+    const whites = svg.querySelectorAll(".rig-white");
+    const ownDark = whites[0]?.dataset.ownfill === CREAM;
+    const t = tint > 0 ? TINTS[icon][4][tint - 1] : undefined;
+    const dark = t ? t[3] < 0.5 : ownDark;
+    whites.forEach((white) => white.setAttribute("fill", dark ? CREAM : "none"));
+    svg.querySelectorAll(".rig-shut, .rig-mouth").forEach((line) => line.setAttribute("stroke", dark ? CREAM : INK));
+  }
+
+  if (cast) {
+    const status = document.querySelector("[data-cast-status]");
+    document.querySelector(".cast-hint")?.removeAttribute("hidden");
+    cast.querySelectorAll(".cast-card").forEach((card) => {
+      const icon = card.dataset.icon;
+      if (!TINTS[icon]) return;
+      const dots = card.querySelector(".cast-swatches");
+      for (let tint = 0; tint < 6; tint++) {
+        const dot = document.createElement("i");
+        dot.style.setProperty("--swatch", swatch(icon, tint));
+        if (tint === 0) dot.dataset.on = "";
+        dots.append(dot);
+      }
+      card.addEventListener("click", () => {
+        const tint = (Number(card.dataset.tint) + 1) % 6;
+        const svg = card.querySelector(".garden-rig");
+        card.dataset.tint = String(tint);
+        wear(svg, icon, tint);
+        card.querySelector(".cast-colour").textContent = colourName(icon, tint);
+        [...dots.children].forEach((dot, i) => dot.toggleAttribute("data-on", i === tint));
+        if (status) status.textContent = `${card.querySelector(".cast-name").textContent}, ${colourName(icon, tint).toLowerCase()}.`;
+        if (!reducedMotion.matches && svg.animate) {
+          svg.animate(
+            [{ transform: "translateY(0)" }, { transform: "translateY(-9%) scale(1.04, 0.97)" }, { transform: "translateY(0)" }],
+            { duration: 420, easing: "cubic-bezier(0.34, 1.56, 0.64, 1)" },
+          );
+        }
+      });
+    });
+    // Cards below the fold rise in one after another; anything already on screen stays put.
+    if ("IntersectionObserver" in window && !reducedMotion.matches) {
+      const cards = [...cast.children];
+      const observer = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        cards.forEach((card, i) => card.animate?.(
+          [{ opacity: 0, transform: "translateY(16px) scale(0.94)" }, { opacity: 1, transform: "none" }],
+          { duration: 420, delay: i * 45, fill: "backwards", easing: "cubic-bezier(0.34, 1.4, 0.64, 1)" },
+        ));
+      }, { threshold: 0.08 });
+      if (cast.getBoundingClientRect().top >= window.innerHeight) observer.observe(cast);
+    }
+  }
+
+  if (!garden) return;
+  // The walk cycle covers this many rig units (the 120-unit-wide character) per second without sliding.
+  const GAIT_SPEED = (2 * 10) / (0.58 * 0.6);
+  function beats(routine, index, first) {
+    if (routine === "stand") return [{ motion: "idle", to: 0 }];
+    if (routine === "work") {
+      return [
+        { motion: "tend", seconds: 5.5, to: 1 },
+        { motion: "walk", to: -1 },
+        { motion: "idle", seconds: 1.2, to: -1 },
+        { motion: "walk", to: 1 },
+      ];
+    }
+    const side = index % 2 ? -1 : 1;
+    return [
+      { motion: "nap", seconds: first ? 2.5 + index * 3 : 10, to: 0 },
+      { motion: "walk", to: 0.9 * side },
+      { motion: "idle", seconds: 1.8, to: 0.9 * side },
+      { motion: "walk", to: -0.7 * side },
+      { motion: "idle", seconds: 2.4, to: -0.7 * side },
+      { motion: "walk", to: 0 },
+    ];
+  }
+  function routineStep(routine, index, count) {
+    const cycle = beats(routine, index, count === 0);
+    const beat = (n) => cycle[((n % cycle.length) + cycle.length) % cycle.length];
+    const current = beat(count);
+    const to = current.to ?? 0;
+    const from = current.motion === "walk" ? (beat(count - 1).to ?? 0) : to;
+    // A pause keeps the direction of the walk that led to it; sitting and watering face the bench and plot.
+    const heading = current.motion === "idle" ? beat(count - 1) : current;
+    const headingFrom = heading === current ? from : (beat(count - 2).to ?? 0);
+    const facing = heading.motion === "walk" && (heading.to ?? 0) < headingFrom ? "left" : "right";
+    return { motion: current.motion, seconds: current.seconds, from, to, facing };
+  }
+
+  const pause = garden.querySelector(".garden-pause");
+  const running = new Set();
+  let started = false;
+  let chosen = false;
+  let offscreen = false;
+  let away = false;
+  const place = (to) => `translateX(${(to * 50).toFixed(2)}cqw)`;
+  const still = () => chosen || offscreen || away || reducedMotion.matches;
+  function play(walker, count) {
+    const lane = walker.parentElement;
+    const rig = walker.querySelector(".garden-rig");
+    const step = routineStep(walker.dataset.routine, Number(walker.dataset.index), count);
+    rig.dataset.motion = step.motion;
+    walker.firstElementChild.dataset.facing = step.facing;
+    walker.classList.remove("at-end");
+    let duration = (step.seconds ?? 0) * 1000;
+    if (step.motion === "walk") {
+      const distance = (Math.abs(step.to - step.from) * lane.clientWidth) / 2;
+      const speed = (GAIT_SPEED * walker.clientWidth) / 120;
+      duration = speed > 0 ? (distance / speed) * 1000 : 0;
+    }
+    if (!duration) {
+      walker.style.transform = place(step.to);
+      return;
+    }
+    const animation = walker.animate([{ transform: place(step.from) }, { transform: place(step.to) }], { duration, fill: "forwards" });
+    running.add(animation);
+    if (still()) animation.pause();
+    animation.onfinish = () => {
+      running.delete(animation);
+      play(walker, count + 1);
+    };
+  }
+  function update() {
+    if (!started && !reducedMotion.matches && walkerSupport()) {
+      started = true;
+      garden.querySelectorAll(".walker").forEach((walker) => play(walker, 0));
+    }
+    running.forEach((animation) => (still() ? animation.pause() : animation.play()));
+    garden.classList.toggle("garden-paused", chosen);
+    garden.classList.toggle("garden-resting", (offscreen || away) && !chosen);
+  }
+  const walkerSupport = () => typeof Element.prototype.animate === "function" && CSS.supports?.("container-type", "inline-size");
+  if (pause && !reducedMotion.matches) {
+    pause.hidden = false;
+    pause.addEventListener("click", () => {
+      chosen = !chosen;
+      pause.setAttribute("aria-pressed", String(chosen));
+      pause.querySelector("span").textContent = chosen ? "Play the garden" : "Pause the garden";
+      update();
+    });
+  }
+  reducedMotion.addEventListener("change", () => {
+    if (pause) pause.hidden = reducedMotion.matches;
+    update();
+  });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => {
+      offscreen = !entries[entries.length - 1].isIntersecting;
+      update();
+    }).observe(garden);
+  }
+  document.addEventListener("visibilitychange", () => {
+    away = document.hidden;
+    update();
+  });
+  update();
+})();
+
 // Page motion: enhance native navigation without delaying it or hiding content.
 (() => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
